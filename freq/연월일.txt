@@ -1,0 +1,2 @@
+CTime t = CTime::GetCurrentTime();
+	CString strDate = t.Format("%Y%m%d");

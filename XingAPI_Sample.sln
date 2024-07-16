@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.33026.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XingAPI_Sample", "XingAPI_Sample.vcxproj", "{A4616E14-1D97-432E-9A04-AF2560FD88DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4616E14-1D97-432E-9A04-AF2560FD88DD}.Debug|x86.ActiveCfg = Debug|Win32
+		{A4616E14-1D97-432E-9A04-AF2560FD88DD}.Debug|x86.Build.0 = Debug|Win32
+		{A4616E14-1D97-432E-9A04-AF2560FD88DD}.Release|x86.ActiveCfg = Release|Win32
+		{A4616E14-1D97-432E-9A04-AF2560FD88DD}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D27D5F0-047C-4387-BD5D-1412C8E1294A}
+	EndGlobalSection
+EndGlobal

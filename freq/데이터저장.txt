@@ -1,0 +1,90 @@
+// 데이터 저장
+CString CDlg_t1602::GetColumnName(const CListCtrl * listctrl, int iCol)
+{
+	CString strName(_T(""));
+	CHeaderCtrl* pHeaderCtrl = listctrl->GetHeaderCtrl();
+	if (NULL != pHeaderCtrl && iCol < pHeaderCtrl->GetItemCount())
+	{
+		HDITEM hditem;
+		hditem.mask = HDI_TEXT;
+		hditem.pszText = strName.GetBuffer(256);
+		hditem.cchTextMax = 256;
+		pHeaderCtrl->GetItem(iCol, &hditem);
+		strName.ReleaseBuffer();
+	}
+	return strName;
+}
+
+
+void CDlg_t1602::ExportToCSVFile(const CListCtrl *plistctrlContent,	BOOL bIncludeHeaderNames, char cDelimiter) // default to ',' and declared in the header file
+{
+	CFile filePersistent;
+	CString strFilter = _T("CSV Files (*.csv)|*.csv|All Files (*.*)|*.*||");
+	
+	CTime t = CTime::GetCurrentTime();
+	CString strDate = t.Format("%Y%m%d");
+		
+	CFileDialog dlgSaveFile(
+		FALSE,	     // Save As, not File Open
+		_T(".csv"),  // default file name extentsion
+		strDate,        // initial file name in the dialog
+		0,           // DWORD dwFlags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+		strFilter,   // filter
+		this);       // parent window, i.e., Your own window class
+
+	if (dlgSaveFile.DoModal() == IDOK)
+	{
+		// 1. file
+		CString strFileName = dlgSaveFile.GetPathName(); // full path
+		filePersistent.Open(strFileName, CFile::modeCreate | CFile::modeWrite); // write and create user rights
+
+		// 2. archive
+		// Constructs a CArchive object and specifies
+		// whether it will be used for loading or storing objects.
+		CArchive archiveContent(&filePersistent, CArchive::store); // just storing obj
+		
+		// 3. optional: header names
+		CHeaderCtrl *pheaderctrl = plistctrlContent->GetHeaderCtrl();
+		int iHeaderNameCount = pheaderctrl->GetItemCount();
+		CString strRightHaffSeparator(_T(""));
+		strRightHaffSeparator.Format(_T("%c "), cDelimiter);
+		
+		
+		if (TRUE == bIncludeHeaderNames)
+		{
+			CHeaderCtrl *pheaderctrl = plistctrlContent->GetHeaderCtrl();
+			CString strOneRecord(_T(""));
+			for (int i = 0; i < iHeaderNameCount - 1; ++i)
+			{
+				//strOneRecord += _T("\"");
+				strOneRecord += this->GetColumnName(plistctrlContent, i);
+				strOneRecord += strRightHaffSeparator;
+			}
+			//strOneRecord += _T("\"");
+			strOneRecord += this->GetColumnName(plistctrlContent, iHeaderNameCount - 1);
+			strOneRecord += _T("\r\n"); // windows change a line
+			archiveContent.Write(strOneRecord, strOneRecord.GetLength() * sizeof(_TCHAR));
+		}
+
+		int iItemCount = plistctrlContent->GetItemCount();
+		for (int i = 0; i < iItemCount; ++i)
+		{
+			CString strOneRecord(_T(""));
+			for (int j = 0; j < iHeaderNameCount - 1; ++j)
+			{
+				//strOneRecord += _T("\"");
+				strOneRecord += plistctrlContent->GetItemText(i, j);
+				strOneRecord += strRightHaffSeparator;
+			}
+			//strOneRecord += _T("\"");
+			strOneRecord += plistctrlContent->GetItemText(i, iHeaderNameCount - 1);
+			strOneRecord += _T("\r\n");
+
+			archiveContent.Write(strOneRecord, strOneRecord.GetLength() * sizeof(_TCHAR));
+		}
+
+		archiveContent.Close();
+		filePersistent.Close();
+	}
+	return;
+}
