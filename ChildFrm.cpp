@@ -1,4 +1,4 @@
-// ChildFrm.cpp : implementation of the CChildFrame class
+﻿// ChildFrm.cpp : implementation of the CChildFrame class
 //
 
 #include "stdafx.h"
@@ -7,178 +7,178 @@
 #include "ChildFrm.h"
 
 
-#include "Dlg_JEKYLL.h"				// ������ȸ
-// �ֽ�
-#include "Dlg_t1101.h"				// �ֽ����簡ȣ����ȸ
-#include "Dlg_t1301.h"				// �ֽĽð��뺰ü����ȸ
-#include "Dlg_t1305.h"				// �Ⱓ���ְ�
-#include "Dlg_t1452.h"				// �ŷ�������
+#include "Dlg_JEKYLL.h"				// 종합조회
+// 주식
+#include "Dlg_t1101.h"				// 주식현재가호가조회
+#include "Dlg_t1301.h"				// 주식시간대별체결조회
+#include "Dlg_t1305.h"				// 기간별주가
+#include "Dlg_t1452.h"				// 거래량상위
 
 #include "Dlg_H1_.h"
 #include "Dlg_H2_.h"
 #include "Dlg_h3_ELW.h"
 #include "Dlg_h2_ELW.h"
 
-#include "Dlg_CSPAT00600.h"			// ���������ֹ�
-#include "Dlg_CSPAT00700.h"			// ���������ֹ�
-#include "Dlg_CSPAT00800.h"			// ��������ֹ�
+#include "Dlg_CSPAT00600.h"			// 현물정상주문
+#include "Dlg_CSPAT00700.h"			// 현물정정주문
+#include "Dlg_CSPAT00800.h"			// 현물취소주문
 
-#include "Dlg_SC0.h"				// �ֽ��ֹ�����
-#include "Dlg_SC1.h"				// �ֽ��ֹ�ü��
-#include "Dlg_SC2.h"				// �ֽ��ֹ�����
-#include "Dlg_SC3.h"				// �ֽ��ֹ����
-#include "Dlg_SC4.h"				// �ֽ��ֹ��ź�
+#include "Dlg_SC0.h"				// 주식주문접수
+#include "Dlg_SC1.h"				// 주식주문체결
+#include "Dlg_SC2.h"				// 주식주문정정
+#include "Dlg_SC3.h"				// 주식주문취소
+#include "Dlg_SC4.h"				// 주식주문거부
 
-#include "Dlg_CSPAQ03700.h"			// �������� �ֹ�ü�᳻�� ��ȸ
-#include "Dlg_CSPAQ02300.h"			// �������� �ܰ����� ��ȸ
-#include "Dlg_CSPAQ02200.h"			// �������� ������/�ֹ����ɱݾ�/���� ��ȸ
-#include "Dlg_CSPBQ00200.h"			// �������� ���űݷ��� �ֹ����ɼ��� ��ȸ
+#include "Dlg_CSPAQ03700.h"			// 현물계좌 주문체결내역 조회
+#include "Dlg_CSPAQ02300.h"			// 현물계좌 잔고내역 조회
+#include "Dlg_CSPAQ02200.h"			// 현물계좌 예수금/주문가능금액/총평가 조회
+#include "Dlg_CSPBQ00200.h"			// 현물계좌 증거금률별 주문가능수량 조회
 
-// �����ɼ�
-#include "Dlg_FC0.h"				// ����ü��
-#include "Dlg_FH0.h"				// ����ȣ��
-#include "Dlg_OC0.h"				// �ɼ�ü��
-#include "Dlg_OH0.h"				// �ɼ�ȣ��
-#include "Dlg_OH1.h"				// �ɼ�ȣ��2
-#include "Dlg_EH0.h"				// �ɼ�ȣ��(�߰�)
-#include "Dlg_t8415.h"              // ����/�ɼ���Ʈ
+// 선물옵션
+#include "Dlg_FC0.h"				// 선물체결
+#include "Dlg_FH0.h"				// 선물호가
+#include "Dlg_OC0.h"				// 옵션체결
+#include "Dlg_OH0.h"				// 옵션호가
+#include "Dlg_OH1.h"				// 옵션호가2
+#include "Dlg_EH0.h"				// 옵션호가(야간)
+#include "Dlg_t8415.h"              // 선물/옵션차트
 
-#include "Dlg_CFOAT00100.h"			// �����ɼ� �����ֹ�
-#include "Dlg_CFOAT00200.h"			// �����ɼ� �����ֹ�
-#include "Dlg_CFOAT00300.h"			// �����ɼ� ����ֹ�
+#include "Dlg_CFOAT00100.h"			// 선물옵션 정상주문
+#include "Dlg_CFOAT00200.h"			// 선물옵션 정정주문
+#include "Dlg_CFOAT00300.h"			// 선물옵션 취소주문
 
-#include "Dlg_CFOAQ00600.h"			// �����ɼ� �����ֹ�ü�᳻�� ��ȸ
-#include "Dlg_CFOFQ02400.h"			// �����ɼ� �̰���������Ȳ
-#include "Dlg_CFOAQ10100.h"			// �����ɼ� �ֹ����ɼ���
-#include "Dlg_CEXAQ21200.h"			// ������ �ֹ����ɼ���
-#include "Dlg_night.h"				// ������ �ü���ȸ
+#include "Dlg_CFOAQ00600.h"			// 선물옵션 계좌주문체결내역 조회
+#include "Dlg_CFOFQ02400.h"			// 선물옵션 미결제약정현황
+#include "Dlg_CFOAQ10100.h"			// 선물옵션 주문가능수량
+#include "Dlg_CEXAQ21200.h"			// 유렉스 주문가능수량
+#include "Dlg_night.h"				// 유렉스 시세조회
 
 
 
-// ���� CME
-#include "Dlg_CCEAT00100.h"			// ���� CME �����ֹ�
-#include "Dlg_CCEAT00200.h"			// ���� CME �����ֹ�
-#include "Dlg_CCEAT00300.h"			// ���� CME ����ֹ�
+// 선물 CME
+#include "Dlg_CCEAT00100.h"			// 선물 CME 정상주문
+#include "Dlg_CCEAT00200.h"			// 선물 CME 정상주문
+#include "Dlg_CCEAT00300.h"			// 선물 CME 취소주문
 
-// �ֽļ���
+// 주식선물
 #include "Dlg_JC0.h"
 
-// �����ں�
-#include "Dlg_t1601.h"				// �����ں�����
-#include "Dlg_t1602.h"				// �����ڸŸ����� ��
+// 투자자별
+#include "Dlg_t1601.h"				// 투자자별종합
+#include "Dlg_t1602.h"				// 투자자매매추이 상세
 
 #include "Dlg_BMT.h"
 #include "Dlg_BM_.h"
 
-// ��Ÿ
-#include "Dlg_t9942.h"				// API�� ELW ��������ȸ
-#include "Dlg_t9943.h"				// API�� �������� ��������ȸ
+// 기타
+#include "Dlg_t9942.h"				// API용 ELW 마스터조회
+#include "Dlg_t9943.h"				// API용 지수선물 마스터조회
 
 static TR_WINDOW_TABLE s_tblTrWindow[] = 
 {
 	//---------------------------------------------------------------------------------------------
-	// �ֽ�/ELW �ü�
-	{ "����/�ɼ�" , "�ü�", "��ȸTR",   "t2105"     , RUNTIME_CLASS(CDlg_t1101     ), IDD_t1101     , "�ɼ� ���簡��ȸ(t2105)" },
-	{ "������" , "�ü�", "��ȸTR",   "t2830"     , RUNTIME_CLASS(CDlg_night	), IDD_night     , "������ �ü���ȸ(t2830)" },
-	{ "������", "�ɼǽü�", "�ǽð�TR", "EH0"       , RUNTIME_CLASS(CDlg_EH0),	IDD_EH0      , "�߰��ɼ�ü��" },
- 	/*{ "�ֽ�/ELW" , "�ü�", "��ȸTR",   "t1301"     , RUNTIME_CLASS(CDlg_t1301     ), IDD_t1301     , "�ֽĽð��뺰ü����ȸ(t1301)" },
- 	{ "�ֽ�/ELW" , "�ü�", "��ȸTR",   "t1305"     , RUNTIME_CLASS(CDlg_t1305     ), IDD_t1305     , "�Ⱓ���ְ�(t1305)" },
- 	{ "�ֽ�/ELW" , "�ü�", "��ȸTR",   "t1452"     , RUNTIME_CLASS(CDlg_t1452     ), IDD_t1452     , "�ŷ�������(t1452)" },
+	// 주식/ELW 시세
+	{ "선물/옵션" , "시세", "조회TR",   "t2105"     , RUNTIME_CLASS(CDlg_t1101     ), IDD_t1101     , "옵션 현재가조회(t2105)" },
+	{ "유렉스" , "시세", "조회TR",   "t2830"     , RUNTIME_CLASS(CDlg_night	), IDD_night     , "유렉스 시세조회(t2830)" },
+	{ "유렉스", "옵션시세", "실시간TR", "EH0"       , RUNTIME_CLASS(CDlg_EH0),	IDD_EH0      , "야간옵션체결" },
+ 	/*{ "주식/ELW" , "시세", "조회TR",   "t1301"     , RUNTIME_CLASS(CDlg_t1301     ), IDD_t1301     , "주식시간대별체결조회(t1301)" },
+ 	{ "주식/ELW" , "시세", "조회TR",   "t1305"     , RUNTIME_CLASS(CDlg_t1305     ), IDD_t1305     , "기간별주가(t1305)" },
+ 	{ "주식/ELW" , "시세", "조회TR",   "t1452"     , RUNTIME_CLASS(CDlg_t1452     ), IDD_t1452     , "거래량상위(t1452)" },
 
-	{ "�ֽ�/ELW" , "�ü�", "�ǽð�TR", "H1_"       , RUNTIME_CLASS(CDlg_H1_       ), IDD_H1_       , "KOSPI ȣ���ܷ�" },
-	{ "�ֽ�/ELW" , "�ü�", "�ǽð�TR", "H2_"       , RUNTIME_CLASS(CDlg_H2_       ), IDD_H2_       , "KOSPI �ð���ȣ���ܷ�" },
-	{ "�ֽ�/ELW" , "�ü�", "�ǽð�TR", "h3_"       , RUNTIME_CLASS(CDlg_h3_ELW    ), IDD_h3_ELW    , "ELW ȣ���ܷ�" },
-	{ "�ֽ�/ELW" , "�ü�", "�ǽð�TR", "h2_"       , RUNTIME_CLASS(CDlg_h2_ELW    ), IDD_h2_ELW    , "ELW �ð���ȣ���ܷ�" },
+	{ "주식/ELW" , "시세", "실시간TR", "H1_"       , RUNTIME_CLASS(CDlg_H1_       ), IDD_H1_       , "KOSPI 호가잔량" },
+	{ "주식/ELW" , "시세", "실시간TR", "H2_"       , RUNTIME_CLASS(CDlg_H2_       ), IDD_H2_       , "KOSPI 시간외호가잔량" },
+	{ "주식/ELW" , "시세", "실시간TR", "h3_"       , RUNTIME_CLASS(CDlg_h3_ELW    ), IDD_h3_ELW    , "ELW 호가잔량" },
+	{ "주식/ELW" , "시세", "실시간TR", "h2_"       , RUNTIME_CLASS(CDlg_h2_ELW    ), IDD_h2_ELW    , "ELW 시간외호가잔량" },
 	//---------------------------------------------------------------------------------------------*/
 
 	//---------------------------------------------------------------------------------------------
-	// �ֽ�/ELW �ֹ�
-	/*{ "�ֽ�/ELW" , "�ֹ�", "��ȸTR",   "CSPAT00600", RUNTIME_CLASS(CDlg_CSPAT00600), IDD_CSPAT00600, "���������ֹ�(CSPAT00600)" },
-	{ "�ֽ�/ELW" , "�ֹ�", "��ȸTR",   "CSPAT00700", RUNTIME_CLASS(CDlg_CSPAT00700), IDD_CSPAT00700, "���������ֹ�(CSPAT00700)" },
- 	{ "�ֽ�/ELW" , "�ֹ�", "��ȸTR",   "CSPAT00800", RUNTIME_CLASS(CDlg_CSPAT00800), IDD_CSPAT00800, "��������ֹ�(CSPAT00800)" },
+	// 주식/ELW 주문
+	/*{ "주식/ELW" , "주문", "조회TR",   "CSPAT00600", RUNTIME_CLASS(CDlg_CSPAT00600), IDD_CSPAT00600, "현물정상주문(CSPAT00600)" },
+	{ "주식/ELW" , "주문", "조회TR",   "CSPAT00700", RUNTIME_CLASS(CDlg_CSPAT00700), IDD_CSPAT00700, "현물정정주문(CSPAT00700)" },
+ 	{ "주식/ELW" , "주문", "조회TR",   "CSPAT00800", RUNTIME_CLASS(CDlg_CSPAT00800), IDD_CSPAT00800, "현물취소주문(CSPAT00800)" },
 	
-	{ "�ֽ�/ELW" , "�ֹ�", "�ǽð�TR", "SC0"       , RUNTIME_CLASS(CDlg_SC0       ), IDD_SC0       , "�ֽ��ֹ�����" },
-	{ "�ֽ�/ELW" , "�ֹ�", "�ǽð�TR", "SC1"       , RUNTIME_CLASS(CDlg_SC1       ), IDD_SC1       , "�ֽ��ֹ�ü��" },
-	{ "�ֽ�/ELW" , "�ֹ�", "�ǽð�TR", "SC2"       , RUNTIME_CLASS(CDlg_SC2       ), IDD_SC2       , "�ֽ��ֹ�����" },
-	{ "�ֽ�/ELW" , "�ֹ�", "�ǽð�TR", "SC3"       , RUNTIME_CLASS(CDlg_SC3       ), IDD_SC3       , "�ֽ��ֹ����" },
-	{ "�ֽ�/ELW" , "�ֹ�", "�ǽð�TR", "SC4"       , RUNTIME_CLASS(CDlg_SC4       ), IDD_SC4       , "�ֽ��ֹ��ź�" },
+	{ "주식/ELW" , "주문", "실시간TR", "SC0"       , RUNTIME_CLASS(CDlg_SC0       ), IDD_SC0       , "주식주문접수" },
+	{ "주식/ELW" , "주문", "실시간TR", "SC1"       , RUNTIME_CLASS(CDlg_SC1       ), IDD_SC1       , "주식주문체결" },
+	{ "주식/ELW" , "주문", "실시간TR", "SC2"       , RUNTIME_CLASS(CDlg_SC2       ), IDD_SC2       , "주식주문정정" },
+	{ "주식/ELW" , "주문", "실시간TR", "SC3"       , RUNTIME_CLASS(CDlg_SC3       ), IDD_SC3       , "주식주문취소" },
+	{ "주식/ELW" , "주문", "실시간TR", "SC4"       , RUNTIME_CLASS(CDlg_SC4       ), IDD_SC4       , "주식주문거부" },
 	//---------------------------------------------------------------------------------------------
 
 	//---------------------------------------------------------------------------------------------
-	// �ֽ�/ELW ����
-	{ "�ֽ�/ELW" , "����", "��ȸTR"  , "CSPAQ03700", RUNTIME_CLASS(CDlg_CSPAQ03700), IDD_CSPAQ03700, "�������� �ֹ�ü�᳻�� ��ȸ" },
-	{ "�ֽ�/ELW" , "����", "��ȸTR"  , "CSPAQ02300", RUNTIME_CLASS(CDlg_CSPAQ02300), IDD_CSPAQ02300, "�������� �ܰ����� ��ȸ" },
-	{ "�ֽ�/ELW" , "����", "��ȸTR"  , "CSPAQ02200", RUNTIME_CLASS(CDlg_CSPAQ02200), IDD_CSPAQ02200, "�������� ������/�ֹ����ɱݾ�/���� ��ȸ" },
-	{ "�ֽ�/ELW" , "����", "��ȸTR"  , "CSPBQ00200", RUNTIME_CLASS(CDlg_CSPBQ00200), IDD_CSPBQ00200, "�������� ���űݷ��� �ֹ����ɼ��� ��ȸ" },
+	// 주식/ELW 계좌
+	{ "주식/ELW" , "계좌", "조회TR"  , "CSPAQ03700", RUNTIME_CLASS(CDlg_CSPAQ03700), IDD_CSPAQ03700, "현물계좌 주문체결내역 조회" },
+	{ "주식/ELW" , "계좌", "조회TR"  , "CSPAQ02300", RUNTIME_CLASS(CDlg_CSPAQ02300), IDD_CSPAQ02300, "현물계좌 잔고내역 조회" },
+	{ "주식/ELW" , "계좌", "조회TR"  , "CSPAQ02200", RUNTIME_CLASS(CDlg_CSPAQ02200), IDD_CSPAQ02200, "현물계좌 예수금/주문가능금액/총평가 조회" },
+	{ "주식/ELW" , "계좌", "조회TR"  , "CSPBQ00200", RUNTIME_CLASS(CDlg_CSPBQ00200), IDD_CSPBQ00200, "현물계좌 증거금률별 주문가능수량 조회" },
 	//---------------------------------------------------------------------------------------------*/
 
 	//---------------------------------------------------------------------------------------------
-	// ����/�ɼ� �ü�
-	{ "����/�ɼ�", "�ü�", "�ǽð�TR", "FC0"       , RUNTIME_CLASS(CDlg_FC0       ), IDD_FC0       , "����ü��" },
-	{ "����/�ɼ�", "�ü�", "�ǽð�TR", "FH0"       , RUNTIME_CLASS(CDlg_FH0		),	IDD_FH0      , "����ȣ��" },
-	{ "����/�ɼ�", "�ü�", "�ǽð�TR", "OC0"       , RUNTIME_CLASS(CDlg_OC0		),	IDD_OC0      , "�ɼ�ü��" },
-	{ "����/�ɼ�", "�ü�", "�ǽð�TR", "OH0"       , RUNTIME_CLASS(CDlg_OH0		),	IDD_OH0      , "�ɼ�ȣ��" },
-	{ "����/�ɼ�", "�ü�", "�ǽð�TR", "OH1"       , RUNTIME_CLASS(CDlg_OH1		),	IDD_OH1      , "�ɼ�ȣ��" },
+	// 선물/옵션 시세
+	{ "선물/옵션", "시세", "실시간TR", "FC0"       , RUNTIME_CLASS(CDlg_FC0       ), IDD_FC0       , "선물체결" },
+	{ "선물/옵션", "시세", "실시간TR", "FH0"       , RUNTIME_CLASS(CDlg_FH0		),	IDD_FH0      , "선물호가" },
+	{ "선물/옵션", "시세", "실시간TR", "OC0"       , RUNTIME_CLASS(CDlg_OC0		),	IDD_OC0      , "옵션체결" },
+	{ "선물/옵션", "시세", "실시간TR", "OH0"       , RUNTIME_CLASS(CDlg_OH0		),	IDD_OH0      , "옵션호가" },
+	{ "선물/옵션", "시세", "실시간TR", "OH1"       , RUNTIME_CLASS(CDlg_OH1		),	IDD_OH1      , "옵션호가" },
 	
 	//---------------------------------------------------------------------------------------------
-	// ����/�ɼ� �ֹ�
-	//{ "����/�ɼ�", "�ֹ�", "��ȸTR"  , "CFOAT00100", RUNTIME_CLASS(CDlg_CFOAT00100), IDD_CFOAT00100, "�����ɼ� �����ֹ�" },
-	//{ "����/�ɼ�", "�ֹ�", "��ȸTR"  , "CFOAT00200", RUNTIME_CLASS(CDlg_CFOAT00200), IDD_CFOAT00200, "�����ɼ� �����ֹ�" },
-	//{ "����/�ɼ�", "�ֹ�", "��ȸTR"  , "CFOAT00300", RUNTIME_CLASS(CDlg_CFOAT00300), IDD_CFOAT00300, "�����ɼ� ����ֹ�" },
-	//---------------------------------------------------------------------------------------------
-	
-	//---------------------------------------------------------------------------------------------
-	// ����/�ɼ� ����
-	//{ "����/�ɼ�", "����", "��ȸTR"  , "CFOAQ00600", RUNTIME_CLASS(CDlg_CFOAQ00600), IDD_CFOAQ00600, "�����ɼ� �����ֹ�ü�᳻�� ��ȸ" },
-	//{ "����/�ɼ�", "����", "��ȸTR"  , "CFOFQ02400", RUNTIME_CLASS(CDlg_CFOFQ02400), IDD_CFOFQ02400, "�����ɼ� �̰���������Ȳ" },
-	{ "����/�ɼ�", "����", "��ȸTR"  , "CFOAQ10100", RUNTIME_CLASS(CDlg_CFOAQ10100), IDD_CFOAQ10100, "�����ɼ� �ֹ����ɼ���" },
-	//{ "����/�ɼ�", "����", "��ȸTR"  , "CEXAQ21200", RUNTIME_CLASS(CDlg_CEXAQ21200), IDD_CEXAQ21200, "������ �ֹ����ɼ���" },
+	// 선물/옵션 주문
+	//{ "선물/옵션", "주문", "조회TR"  , "CFOAT00100", RUNTIME_CLASS(CDlg_CFOAT00100), IDD_CFOAT00100, "선물옵션 정상주문" },
+	//{ "선물/옵션", "주문", "조회TR"  , "CFOAT00200", RUNTIME_CLASS(CDlg_CFOAT00200), IDD_CFOAT00200, "선물옵션 정정주문" },
+	//{ "선물/옵션", "주문", "조회TR"  , "CFOAT00300", RUNTIME_CLASS(CDlg_CFOAT00300), IDD_CFOAT00300, "선물옵션 취소주문" },
 	//---------------------------------------------------------------------------------------------
 	
 	//---------------------------------------------------------------------------------------------
-	// ���� CME �ֹ�
-	/*{ "���� CME", "�ֹ�", "��ȸTR"  , "CCEAT00100", RUNTIME_CLASS(CDlg_CCEAT00100), IDD_CCEAT00100, "���� CME �����ֹ�" },
-	{ "���� CME", "�ֹ�", "��ȸTR"  , "CCEAT00200", RUNTIME_CLASS(CDlg_CCEAT00200), IDD_CCEAT00200, "���� CME �����ֹ�" },
-	{ "���� CME", "�ֹ�", "��ȸTR"  , "CCEAT00300", RUNTIME_CLASS(CDlg_CCEAT00300), IDD_CCEAT00300, "���� CME ����ֹ�" },
+	// 선물/옵션 계좌
+	//{ "선물/옵션", "계좌", "조회TR"  , "CFOAQ00600", RUNTIME_CLASS(CDlg_CFOAQ00600), IDD_CFOAQ00600, "선물옵션 계좌주문체결내역 조회" },
+	//{ "선물/옵션", "계좌", "조회TR"  , "CFOFQ02400", RUNTIME_CLASS(CDlg_CFOFQ02400), IDD_CFOFQ02400, "선물옵션 미결제약정현황" },
+	{ "선물/옵션", "계좌", "조회TR"  , "CFOAQ10100", RUNTIME_CLASS(CDlg_CFOAQ10100), IDD_CFOAQ10100, "선물옵션 주문가능수량" },
+	//{ "선물/옵션", "계좌", "조회TR"  , "CEXAQ21200", RUNTIME_CLASS(CDlg_CEXAQ21200), IDD_CEXAQ21200, "유렉스 주문가능수량" },
+	//---------------------------------------------------------------------------------------------
+	
+	//---------------------------------------------------------------------------------------------
+	// 선물 CME 주문
+	/*{ "선물 CME", "주문", "조회TR"  , "CCEAT00100", RUNTIME_CLASS(CDlg_CCEAT00100), IDD_CCEAT00100, "선물 CME 정상주문" },
+	{ "선물 CME", "주문", "조회TR"  , "CCEAT00200", RUNTIME_CLASS(CDlg_CCEAT00200), IDD_CCEAT00200, "선물 CME 정정주문" },
+	{ "선물 CME", "주문", "조회TR"  , "CCEAT00300", RUNTIME_CLASS(CDlg_CCEAT00300), IDD_CCEAT00300, "선물 CME 취소주문" },
 	//---------------------------------------------------------------------------------------------
 
 	//---------------------------------------------------------------------------------------------
-	// �ֽļ��� �ü�
-	{ "�ֽļ���" , "�ü�", "�ǽð�TR", "JC0"       , RUNTIME_CLASS(CDlg_JC0       ), IDD_JC0       , "����ü��" },
+	// 주식선물 시세
+	{ "주식선물" , "시세", "실시간TR", "JC0"       , RUNTIME_CLASS(CDlg_JC0       ), IDD_JC0       , "선물체결" },
 	//---------------------------------------------------------------------------------------------
 	
 	//---------------------------------------------------------------------------------------------
-	// ���� �ü�
+	// 업종 시세
 	//---------------------------------------------------------------------------------------------
 	
 	//---------------------------------------------------------------------------------------------*/
-	// ������
-	{ "������", "", "��ȸTR", "t1601", RUNTIME_CLASS(CDlg_t1601), IDD_t1601, "�����ں�����" },
-	{ "������", "", "��ȸTR", "t1602", RUNTIME_CLASS(CDlg_t1602), IDD_t1602, "�����ں��Ÿ����̻�" },
-	/*	{ "������", "", "�ǽð�TR", "BMT"  , RUNTIME_CLASS(CDlg_BMT), IDD_BMT, "�ð��뺰 �����ڸŸ�����" },
-	{ "������", "", "�ǽð�TR", "BM_"  , RUNTIME_CLASS(CDlg_BM_), IDD_BM_, "�����ں� �����ں� �Ÿ���Ȳ" },
+	// 투자자
+	{ "투자자", "", "조회TR", "t1601", RUNTIME_CLASS(CDlg_t1601), IDD_t1601, "투자자별종합" },
+	{ "투자자", "", "조회TR", "t1602", RUNTIME_CLASS(CDlg_t1602), IDD_t1602, "투자자별매매추이상세" },
+	/*	{ "투자자", "", "실시간TR", "BMT"  , RUNTIME_CLASS(CDlg_BMT), IDD_BMT, "시간대별 투자자매매추이" },
+	{ "투자자", "", "실시간TR", "BM_"  , RUNTIME_CLASS(CDlg_BM_), IDD_BM_, "투자자별 투자자별 매매현황" },
 	//---------------------------------------------------------------------------------------------
 
 	//---------------------------------------------------------------------------------------------
-	// ���α׷�
+	// 프로그램
 	//---------------------------------------------------------------------------------------------
 
 	//---------------------------------------------------------------------------------------------
-	// ��������
+	// 투자정보
 	//---------------------------------------------------------------------------------------------
 
 	//---------------------------------------------------------------------------------------------*/
-	// ��Ʈ
-	{ "����/�ɼ�", "��Ʈ", "��ȸTR", "t8415"       , RUNTIME_CLASS(CDlg_t8415		),	IDD_t8415      , "�ɼ���Ʈ" },
+	// 차트
+	{ "선물/옵션", "차트", "조회TR", "t8415"       , RUNTIME_CLASS(CDlg_t8415		),	IDD_t8415      , "옵션차트" },
 	//---------------------------------------------------------------------------------------------
 	/*
 	//---------------------------------------------------------------------------------------------
-	// ��Ÿ
-	{ "��Ÿ", "", "��ȸTR", "t9942", RUNTIME_CLASS(CDlg_t9942), IDD_t9942, "ELW��������ȸAPI��(t9941)" },
-	{ "��Ÿ", "", "��ȸTR", "t9943", RUNTIME_CLASS(CDlg_t9943), IDD_t9943, "����������������ȸAPI��(t9941)" },
+	// 기타
+	{ "기타", "", "조회TR", "t9942", RUNTIME_CLASS(CDlg_t9942), IDD_t9942, "ELW마스터조회API용(t9941)" },
+	{ "기타", "", "조회TR", "t9943", RUNTIME_CLASS(CDlg_t9943), IDD_t9943, "지수선물마스터조회API용(t9941)" },
 	//---------------------------------------------------------------------------------------------*/
 
-	{ "�����ֹ�" , "�ü�", "��ȸTR",   "����"     , RUNTIME_CLASS(CDlg_JEKYLL), IDD_JEKYLL     , "JEKYLL" },
+	{ "종합주문" , "시세", "조회TR",   "종합"     , RUNTIME_CLASS(CDlg_JEKYLL), IDD_JEKYLL     , "JEKYLL" },
 };
 
 int GetTRWindowTableCount()
@@ -308,7 +308,7 @@ BOOL CChildFrame::SetTR( LPCTSTR pszTrCode )
 		if( strcmp( s_tblTrWindow[i].szTrCode, pszTrCode ) == 0 )
 		{
 			char szTitle[256] = { 0 };
-			sprintf( szTitle, "[%s] %s", s_tblTrWindow[i].szTrCode, s_tblTrWindow[i].szDesc );
+			sprintf_s( szTitle, "[%s] %s", s_tblTrWindow[i].szTrCode, s_tblTrWindow[i].szDesc );
 			SetWindowText( szTitle  );
 			CDocument* pDocument = GetActiveDocument();
 			if( pDocument )
@@ -325,9 +325,9 @@ BOOL CChildFrame::SetTR( LPCTSTR pszTrCode )
 	}
 
 	CString strMsg;
-	strMsg.Format( "%s �� Sample�� ã�� �� �����ϴ�.", pszTrCode );
+	strMsg.Format( "%s 의 Sample을 찾을 수 없습니다.", pszTrCode );
 	
-	MessageBox( strMsg, "����", MB_ICONSTOP );
+	MessageBox( strMsg, "에러", MB_ICONSTOP );
 
 	SendMessage( WM_CLOSE );
 	

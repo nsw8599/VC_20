@@ -1,4 +1,4 @@
-// DlgLogin.cpp : implementation file
+ï»¿// DlgLogin.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -62,7 +62,7 @@ BOOL CDlgLogin::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// ¼³Á¤ÆÄÀÏÀ» ÀÐ¾î ÄÁÆ®·ÑµéÀ» ÃÊ±âÈ­
+	// ì„¤ì •íŒŒì¼ì„ ì½ì–´ ì»¨íŠ¸ë¡¤ë“¤ì„ ì´ˆê¸°í™”
 	LoadProfile();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -71,106 +71,106 @@ BOOL CDlgLogin::OnInitDialog()
 
 void CDlgLogin::OnOK() 
 {
-	// CDialog::OnOK() ¸¦ »èÁ¦ÇÏ¿© Enter Key ÀÔ·Â½Ã È­¸éÀÌ Á¾·áµÇ´Â °ÍÀ» ¸·À½
+	// CDialog::OnOK() ë¥¼ ì‚­ì œí•˜ì—¬ Enter Key ìž…ë ¥ì‹œ í™”ë©´ì´ ì¢…ë£Œë˜ëŠ” ê²ƒì„ ë§‰ìŒ
 }
 
 //================================================================================================
-// Á¾·á½Ã
+// ì¢…ë£Œì‹œ
 //================================================================================================
 void CDlgLogin::OnClose() 
 {
-	// »óÅÂ ÀúÀå
+	// ìƒíƒœ ì €ìž¥
 	SaveProfile();
 
 	CDialog::EndDialog( IDCANCEL );
 }
 
 //================================================================================================
-// ·Î±×ÀÎ ½ÃÀÛ
+// ë¡œê·¸ì¸ ì‹œìž‘
 //================================================================================================
 void CDlgLogin::OnButtonLogin() 
 {
 	EnableWindow( FALSE );
 
-	// ¼­¹öÁ¢¼Ó
+	// ì„œë²„ì ‘ì†
 	if( ConnectServer() == FALSE )
 	{
 		EnableWindow( TRUE );
 		return;
 	}
 
-	// ·Î±×ÀÎ
+	// ë¡œê·¸ì¸
 	Login();
 }
 
 //================================================================================================
-// ¼­¹ö Á¢¼Ó
+// ì„œë²„ ì ‘ì†
 //================================================================================================
 BOOL CDlgLogin::ConnectServer()
 {
 	//-----------------------------------------------------------------------------
-	// ÀÌ¹Ì Á¢¼ÓµÇ¾î ÀÖÀ¸¸é Á¢¼ÓÀ» Á¾·áÇÑ´Ù.
+	// ì´ë¯¸ ì ‘ì†ë˜ì–´ ìžˆìœ¼ë©´ ì ‘ì†ì„ ì¢…ë£Œí•œë‹¤.
 	if( g_iXingAPI.IsConnected() )
 	{
 		g_iXingAPI.Disconnect();
 	}
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö IP
+	// ì„œë²„ IP
 	CString strServerIP;
 	m_ctrlServerIP.GetWindowText( strServerIP );
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö Port
+	// ì„œë²„ Port
 	CString strServerPort;
 	m_ctrlServerPort.GetWindowText( strServerPort );
 	int nServerPort = atoi( strServerPort );
 	
 	//-----------------------------------------------------------------------------
-	// °øÀ¯±â »ç¿ë
-	int nSendPacketSize = -1;		// -1 ·Î ¼³Á¤ÇÏ¸é ±âº»°ªÀ» »ç¿ëÇÑ´Ù.
+	// ê³µìœ ê¸° ì‚¬ìš©
+	int nSendPacketSize = -1;		// -1 ë¡œ ì„¤ì •í•˜ë©´ ê¸°ë³¸ê°’ì„ ì‚¬ìš©í•œë‹¤.
 	if( m_ctrlSendPacketSize.GetCheck() == 1 )
 	{
 		nSendPacketSize = GetDlgItemInt( IDC_COMBO_SEND_PACKET_SIZE );
 	}
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö¿¬°á½Ã°£
-	int nConnectTimeOut = -1;		// -1 ·Î ¼³Á¤ÇÏ¸é ±âº»°ªÀ» »ç¿ëÇÑ´Ù.
+	// ì„œë²„ì—°ê²°ì‹œê°„
+	int nConnectTimeOut = -1;		// -1 ë¡œ ì„¤ì •í•˜ë©´ ê¸°ë³¸ê°’ì„ ì‚¬ìš©í•œë‹¤.
 	if( m_ctrlConnectTimeout.GetCheck() == 1 )
 	{
 		nConnectTimeOut = GetDlgItemInt( IDC_EDIT_CONNECT_TIMEOUT );
-		nConnectTimeOut *= 1000;		// ½Ã°£Àº Millisecond(1/1000ÃÊ) ´ÜÀ§·Î ³Ö¾î¾ß ÇÑ´Ù.
+		nConnectTimeOut *= 1000;		// ì‹œê°„ì€ Millisecond(1/1000ì´ˆ) ë‹¨ìœ„ë¡œ ë„£ì–´ì•¼ í•œë‹¤.
 	}
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹öÁ¢¼Ó
+	// ì„œë²„ì ‘ì†
 	BOOL bResult = g_iXingAPI.Connect( 
-		AfxGetMainWnd()->GetSafeHwnd(),			// Connect°¡ µÈ ÀÌÈÄ¿¡ Disconnect ¸Þ½ÃÁö¸¦ ¹ÞÀ» À©µµ¿ì Handle
-												// Login À©µµ¿ì´Â Login ¸¸ Ã³¸®ÇÏ´Â À©µµ¿ì ÀÌ¹Ç·Î Disconnect´Â ¸ÞÀÎÀ©µµ¿ì¿¡¼­ ¹Þ´Â´Ù.
+		AfxGetMainWnd()->GetSafeHwnd(),			// Connectê°€ ëœ ì´í›„ì— Disconnect ë©”ì‹œì§€ë¥¼ ë°›ì„ ìœˆë„ìš° Handle
+												// Login ìœˆë„ìš°ëŠ” Login ë§Œ ì²˜ë¦¬í•˜ëŠ” ìœˆë„ìš° ì´ë¯€ë¡œ DisconnectëŠ” ë©”ì¸ìœˆë„ìš°ì—ì„œ ë°›ëŠ”ë‹¤.
 
-		strServerIP,							// ¼­¹öÁÖ¼Ò
+		strServerIP,							// ì„œë²„ì£¼ì†Œ
 
-		nServerPort,							// ¼­¹öÆ÷Æ®
+		nServerPort,							// ì„œë²„í¬íŠ¸
 
-		WM_USER,								// XingAPI¿¡¼­ »ç¿ëÇÏ´Â ¸Þ½ÃÁöÀÇ ½ÃÀÛ¹øÈ£, Windows¿¡¼­´Â »ç¿ëÀÚ¸Þ½ÃÁö¸¦ 0x400(=WM_USER) ÀÌ»óÀ»
-												// »ç¿ëÇØ¾ß ÇÔ. ±âº»ÀûÀ¸·Î´Â WM_USER¸¦ »ç¿ëÇÏ¸é µÇÁö¸¸ ÇÁ·Î±×·¥ ³»ºÎ¿¡¼­ ¸Þ½ÃÁö ID°¡ °ãÄ¡°Ô µÇ¸é
-												// ÀÌ °ªÀ» Á¶Á¤ÇÏ¿© ¸Þ½ÃÁö ID Ãæµ¹À» ÇÇÇÒ¼ö ÀÖÀ½
+		WM_USER,								// XingAPIì—ì„œ ì‚¬ìš©í•˜ëŠ” ë©”ì‹œì§€ì˜ ì‹œìž‘ë²ˆí˜¸, Windowsì—ì„œëŠ” ì‚¬ìš©ìžë©”ì‹œì§€ë¥¼ 0x400(=WM_USER) ì´ìƒì„
+												// ì‚¬ìš©í•´ì•¼ í•¨. ê¸°ë³¸ì ìœ¼ë¡œëŠ” WM_USERë¥¼ ì‚¬ìš©í•˜ë©´ ë˜ì§€ë§Œ í”„ë¡œê·¸ëž¨ ë‚´ë¶€ì—ì„œ ë©”ì‹œì§€ IDê°€ ê²¹ì¹˜ê²Œ ë˜ë©´
+												// ì´ ê°’ì„ ì¡°ì •í•˜ì—¬ ë©”ì‹œì§€ ID ì¶©ëŒì„ í”¼í• ìˆ˜ ìžˆìŒ
 
-		nConnectTimeOut,						// ÁöÁ¤ÇÑ ½Ã°£ÀÌ»ó(1/1000 ÃÊ ´ÜÀ§)À¸·Î ½Ã°£ÀÌ °É¸®°Ô µÉ °æ¿ì ¿¬°á½ÇÆÐ·Î °£ÁÖÇÔ
+		nConnectTimeOut,						// ì§€ì •í•œ ì‹œê°„ì´ìƒ(1/1000 ì´ˆ ë‹¨ìœ„)ìœ¼ë¡œ ì‹œê°„ì´ ê±¸ë¦¬ê²Œ ë  ê²½ìš° ì—°ê²°ì‹¤íŒ¨ë¡œ ê°„ì£¼í•¨
 
-		nSendPacketSize							// º¸³»¾îÁö´Â Packet Size, -1 ÀÌ¸é ±âº»°ª »ç¿ë
-												// ÀÎÅÍ³Ý °øÀ¯±âµî¿¡¼­´Â Æ¯Á¤ Å©±â ÀÌ»óÀÇ µ¥ÀÌÅÍ¸¦ ÇÑ¹ø¿¡ º¸³»¸é ¿¡·¯°¡ ¶³¾îÁö´Â °æ¿ì°¡ ¹ß»ý
-												// ÀÌ·² °æ¿ì¿¡ ÇÑ¹ø¿¡ º¸³»´Â Packet Size¸¦ ÁöÁ¤ÇÏ¿© ±× ÀÌ»ó µÇ´Â PacketÀº ¿©·¯¹ø¿¡ °ÉÃÄ Àü¼Û
+		nSendPacketSize							// ë³´ë‚´ì–´ì§€ëŠ” Packet Size, -1 ì´ë©´ ê¸°ë³¸ê°’ ì‚¬ìš©
+												// ì¸í„°ë„· ê³µìœ ê¸°ë“±ì—ì„œëŠ” íŠ¹ì • í¬ê¸° ì´ìƒì˜ ë°ì´í„°ë¥¼ í•œë²ˆì— ë³´ë‚´ë©´ ì—ëŸ¬ê°€ ë–¨ì–´ì§€ëŠ” ê²½ìš°ê°€ ë°œìƒ
+												// ì´ëŸ´ ê²½ìš°ì— í•œë²ˆì— ë³´ë‚´ëŠ” Packet Sizeë¥¼ ì§€ì •í•˜ì—¬ ê·¸ ì´ìƒ ë˜ëŠ” Packetì€ ì—¬ëŸ¬ë²ˆì— ê±¸ì³ ì „ì†¡
 	);
 
 	//-----------------------------------------------------------------------------
-	// Á¢¼Ó½ÇÆÐ Ã³¸®
+	// ì ‘ì†ì‹¤íŒ¨ ì²˜ë¦¬
 	if( bResult == FALSE )
 	{
 		int nErrorCode = g_iXingAPI.GetLastError();
 		CString strMsg = g_iXingAPI.GetErrorMessage( nErrorCode );
-		MessageBox( strMsg, "¼­¹öÁ¢¼Ó½ÇÆÐ", MB_ICONSTOP );
+		MessageBox( strMsg, "ì„œë²„ì ‘ì†ì‹¤íŒ¨", MB_ICONSTOP );
 		return FALSE;
 	}
 
@@ -178,52 +178,52 @@ BOOL CDlgLogin::ConnectServer()
 }
 
 //================================================================================================
-// ·Î±×ÀÎ
+// ë¡œê·¸ì¸
 //================================================================================================
 BOOL CDlgLogin::Login()
 {
 	//-----------------------------------------------------------------------------
-	// ¾ÆÀÌµð
+	// ì•„ì´ë””
 	CString strID = "nsw111";// GetDlgItemText(IDC_EDIT_ID, strID);
 
 	//-----------------------------------------------------------------------------
-	// ºñ¹Ð¹øÈ£
+	// ë¹„ë°€ë²ˆí˜¸
 	CString strPwd = "NswRmit77**"; //; GetDlgItemText(IDC_EDIT_PWD, strPwd);
 
 	//-----------------------------------------------------------------------------
-	// °øÀÎÀÎÁõ ºñ¹Ð¹øÈ£
+	// ê³µì¸ì¸ì¦ ë¹„ë°€ë²ˆí˜¸
 		CString strCertPwd = "tkfkdgo7&&";// ; GetDlgItemText(IDC_EDIT_CERT_PWD, strCertPwd);
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö Type
+	// ì„œë²„ Type
 	int nServerType = GetCheckedRadioButton( IDC_RADIO_REAL, IDC_RADIO_SIMUL ) == IDC_RADIO_REAL ? 0 : 1;
 	
 	//-----------------------------------------------------------------------------
-	// °øÀÎÀÎÁõ ¿¡·¯½Ã ¿¡·¯ Dialog Ç¥½Ã¿©ºÎ
+	// ê³µì¸ì¸ì¦ ì—ëŸ¬ì‹œ ì—ëŸ¬ Dialog í‘œì‹œì—¬ë¶€
 	BOOL bShowCertErrDlg = m_ctrlShowCertErrDlg.GetCheck();
 
 	//-----------------------------------------------------------------------------
-	// ·Î±×ÀÎ
+	// ë¡œê·¸ì¸
 	BOOL bResult = g_iXingAPI.Login( 
-		GetSafeHwnd(),							// Login ¼º°ø¿©ºÎ ¸Þ½ÃÁö¸¦ ¹ÞÀ» À©µµ¿ì
-		strID,									// »ç¿ëÀÚ ID
-		strPwd,									// »ç¿ëÀÚ ºñ¹Ð¹øÈ£
-		strCertPwd,								// °øÀÎÀÎÁõ ºñ¹Ð¹øÈ£
-		nServerType,							// 0 : ½Ç¼­¹ö, 1 : ¸ðÀÇÅõÀÚ¼­¹ö
-		bShowCertErrDlg							// ·Î±×ÀÎ Áß¿¡ °øÀÎÀÎÁõ ¿¡·¯°¡ ¹ß»ý½Ã ¿¡·¯¸Þ½ÃÁö Ç¥½Ã¿©ºÎ
+		GetSafeHwnd(),							// Login ì„±ê³µì—¬ë¶€ ë©”ì‹œì§€ë¥¼ ë°›ì„ ìœˆë„ìš°
+		strID,									// ì‚¬ìš©ìž ID
+		strPwd,									// ì‚¬ìš©ìž ë¹„ë°€ë²ˆí˜¸
+		strCertPwd,								// ê³µì¸ì¸ì¦ ë¹„ë°€ë²ˆí˜¸
+		nServerType,							// 0 : ì‹¤ì„œë²„, 1 : ëª¨ì˜íˆ¬ìžì„œë²„
+		bShowCertErrDlg							// ë¡œê·¸ì¸ ì¤‘ì— ê³µì¸ì¸ì¦ ì—ëŸ¬ê°€ ë°œìƒì‹œ ì—ëŸ¬ë©”ì‹œì§€ í‘œì‹œì—¬ë¶€
 	);
 
 	//-----------------------------------------------------------------------------
-	// ·Î±×ÀÎ ¿¡·¯ ¹ß»ý,
-	//		ÀÌ°ÍÀº ·Î±×ÀÎ »çÀü´Ü°è¿¡¼­ ¹ß»ýÇÑ ¿¡·¯ÀÌ¸ç ·Î±×ÀÎ °úÁ¤¿¡¼­ ¹ß»ýÇÑ ¿¡·¯´Â
-	//		¸Þ½ÃÁö·Î ¾Ë·ÁÁØ´Ù.
+	// ë¡œê·¸ì¸ ì—ëŸ¬ ë°œìƒ,
+	//		ì´ê²ƒì€ ë¡œê·¸ì¸ ì‚¬ì „ë‹¨ê³„ì—ì„œ ë°œìƒí•œ ì—ëŸ¬ì´ë©° ë¡œê·¸ì¸ ê³¼ì •ì—ì„œ ë°œìƒí•œ ì—ëŸ¬ëŠ”
+	//		ë©”ì‹œì§€ë¡œ ì•Œë ¤ì¤€ë‹¤.
 	if( bResult == FALSE )
 	{
 		EnableWindow( TRUE );
 
 		int nErrorCode = g_iXingAPI.GetLastError();
 		CString strMsg = g_iXingAPI.GetErrorMessage( nErrorCode );
-		MessageBox( strMsg, "·Î±×ÀÎ ½ÇÆÐ", MB_ICONSTOP );
+		MessageBox( strMsg, "ë¡œê·¸ì¸ ì‹¤íŒ¨", MB_ICONSTOP );
 		return FALSE;
 	}
 
@@ -231,7 +231,7 @@ BOOL CDlgLogin::Login()
 }
 
 //================================================================================================
-// ·Î±×ÀÎ °á°ú
+// ë¡œê·¸ì¸ ê²°ê³¼
 //================================================================================================
 LRESULT CDlgLogin::OnLogin( WPARAM wParam, LPARAM lParam )
 {
@@ -245,26 +245,26 @@ LRESULT CDlgLogin::OnLogin( WPARAM wParam, LPARAM lParam )
 
 	if( atoi( pszCode ) == 0 )
 	{
-		// ·Î±×ÀÎ ¼º°ø
-		MessageBox( strMsg, "·Î±×ÀÎ ¼º°ø", MB_ICONINFORMATION );
+		// ë¡œê·¸ì¸ ì„±ê³µ
+		MessageBox( strMsg, "ë¡œê·¸ì¸ ì„±ê³µ", MB_ICONINFORMATION );
 
-		// »óÅÂ ÀúÀå
+		// ìƒíƒœ ì €ìž¥
 		SaveProfile();
 		
-		// ·Î±×ÀÎ Á¾·á
+		// ë¡œê·¸ì¸ ì¢…ë£Œ
 		CDialog::EndDialog( IDOK );
 	}
 	else
 	{
-		// ·Î±×ÀÎ ½ÇÆÐ
-		MessageBox( strMsg, "·Î±×ÀÎ ½ÇÆÐ", MB_ICONSTOP );
+		// ë¡œê·¸ì¸ ì‹¤íŒ¨
+		MessageBox( strMsg, "ë¡œê·¸ì¸ ì‹¤íŒ¨", MB_ICONSTOP );
 	}
 
 	return 0L;
 }
 
 //================================================================================================
-// ¼³Á¤ÆÄÀÏÀÇ ÆÄÀÏ¸íÀ» Ãëµæ
+// ì„¤ì •íŒŒì¼ì˜ íŒŒì¼ëª…ì„ ì·¨ë“
 //================================================================================================
 CString CDlgLogin::GetProfileFileName()
 {
@@ -278,7 +278,7 @@ CString CDlgLogin::GetProfileFileName()
 }
 
 //================================================================================================
-// ¼³Á¤ÆÄÀÏÀ» ÀÐ¾î ÄÁÆ®·ÑµéÀ» ÃÊ±âÈ­
+// ì„¤ì •íŒŒì¼ì„ ì½ì–´ ì»¨íŠ¸ë¡¤ë“¤ì„ ì´ˆê¸°í™”
 //================================================================================================
 void CDlgLogin::LoadProfile()
 {
@@ -286,7 +286,7 @@ void CDlgLogin::LoadProfile()
 	TCHAR	szData[256];
 
 	//-----------------------------------------------------------------------------
-	// ¾ÆÀÌµð ÀúÀå
+	// ì•„ì´ë”” ì €ìž¥
 	GetPrivateProfileString( "LOGIN", "SAVE_ID", "0", szData, sizeof( szData ), strFileName );
 	if( atoi( szData ) == 0 )
 	{
@@ -297,25 +297,25 @@ void CDlgLogin::LoadProfile()
 		m_ctrlSaveID.SetCheck( 1 );
 
 		//-----------------------------------------------------------------------------
-		// ¾ÆÀÌµð
+		// ì•„ì´ë””
 		GetPrivateProfileString( "LOGIN", "ID", "", szData, sizeof( szData ), strFileName );
 		SetDlgItemText( IDC_EDIT_ID, szData );
 	}
 
 	//-----------------------------------------------------------------------------
-	// °øÀÎÀÎÁõ ¿¡·¯½Ã ¿¡·¯ Dialog Ç¥½Ã
+	// ê³µì¸ì¸ì¦ ì—ëŸ¬ì‹œ ì—ëŸ¬ Dialog í‘œì‹œ
 	GetPrivateProfileString( "LOGIN", "SHOW_CERT_ERR_DLG", "1", szData, sizeof( szData ), strFileName );
 	m_ctrlShowCertErrDlg.SetCheck( atoi( szData ) == 0 ? 0 : 1 );
 
 	//-----------------------------------------------------------------------------
-	// ½Ç¼­¹ö/¸ðÀÇ¼­¹ö
+	// ì‹¤ì„œë²„/ëª¨ì˜ì„œë²„
 	GetPrivateProfileString( "COMM", "SERVER_TYPE", "", szData, sizeof( szData ), strFileName );
-	BOOL bSimul = stricmp( szData, "SIMUL" ) == 0;
+	BOOL bSimul = _stricmp( szData, "SIMUL" ) == 0;
 	CheckRadioButton( IDC_RADIO_REAL, IDC_RADIO_SIMUL, bSimul ? IDC_RADIO_SIMUL : IDC_RADIO_REAL );
 	SetServerAddrType( bSimul == FALSE );
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö ÁÖ¼Ò TYPE
+	// ì„œë²„ ì£¼ì†Œ TYPE
 	GetPrivateProfileString( "COMM", "SERVER_ADDR_TYPE", "", szData, sizeof( szData ), strFileName );
 	SetServerAddrTypeProfile( szData );
 	GetPrivateProfileString( "COMM", "SERVER_IP", "", szData, sizeof( szData ), strFileName );
@@ -323,12 +323,12 @@ void CDlgLogin::LoadProfile()
 	SetServerIP( strData, szData );
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö Æ÷Æ®
+	// ì„œë²„ í¬íŠ¸
 	GetPrivateProfileString( "COMM", "SERVER_PORT", "", szData, sizeof( szData ), strFileName );
 	SetPortProfile( atoi( szData ) );
 
 	//-----------------------------------------------------------------------------
-	// ÃÖ´ëÀü¼ÛÅ©±â
+	// ìµœëŒ€ì „ì†¡í¬ê¸°
 	GetPrivateProfileString( "COMM", "USE_SEND_MAX_PACKET_SIZE", "", szData, sizeof( szData ), strFileName );
 	if( atoi( szData ) == 0 )
 	{
@@ -346,7 +346,7 @@ void CDlgLogin::LoadProfile()
 	}
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹öÁ¢¼Ó½Ã°£
+	// ì„œë²„ì ‘ì†ì‹œê°„
 	GetPrivateProfileString( "COMM", "USE_CONNECT_TIMEOUT", "", szData, sizeof( szData ), strFileName );
 	if( atoi( szData ) == 0 )
 	{
@@ -365,7 +365,7 @@ void CDlgLogin::LoadProfile()
 }
 
 //================================================================================================
-// ¼³Á¤ÆÄÀÏ¿¡ ÀÐÀº ¼­¹ö ÁÖ¼Ò TypeÀ» °¡Áö°í ÄÞº¸¹Ú½º¿¡¼­ Ã£¾Æ¼­ ¼³Á¤
+// ì„¤ì •íŒŒì¼ì— ì½ì€ ì„œë²„ ì£¼ì†Œ Typeì„ ê°€ì§€ê³  ì½¤ë³´ë°•ìŠ¤ì—ì„œ ì°¾ì•„ì„œ ì„¤ì •
 //================================================================================================
 void CDlgLogin::SetServerAddrTypeProfile( LPCTSTR pszData )
 {
@@ -384,7 +384,7 @@ void CDlgLogin::SetServerAddrTypeProfile( LPCTSTR pszData )
 }
 
 //================================================================================================
-// ¼³Á¤ÆÄÀÏ¿¡ ÀÐÀº Æ÷Æ®¸¦ °¡Áö°í ÄÞº¸¹Ú½º¿¡¼­ Ã£¾Æ¼­ ¼³Á¤
+// ì„¤ì •íŒŒì¼ì— ì½ì€ í¬íŠ¸ë¥¼ ê°€ì§€ê³  ì½¤ë³´ë°•ìŠ¤ì—ì„œ ì°¾ì•„ì„œ ì„¤ì •
 //================================================================================================
 void CDlgLogin::SetPortProfile( int nPort )
 {
@@ -403,7 +403,7 @@ void CDlgLogin::SetPortProfile( int nPort )
 }
 
 //================================================================================================
-// ¼³Á¤ÆÄÀÏ¿¡ ÀúÀåÇÑ´Ù.
+// ì„¤ì •íŒŒì¼ì— ì €ìž¥í•œë‹¤.
 //================================================================================================
 void CDlgLogin::SaveProfile()
 {
@@ -411,7 +411,7 @@ void CDlgLogin::SaveProfile()
 	CString strData;
 	
 	//-----------------------------------------------------------------------------
-	// ¾ÆÀÌµð ÀúÀå
+	// ì•„ì´ë”” ì €ìž¥
 	if( m_ctrlSaveID.GetCheck() == 0 )
 	{
 		WritePrivateProfileString( "LOGIN", "SAVE_ID", "0", strFileName );
@@ -425,32 +425,32 @@ void CDlgLogin::SaveProfile()
 	}
 
 	//-----------------------------------------------------------------------------
-	// °øÀÎÀÎÁõ ¿¡·¯½Ã ¿¡·¯ Dialog Ç¥½Ã
+	// ê³µì¸ì¸ì¦ ì—ëŸ¬ì‹œ ì—ëŸ¬ Dialog í‘œì‹œ
 	strData = m_ctrlShowCertErrDlg.GetCheck() == 0 ? "0" : "1";
 	WritePrivateProfileString( "LOGIN", "SHOW_CERT_ERR_DLG", strData, strFileName );
 	
 	//-----------------------------------------------------------------------------
-	// ½Ç¼­¹ö/¸ðÀÇ¼­¹ö
+	// ì‹¤ì„œë²„/ëª¨ì˜ì„œë²„
 	strData = GetCheckedRadioButton( IDC_RADIO_REAL, IDC_RADIO_SIMUL ) == IDC_RADIO_REAL ? "REAL" : "SIMUL";
 	WritePrivateProfileString( "COMM", "SERVER_TYPE", strData, strFileName );
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö ÁÖ¼Ò TYPE
+	// ì„œë²„ ì£¼ì†Œ TYPE
 	GetDlgItemText( IDC_COMBO_SERVER_ADDR_TYPE, strData );
 	WritePrivateProfileString( "COMM", "SERVER_ADDR_TYPE", strData, strFileName );
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö ÁÖ¼Ò
+	// ì„œë²„ ì£¼ì†Œ
 	GetDlgItemText( IDC_EDIT_SERVER_IP, strData );
 	WritePrivateProfileString( "COMM", "SERVER_IP", strData, strFileName );
 	
 	//-----------------------------------------------------------------------------
-	// ¼­¹ö Æ÷Æ®
+	// ì„œë²„ í¬íŠ¸
 	GetDlgItemText( IDC_COMBO_SERVER_PORT, strData );
 	WritePrivateProfileString( "COMM", "SERVER_PORT", strData, strFileName );
 
 	//-----------------------------------------------------------------------------
-	// ÃÖ´ëÀü¼ÛÅ©±â
+	// ìµœëŒ€ì „ì†¡í¬ê¸°
 	strData = m_ctrlSendPacketSize.GetCheck() == 0 ? "0" : "1";
 	WritePrivateProfileString( "COMM", "USE_SEND_MAX_PACKET_SIZE", strData, strFileName );
 	GetDlgItemText( IDC_COMBO_SEND_PACKET_SIZE, strData );
@@ -458,7 +458,7 @@ void CDlgLogin::SaveProfile()
 	OnCheckSendPacketSize();
 
 	//-----------------------------------------------------------------------------
-	// ¼­¹öÁ¢¼Ó½Ã°£
+	// ì„œë²„ì ‘ì†ì‹œê°„
 	strData = m_ctrlConnectTimeout.GetCheck() == 0 ? "0" : "1";
 	WritePrivateProfileString( "COMM", "USE_CONNECT_TIMEOUT", strData, strFileName );
 	GetDlgItemText( IDC_EDIT_CONNECT_TIMEOUT, strData );
@@ -467,7 +467,7 @@ void CDlgLogin::SaveProfile()
 }
 
 //================================================================================================
-// ½Ç¼­¹ö ¶óµð¿À ÄÁÆ®·Ñ ¼±ÅÃ
+// ì‹¤ì„œë²„ ë¼ë””ì˜¤ ì»¨íŠ¸ë¡¤ ì„ íƒ
 //================================================================================================
 void CDlgLogin::OnRadioReal() 
 {
@@ -475,7 +475,7 @@ void CDlgLogin::OnRadioReal()
 }
 
 //================================================================================================
-// ¸ðÀÇÅõÀÚ ¶óµð¿À ÄÁÆ®·Ñ ¼±ÅÃ
+// ëª¨ì˜íˆ¬ìž ë¼ë””ì˜¤ ì»¨íŠ¸ë¡¤ ì„ íƒ
 //================================================================================================
 void CDlgLogin::OnRadioSimul() 
 {
@@ -483,7 +483,7 @@ void CDlgLogin::OnRadioSimul()
 }
 
 //================================================================================================
-// ¼­¹öType º¯°æ½Ã Ã³¸®
+// ì„œë²„Type ë³€ê²½ì‹œ ì²˜ë¦¬
 //================================================================================================
 void CDlgLogin::SetServerAddrType( BOOL bReal )
 {
@@ -501,18 +501,18 @@ void CDlgLogin::SetServerAddrType( BOOL bReal )
 	}
 	else
 	{
-		m_ctrlServerAddrType.AddString( "¸ðÀÇÅõÀÚ"  );
+		m_ctrlServerAddrType.AddString( "ëª¨ì˜íˆ¬ìž"  );
 		
 		GetDlgItem( IDC_EDIT_CERT_PWD )->EnableWindow( FALSE );
 	}
-	m_ctrlServerAddrType.AddString( "Á÷Á¢ÀÔ·Â" );
+	m_ctrlServerAddrType.AddString( "ì§ì ‘ìž…ë ¥" );
 	m_ctrlServerAddrType.SetCurSel( 0 );
 
 	OnSelchangeComboServerAddrType();
 }
 
 //================================================================================================
-// ¼­¹öÁÖ¼ÒType ÄÞº¸ ÄÁÆ®·Ñ ¼±ÅÃ
+// ì„œë²„ì£¼ì†ŒType ì½¤ë³´ ì»¨íŠ¸ë¡¤ ì„ íƒ
 //================================================================================================
 void CDlgLogin::OnSelchangeComboServerAddrType() 
 {
@@ -522,7 +522,7 @@ void CDlgLogin::OnSelchangeComboServerAddrType()
 }
 
 //================================================================================================
-// ÃÖ´ëÀü¼ÛÅ©±â ÄÞº¸ ÄÁÆ®·Ñ ¼±ÅÃ
+// ìµœëŒ€ì „ì†¡í¬ê¸° ì½¤ë³´ ì»¨íŠ¸ë¡¤ ì„ íƒ
 //================================================================================================
 void CDlgLogin::OnCheckSendPacketSize() 
 {
@@ -530,7 +530,7 @@ void CDlgLogin::OnCheckSendPacketSize()
 }
 
 //================================================================================================
-// ¼­¹öÁ¢¼Ó½Ã°£ ÄÞº¸ ÄÁÆ®·Ñ ¼±ÅÃ
+// ì„œë²„ì ‘ì†ì‹œê°„ ì½¤ë³´ ì»¨íŠ¸ë¡¤ ì„ íƒ
 //================================================================================================
 void CDlgLogin::OnCheckConnectTimeout() 
 {
@@ -538,7 +538,7 @@ void CDlgLogin::OnCheckConnectTimeout()
 }
 
 //================================================================================================
-// ¼­¹öÁÖ¼Ò ÄÁÆ®·Ñ¿¡ ¼­¹ö IP ¼³Á¤
+// ì„œë²„ì£¼ì†Œ ì»¨íŠ¸ë¡¤ì— ì„œë²„ IP ì„¤ì •
 //================================================================================================
 void CDlgLogin::SetServerIP( LPCTSTR pszAddrType, LPCTSTR pszServerIP )
 {
@@ -548,11 +548,11 @@ void CDlgLogin::SetServerIP( LPCTSTR pszAddrType, LPCTSTR pszServerIP )
 	else if( strcmp( pszAddrType, "PRISM"     ) == 0 ) strIP = "prism.etrade.co.kr";
 	else if( strcmp( pszAddrType, "KT IP"     ) == 0 ) strIP = "222.122.225.11";
 	else if( strcmp( pszAddrType, "PRISM IP"  ) == 0 ) strIP = "61.106.5.131";
-	else if( strcmp( pszAddrType, "¸ðÀÇÅõÀÚ"  ) == 0 ) strIP = "demo.etrade.co.kr";
-	else if( strcmp( pszAddrType, "Á÷Á¢ÀÔ·Â"  ) == 0 && pszServerIP != NULL ) strIP = pszServerIP;
+	else if( strcmp( pszAddrType, "ëª¨ì˜íˆ¬ìž"  ) == 0 ) strIP = "demo.etrade.co.kr";
+	else if( strcmp( pszAddrType, "ì§ì ‘ìž…ë ¥"  ) == 0 && pszServerIP != NULL ) strIP = pszServerIP;
 
 	m_ctrlServerIP.SetWindowText( strIP );
-	if( strcmp( pszAddrType, "Á÷Á¢ÀÔ·Â"  ) == 0 )
+	if( strcmp( pszAddrType, "ì§ì ‘ìž…ë ¥"  ) == 0 )
 	{
 		m_ctrlServerIP.SetReadOnly( FALSE );
 	}
@@ -563,39 +563,39 @@ void CDlgLogin::SetServerIP( LPCTSTR pszAddrType, LPCTSTR pszServerIP )
 }
 
 //================================================================================================
-// ÄÁÆ®·Ñ¿¡¼­ Æ÷Ä¿½º ÀÌµ¿Ã³¸®
+// ì»¨íŠ¸ë¡¤ì—ì„œ í¬ì»¤ìŠ¤ ì´ë™ì²˜ë¦¬
 //================================================================================================
 BOOL CDlgLogin::PreTranslateMessage(MSG* pMsg) 
 {
-// 	// Enter°¡ ÀÔ·ÂµÇ¾úÀ» °æ¿ì ...
+// 	// Enterê°€ ìž…ë ¥ë˜ì—ˆì„ ê²½ìš° ...
 // 	if( pMsg->message == WM_KEYUP && pMsg->wParam == VK_RETURN )
 // 	{
-// 		// ID ÀÔ·ÂÃ¢¿¡¼­ ¹ß»ýÇßÀ¸¸é
+// 		// ID ìž…ë ¥ì°½ì—ì„œ ë°œìƒí–ˆìœ¼ë©´
 // 		if( pMsg->hwnd == ::GetDlgItem( GetSafeHwnd(), IDC_EDIT_ID ) )
 // 		{
-// 			// ´ÙÀ½ ÀÔ·ÂÃ¢À¸·Î Focus¸¦ ÀÌµ¿
+// 			// ë‹¤ìŒ ìž…ë ¥ì°½ìœ¼ë¡œ Focusë¥¼ ì´ë™
 // 			NextDlgCtrl();
 // 		}
-// 		// ºñ¹Ð¹øÈ£ ÀÔ·ÂÃ¢¿¡¼­ ¹ß»ýÇßÀ¸¸é
+// 		// ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ì°½ì—ì„œ ë°œìƒí–ˆìœ¼ë©´
 // 		else if( pMsg->hwnd == ::GetDlgItem( GetSafeHwnd(), IDC_EDIT_PWD ) )
 // 		{
-// 			// °øÀÎÀÎÁõ ºñ¹Ð¹øÈ£ ÀÔ·ÂÃ¢ÀÌ È°¼ºÈ­µÇ¾î ÀÖÁö ¾ÊÀ¸¸é
+// 			// ê³µì¸ì¸ì¦ ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ì°½ì´ í™œì„±í™”ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë©´
 // 			if( GetDlgItem( IDC_EDIT_CERT_PWD )->IsWindowEnabled() == FALSE )
 // 			{
-// 				// ·Î±×ÀÎ ¹öÆ°ÀÌ ´­¸°°ÍÃ³·³ ¸Þ½ÃÁö¸¦ Àü¼ÛÇÏ¿© ·Î±×ÀÎ ÁøÇà
+// 				// ë¡œê·¸ì¸ ë²„íŠ¼ì´ ëˆŒë¦°ê²ƒì²˜ëŸ¼ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ì—¬ ë¡œê·¸ì¸ ì§„í–‰
 // 				PostMessage( WM_COMMAND, MAKEWPARAM( IDC_BUTTON_LOGIN, BN_CLICKED ), (LPARAM)::GetDlgItem( GetSafeHwnd(), IDC_BUTTON_LOGIN ) );
 // 			}
-// 			// °øÀÎÀÎÁõ ºñ¹Ð¹øÈ£ ÀÔ·ÂÃ¢ÀÌ È°¼ºÈ­µÇ¾î ÀÖÀ¸¸é
+// 			// ê³µì¸ì¸ì¦ ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ì°½ì´ í™œì„±í™”ë˜ì–´ ìžˆìœ¼ë©´
 // 			else
 // 			{
-// 				// ´ÙÀ½ ÀÔ·ÂÃ¢À¸·Î Focus¸¦ ÀÌµ¿
+// 				// ë‹¤ìŒ ìž…ë ¥ì°½ìœ¼ë¡œ Focusë¥¼ ì´ë™
 // 				NextDlgCtrl();
 // 			}
 // 		}
-// 		// °øÀÎÀÎÁõ ºñ¹Ð¹øÈ£ ÀÔ·ÂÃ¢¿¡¼­ ¹ß»ýÇßÀ¸¸é
+// 		// ê³µì¸ì¸ì¦ ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ì°½ì—ì„œ ë°œìƒí–ˆìœ¼ë©´
 // 		else if( pMsg->hwnd == ::GetDlgItem( GetSafeHwnd(), IDC_EDIT_CERT_PWD ) )
 // 		{
-// 			// ·Î±×ÀÎ ¹öÆ°ÀÌ ´­¸°°ÍÃ³·³ ¸Þ½ÃÁö¸¦ Àü¼ÛÇÏ¿© ·Î±×ÀÎ ÁøÇà
+// 			// ë¡œê·¸ì¸ ë²„íŠ¼ì´ ëˆŒë¦°ê²ƒì²˜ëŸ¼ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ì—¬ ë¡œê·¸ì¸ ì§„í–‰
 // 			PostMessage( WM_COMMAND, MAKEWPARAM( IDC_BUTTON_LOGIN, BN_CLICKED ), (LPARAM)::GetDlgItem( GetSafeHwnd(), IDC_BUTTON_LOGIN ) );
 // 		}
 // 	}

@@ -1,4 +1,4 @@
-// Dlg_t8415.cpp : implementation file
+ï»¿// Dlg_t8415.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -49,7 +49,7 @@ END_MESSAGE_MAP()
 BOOL CDlg_t8415::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	// 30ÃÊ, 120*6.5+10+1=791
+	// 30ì´ˆ, 120*6.5+10+1=791
 	arrs1 = new CString[40];
 	arr1 = new float[40];
 	arr2 = new float[40];
@@ -85,21 +85,21 @@ void CDlg_t8415::OnDestroy()
 
 
 //--------------------------------------------------------------------------------------
-// 8415 ÇöÀç°¡
+// 8415 í˜„ì¬ê°€
 //--------------------------------------------------------------------------------------
 void CDlg_t8415::Request8415(BOOL bNext)
 {
 	//-----------------------------------------------------------
-	// ½Ã°£º° °¡°İ ¹× °Å·¡·®(t8415) ( attr,block,headtype=A )
+	// ì‹œê°„ë³„ ê°€ê²© ë° ê±°ë˜ëŸ‰(t8415) ( attr,block,headtype=A )
 	t8415InBlock	pckInBlock;
 
 	TCHAR			szTrNo[] = "t8415";
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÃÊ±âÈ­
+	// ë°ì´í„° ì´ˆê¸°í™”
 	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
 	CTime t = CTime::GetCurrentTime();
-	int nToday = t.GetDayOfWeek(); //±İÀÏ ¿äÀÏ(ÀÏ¿äÀÏ=1)
+	int nToday = t.GetDayOfWeek(); //ê¸ˆì¼ ìš”ì¼(ì¼ìš”ì¼=1)
 	if (nToday == 2)
 		t -= CTimeSpan(3, 0, 0, 0);
 	else
@@ -107,7 +107,7 @@ void CDlg_t8415::Request8415(BOOL bNext)
 	CString strFilePath = t.Format("%Y%m%d");
 	CString strDate = t.Format("%Y%m%d");
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÀÔ·Â
+	// ë°ì´í„° ì…ë ¥
 	SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), "101NC000", DATA_TYPE_STRING);  
 	SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "10", DATA_TYPE_STRING);
 	SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "40", DATA_TYPE_STRING);
@@ -117,25 +117,25 @@ void CDlg_t8415::Request8415(BOOL bNext)
 	SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);  
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Àü¼Û
+	// ë°ì´í„° ì „ì†¡
 	int nRqID = g_iXingAPI.Request( GetSafeHwnd(), szTrNo, &pckInBlock, sizeof(pckInBlock), bNext, "", 30);
 	
 	//-----------------------------------------------------------
-	// Request ID°¡ 0º¸´Ù ÀÛÀ» °æ¿ì¿¡´Â ¿¡·¯ÀÌ´Ù.
+	// Request IDê°€ 0ë³´ë‹¤ ì‘ì„ ê²½ìš°ì—ëŠ” ì—ëŸ¬ì´ë‹¤.
 	if (nRqID < 0)
 	{
-		MessageBox("Á¶È¸½ÇÆĞ", "¿¡·¯", MB_ICONSTOP);
+		MessageBox("ì¡°íšŒì‹¤íŒ¨", "ì—ëŸ¬", MB_ICONSTOP);
 	}
 	ID8415 = nRqID;
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ¸¦ ¹ŞÀ½
+// ë°ì´í„°ë¥¼ ë°›ìŒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_t8415::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 {
 	//-------------------------------------------------------------------------------------
-	// Data¸¦ ¹ŞÀ½
+	// Dataë¥¼ ë°›ìŒ
 	if (wParam == REQUEST_DATA)
 	{
 		LPRECV_PACKET pRpData = (LPRECV_PACKET)lParam;
@@ -146,7 +146,7 @@ LRESULT CDlg_t8415::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 
 	}
 	//-------------------------------------------------------------------------------------
-	// ¸Ş½ÃÁö¸¦ ¹ŞÀ½
+	// ë©”ì‹œì§€ë¥¼ ë°›ìŒ
 	else if (wParam == MESSAGE_DATA)
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -158,7 +158,7 @@ LRESULT CDlg_t8415::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 	}
 
 	//-------------------------------------------------------------------------------------
-	// System Error¸¦ ¹ŞÀ½
+	// System Errorë¥¼ ë°›ìŒ
 	else if (wParam == SYSTEM_ERROR_DATA)
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -170,7 +170,7 @@ LRESULT CDlg_t8415::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 	}
 
 	//-------------------------------------------------------------------------------------
-	// Release Data¸¦ ¹ŞÀ½
+	// Release Dataë¥¼ ë°›ìŒ
 	else if (wParam == RELEASE_DATA)
 	{
 		g_iXingAPI.ReleaseRequestData((int)lParam);
@@ -180,7 +180,7 @@ LRESULT CDlg_t8415::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 }
 
 //--------------------------------------------------------------------------------------
-// Timeout ¹ß»ı
+// Timeout ë°œìƒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_t8415::OnXMTimeoutData(WPARAM wParam, LPARAM lParam)
 {
@@ -195,12 +195,12 @@ void CDlg_t8415::OnButtonRequest()
 }
 
 
-void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
+void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//í˜„ì¬ê°€
 {
 	if (strcmp(pRpData->szBlockName, NAME_t8415OutBlock1) == 0)
 	{
 		LPt8415OutBlock1 pOutBlock = (LPt8415OutBlock1)pRpData->lpData;
-		int				 nCount = pRpData->nDataLength / sizeof(t8415OutBlock1);		// Block Mode ½Ã¿£ ÀüÃ¼Å©±â / ÇÏ³ªÀÇ Record Å©±â ·Î °¹¼ö¸¦ ±¸ÇÑ´Ù.
+		int				 nCount = pRpData->nDataLength / sizeof(t8415OutBlock1);		// Block Mode ì‹œì—” ì „ì²´í¬ê¸° / í•˜ë‚˜ì˜ Record í¬ê¸° ë¡œ ê°¯ìˆ˜ë¥¼ êµ¬í•œë‹¤.
 		float f1 = 0.0, f2 = 0.0, f3 = 0.0, f4 = 0.0, f5 = 0.0;
 
 		for (int i = 0; i < nCount; i++)
@@ -208,9 +208,9 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 			CString s1, s2, s3, s4, s5;		
 
 			s1 = GetDispData(pOutBlock[i].time, sizeof(pOutBlock[i].time), DATA_TYPE_STRING); arrs1[i] = s1;
-			s2 = GetDispData(pOutBlock[i].close, sizeof(pOutBlock[i].close), DATA_TYPE_FLOAT, 2); arr1[i] = atof(s2);
-			s3 = GetDispData(pOutBlock[i].high, sizeof(pOutBlock[i].high), DATA_TYPE_FLOAT, 2); arr2[i] = atof(s3);
-			s4 = GetDispData(pOutBlock[i].low, sizeof(pOutBlock[i].low), DATA_TYPE_FLOAT, 2); arr3[i] = atof(s4);
+			s2 = GetDispData(pOutBlock[i].close, sizeof(pOutBlock[i].close), DATA_TYPE_FLOAT, 2); arr1[i] = (float)atof(s2);
+			s3 = GetDispData(pOutBlock[i].high, sizeof(pOutBlock[i].high), DATA_TYPE_FLOAT, 2); arr2[i] = (float)atof(s3);
+			s4 = GetDispData(pOutBlock[i].low, sizeof(pOutBlock[i].low), DATA_TYPE_FLOAT, 2); arr3[i] = (float)atof(s4);
 			s5 = GetDispData(pOutBlock[i].jdiff_vol, sizeof(pOutBlock[i].jdiff_vol), DATA_TYPE_LONG); arr4[i] = atol(s5);
 		}
 		if (nCount > 7)
@@ -218,7 +218,7 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 
 			for (int i = 4; i < nCount; i++)
 			{
-				float f3 = arr2[i], f4 = arr3[i];		//close max,min(10ºĞµ¿¾È)
+				float f3 = arr2[i], f4 = arr3[i];		//close max,min(10ë¶„ë™ì•ˆ)
 				for (int k = 0; k < 5; k++)
 				{
 					if (arr2[i - k] > f3)	f3 = arr2[i - k];			//max
@@ -226,7 +226,7 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 				}			
 
 				if (f3 == f4)
-					arr6[i] = 100;											//arr6 : %K(ºĞ¸ğ°¡ 0ÀÎ°æ¿ì)
+					arr6[i] = 100;											//arr6 : %K(ë¶„ëª¨ê°€ 0ì¸ê²½ìš°)
 				else
 					arr6[i] = (arr1[i] - f4) / (f3 - f4) * 100;			//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation				
 			}
@@ -237,7 +237,7 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 				float f5 = 0.0;
 				for (int k = 0; k < 3; k++)
 					f5 += arr6[i - k];
-				arr7[i] = f5 / 3.0;											//%D(3)= slow %K(3) ; 3ºĞ SMA of %K ------------------------- SMA:´Ü¼øÀÌµ¿Æò±Õ
+				arr7[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 3ë¶„ SMA of %K ------------------------- SMA:ë‹¨ìˆœì´ë™í‰ê· 
 			}
 
 			for (int i = 8; i < nCount; i++)
@@ -246,12 +246,12 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 				float f5 = 0.0;
 				for (int k = 0; k < 3; k++)
 					f5 += arr7[i - k];
-				arr8[i] = f5 / 3.0;										//%slow D(3) ; 3ºĞ SMA of slow %K ------------------------- SMA:´Ü¼øÀÌµ¿Æò±Õ
+				arr8[i] = f5 / 3.0f;										//%slow D(3) ; 3ë¶„ SMA of slow %K ------------------------- SMA:ë‹¨ìˆœì´ë™í‰ê· 
 			}
 		}
 
 		CTime t = CTime::GetCurrentTime();
-		int nToday = t.GetDayOfWeek(); //±İÀÏ ¿äÀÏ(ÀÏ¿äÀÏ=1)
+		int nToday = t.GetDayOfWeek(); //ê¸ˆì¼ ìš”ì¼(ì¼ìš”ì¼=1)
 		if (nToday == 2)
 			t -= CTimeSpan(3, 0, 0, 0);
 		else
@@ -259,10 +259,10 @@ void CDlg_t8415::Receive8415(LPRECV_PACKET pRpData)//ÇöÀç°¡
 		CString strFilePath = t.Format("%Y%m%d");
 		CString strDate = t.Format("%Y%m%d");
 		CString temp = strDate + "_10m.csv";
-		ofstream myfile2(temp); // ¼±¹°,¿É¼Ç °¡°İ(10ºĞºÀ)
+		ofstream myfile2(temp); // ì„ ë¬¼,ì˜µì…˜ ê°€ê²©(10ë¶„ë´‰)
 		if (myfile2.is_open())
 		{
-			myfile2 << "½Ã°£, °í°¡, Àú°¡, Á¾°¡, %K, %D, %SlowD\n";
+			myfile2 << "ì‹œê°„, ê³ ê°€, ì €ê°€, ì¢…ê°€, %K, %D, %SlowD\n";
 			for (int i = 0; i < nCount; i++)
 			{
 				

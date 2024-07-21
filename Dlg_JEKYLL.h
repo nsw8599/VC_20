@@ -40,6 +40,7 @@ protected:
 	void				Request200(CString code, CString orgordno, CString prc, CString qty, BOOL bNext = FALSE);//정정주문
 	void				Request300(CString code, CString orgordno, CString qty, BOOL bNext = FALSE);//취소주문
 	void				Request8415(CString str_code, BOOL bNext = FALSE);//선물 n분차트
+    void				Request8415Y(CString str_code, BOOL bNext = FALSE);//선물 n분차트
 	void				Request84152(CString str_code, BOOL bNext = FALSE);//옵션 n분차트
 	void				Request84153(CString str_code, BOOL bNext = FALSE);//옵션 n분차트
 	void				Request3103(BOOL bNext = FALSE);//o3103 해외선물 분봉차트
@@ -81,6 +82,7 @@ protected:
 	void				Receive600_(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 현재가로 매수정정
 	void				Receive100(LPRECV_PACKET pRpData);// 선옵 정상주문
 	void				Receive8415(LPRECV_PACKET pRpData);// 선물차트(n분)
+    void				Receive8415Y(LPRECV_PACKET pRpData);// 선물차트(n분)
 	void				Receive84152(LPRECV_PACKET pRpData);// 옵션차트(n분)
 	void				Receive84153(LPRECV_PACKET pRpData);// 옵션차트(n분)
 	void				Receive3103(LPRECV_PACKET pRpData);// 해외선물차트(n분)
@@ -155,17 +157,17 @@ protected:
 public:
 	afx_msg void OnBnClickedButtonRequest();
 	afx_msg void OnBnClickedButtonStop();
-	afx_msg void OnBnClickedButtonRequest2();
-	afx_msg void OnBnClickedButtonRequest3();
-	afx_msg void OnBnClickedButtonRequest4();
-	afx_msg void OnBnClickedButtonRequest5();
-	afx_msg void OnBnClickedButtonRequest6();
+//	afx_msg void OnBnClickedButtonRequest2();
+//	afx_msg void OnBnClickedButtonRequest3();
+//	afx_msg void OnBnClickedButtonRequest4();
+//	afx_msg void OnBnClickedButtonRequest5();
+//	afx_msg void OnBnClickedButtonRequest6();
 	afx_msg void OnBnClickedButtonRequest7();
-	afx_msg void OnBnClickedButtonRequest10();
-	afx_msg void OnBnClickedButtonRequest11();
-	afx_msg void OnBnClickedButtonRequest12();
-	afx_msg void OnBnClickedButtonRequest13();
-	afx_msg void OnBnClickedButtonRequest14();
+//	afx_msg void OnBnClickedButtonRequest10();
+//	afx_msg void OnBnClickedButtonRequest11();
+//	afx_msg void OnBnClickedButtonRequest12();
+//	afx_msg void OnBnClickedButtonRequest13();
+//	afx_msg void OnBnClickedButtonRequest14();
 	afx_msg void OnBnClickedButtonRequest19();
 	afx_msg void OnBnClickedButtonRequest20();
 	afx_msg void OnBnClickedButtonRequest21();
@@ -186,7 +188,7 @@ public:
 
 	char m_szContKey[30]; // 연속키 저장
 
-	int ID2105, ID2105_, ID21052, ID1601, ID1602, ID1602_, ID100, ID200, ID300, ID600, ID600C, ID600P, ID600_, ID8415, ID84152, ID84153, ID3103, ID0167, ID10100, ID10100_, ID2400, ID2400_, ID2301, ID2421, ID1662, ID0441;
+	int ID2105, ID2105_, ID21052, ID1601, ID1602, ID1602_, ID100, ID200, ID300, ID600, ID600C, ID600P, ID600_, ID8415, ID8415Y, ID84152, ID84153, ID3103, ID0167, ID10100, ID10100_, ID2400, ID2400_, ID2301, ID2421, ID1662, ID0441;
 
 	int nIndex;// 데이터저장 카운트(초)
 	int nCurMin, nCurSec, nCorrectTime;// 총 분초, 서버조정시간 from 0167
@@ -279,6 +281,7 @@ public:
 	float *fAr10mHigh;// high
 	float *fAr10mLow;// low
 
+    float* fAr10mOpenY;// open
 	float *fAr10mCloseY;// Yesterday close
 	float *fAr10mHighY;// high
 	float *fAr10mLowY;// low
@@ -341,13 +344,6 @@ public:
 	float *fArSNPSlowD;//%D(10분)
 	float *fArSNP20mSMA;// 20분 MA(10m)
 	float *fArSNP20mSD;// 20분 SD(표준편차)(10m)
-
-	CEdit m_prc;
-	CEdit m_orgordno;
-	CEdit m_qty;
-	CEdit m_prc2;
-	CEdit m_orgordno2;
-	CEdit m_qty2;
 
 	CEdit m_callcode;
 	CEdit m_putcode;
@@ -479,12 +475,12 @@ public:
 	afx_msg void OnDeltaposSpin4(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDeltaposSpin5(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDeltaposSpin6(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnDeltaposSpin1(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnDeltaposSpin2(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnDeltaposSpin7(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnDeltaposSpin8(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedButtonRequest8();
-	afx_msg void OnBnClickedButtonRequest9();
+//	afx_msg void OnDeltaposSpin1(NMHDR *pNMHDR, LRESULT *pResult);
+//	afx_msg void OnDeltaposSpin2(NMHDR *pNMHDR, LRESULT *pResult);
+//	afx_msg void OnDeltaposSpin7(NMHDR *pNMHDR, LRESULT *pResult);
+//	afx_msg void OnDeltaposSpin8(NMHDR *pNMHDR, LRESULT *pResult);
+//	afx_msg void OnBnClickedButtonRequest8();
+//	afx_msg void OnBnClickedButtonRequest9();
 	afx_msg void OnBnClickedButtonprofit18();
 	afx_msg void OnBnClickedButtonprofit19();
 	afx_msg void OnDeltaposSpin11(NMHDR *pNMHDR, LRESULT *pResult);
@@ -515,4 +511,8 @@ public:
     afx_msg void OnDeltaposSpin32(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnDeltaposSpin33(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnDeltaposSpin34(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnDeltaposSpin36(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnDeltaposSpin35(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnBnClickedButtonRequest22();
+    afx_msg void OnBnClickedButtonRequest23();
 };

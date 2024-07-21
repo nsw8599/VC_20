@@ -71,14 +71,8 @@ void CDlg_JEKYLL::DoDataExchange(CDataExchange* pDX)
 	//DDX_Control(pDX, IDC_PUTCODE3, m_putcode3);
 	DDX_Control(pDX, IDC_2105, m_lst2105);
 	DDX_Control(pDX, IDC_1601, m_lst1601);
-	DDX_Control(pDX, IDC_QTY, m_qty);
 	DDX_Control(pDX, IDC_2105_2, m_lst2105_);
 	DDX_Control(pDX, IDC_2105_3, m_lst2105__);
-	DDX_Control(pDX, IDC_PRC, m_prc);
-	DDX_Control(pDX, IDC_ORGORDNO, m_orgordno);
-	DDX_Control(pDX, IDC_PRC2, m_prc2);
-	DDX_Control(pDX, IDC_QTY2, m_qty2);
-	DDX_Control(pDX, IDC_ORGORDNO2, m_orgordno2);
 	DDX_Control(pDX, IDC_CALLPRC, m_callprc);
 	DDX_Control(pDX, IDC_CALLHIGH, m_callhigh);
 	DDX_Control(pDX, IDC_CALLLOW, m_calllow);
@@ -169,17 +163,17 @@ BEGIN_MESSAGE_MAP(CDlg_JEKYLL, CDialog)
 	ON_MESSAGE(WM_USER + XM_RECEIVE_REAL_DATA, OnXMReceiveRealData)
 	ON_BN_CLICKED(IDC_BUTTON_REQUEST, &CDlg_JEKYLL::OnBnClickedButtonRequest)
 	ON_BN_CLICKED(IDC_BUTTON_STOP, &CDlg_JEKYLL::OnBnClickedButtonStop)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST4, &CDlg_JEKYLL::OnBnClickedButtonRequest4)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST2, &CDlg_JEKYLL::OnBnClickedButtonRequest2)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST3, &CDlg_JEKYLL::OnBnClickedButtonRequest3)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST4, &CDlg_JEKYLL::OnBnClickedButtonRequest4)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST2, &CDlg_JEKYLL::OnBnClickedButtonRequest2)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST3, &CDlg_JEKYLL::OnBnClickedButtonRequest3)
 	ON_BN_CLICKED(IDC_BUTTON_REQUEST7, &CDlg_JEKYLL::OnBnClickedButtonRequest7)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST5, &CDlg_JEKYLL::OnBnClickedButtonRequest5)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST6, &CDlg_JEKYLL::OnBnClickedButtonRequest6)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST10, &CDlg_JEKYLL::OnBnClickedButtonRequest10)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST11, &CDlg_JEKYLL::OnBnClickedButtonRequest11)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST12, &CDlg_JEKYLL::OnBnClickedButtonRequest12)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST14, &CDlg_JEKYLL::OnBnClickedButtonRequest14)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST13, &CDlg_JEKYLL::OnBnClickedButtonRequest13)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST5, &CDlg_JEKYLL::OnBnClickedButtonRequest5)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST6, &CDlg_JEKYLL::OnBnClickedButtonRequest6)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST10, &CDlg_JEKYLL::OnBnClickedButtonRequest10)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST11, &CDlg_JEKYLL::OnBnClickedButtonRequest11)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST12, &CDlg_JEKYLL::OnBnClickedButtonRequest12)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST14, &CDlg_JEKYLL::OnBnClickedButtonRequest14)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST13, &CDlg_JEKYLL::OnBnClickedButtonRequest13)
 	ON_BN_CLICKED(IDC_BUTTON_REQUEST19, &CDlg_JEKYLL::OnBnClickedButtonRequest19)
 	ON_BN_CLICKED(IDC_BUTTON_REQUEST20, &CDlg_JEKYLL::OnBnClickedButtonRequest20)
 	ON_BN_CLICKED(IDC_BUTTON_REQUEST21, &CDlg_JEKYLL::OnBnClickedButtonRequest21)
@@ -202,12 +196,12 @@ BEGIN_MESSAGE_MAP(CDlg_JEKYLL, CDialog)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN4, &CDlg_JEKYLL::OnDeltaposSpin4)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN5, &CDlg_JEKYLL::OnDeltaposSpin5)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN6, &CDlg_JEKYLL::OnDeltaposSpin6)
-	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN1, &CDlg_JEKYLL::OnDeltaposSpin1)
-	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN2, &CDlg_JEKYLL::OnDeltaposSpin2)
-	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN7, &CDlg_JEKYLL::OnDeltaposSpin7)
-	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN8, &CDlg_JEKYLL::OnDeltaposSpin8)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST8, &CDlg_JEKYLL::OnBnClickedButtonRequest8)
-	ON_BN_CLICKED(IDC_BUTTON_REQUEST9, &CDlg_JEKYLL::OnBnClickedButtonRequest9)
+//	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN1, &CDlg_JEKYLL::OnDeltaposSpin1)
+//	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN2, &CDlg_JEKYLL::OnDeltaposSpin2)
+//	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN7, &CDlg_JEKYLL::OnDeltaposSpin7)
+//	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN8, &CDlg_JEKYLL::OnDeltaposSpin8)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST8, &CDlg_JEKYLL::OnBnClickedButtonRequest8)
+//	ON_BN_CLICKED(IDC_BUTTON_REQUEST9, &CDlg_JEKYLL::OnBnClickedButtonRequest9)
 	ON_BN_CLICKED(IDC_BUTTONPROFIT18, &CDlg_JEKYLL::OnBnClickedButtonprofit18)
 	ON_BN_CLICKED(IDC_BUTTONPROFIT19, &CDlg_JEKYLL::OnBnClickedButtonprofit19)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN11, &CDlg_JEKYLL::OnDeltaposSpin11)
@@ -238,6 +232,10 @@ BEGIN_MESSAGE_MAP(CDlg_JEKYLL, CDialog)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN32, &CDlg_JEKYLL::OnDeltaposSpin32)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN33, &CDlg_JEKYLL::OnDeltaposSpin33)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN34, &CDlg_JEKYLL::OnDeltaposSpin34)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN36, &CDlg_JEKYLL::OnDeltaposSpin36)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN35, &CDlg_JEKYLL::OnDeltaposSpin35)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST22, &CDlg_JEKYLL::OnBnClickedButtonRequest22)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST23, &CDlg_JEKYLL::OnBnClickedButtonRequest23)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -488,6 +486,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	fAr10mHigh = new float[42];
 	fAr10mLow = new float[42];
 
+    fAr10mOpenY = new float[42];
 	fAr10mCloseY = new float[42];
 	fAr10mHighY = new float[42];
 	fAr10mLowY = new float[42];
@@ -549,6 +548,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	memset(fAr10mHigh, 0, 42 * sizeof(float));
 	memset(fAr10mLow, 0, 42 * sizeof(float));
 
+    memset(fAr10mOpenY, 0, 42 * sizeof(float));
 	memset(fAr10mCloseY, 0, 42 * sizeof(float));
 	memset(fAr10mHighY, 0, 42 * sizeof(float));
 	memset(fAr10mLowY, 0, 42 * sizeof(float));
@@ -653,7 +653,7 @@ void CDlg_JEKYLL::OnDestroy()
 	delete[] fCallAvrPrc; delete[] fPutAvrPrc;
 	delete[] fArOpen;	delete[] fArClose;	delete[] fArCloseY;	delete[] fArHigh;	delete[] fArLow;	delete[] fAr10mOpen;	delete[] fAr10mClose;	delete[] fAr10mHigh;	delete[] fAr10mLow;
 	delete[] fArCClose; delete[] fArPClose;
-	delete[] fArWidth;	delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
+	delete[] fArWidth;	delete[] fAr10mOpenY; delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
 	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
 	delete[] fAr60mSMA; delete[] fArMin60m; delete[] fArMax60m;
 	delete[] fArMax30m; delete[] fArMin30m;
@@ -669,7 +669,7 @@ void CDlg_JEKYLL::OnDestroy()
 	fCallAvrPrc = NULL; fPutAvrPrc = NULL;
 	fArOpen = NULL;	fArClose = NULL;	fArCloseY = NULL; fArHigh = NULL;	fArLow = NULL;	fAr10mOpen = NULL;	fAr10mClose = NULL;	fAr10mHigh = NULL;	fAr10mLow = NULL;
 	fArCClose = NULL; fArPClose = NULL;
-	fArWidth = NULL;	 fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
+	fArWidth = NULL;	 fAr10mOpenY = NULL;	fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
 	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
 	fAr60mSMA = NULL; fArMin60m = NULL; fArMax60m = NULL;
 	fArMax30m = NULL; fArMin30m = NULL;
@@ -731,7 +731,7 @@ BOOL CDlg_JEKYLL::DestroyWindow()
 	delete[] fCallAvrPrc; delete[] fPutAvrPrc;
 	delete[] fArOpen;	delete[] fArClose;	delete[] fArCloseY;	delete[] fArHigh;	delete[] fArLow;	delete[] fAr10mOpen;	delete[] fAr10mClose;	delete[] fAr10mHigh;	delete[] fAr10mLow;
 	delete[] fArCClose; delete[] fArPClose;
-	delete[] fArWidth;	delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
+	delete[] fArWidth;	delete[] fAr10mOpenY; delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
 	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
 	delete[] fAr60mSMA; delete[] fArMin60m; delete[] fArMax60m;
 	delete[] fArMax30m; delete[] fArMin30m;
@@ -747,7 +747,7 @@ BOOL CDlg_JEKYLL::DestroyWindow()
 	fCallAvrPrc = NULL; fPutAvrPrc = NULL;
 	fArOpen = NULL;	fArClose = NULL;	fArCloseY = NULL; fArHigh = NULL;	fArLow = NULL;	fAr10mOpen = NULL;	fAr10mClose = NULL;	fAr10mHigh = NULL;	fAr10mLow = NULL;
 	fArCClose = NULL; fArPClose = NULL;
-	fArWidth = NULL;	 fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
+	fArWidth = NULL;	fAr10mOpenY = NULL;	 fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
 	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
 	fAr60mSMA = NULL; fArMin60m = NULL; fArMax60m = NULL;
 	fArMax30m = NULL; fArMin30m = NULL;
@@ -1913,6 +1913,732 @@ void CDlg_JEKYLL::Request8415(CString str_code, BOOL bNext)
 }
 
 
+void CDlg_JEKYLL::Request8415Y(CString str_code, BOOL bNext) //WRITE
+{
+    //-----------------------------------------------------------
+    // 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
+    t8415InBlock	pckInBlock;
+
+    TCHAR			szTrNo[] = "t8415";
+
+    //-----------------------------------------------------------
+    // 데이터 초기화
+    FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
+    //CString code; GetDlgItemTextA(IDC_CALLCODE, code);
+    //CString strDate = "20190101";
+    //-----------------------------------------------------------
+    // 데이터 입력
+    SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(Future/Option코드)
+    SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
+    SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
+    SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
+    SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), strDateY, DATA_TYPE_STRING);	// 
+    SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), strDateY, DATA_TYPE_STRING);	//  
+    SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
+
+    //-----------------------------------------------------------
+    // 데이터 전송
+    int nRqID = g_iXingAPI.Request(
+        GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
+        szTrNo,						// TR 번호
+        &pckInBlock,				// InBlock 데이터
+        sizeof(pckInBlock),		// InBlock 데이터 크기
+        bNext,						// 다음조회 여부
+        "",							// 다음조회 Key
+        30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
+    );
+
+    //-----------------------------------------------------------
+    // Request ID가 0보다 작을 경우에는 에러이다.
+    if (nRqID < 0)		MessageBox("조회실패8415Y", "8415Y에러", MB_ICONSTOP);
+    ID8415Y = nRqID; // ID8415 == 18
+    //CString str;	str.Format("%d", ID8415);
+    //m_tst.SetWindowTextA(str);
+
+}
+
+void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분) header A type // WRITE
+{
+    CString shcode;
+    if (strcmp(pRpData->szBlockName, NAME_t8415OutBlock) == 0)
+    {
+        LPt8415OutBlock pOutBlock = (LPt8415OutBlock)pRpData->lpData;
+
+        shcode = GetDispData(pOutBlock->shcode, sizeof(pOutBlock->shcode), DATA_TYPE_STRING);			//
+    }
+
+    else if (strcmp(pRpData->szBlockName, NAME_t8415OutBlock1) == 0)
+    {
+        LPt8415OutBlock1 pOutBlock = (LPt8415OutBlock1)pRpData->lpData;
+        int				 nCount = pRpData->nDataLength / sizeof(t8415OutBlock1);		// Block Mode 시엔 전체크기 / 하나의 Record 크기 로 갯수를 구한다.
+        float fHigh = fArClose[0], fLow = fArClose[0], fRef = 0.5;
+        int nUpdateHigh = 0, nUpdateLow = 0;
+        fHighest = 500, fLowest = 0;
+
+        for (int i = 0; i < nCount; i++)
+        {
+            CString s1, s2, s3, s4, s5, s6;
+
+            s1 = GetDispData(pOutBlock[i].time, sizeof(pOutBlock[i].time), DATA_TYPE_STRING); strArTime8415[i] = s1;			//시간
+            s2 = GetDispData(pOutBlock[i].close, sizeof(pOutBlock[i].close), DATA_TYPE_FLOAT, 2); fArClose[i] = (float)atof(s2);		//종가
+            s3 = GetDispData(pOutBlock[i].high, sizeof(pOutBlock[i].high), DATA_TYPE_FLOAT, 2); fArHigh[i] = (float)atof(s3);			//고가
+            s4 = GetDispData(pOutBlock[i].low, sizeof(pOutBlock[i].low), DATA_TYPE_FLOAT, 2); fArLow[i] = (float)atof(s4);				//저가
+            s5 = GetDispData(pOutBlock[i].jdiff_vol, sizeof(pOutBlock[i].jdiff_vol), DATA_TYPE_LONG); lArVol[i] = atol(s5);		//거래량
+            s6 = GetDispData(pOutBlock[i].open, sizeof(pOutBlock[i].open), DATA_TYPE_FLOAT, 2); fArOpen[i] = (float)atof(s6);			//시가
+
+            fArWidth[i] = fArClose[i] - fArOpen[i];							//Width price(close-open)
+
+            if (fHighest == 500 || fLowest == 0)
+            {
+                if (fArClose[i] > fHigh) fHigh = fArClose[i];
+                if (fArClose[i] < fLow) fLow = fArClose[i];
+                if (fHigh - fLow > fRef)
+                {
+                    fHighest = fHigh;
+                    fLowest = fLow;
+                }
+            }
+            else
+            {
+                if (fArClose[i] > fHighest)
+                {
+                    fHighest = fArClose[i];
+                    nUpdateHigh++;
+                }
+                if (fArClose[i] < fLowest)
+                {
+                    fLowest = fArClose[i];
+                    nUpdateLow++;
+                }
+            }
+            nArUpdateHigh[i] = nUpdateHigh;
+            nArUpdateLow[i] = nUpdateLow;
+
+            lArVol2[i] = lArVol[i];
+            if ((fArWidth[i] < 0) || (fArWidth[i] == 0 && fArHigh[i] - fArClose[i] > fArClose[i] - fArLow[i])) lArVol2[i] *= -1;
+            if (fArWidth[i] == 0 && fArHigh[i] - fArClose[i] == fArClose[i] - fArLow[i]) lArVol2[i] *= 0;
+        }
+
+        // ************************************************************************************************* 10분봉 High/Low/Open/Close
+        int quo = nCount / 10, rem = nCount % 10; //현재시간 위치를 결정
+
+        if (nCount > 9) //10분봉 계산
+        {
+            for (int i = 0; i < quo; ++i) //
+            {
+                float f1 = 0.0, f2 = 500;//close max,min(50분동안)
+                int kn = 10;
+                if (quo == 40) kn = 6;
+                for (int k = 0; k < kn; k++) //0~9까지 계산
+                {
+                    if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
+                    if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
+                }
+                fAr10mHigh[i] = f1;
+                fAr10mLow[i] = f2;
+                fAr10mOpen[i] = fArOpen[10 * i + 0];
+                fAr10mClose[i] = fArClose[10 * i + kn - 1];
+            }
+            if (rem > 0) // 현재시간까지의 10분봉 계산
+            {
+                float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
+                for (int k = 0; k < rem; ++k)
+                {
+                    if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
+                    if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
+                }
+                fAr10mHigh[quo] = f1;
+                fAr10mLow[quo] = f2;
+                fAr10mOpen[quo] = fArOpen[10 * quo + 0];
+                fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
+            }
+
+            if (nCount == 411)
+            {
+                float f1 = fArHigh[409], f2 = fArLow[409];		//
+
+                if (fArHigh[410] > f1)	f1 = fArHigh[410];			//max
+                if (fArLow[410] < f2)	f2 = fArLow[410];			//min	
+                fAr10mHigh[41] = f1;
+                fAr10mLow[41] = f2;
+                fAr10mOpen[41] = fArOpen[410];
+                fAr10mClose[41] = fArClose[410];
+            }
+        }
+
+        else // nCount <= 9
+        {
+            if (rem > 1)
+            {
+                float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
+                for (int k = 0; k < rem; ++k)
+                {
+                    if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
+                    if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
+                }
+                fAr10mHigh[0] = f1;
+                fAr10mLow[0] = f2;
+                fAr10mOpen[0] = fArOpen[0];
+                fAr10mClose[0] = fArClose[rem - 1];
+            }
+        }
+
+        if (quo >= 4)//10분봉(5,3,3), 10mK 계산
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+                if (i < 4)
+                {
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                        if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (4 - i); k++)
+                    {
+                        if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                        if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+                    }
+                }
+                else
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
+
+                        if (fAr10mHigh[i - k] > f3)	f3 = fAr10mHigh[i - k];			//max
+                        if (fAr10mLow[i - k] < f4)	f4 = fAr10mLow[i - k];			//min
+                    }
+                    if (f3 == f4)
+                        fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                    else
+                        fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation	
+                }
+
+                if (f3 == f4)
+                    fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                else
+                    fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+            }
+
+        }
+        else // quo < 4 (ex quo=3)
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+                int temp = i;
+                while (temp > 0)
+                {
+                    if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                    if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                    temp -= 1;
+                }
+                for (int k = 0; k < (4 - i); k++)
+                {
+                    if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                    if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+                }
+                if (f3 == f4)
+                    fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                else
+                    fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+            }
+        }
+
+        if (quo >= 3)//10분봉, 10mD 계산
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 3)
+                {
+                    float f5 = fAr10mK[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f5 += fAr10mK[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (2 - i); k++)
+                    {
+                        f5 += fAr10mKY[41 - k];
+                    }
+                    fAr10mD[i] = f5 / 3.0f;
+                }
+                else
+                {
+                    float f5 = 0.0;
+                    for (int k = 0; k < 3; k++)
+                        f5 += fAr10mK[i - k];
+                    fAr10mD[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 30분 SMA of %K
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f5 = fAr10mK[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mK[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                {
+                    f5 += fAr10mKY[41 - k];
+                }
+                fAr10mD[i] = f5 / 3.0f;
+            }
+        }
+
+        if (quo >= 3) //10분봉, 10mSlowD
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 3)
+                {
+                    float f5 = fAr10mD[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f5 += fAr10mD[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (2 - i); k++)
+                        f5 += fAr10mDY[41 - k];
+                    fAr10mSlowD[i] = f5 / 3.0f;
+                }
+                else
+                {
+                    float f5 = 0.0;
+                    for (int k = 0; k < 3; k++)
+                        f5 += fAr10mD[i - k];
+                    fAr10mSlowD[i] = f5 / 3.0f;
+                }
+            }
+
+        }
+        else
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f5 = fAr10mD[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mD[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                    f5 += fAr10mDY[41 - k];
+                fAr10mSlowD[i] = f5 / 3.0f;
+            }
+        }
+
+        // ******************************************************************************************** 10분봉의 Bolinger band(20sma)
+        if (quo < 20)
+        {
+            for (int i = 0; i < quo; i++)
+            {
+                float f1 = fAr10mClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fAr10mClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SMA 초기화
+                {
+                    f1 += fAr10mCloseY[41 - k];
+                }
+                f1 = f1 / 20;
+                fAr10m20mSMA[i] = f1;
+
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SD (Bolinger bandwidth)
+                {
+                    f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                fAr10m20mSD[i] = f2;
+            }
+
+        }
+        else // quo >= 20
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 19)
+                {
+                    float f1 = fAr10mClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fAr10mClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SMA 초기화
+                    {
+                        f1 += fAr10mCloseY[41 - k];
+                    }
+                    f1 = f1 / 20;
+                    fAr10m20mSMA[i] = f1;
+
+                    f1 = 0.0;
+                    float f2 = 0.0;
+                    temp = i;
+                    while (temp >= 0)
+                    {
+                        f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                    fAr10m20mSD[i] = f2;
+                }
+                else
+                {
+                    float f1 = 0.0;
+                    for (int k = 0; k < 20; k++)										// 10분봉 20 SMA = Bolinger mid-band
+                    {
+                        f1 += fAr10mClose[i - k];
+                    }
+                    f1 = f1 / 20;
+                    fAr10m20mSMA[i] = f1;
+
+                    f1 = 0.0;
+                    float f2 = 0.0;
+                    for (int k = 0; k < 20; k++)										// 10분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = (fAr10mClose[i - k] + fAr10mLow[i - k] + fAr10mHigh[i - k]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+                    fAr10m20mSD[i] = f2;
+                }
+
+            }
+        }
+
+        // ****************************************************************************************************** 1분봉 Bolinger Band(20m)
+        if (nCount < 20)
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 20;
+                fAr20mSMA[i] = f1;
+
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = fArClose[temp] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 1분봉 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                fAr20mSD[i] = f2;
+            }
+
+
+        }
+        else
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                if (i < 19)
+                {
+                    float f1 = fArClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fArClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
+                    {
+                        f1 += fArCloseY[410 - k];
+                    }
+                    f1 = f1 / 20;
+                    fAr20mSMA[i] = f1;
+
+                    f1 = 0.0;
+                    float f2 = 0.0;
+                    temp = i;
+                    while (temp >= 0)
+                    {
+                        f1 = fArClose[temp] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 1분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                    fAr20mSD[i] = f2;
+                }
+                else
+                {
+                    float f1 = 0.0f;
+                    for (int k = 0; k < 20; k++)									// 1분봉 20 SMA = Bolinger mid-band
+                    {
+                        f1 += fArClose[i - k];
+                    }
+                    f1 = f1 / 20.0f;
+                    fAr20mSMA[i] = f1;
+
+                    f1 = 0.0f;
+                    float f2 = 0.0f;
+                    for (int k = 0; k < 20; k++)									// 1분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = fArClose[i - k] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2(2시그마)
+                    fAr20mSD[i] = f2;
+                }
+            }
+
+        }
+
+        if (nCount > 28)
+        {
+            for (int i = 29; i < nCount; i++)
+            {
+                float f1 = 500.0, f2 = 100.0;
+                int n1 = 0, n2 = 0;
+                for (int k = 0; k < 30; k++)									// fArMax30m, fArMin30m PointA (최근 30분간 선물 최대값과 최소값)
+                {
+                    if (fArClose[i - k] < f1)
+                    {
+                        f1 = fArClose[i - k];
+                        n1 = i - k + 1;
+                    }
+                    if (fArClose[i - k] > f2)
+                    {
+                        f2 = fArClose[i - k];
+                        n2 = i - k + 1;
+                    }
+                }
+                fArMin30m[i] = f1; nArMin30m[i] = n1;
+                fArMax30m[i] = f2; nArMax30m[i] = n2;
+            }
+        }
+
+        if (nCount > 58)
+        {
+
+            for (int i = 59; i < nCount; i++)
+            {
+                float f2 = 500.0, f3 = 100.0;
+                for (int k = 0; k < 60; k++)									// fArMax60m, fArMin60m (최근 60분간 선물 최대값과 최소값)
+                {
+                    if (fArLow[i - k] < f2)
+                        f2 = fArLow[i - k];
+                    if (fArHigh[i - k] > f3)
+                        f3 = fArHigh[i - k];
+                }
+                fArMin60m[i] = f2;
+                fArMax60m[i] = f3;
+            }
+        }
+
+        if (nCount < 60)
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (59 - i); k++)									// 1분봉 60 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 60;
+                fAr60mSMA[i] = f1;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                if (i < 59)
+                {
+                    float f1 = fArClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fArClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (59 - i); k++)									// 1분봉 60 SMA 초기화
+                    {
+                        f1 += fArCloseY[410 - k];
+                    }
+                    f1 = f1 / 60;
+                    fAr60mSMA[i] = f1;
+                }
+                else
+                {
+                    float f1 = 0.0;
+                    for (int k = 0; k < 60; k++)									// 1분봉 60 SMA = Bolinger mid-band
+                    {
+                        f1 += fArClose[i - k];
+                    }
+                    f1 = f1 / 60;
+                    fAr60mSMA[i] = f1;
+                }
+
+            }
+
+        }
+
+        CString name = "./csv/" + strDateY + "_10m.csv";
+        ofstream myfileCombine2(name); //시간, High, Low, Close, %K, %D, %slowD, 20mSMA, 20mSD
+        if (myfileCombine2.is_open())
+        {
+            //int quo = nCurMin / 10;
+            //if (nCurMin > 410 || nToday == 1 || nToday == 7) quo = 40;
+
+            myfileCombine2 << "시간, 시가, 종가, 고가, 저가, %K(5), %D(3), slow %D(3), SMA(20), SD(20)\n";
+            int quo = 42;
+            for (int i = 0; i < quo; i++)
+            {
+                if (i < 41)
+                {
+                    myfileCombine2 << strArTime8415[(i + 1) * 10 - 1] << ", " << fAr10mOpen[i] << ", " << fAr10mClose[i] << ", " << fAr10mHigh[i] << ", " << fAr10mLow[i] << ", "
+                        << fAr10mK[i] << ", " << fAr10mD[i] << ", " << fAr10mSlowD[i] << ", "
+                        << fAr10m20mSMA[i] << ", " << fAr10m20mSD[i] << "\n";
+                }
+                else
+                {
+                    myfileCombine2 << strArTime8415[410] << ", " << fAr10mOpen[i] << ", " << fAr10mClose[i] << ", " << fAr10mHigh[i] << ", " << fAr10mLow[i] << ", "
+                        << fAr10mK[i] << ", " << fAr10mD[i] << ", " << fAr10mSlowD[i] << ", "
+                        << fAr10m20mSMA[i] << ", " << fAr10m20mSD[i] << "\n";
+                }
+
+            }
+        }
+        myfileCombine2.close();
+
+        CString strFilePath = "./csv/" + strDateY + ".csv";
+        ofstream myfileCombine(strFilePath);
+        if (myfileCombine.is_open())
+        {
+            myfileCombine << "시간, 시가, 종가, 고가, 저가,  Width, SMA(20), SD(20), SMA(60)\n";
+            for (int i = 0; i < 411; i++)
+            {
+                myfileCombine << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << fArHigh[i] << ", " << fArLow[i] << ", "
+                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i];
+
+                myfileCombine << "\n";
+            }
+        }
+        myfileCombine.close();
+
+
+
+        //else if (shcode == CallCode)
+        //{
+        //	ofstream myfile8415("test8415_call.csv");								// 선물,옵션차트 저장(1분봉)
+        //	if (myfile8415.is_open())
+        //	{
+
+        //		myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        //		for (int i = 0; i < nCount; i++)
+        //		{
+
+        //			myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+        //				<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+        //		}
+
+        //	}
+        //	myfile8415.close();
+        //}
+        //else if (shcode == PutCode)
+        //{
+        //	ofstream myfile8415("test8415_put.csv");								// 선물,옵션차트 저장(1분봉)
+        //	if (myfile8415.is_open())
+        //	{
+
+        //		myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        //		for (int i = 0; i < nCount; i++)
+        //		{
+
+        //			myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+        //				<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+        //		}
+
+        //	}
+        //	myfile8415.close();
+        //}
+    }
+
+    for (int i = 0; i < 411; i++)
+    {
+        fArCloseY[i] = fArClose[i];
+        fAr20mSMAY[i] = fAr20mSMA[i];
+    }
+
+    for (int i = 0; i < 42; i++)
+    {
+        fAr10mOpenY[i] = fAr10mOpen[i];
+        fAr10mCloseY[i] = fAr10mClose[i];
+        fAr10mHighY[i] = fAr10mHigh[i];
+        fAr10mLowY[i] = fAr10mLow[i];
+        fAr10mKY[i] = fAr10mK[i];
+        fAr10mDY[i] = fAr10mD[i];
+        fAr10mSlowDY[i] = fAr10mSlowD[i];
+        fAr10m20mSMAY[i] = fAr10m20mSMA[i];
+        fAr10m20mSDY[i] = fAr10m20mSD[i];
+    }
+
+    //Request8415(FutureCode);
+    return;
+}
+
+
 void CDlg_JEKYLL::Request84152(CString str_code, BOOL bNext)
 {
 	//-----------------------------------------------------------
@@ -2430,6 +3156,8 @@ LRESULT CDlg_JEKYLL::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 			Receive100(pRpData);
 		if (pRpData->nRqID == ID8415)//차트(n분)
 			Receive8415(pRpData);
+        if (pRpData->nRqID == ID8415Y)//차트(n분)
+            Receive8415Y(pRpData);
 		if (pRpData->nRqID == ID84152)//차트(n분)
 			Receive84152(pRpData);
 		if (pRpData->nRqID == ID84153)//차트(n분)
@@ -2756,9 +3484,6 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 		str2.Format("%d", lCallQty[0]);
 		str3.Format("%d", lCallQty[1]);
 		str4.Format("%d", lCallQty[2]);
-		str5.Format("%.2f", fPutAvrPrc[0]);	m_orgordno2.SetWindowTextA(str5);
-		str6.Format("%.2f", fPutAvrPrc[1]);	m_qty2.SetWindowTextA(str6);
-		str7.Format("%.2f", fPutAvrPrc[2]);	m_prc2.SetWindowTextA(str7);
 
 		/*m_tst2.SetWindowTextA(CallCode[0]);
 		m_tst3.SetWindowTextA(CallCode[1]);
@@ -2771,9 +3496,6 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 		str2.Format("%d", lPutQty[0]);
 		str3.Format("%d", lPutQty[1]);
 		str4.Format("%d", lPutQty[2]);
-		str5.Format("%.2f", fCallAvrPrc[0]);	m_orgordno.SetWindowTextA(str5);
-		str6.Format("%.2f", fCallAvrPrc[1]);	m_qty.SetWindowTextA(str6);
-		str7.Format("%.2f", fCallAvrPrc[2]);	m_prc.SetWindowTextA(str7);
 
 		/*m_tst2.SetWindowTextA(PutCode[0]);
 		m_tst3.SetWindowTextA(PutCode[1]);
@@ -4250,623 +4972,579 @@ void CDlg_JEKYLL::Receive8415(LPRECV_PACKET pRpData) //선물옵션차트(n분) 
 			if (fArWidth[i] == 0 && fArHigh[i] - fArClose[i] == fArClose[i] - fArLow[i]) lArVol2[i] *= 0;
 		}
 
-		// ************************************************************************************************* 10분봉 High/Low/Open/Close
-		int quo = nCount / 10, rem = nCount % 10; //현재시간 위치를 결정
-		if (nCount < 410)
-		{
-			if (nCount > 9) //10분봉 계산
-			{
-				for (int i = 0; i < quo; ++i) //
-				{
-					float f1 = 0.0, f2 = 500;//close max,min(50분동안)
-					int kn = 10;
-					if (quo == 40) kn = 6;
-					for (int k = 0; k < kn; k++) //0~9까지 계산
-					{
-						if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
-						if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
-					}
-					fAr10mHigh[i] = f1;
-					fAr10mLow[i] = f2;
-					fAr10mOpen[i] = fArOpen[10 * i + 0];
-					fAr10mClose[i] = fArClose[10 * i + kn - 1];
-				}
-				if (rem > 0) // 현재시간까지의 10분봉 계산
-				{
-					float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
-					for (int k = 0; k < rem; ++k)
-					{
-						if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
-						if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
-					}
-					fAr10mHigh[quo] = f1;
-					fAr10mLow[quo] = f2;
-					fAr10mOpen[quo] = fArOpen[10 * quo + 0];
-					fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
-				}
-			}
-			else // nCount <= 9
-			{
-				if (rem > 1)
-				{
-					float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
-					for (int k = 0; k < rem; ++k)
-					{
-						if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
-						if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
-					}
-					fAr10mHigh[0] = f1;
-					fAr10mLow[0] = f2;
-					fAr10mOpen[0] = fArOpen[0];
-					fAr10mClose[0] = fArClose[rem - 1];
-				}
-			}
-		}
-		else // nCount==411
-		{
-			if (nCount > 9) //10분봉 계산
-			{
-				for (int i = 0; i < quo; ++i) //
-				{
-					float f1 = 0.0, f2 = 500;//close max,min(50분동안)
-					int kn = 10;
-					if (quo == 40) kn = 6;
-					for (int k = 0; k < kn; k++) //0~9까지 계산
-					{
-						if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
-						if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
-					}
-					fAr10mHigh[i] = f1;
-					fAr10mLow[i] = f2;
-					fAr10mOpen[i] = fArOpen[10 * i + 0];
-					fAr10mClose[i] = fArClose[10 * i + kn - 1];
-				}
-				if (rem > 0) // 현재시간까지의 10분봉 계산
-				{
-					float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
-					for (int k = 0; k < rem; ++k)
-					{
-						if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
-						if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
-					}
-					fAr10mHigh[quo] = f1;
-					fAr10mLow[quo] = f2;
-					fAr10mOpen[quo] = fArOpen[10 * quo + 0];
-					fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
-				}
-			}
-			else // nCount <= 9
-			{
-				if (rem > 1)
-				{
-					float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
-					for (int k = 0; k < rem; ++k)
-					{
-						if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
-						if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
-					}
-					fAr10mHigh[0] = f1;
-					fAr10mLow[0] = f2;
-					fAr10mOpen[0] = fArOpen[0];
-					fAr10mClose[0] = fArClose[rem - 1];
-				}
-			}
+        // ************************************************************************************************* 10분봉 High/Low/Open/Close
+        int quo = nCount / 10, rem = nCount % 10; //현재시간 위치를 결정
 
-			float f1 = fArHigh[389], f2 = fArLow[389];		//
-			for (int k = 0; k < 6; ++k)
-			{
-				if (fArHigh[405 + k] > f1)	f1 = fArHigh[405 + k];			//max
-				if (fArLow[405 + k] < f2)	f2 = fArLow[405 + k];			//min				
-			}
-			fAr10mHigh[41] = f1;
-			fAr10mLow[41] = f2;
-			fAr10mOpen[41] = fArOpen[405];
-			fAr10mClose[41] = fArClose[410];
-		}
+        if (nCount > 9) //10분봉 계산
+        {
+            for (int i = 0; i < quo; ++i) //
+            {
+                float f1 = 0.0, f2 = 500;//close max,min(50분동안)
+                int kn = 10;
+                if (quo == 40) kn = 6;
+                for (int k = 0; k < kn; k++) //0~9까지 계산
+                {
+                    if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
+                    if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
+                }
+                fAr10mHigh[i] = f1;
+                fAr10mLow[i] = f2;
+                fAr10mOpen[i] = fArOpen[10 * i + 0];
+                fAr10mClose[i] = fArClose[10 * i + kn - 1];
+            }
+            if (rem > 0) // 현재시간까지의 10분봉 계산
+            {
+                float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
+                for (int k = 0; k < rem; ++k)
+                {
+                    if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
+                    if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
+                }
+                fAr10mHigh[quo] = f1;
+                fAr10mLow[quo] = f2;
+                fAr10mOpen[quo] = fArOpen[10 * quo + 0];
+                fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
+            }
 
-		if (quo >= 4)//10분봉(5,3,3), 10mK 계산
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
-				if (i < 4)
-				{
-					int temp = i;
-					while (temp > 0)
-					{
-						if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
-						if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
-						temp -= 1;
-					}
-					for (int k = 0; k < (4 - i); k++)
-					{
-						if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
-						if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
-					}
-				}
-				else
-				{
-					for (int k = 0; k < 5; k++)
-					{
+            if (nCount == 411)
+            {
+                float f1 = fArHigh[409], f2 = fArLow[409];		//
+                for (int k = 0; k < 6; ++k)
+                {
+                    if (fArHigh[405 + k] > f1)	f1 = fArHigh[405 + k];			//max
+                    if (fArLow[405 + k] < f2)	f2 = fArLow[405 + k];			//min				
+                }
+                fAr10mHigh[41] = f1;
+                fAr10mLow[41] = f2;
+                fAr10mOpen[41] = fArOpen[405];
+                fAr10mClose[41] = fArClose[410];
+            }
+        }
 
-						if (fAr10mHigh[i - k] > f3)	f3 = fAr10mHigh[i - k];			//max
-						if (fAr10mLow[i - k] < f4)	f4 = fAr10mLow[i - k];			//min
-					}
-					if (f3 == f4)
-						fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-					else
-						fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation	
-				}
-
-				if (f3 == f4)
-					fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-				else
-					fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
-			}
-
-		}
-		else // quo < 4 (ex quo=3)
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
-				int temp = i;
-				while (temp > 0)
-				{
-					if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
-					if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
-					temp -= 1;
-				}
-				for (int k = 0; k < (4 - i); k++)
-				{
-					if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
-					if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
-				}
-				if (f3 == f4)
-					fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-				else
-					fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
-			}
-		}
-
-		if (quo >= 3)//10분봉, 10mD 계산
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				if (i < 3)
-				{
-					float f5 = fAr10mK[i];
-					int temp = i;
-					while (temp > 0)
-					{
-						f5 += fAr10mK[temp - 1];
-						temp -= 1;
-					}
-					for (int k = 0; k < (2 - i); k++)
-					{
-						f5 += fAr10mKY[41 - k];
-					}
-					fAr10mD[i] = f5 / 3.0f;
-				}
-				else
-				{
-					float f5 = 0.0;
-					for (int k = 0; k < 3; k++)
-						f5 += fAr10mK[i - k];
-					fAr10mD[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 30분 SMA of %K
-				}
-			}
-		}
-		else
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				float f5 = fAr10mK[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f5 += fAr10mK[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (2 - i); k++)
-				{
-					f5 += fAr10mKY[41 - k];
-				}
-				fAr10mD[i] = f5 / 3.0f;
-			}
-		}
-
-		if (quo >= 3) //10분봉, 10mSlowD
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				if (i < 3)
-				{
-					float f5 = fAr10mD[i];
-					int temp = i;
-					while (temp > 0)
-					{
-						f5 += fAr10mD[temp - 1];
-						temp -= 1;
-					}
-					for (int k = 0; k < (2 - i); k++)
-						f5 += fAr10mDY[41 - k];
-					fAr10mSlowD[i] = f5 / 3.0f;
-				}
-				else
-				{
-					float f5 = 0.0;
-					for (int k = 0; k < 3; k++)
-						f5 += fAr10mD[i - k];
-					fAr10mSlowD[i] = f5 / 3.0f;
-				}
-			}
-			
-		}
-		else
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				float f5 = fAr10mD[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f5 += fAr10mD[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (2 - i); k++)
-					f5 += fAr10mDY[41 - k];
-				fAr10mSlowD[i] = f5 / 3.0f;
-			}
-		}
-
-		// ******************************************************************************************** 10분봉의 Bolinger band(20sma)
-		if (quo < 20)
-		{
-			for (int i = 0; i < quo; i++)
-			{
-				float f1 = fAr10mClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fAr10mClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
-				{
-					f1 += fAr10mCloseY[41 - k];
-				}
-				f1 = f1 / 20;
-				fAr10m20mSMA[i] = f1;
-
-				f1 = 0.0;
-				float f2 = 0.0;
-				temp = i;
-				while (temp >= 0)
-				{
-					f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
-					f2 += abs(f1 * f1);
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-				fAr10m20mSD[i] = f2;
-			}
-
-		}
-		else // quo >= 20
-		{
-			for (int i = 0; i <= quo; i++)
-			{
-				if (i < 19)
-				{
-					float f1 = fAr10mClose[i];
-					int temp = i;
-					while (temp > 0)
-					{
-						f1 += fAr10mClose[temp - 1];
-						temp -= 1;
-					}
-					for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
-					{
-						f1 += fAr10mCloseY[41 - k];
-					}
-					f1 = f1 / 20;
-					fAr10m20mSMA[i] = f1;
-
-					f1 = 0.0;
-					float f2 = 0.0;
-					temp = i;
-					while (temp >= 0)
-					{
-						f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
-						f2 += abs(f1 * f1);
-						temp -= 1;
-					}
-					for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-					{
-						f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
-						f2 += abs(f1 * f1);
-					}
-					f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-					fAr10m20mSD[i] = f2;
-				}
-				else
-				{
-					float f1 = 0.0;
-					for (int k = 0; k < 20; k++)										// 20분 SMA = Bolinger mid-band
-					{
-						f1 += fAr10mClose[i - k];
-					}
-					f1 = f1 / 20;
-					fAr10m20mSMA[i] = f1;
-
-					f1 = 0.0;
-					float f2 = 0.0;
-					for (int k = 0; k < 20; k++)										// 20분 SD (Bolinger bandwidth)
-					{
-						f1 = (fAr10mClose[i - k] + fAr10mLow[i - k] + fAr10mHigh[i - k]) / 3 - fAr10m20mSMA[i];
-						f2 += abs(f1 * f1);
-					}
-					f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-					fAr10m20mSD[i] = f2;
-				}
-
-			}
-		}
-
-		// ****************************************************************************************************** 1분봉 Bolinger Band(20m)
-		if (nCount < 20)
-		{
-			for (int i = 0; i < nCount; i++)
-			{
-				float f1 = fArClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fArClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
-				{
-					f1 += fArCloseY[410 - k];
-				}
-				f1 = f1 / 20;
-				fAr20mSMA[i] = f1;
-
-				f1 = 0.0;
-				float f2 = 0.0;
-				temp = i;
-				while (temp >= 0)
-				{
-					f1 = fArClose[temp] - fAr20mSMA[i];
-					f2 += abs(f1 * f1);
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-				fAr20mSD[i] = f2;
-			}
+        else // nCount <= 9
+        {
+            if (rem > 1)
+            {
+                float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
+                for (int k = 0; k < rem; ++k)
+                {
+                    if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
+                    if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
+                }
+                fAr10mHigh[0] = f1;
+                fAr10mLow[0] = f2;
+                fAr10mOpen[0] = fArOpen[0];
+                fAr10mClose[0] = fArClose[rem - 1];
+            }
+        }
 
 
-		}
-		else
-		{
-			for (int i = 0; i < nCount; i++)
-			{
-				if (i < 19)
-				{
-					float f1 = fArClose[i];
-					int temp = i;
-					while (temp > 0)
-					{
-						f1 += fArClose[temp - 1];
-						temp -= 1;
-					}
-					for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
-					{
-						f1 += fArCloseY[410 - k];
-					}
-					f1 = f1 / 20;
-					fAr20mSMA[i] = f1;
+        // ************************************************************************************************* 10분봉 %K 계산
+        if (quo >= 4)//10분봉(5,3,3), 10mK 계산
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+                if (i < 4)
+                {
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                        if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (4 - i); k++)
+                    {
+                        if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                        if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+                    }
+                }
+                else
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
 
-					f1 = 0.0;
-					float f2 = 0.0;
-					temp = i;
-					while (temp >= 0)
-					{
-						f1 = fArClose[temp] - fAr20mSMA[i];
-						f2 += abs(f1 * f1);
-						temp -= 1;
-					}
-					for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-					{
-						f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-						f2 += abs(f1 * f1);
-					}
-					f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-					fAr20mSD[i] = f2;
-				}
-				else
-				{
-					float f1 = 0.0;
-					for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
-					{
-						f1 += fArClose[i - k];
-					}
-					f1 = f1 / 20;
-					fAr20mSMA[i] = f1;
+                        if (fAr10mHigh[i - k] > f3)	f3 = fAr10mHigh[i - k];			//max
+                        if (fAr10mLow[i - k] < f4)	f4 = fAr10mLow[i - k];			//min
+                    }
+                    if (f3 == f4)
+                        fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                    else
+                        fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation	
+                }
 
-					f1 = 0.0;
-					float f2 = 0.0;
-					for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
-					{
-						f1 = fArClose[i - k] - fAr20mSMA[i];
-						f2 += abs(f1 * f1);
-					}
-					f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
-					fAr20mSD[i] = f2;
-				}
-			}
+                if (f3 == f4)
+                    fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                else
+                    fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+            }
 
-		}
+        }
+        else // quo < 4 (ex quo=3)
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+                int temp = i;
+                while (temp > 0)
+                {
+                    if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                    if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                    temp -= 1;
+                }
+                for (int k = 0; k < (4 - i); k++)
+                {
+                    if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                    if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+                }
+                if (f3 == f4)
+                    fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                else
+                    fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+            }
+        }
 
-		if (nCount > 28)
-		{
-			for (int i = 29; i < nCount; i++)
-			{
-				float f1 = 500.0, f2 = 100.0;
-				int n1 = 0, n2 = 0;
-				for (int k = 0; k < 30; k++)									// fArMax30m, fArMin30m PointA
-				{
-					if (fArClose[i - k] < f1)
-					{
-						f1 = fArClose[i - k];
-						n1 = i - k + 1;
-					}
-					if (fArClose[i - k] > f2)
-					{
-						f2 = fArClose[i - k];
-						n2 = i - k + 1;
-					}
-				}
-				fArMin30m[i] = f1; nArMin30m[i] = n1;
-				fArMax30m[i] = f2; nArMax30m[i] = n2;
-			}
-		}
+        // ************************************************************************************************* 10분봉 %D (=slow %K) 계산
+        if (quo >= 3)//10분봉, 10mD 계산
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 3)
+                {
+                    float f5 = fAr10mK[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f5 += fAr10mK[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (2 - i); k++)
+                    {
+                        f5 += fAr10mKY[41 - k];
+                    }
+                    fAr10mD[i] = f5 / 3.0f;
+                }
+                else
+                {
+                    float f5 = 0.0;
+                    for (int k = 0; k < 3; k++)
+                        f5 += fAr10mK[i - k];
+                    fAr10mD[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 30분 SMA of %K
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f5 = fAr10mK[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mK[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                {
+                    f5 += fAr10mKY[41 - k];
+                }
+                fAr10mD[i] = f5 / 3.0f;
+            }
+        }
 
-		if (nCount > 58)
-		{
+        if (quo >= 3) //10분봉, 10mSlowD
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 3)
+                {
+                    float f5 = fAr10mD[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f5 += fAr10mD[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (2 - i); k++)
+                        f5 += fAr10mDY[41 - k];
+                    fAr10mSlowD[i] = f5 / 3.0f;
+                }
+                else
+                {
+                    float f5 = 0.0;
+                    for (int k = 0; k < 3; k++)
+                        f5 += fAr10mD[i - k];
+                    fAr10mSlowD[i] = f5 / 3.0f;
+                }
+            }
 
-			for (int i = 59; i < nCount; i++)
-			{
-				float f2 = 500.0, f3 = 100.0;
-				for (int k = 0; k < 60; k++)									// fArMax60m, fArMin60m
-				{
-					if (fArLow[i - k] < f2)
-						f2 = fArLow[i - k];
-					if (fArHigh[i - k] > f3)
-						f3 = fArHigh[i - k];
-				}
-				fArMin60m[i] = f2;
-				fArMax60m[i] = f3;
-			}
-		}
+        }
+        else
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                float f5 = fAr10mD[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mD[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                    f5 += fAr10mDY[41 - k];
+                fAr10mSlowD[i] = f5 / 3.0f;
+            }
+        }
 
-		if (nCount < 60)
-		{
-			for (int i = 0; i < nCount; i++)
-			{
-				float f1 = fArClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fArClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
-				{
-					f1 += fArCloseY[410 - k];
-				}
-				f1 = f1 / 60;
-				fAr60mSMA[i] = f1;
-			}
-		}
-		else
-		{
-			for (int i = 0; i < nCount; i++)
-			{
-				if (i < 59)
-				{
-					float f1 = fArClose[i];
-					int temp = i;
-					while (temp > 0)
-					{
-						f1 += fArClose[temp - 1];
-						temp -= 1;
-					}
-					for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
-					{
-						f1 += fArCloseY[410 - k];
-					}
-					f1 = f1 / 60;
-					fAr60mSMA[i] = f1;
-				}
-				else
-				{
-					float f1 = 0.0;
-					for (int k = 0; k < 60; k++)									// 60분 SMA = Bolinger mid-band
-					{
-						f1 += fArClose[i - k];
-					}
-					f1 = f1 / 60;
-					fAr60mSMA[i] = f1;
-				}
+        // ******************************************************************************************** 10분봉 Bolinger band(20 SMA = Center 선물값)
+        if (quo < 20)
+        {
+            for (int i = 0; i < quo; i++)
+            {
+                float f1 = fAr10mClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fAr10mClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SMA 초기화
+                {
+                    f1 += fAr10mCloseY[41 - k];
+                }
+                f1 = f1 / 20.0f;
+                fAr10m20mSMA[i] = f1;
 
-			}
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SD (Bolinger bandwidth)
+                {
+                    f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                fAr10m20mSD[i] = f2;
+            }
 
-		}
+        }
+        else // quo >= 20
+        {
+            for (int i = 0; i <= quo; i++)
+            {
+                if (i < 19)
+                {
+                    float f1 = fAr10mClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fAr10mClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SMA 초기화
+                    {
+                        f1 += fAr10mCloseY[41 - k];
+                    }
+                    f1 = f1 / 20.0f;
+                    fAr10m20mSMA[i] = f1;
 
-		if (shcode == FutureCode)
-		{
-			ofstream myfile8415("test8415.csv");								// 선물,옵션차트 저장(1분봉)
-			if (myfile8415.is_open())
-			{
+                    f1 = 0.0f;
+                    float f2 = 0.0f;
+                    temp = i;
+                    while (temp >= 0)
+                    {
+                        f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 10분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                    fAr10m20mSD[i] = f2;
+                }
+                else // i >= 20
+                {
+                    float f1 = 0.0;
+                    for (int k = 0; k < 20; k++)										// 10분봉 20 SMA = Bolinger mid-band
+                    {
+                        f1 += fAr10mClose[i - k];
+                    }
+                    f1 = f1 / 20.0f;
+                    fAr10m20mSMA[i] = f1;
 
-				myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
-				for (int i = 0; i < nCount; i++)
-				{
+                    f1 = 0.0f;
+                    float f2 = 0.0f;
+                    for (int k = 0; k < 20; k++)										// 10분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = (fAr10mClose[i - k] + fAr10mLow[i - k] + fAr10mHigh[i - k]) / 3 - fAr10m20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+                    fAr10m20mSD[i] = f2;
+                }
 
-					myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-						<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
-				}
+            }
+        }
 
-			}
-			myfile8415.close();
-		}
-		else if (shcode == CallCode[0])
-		{
-			ofstream myfile8415("test8415_call.csv");								// 선물,옵션차트 저장(1분봉)
-			if (myfile8415.is_open())
-			{
+        // ****************************************************************************************************** 1분봉 Bolinger Band(20 SMA)
+        if (nCount < 20)
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 20.0f;
+                fAr20mSMA[i] = f1;
 
-				myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
-				for (int i = 0; i < nCount; i++)
-				{
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = fArClose[temp] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 1분봉 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                fAr20mSD[i] = f2;
+            }
 
-					myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-						<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
-				}
 
-			}
-			myfile8415.close();
-		}
-		else if (shcode == PutCode[0])
-		{
-			ofstream myfile8415("test8415_put.csv");								// 선물,옵션차트 저장(1분봉)
-			if (myfile8415.is_open())
-			{
+        }
+        else
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                if (i < 19)
+                {
+                    float f1 = fArClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fArClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
+                    {
+                        f1 += fArCloseY[410 - k];
+                    }
+                    f1 = f1 / 20.0f;
+                    fAr20mSMA[i] = f1;
 
-				myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
-				for (int i = 0; i < nCount; i++)
-				{
+                    f1 = 0.0f;
+                    float f2 = 0.0f;
+                    temp = i;
+                    while (temp >= 0)
+                    {
+                        f1 = fArClose[temp] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (19 - i); k++)									// 1분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                    fAr20mSD[i] = f2;
+                }
+                else
+                {
+                    float f1 = 0.0;
+                    for (int k = 0; k < 20; k++)									// 1분봉 20 SMA = Bolinger mid-band
+                    {
+                        f1 += fArClose[i - k];
+                    }
+                    f1 = f1 / 20;
+                    fAr20mSMA[i] = f1;
 
-					myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-						<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
-				}
+                    f1 = 0.0;
+                    float f2 = 0.0;
+                    for (int k = 0; k < 20; k++)									// 1분봉 20 SD (Bolinger bandwidth)
+                    {
+                        f1 = fArClose[i - k] - fAr20mSMA[i];
+                        f2 += fabs(f1 * f1);
+                    }
+                    f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2(2시그마)
+                    fAr20mSD[i] = f2;
+                }
+            }
 
-			}
-			myfile8415.close();
-		}
-	}
+        }
+
+        if (nCount > 28)
+        {
+            for (int i = 29; i < nCount; i++)
+            {
+                float f1 = 500.0, f2 = 100.0;
+                int n1 = 0, n2 = 0;
+                for (int k = 0; k < 30; k++)									// fArMax30m, fArMin30m PointA (최근 30분간 선물 최대값과 최소값)
+                {
+                    if (fArClose[i - k] < f1)
+                    {
+                        f1 = fArClose[i - k];
+                        n1 = i - k + 1;
+                    }
+                    if (fArClose[i - k] > f2)
+                    {
+                        f2 = fArClose[i - k];
+                        n2 = i - k + 1;
+                    }
+                }
+                fArMin30m[i] = f1; nArMin30m[i] = n1;
+                fArMax30m[i] = f2; nArMax30m[i] = n2;
+            }
+        }
+
+        if (nCount > 58)
+        {
+
+            for (int i = 59; i < nCount; i++)
+            {
+                float f2 = 500.0, f3 = 100.0;
+                for (int k = 0; k < 60; k++)									// fArMax60m, fArMin60m (최근 60분간 선물 최대값과 최소값)
+                {
+                    if (fArLow[i - k] < f2)
+                        f2 = fArLow[i - k];
+                    if (fArHigh[i - k] > f3)
+                        f3 = fArHigh[i - k];
+                }
+                fArMin60m[i] = f2;
+                fArMax60m[i] = f3;
+            }
+        }
+
+        // ************************************************************************************************* 1분봉 60 Bolinger band SMA 계산
+        if (nCount < 60)
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (59 - i); k++)									// 1분봉 60 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 60.0f;
+                fAr60mSMA[i] = f1;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < nCount; i++)
+            {
+                if (i < 59)
+                {
+                    float f1 = fArClose[i];
+                    int temp = i;
+                    while (temp > 0)
+                    {
+                        f1 += fArClose[temp - 1];
+                        temp -= 1;
+                    }
+                    for (int k = 0; k < (59 - i); k++)									// 1분봉 60 SMA 초기화
+                    {
+                        f1 += fArCloseY[410 - k];
+                    }
+                    f1 = f1 / 60.0f;
+                    fAr60mSMA[i] = f1;
+                }
+                else
+                {
+                    float f1 = 0.0f;
+                    for (int k = 0; k < 60; k++)									// 1분봉 60 SMA = Bolinger mid-band
+                    {
+                        f1 += fArClose[i - k];
+                    }
+                    f1 = f1 / 60.0f;
+                    fAr60mSMA[i] = f1;
+                }
+
+            }
+
+        }
+
+        ofstream myfile8415("./csv/" + strDate + "_test8415.csv");								// 선물,옵션차트 저장(1분봉)
+        if (myfile8415.is_open())
+        {
+
+            myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+            for (int i = 0; i < nCount; i++)
+            {
+
+                myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+            }
+
+        }
+        myfile8415.close();
+
+
+
+        //else if (shcode == CallCode)
+        //{
+        //	ofstream myfile8415("test8415_call.csv");								// 선물,옵션차트 저장(1분봉)
+        //	if (myfile8415.is_open())
+        //	{
+
+        //		myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        //		for (int i = 0; i < nCount; i++)
+        //		{
+
+        //			myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+        //				<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+        //		}
+
+        //	}
+        //	myfile8415.close();
+        //}
+        //else if (shcode == PutCode)
+        //{
+        //	ofstream myfile8415("test8415_put.csv");								// 선물,옵션차트 저장(1분봉)
+        //	if (myfile8415.is_open())
+        //	{
+
+        //		myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        //		for (int i = 0; i < nCount; i++)
+        //		{
+
+        //			myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+        //				<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+        //		}
+
+        //	}
+        //	myfile8415.close();
+        //}
+    }
 
 	return;
 }
@@ -4954,586 +5632,539 @@ void CDlg_JEKYLL::Receive8415(int nCount) //선물옵션차트(n분) header A ty
 
 	}
 
-	// ************************************************************************************************* 10분봉 High/Low/Open/Close
-	int quo = nCount / 10, rem = nCount % 10; //현재시간 위치를 결정
-	if (nCount < 410)
-	{
-		if (nCount > 9) //10분봉 계산
-		{
-			for (int i = 0; i < quo; ++i) //
-			{
-				float f1 = 0.0, f2 = 500;//close max,min(50분동안)
-				int kn = 10;
-				if (quo == 40) kn = 6;
-				for (int k = 0; k < kn; k++) //0~9까지 계산
-				{
-					if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
-					if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
-				}
-				fAr10mHigh[i] = f1;
-				fAr10mLow[i] = f2;
-				fAr10mOpen[i] = fArOpen[10 * i + 0];
-				fAr10mClose[i] = fArClose[10 * i + kn - 1];
-			}
-			if (rem > 0) // 현재시간까지의 10분봉 계산
-			{
-				float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
-				for (int k = 0; k < rem; ++k)
-				{
-					if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
-					if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
-				}
-				fAr10mHigh[quo] = f1;
-				fAr10mLow[quo] = f2;
-				fAr10mOpen[quo] = fArOpen[10 * quo + 0];
-				fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
-			}
-		}
-		else // nCount <= 9
-		{
-			if (rem > 1)
-			{
-				float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
-				for (int k = 0; k < rem; ++k)
-				{
-					if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
-					if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
-				}
-				fAr10mHigh[0] = f1;
-				fAr10mLow[0] = f2;
-				fAr10mOpen[0] = fArOpen[0];
-				fAr10mClose[0] = fArClose[rem - 1];
-			}
-		}
-	}
-	else // nCount==411
-	{
-		if (nCount > 9) //10분봉 계산
-		{
-			for (int i = 0; i < quo; ++i) //
-			{
-				float f1 = 0.0, f2 = 500;//close max,min(50분동안)
-				int kn = 10;
-				if (quo == 40) kn = 6;
-				for (int k = 0; k < kn; k++) //0~9까지 계산
-				{
-					if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
-					if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
-				}
-				fAr10mHigh[i] = f1;
-				fAr10mLow[i] = f2;
-				fAr10mOpen[i] = fArOpen[10 * i + 0];
-				fAr10mClose[i] = fArClose[10 * i + kn - 1];
-			}
-			if (rem > 0) // 현재시간까지의 10분봉 계산
-			{
-				float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
-				for (int k = 0; k < rem; ++k)
-				{
-					if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
-					if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
-				}
-				fAr10mHigh[quo] = f1;
-				fAr10mLow[quo] = f2;
-				fAr10mOpen[quo] = fArOpen[10 * quo + 0];
-				fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
-			}
-		}
-		else // nCount <= 9
-		{
-			if (rem > 1)
-			{
-				float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
-				for (int k = 0; k < rem; ++k)
-				{
-					if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
-					if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
-				}
-				fAr10mHigh[0] = f1;
-				fAr10mLow[0] = f2;
-				fAr10mOpen[0] = fArOpen[0];
-				fAr10mClose[0] = fArClose[rem - 1];
-			}
-		}
+    // ************************************************************************************************* 10분봉 High/Low/Open/Close
+    int quo = nCount / 10, rem = nCount % 10; //현재시간 위치를 결정
 
-		float f1 = fArHigh[389], f2 = fArLow[389];		//
-		for (int k = 0; k < 6; ++k)
-		{
-			if (fArHigh[405 + k] > f1)	f1 = fArHigh[405 + k];			//max
-			if (fArLow[405 + k] < f2)	f2 = fArLow[405 + k];			//min				
-		}
-		fAr10mHigh[41] = f1;
-		fAr10mLow[41] = f2;
-		fAr10mOpen[41] = fArOpen[405];
-		fAr10mClose[41] = fArClose[410];
-	}
+    if (nCount > 9) //10분봉 계산
+    {
+        for (int i = 0; i < quo; ++i) //
+        {
+            float f1 = 0.0, f2 = 500;//close max,min(50분동안)
+            int kn = 10;
+            if (quo == 40) kn = 6;
+            for (int k = 0; k < kn; k++) //0~9까지 계산
+            {
+                if (fArHigh[10 * i + k] > f1)	f1 = fArHigh[10 * i + k];			//max
+                if (fArLow[10 * i + k] < f2)	f2 = fArLow[10 * i + k];			//min
+            }
+            fAr10mHigh[i] = f1;
+            fAr10mLow[i] = f2;
+            fAr10mOpen[i] = fArOpen[10 * i + 0];
+            fAr10mClose[i] = fArClose[10 * i + kn - 1];
+        }
+        if (rem > 0) // 현재시간까지의 10분봉 계산
+        {
+            float f1 = fArHigh[10 * quo - 1], f2 = fArLow[10 * quo - 1];		//
+            for (int k = 0; k < rem; ++k)
+            {
+                if (fArHigh[10 * quo + k] > f1)	f1 = fArHigh[10 * quo + k];			//max
+                if (fArLow[10 * quo + k] < f2)	f2 = fArLow[10 * quo + k];			//min				
+            }
+            fAr10mHigh[quo] = f1;
+            fAr10mLow[quo] = f2;
+            fAr10mOpen[quo] = fArOpen[10 * quo + 0];
+            fAr10mClose[quo] = fArClose[10 * quo + rem - 1];
+        }
 
-	if (quo >= 4)//10분봉(5,3,3), 10mK 계산
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
-			if (i < 4)
-			{
-				int temp = i;
-				while (temp > 0)
-				{
-					if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
-					if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
-					temp -= 1;
-				}
-				for (int k = 0; k < (4 - i); k++)
-				{
-					if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
-					if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
-				}
-			}
-			else
-			{
-				for (int k = 0; k < 5; k++)
-				{
+        if (nCount == 411)
+        {
 
-					if (fAr10mHigh[i - k] > f3)	f3 = fAr10mHigh[i - k];			//max
-					if (fAr10mLow[i - k] < f4)	f4 = fAr10mLow[i - k];			//min
-				}
-				if (f3 == f4)
-					fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-				else
-					fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation	
-			}
+            float f1 = fArHigh[409], f2 = fArLow[409];		//
 
-			if (f3 == f4)
-				fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-			else
-				fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
-		}
+            if (fArHigh[410] > f1)	f1 = fArHigh[410];			//max
+            if (fArLow[410] < f2)	f2 = fArLow[410];			//min	
+            fAr10mHigh[41] = f1;
+            fAr10mLow[41] = f2;
+            fAr10mOpen[41] = fArOpen[410];
+            fAr10mClose[41] = fArClose[410];
+        }
 
-	}
-	else // quo < 4 (ex quo=3)
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
-			int temp = i;
-			while (temp > 0)
-			{
-				if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
-				if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
-				temp -= 1;
-			}
-			for (int k = 0; k < (4 - i); k++)
-			{
-				if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
-				if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
-			}
-			if (f3 == f4)
-				fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
-			else
-				fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
-		}
-	}
-
-	if (quo >= 3)//10분봉, 10mD 계산
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			if (i < 3)
-			{
-				float f5 = fAr10mK[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f5 += fAr10mK[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (2 - i); k++)
-				{
-					f5 += fAr10mKY[41 - k];
-				}
-				fAr10mD[i] = f5 / 3.0f;
-			}
-			else
-			{
-				float f5 = 0.0;
-				for (int k = 0; k < 3; k++)
-					f5 += fAr10mK[i - k];
-				fAr10mD[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 30분 SMA of %K ------------------------- SMA:단순이동평균 or EMA(지수이동평균)
-			}
-		}
-	}
-	else
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			float f5 = fAr10mK[i];
-			int temp = i;
-			while (temp > 0)
-			{
-				f5 += fAr10mK[temp - 1];
-				temp -= 1;
-			}
-			for (int k = 0; k < (2 - i); k++)
-			{
-				f5 += fAr10mKY[41 - k];
-			}
-			fAr10mD[i] = f5 / 3.0f;
-		}
-	}
-
-	if (quo >= 3) //10분봉, 10mSlowD
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			if (i < 3)
-			{
-				float f5 = fAr10mD[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f5 += fAr10mD[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (2 - i); k++)
-					f5 += fAr10mDY[41 - k];
-				fAr10mSlowD[i] = f5 / 3.0f;
-			}
-			else
-			{
-				float f5 = 0.0;
-				for (int k = 0; k < 3; k++)
-					f5 += fAr10mD[i - k];
-				fAr10mSlowD[i] = f5 / 3.0f;
-			}
-		}		
-	}
-	else
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			float f5 = fAr10mD[i];
-			int temp = i;
-			while (temp > 0)
-			{
-				f5 += fAr10mD[temp - 1];
-				temp -= 1;
-			}
-			for (int k = 0; k < (2 - i); k++)
-				f5 += fAr10mDY[41 - k];
-			fAr10mSlowD[i] = f5 / 3.0f;
-		}
-	}
-
-	// ******************************************************************************************** 10분봉의 Bolinger band(20sma)
-	if (quo < 20)
-	{
-		for (int i = 0; i < quo; i++)
-		{
-			float f1 = fAr10mClose[i];
-			int temp = i;
-			while (temp > 0)
-			{
-				f1 += fAr10mClose[temp - 1];
-				temp -= 1;
-			}
-			for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
-			{
-				f1 += fAr10mCloseY[41 - k];
-			}
-			f1 = f1 / 20;
-			fAr10m20mSMA[i] = f1;
-
-			f1 = 0.0;
-			float f2 = 0.0;
-			temp = i;
-			while (temp >= 0)
-			{
-				f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
-				f2 += abs(f1 * f1);
-				temp -= 1;
-			}
-			for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-			{
-				f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
-				f2 += abs(f1 * f1);
-			}
-			f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-			fAr10m20mSD[i] = f2;
-		}
-
-	}
-	else
-	{
-		for (int i = 0; i <= quo; i++)
-		{
-			if (i < 19)
-			{
-				float f1 = fAr10mClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fAr10mClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
-				{
-					f1 += fAr10mCloseY[41 - k];
-				}
-				f1 = f1 / 20;
-				fAr10m20mSMA[i] = f1;
-
-				f1 = 0.0;
-				float f2 = 0.0;
-				temp = i;
-				while (temp >= 0)
-				{
-					f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
-					f2 += abs(f1 * f1);
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-				fAr10m20mSD[i] = f2;
-			}
-			else
-			{
-				float f1 = 0.0;
-				for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
-				{
-					f1 += fAr10mClose[i - k];
-				}
-				f1 = f1 / 20;
-				fAr10m20mSMA[i] = f1;
-
-				f1 = 0.0;
-				float f2 = 0.0;
-				for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = (fAr10mClose[i - k] + fAr10mLow[i - k] + fAr10mHigh[i - k]) / 3 - fAr10m20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
-				fAr10m20mSD[i] = f2;
-			}
-
-		}
-	}
+    }
+    else // nCount <= 9
+    {
+        if (rem > 1)
+        {
+            float f1 = fArHigh[nCount - 1], f2 = fArLow[nCount - 1];		//
+            for (int k = 0; k < rem; ++k)
+            {
+                if (fArHigh[k] > f1)	f1 = fArHigh[k];			//max
+                if (fArLow[k] < f2)		f2 = fArLow[k];				//min				
+            }
+            fAr10mHigh[0] = f1;
+            fAr10mLow[0] = f2;
+            fAr10mOpen[0] = fArOpen[0];
+            fAr10mClose[0] = fArClose[rem - 1];
+        }
+    }
 
 
-	// ****************************************************************************************************** 1분봉 Bolinger Band(20m)
-	if (nCount < 20)
-	{
-		for (int i = 0; i < nCount; i++)
-		{
-			float f1 = fArClose[i];
-			int temp = i;
-			while (temp > 0)
-			{
-				f1 += fArClose[temp - 1];
-				temp -= 1;
-			}
-			for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
-			{
-				f1 += fArCloseY[410 - k];
-			}
-			f1 = f1 / 20;
-			fAr20mSMA[i] = f1;
 
-			f1 = 0.0;
-			float f2 = 0.0;
-			temp = i;
-			while (temp >= 0)
-			{
-				f1 = fArClose[temp] - fAr20mSMA[i];
-				f2 += abs(f1 * f1);
-				temp -= 1;
-			}
-			for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-			{
-				f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-				f2 += abs(f1 * f1);
-			}
-			f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-			fAr20mSD[i] = f2;
-		}
+    if (quo >= 4)//10분봉(5,3,3), 10mK 계산
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+            if (i < 4)
+            {
+                int temp = i;
+                while (temp > 0)
+                {
+                    if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                    if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                    temp -= 1;
+                }
+                for (int k = 0; k < (4 - i); k++)
+                {
+                    if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                    if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+                }
+            }
+            else
+            {
+                for (int k = 0; k < 5; k++)
+                {
+
+                    if (fAr10mHigh[i - k] > f3)	f3 = fAr10mHigh[i - k];			//max
+                    if (fAr10mLow[i - k] < f4)	f4 = fAr10mLow[i - k];			//min
+                }
+                if (f3 == f4)
+                    fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+                else
+                    fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation	
+            }
+
+            if (f3 == f4)
+                fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+            else
+                fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+        }
+
+    }
+    else // quo < 4 (ex quo=3)
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            float f3 = fAr10mHigh[i], f4 = fAr10mLow[i];//close max,min(50분동안)
+            int temp = i;
+            while (temp > 0)
+            {
+                if (fAr10mHigh[temp - 1] > f3)	f3 = fAr10mHigh[temp - 1];			//max
+                if (fAr10mLow[temp - 1] < f4)	f4 = fAr10mLow[temp - 1];			//min
+                temp -= 1;
+            }
+            for (int k = 0; k < (4 - i); k++)
+            {
+                if (fAr10mHighY[41 - k] > f3)	f3 = fAr10mHighY[k];			//max
+                if (fAr10mLowY[41 - k] < f4)	f4 = fAr10mLowY[k];				//min					
+            }
+            if (f3 == f4)
+                fAr10mK[i] = 100;											//fArPerK : %K(분모가 0인경우)
+            else
+                fAr10mK[i] = (fAr10mClose[i] - f4) / (f3 - f4) * 100;		//%K(5) = (Current Close - Lowest Low)/(Highest High - Lowest Low) - Basic calculation		
+        }
+    }
+
+    if (quo >= 3)//10분봉, 10mD 계산
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            if (i < 3)
+            {
+                float f5 = fAr10mK[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mK[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                {
+                    f5 += fAr10mKY[41 - k];
+                }
+                fAr10mD[i] = f5 / 3.0f;
+            }
+            else
+            {
+                float f5 = 0.0;
+                for (int k = 0; k < 3; k++)
+                    f5 += fAr10mK[i - k];
+                fAr10mD[i] = f5 / 3.0f;											//%D(3)= slow %K(3) ; 30분 SMA of %K ------------------------- SMA:단순이동평균 or EMA(지수이동평균)
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            float f5 = fAr10mK[i];
+            int temp = i;
+            while (temp > 0)
+            {
+                f5 += fAr10mK[temp - 1];
+                temp -= 1;
+            }
+            for (int k = 0; k < (2 - i); k++)
+            {
+                f5 += fAr10mKY[41 - k];
+            }
+            fAr10mD[i] = f5 / 3.0f;
+        }
+    }
+
+    if (quo >= 3) //10분봉, 10mSlowD
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            if (i < 3)
+            {
+                float f5 = fAr10mD[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f5 += fAr10mD[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (2 - i); k++)
+                    f5 += fAr10mDY[41 - k];
+                fAr10mSlowD[i] = f5 / 3.0f;
+            }
+            else
+            {
+                float f5 = 0.0;
+                for (int k = 0; k < 3; k++)
+                    f5 += fAr10mD[i - k];
+                fAr10mSlowD[i] = f5 / 3.0f;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            float f5 = fAr10mD[i];
+            int temp = i;
+            while (temp > 0)
+            {
+                f5 += fAr10mD[temp - 1];
+                temp -= 1;
+            }
+            for (int k = 0; k < (2 - i); k++)
+                f5 += fAr10mDY[41 - k];
+            fAr10mSlowD[i] = f5 / 3.0f;
+        }
+    }
+
+    // ******************************************************************************************** 10분봉의 Bolinger band(20sma)
+    if (quo < 20)
+    {
+        for (int i = 0; i < quo; i++)
+        {
+            float f1 = fAr10mClose[i];
+            int temp = i;
+            while (temp > 0)
+            {
+                f1 += fAr10mClose[temp - 1];
+                temp -= 1;
+            }
+            for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
+            {
+                f1 += fAr10mCloseY[41 - k];
+            }
+            f1 = f1 / 20.0f;
+            fAr10m20mSMA[i] = f1;
+
+            f1 = 0.0;
+            float f2 = 0.0;
+            temp = i;
+            while (temp >= 0)
+            {
+                f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                f2 += fabs(f1 * f1);
+                temp -= 1;
+            }
+            for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
+            {
+                f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                f2 += fabs(f1 * f1);
+            }
+            f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+            fAr10m20mSD[i] = f2;
+        }
+
+    }
+    else
+    {
+        for (int i = 0; i <= quo; i++)
+        {
+            if (i < 19)
+            {
+                float f1 = fAr10mClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fAr10mClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 20분 SMA 초기화
+                {
+                    f1 += fAr10mCloseY[41 - k];
+                }
+                f1 = f1 / 20;
+                fAr10m20mSMA[i] = f1;
+
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = (fAr10mClose[temp] + fAr10mLow[temp] + fAr10mHigh[temp]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = (fAr10mCloseY[41 - k] + fAr10mLowY[41 - k] + fAr10mHighY[41 - k]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+                fAr10m20mSD[i] = f2;
+            }
+            else
+            {
+                float f1 = 0.0;
+                for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
+                {
+                    f1 += fAr10mClose[i - k];
+                }
+                f1 = f1 / 20;
+                fAr10m20mSMA[i] = f1;
+
+                f1 = 0.0;
+                float f2 = 0.0;
+                for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = (fAr10mClose[i - k] + fAr10mLow[i - k] + fAr10mHigh[i - k]) / 3 - fAr10m20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
+                fAr10m20mSD[i] = f2;
+            }
+
+        }
+    }
 
 
-	}
-	else
-	{
-		for (int i = 0; i < nCount; i++)
-		{
-			if (i < 19)
-			{
-				float f1 = fArClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fArClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
-				{
-					f1 += fArCloseY[410 - k];
-				}
-				f1 = f1 / 20;
-				fAr20mSMA[i] = f1;
+    // ****************************************************************************************************** 1분봉 Bolinger Band(20m)
+    if (nCount < 20)
+    {
+        for (int i = 0; i < nCount; i++)
+        {
+            float f1 = fArClose[i];
+            int temp = i;
+            while (temp > 0)
+            {
+                f1 += fArClose[temp - 1];
+                temp -= 1;
+            }
+            for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
+            {
+                f1 += fArCloseY[410 - k];
+            }
+            f1 = f1 / 20;
+            fAr20mSMA[i] = f1;
 
-				f1 = 0.0;
-				float f2 = 0.0;
-				temp = i;
-				while (temp >= 0)
-				{
-					f1 = fArClose[temp] - fAr20mSMA[i];
-					f2 += abs(f1 * f1);
-					temp -= 1;
-				}
-				for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-				fAr20mSD[i] = f2;
-			}
-			else
-			{
-				float f1 = 0.0;
-				for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
-				{
-					f1 += fArClose[i - k];
-				}
-				f1 = f1 / 20;
-				fAr20mSMA[i] = f1;
+            f1 = 0.0;
+            float f2 = 0.0;
+            temp = i;
+            while (temp >= 0)
+            {
+                f1 = fArClose[temp] - fAr20mSMA[i];
+                f2 += fabs(f1 * f1);
+                temp -= 1;
+            }
+            for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
+            {
+                f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                f2 += fabs(f1 * f1);
+            }
+            f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+            fAr20mSD[i] = f2;
+        }
 
-				f1 = 0.0;
-				float f2 = 0.0;
-				for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
-				{
-					f1 = fArClose[i - k] - fAr20mSMA[i];
-					f2 += abs(f1 * f1);
-				}
-				f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
-				fAr20mSD[i] = f2;
-			}
-		}
 
-	}
+    }
+    else
+    {
+        for (int i = 0; i < nCount; i++)
+        {
+            if (i < 19)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 20;
+                fAr20mSMA[i] = f1;
 
-	if (nCount > 28)
-	{
-		for (int i = 29; i < nCount; i++)
-		{
-			float f1 = 500.0, f2 = 100.0;
-			int n1 = 0, n2 = 0;
-			for (int k = 0; k < 30; k++)									// fArMax30m, fArMin30m PointA
-			{
-				if (fArClose[i - k] < f1)
-				{
-					f1 = fArClose[i - k];
-					n1 = i - k + 1;
-				}
-				if (fArClose[i - k] > f2)
-				{
-					f2 = fArClose[i - k];
-					n2 = i - k + 1;
-				}
-			}
-			fArMin30m[i] = f1; nArMin30m[i] = n1;
-			fArMax30m[i] = f2; nArMax30m[i] = n2;
-		}
-	}
+                f1 = 0.0;
+                float f2 = 0.0;
+                temp = i;
+                while (temp >= 0)
+                {
+                    f1 = fArClose[temp] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                    temp -= 1;
+                }
+                for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+                fAr20mSD[i] = f2;
+            }
+            else
+            {
+                float f1 = 0.0;
+                for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
+                {
+                    f1 += fArClose[i - k];
+                }
+                f1 = f1 / 20;
+                fAr20mSMA[i] = f1;
 
-	if (nCount > 58)
-	{
+                f1 = 0.0;
+                float f2 = 0.0;
+                for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
+                {
+                    f1 = fArClose[i - k] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
+                }
+                f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
+                fAr20mSD[i] = f2;
+            }
+        }
 
-		for (int i = 59; i < nCount; i++)
-		{
-			float f2 = 500.0, f3 = 100.0;
-			for (int k = 0; k < 60; k++)									// 60분 max, min
-			{
-				if (fArLow[i - k] < f2)
-					f2 = fArLow[i - k];
-				if (fArHigh[i - k] > f3)
-					f3 = fArHigh[i - k];
-			}
-			fArMin60m[i] = f2;
-			fArMax60m[i] = f3;
-		}
-	}
+    }
 
-	if (nCount < 60)
-	{
-		for (int i = 0; i < nCount; i++)
-		{
-			float f1 = fArClose[i];
-			int temp = i;
-			while (temp > 0)
-			{
-				f1 += fArClose[temp - 1];
-				temp -= 1;
-			}
-			for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
-			{
-				f1 += fArCloseY[410 - k];
-			}
-			f1 = f1 / 60;
-			fAr60mSMA[i] = f1;
-		}
-	}
-	else
-	{
-		for (int i = 0; i < nCount; i++)
-		{
-			if (i < 59)
-			{
-				float f1 = fArClose[i];
-				int temp = i;
-				while (temp > 0)
-				{
-					f1 += fArClose[temp - 1];
-					temp -= 1;
-				}
-				for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
-				{
-					f1 += fArCloseY[410 - k];
-				}
-				f1 = f1 / 60;
-				fAr60mSMA[i] = f1;
-			}
-			else
-			{
-				float f1 = 0.0;
-				for (int k = 0; k < 60; k++)									// 60분 SMA = Bolinger mid-band
-				{
-					f1 += fArClose[i - k];
-				}
-				f1 = f1 / 60;
-				fAr60mSMA[i] = f1;
-			}
+    if (nCount > 28)
+    {
+        for (int i = 29; i < nCount; i++)
+        {
+            float f1 = 500.0, f2 = 100.0;
+            int n1 = 0, n2 = 0;
+            for (int k = 0; k < 30; k++)									// fArMax30m, fArMin30m PointA
+            {
+                if (fArClose[i - k] < f1)
+                {
+                    f1 = fArClose[i - k];
+                    n1 = i - k + 1;
+                }
+                if (fArClose[i - k] > f2)
+                {
+                    f2 = fArClose[i - k];
+                    n2 = i - k + 1;
+                }
+            }
+            fArMin30m[i] = f1; nArMin30m[i] = n1;
+            fArMax30m[i] = f2; nArMax30m[i] = n2;
+        }
+    }
 
-		}
+    if (nCount > 58)
+    {
 
-	}
+        for (int i = 59; i < nCount; i++)
+        {
+            float f2 = 500.0, f3 = 100.0;
+            for (int k = 0; k < 60; k++)									// 60분 max, min
+            {
+                if (fArLow[i - k] < f2)
+                    f2 = fArLow[i - k];
+                if (fArHigh[i - k] > f3)
+                    f3 = fArHigh[i - k];
+            }
+            fArMin60m[i] = f2;
+            fArMax60m[i] = f3;
+        }
+    }
 
-	ofstream myfile8415("test8415.csv");								// 선물,옵션차트 저장(1분봉)
-	if (myfile8415.is_open())
-	{
+    if (nCount < 60)
+    {
+        for (int i = 0; i < nCount; i++)
+        {
+            float f1 = fArClose[i];
+            int temp = i;
+            while (temp > 0)
+            {
+                f1 += fArClose[temp - 1];
+                temp -= 1;
+            }
+            for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
+            {
+                f1 += fArCloseY[410 - k];
+            }
+            f1 = f1 / 60;
+            fAr60mSMA[i] = f1;
+        }
+    }
+    else
+    {
+        for (int i = 0; i < nCount; i++)
+        {
+            if (i < 59)
+            {
+                float f1 = fArClose[i];
+                int temp = i;
+                while (temp > 0)
+                {
+                    f1 += fArClose[temp - 1];
+                    temp -= 1;
+                }
+                for (int k = 0; k < (59 - i); k++)									// 60분 SMA 초기화
+                {
+                    f1 += fArCloseY[410 - k];
+                }
+                f1 = f1 / 60;
+                fAr60mSMA[i] = f1;
+            }
+            else
+            {
+                float f1 = 0.0;
+                for (int k = 0; k < 60; k++)									// 60분 SMA = Bolinger mid-band
+                {
+                    f1 += fArClose[i - k];
+                }
+                f1 = f1 / 60;
+                fAr60mSMA[i] = f1;
+            }
 
-		myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
-		for (int i = 0; i < nCount; i++)
-		{
+        }
 
-			myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-				<< fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
-		}
-	}
-	myfile8415.close();
+    }
 
-	return;
+    ofstream myfile8415("./csv/" + strDate + "_test8415.csv");								// 선물,옵션차트 저장(1분봉)
+    if (myfile8415.is_open())
+    {
+
+        myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        for (int i = 0; i < nCount; i++)
+        {
+
+            myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
+                << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+        }
+    }
+    myfile8415.close();
+
+    return;
 }
 
 void CDlg_JEKYLL::Receive3103(LPRECV_PACKET pRpData) //해외선물(S&P)차트(n분) header A type : 현재외 20개 추가 요청(거꾸로 들어옴)
@@ -7253,71 +7884,71 @@ void CDlg_JEKYLL::OnBnClickedButtonStop()
 	//UnadviseBMT();
 }
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest2()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest2()
+//{
 	// TODO: Add your control notification handler code here
-	nProfit = nGoalFlat; // nGoalFlat 이익률로 매수매도
+//	nProfit = nGoalFlat; // nGoalFlat 이익률로 매수매도
+//
+//	CString str1, str2;
+//	GetDlgItemTextA(IDC_QTY, str1);
+//	GetDlgItemTextA(IDC_PRC, str2);
+//	Request100_(CallCode[0], "2", str2, str1);
+//}
 
-	CString str1, str2;
-	GetDlgItemTextA(IDC_QTY, str1);
-	GetDlgItemTextA(IDC_PRC, str2);
-	Request100_(CallCode[0], "2", str2, str1);
-}
-
-void CDlg_JEKYLL::OnBnClickedButtonRequest3()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest3()
+//{
 	// TODO: Add your control notification handler code here
 	//Request100(CallCode[0], "1", fCho9);
-	SellCall();//콜 손절
+//	SellCall();//콜 손절
+//
+//}
 
-}
-
-void CDlg_JEKYLL::OnBnClickedButtonRequest4()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest4()
+//{
 	// TODO: Add your control notification handler code here
 	// call 옵션 주문가능수량 조회 및 표출
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);	
-	CString str1, str4;
-	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
-
-	CString strPrc = m_lst2105.GetItemText(1, 1);
-	m_prc.SetWindowTextA(strPrc);
-
+//	CString str1, str4;
+//	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
+//
+//	CString strPrc = m_lst2105.GetItemText(1, 1);
+//	m_prc.SetWindowTextA(strPrc);
+//
 	//GetDlgItemTextA(IDC_NEWORD, strUsableMoney);//주문가능금액
 	//lBalance = atol(strUsableMoney); //주문가능금액을 text로 받아서 long으로 강제변환
 
-	float fPrc = (float)atof(strPrc);
-	if (fPrc > 0)
-	{
-		fPrc = (float)(lBalance / (fPrc * 250000));
-		int b = (int)fPrc;
-		strPrc.Format("%d", b);
-	}
+//	float fPrc = (float)atof(strPrc);
+//	if (fPrc > 0)
+//	{
+//		fPrc = (float)(lBalance / (fPrc * 250000));
+//		int b = (int)fPrc;
+//		strPrc.Format("%d", b);
+//	}
+//
+//	m_qty.SetWindowTextA(strPrc);
+//}
 
-	m_qty.SetWindowTextA(strPrc);
-}
-
-void CDlg_JEKYLL::OnBnClickedButtonRequest5()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest5()
+//{
 	// TODO: Add your control notification handler code here
-	/*KillTimer(8);
-	GetDlgItemTextA(IDC_ORGORDNO, strOrgOrdNo);
-	CString strQty;
-	GetDlgItemTextA(IDC_QTY, strQty);
-	Request300(CallCode[0], strOrgOrdNo, strQty);*/
-	Request600();
-}
+//	/*KillTimer(8);
+//	GetDlgItemTextA(IDC_ORGORDNO, strOrgOrdNo);
+//	CString strQty;
+//	GetDlgItemTextA(IDC_QTY, strQty);
+//	Request300(CallCode[0], strOrgOrdNo, strQty);*/
+//	Request600();
+//}
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest6()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest6()
+//{
 	// TODO: Add your control notification handler code here
-	GetDlgItemTextA(IDC_ORGORDNO, strOrgOrdNo);
-	CString strPrc, strQty;
-	GetDlgItemTextA(IDC_PRC, strPrc);
-	GetDlgItemTextA(IDC_QTY, strQty);
-	Request200(CallCode[0], strOrgOrdNo, strPrc, strQty);
-}
+//	GetDlgItemTextA(IDC_ORGORDNO, strOrgOrdNo);
+//	CString strPrc, strQty;
+//	GetDlgItemTextA(IDC_PRC, strPrc);
+//	GetDlgItemTextA(IDC_QTY, strQty);
+//	Request200(CallCode[0], strOrgOrdNo, strPrc, strQty);
+//}
 
 void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 {
@@ -7347,66 +7978,66 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 
 }
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest10()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest10()
+//{
 	// TODO: Add your control notification handler code here
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);
-	CString str1, str4;
-	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
+//	CString str1, str4;
+//	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
+//
+//	CString strPrc = m_lst2105_.GetItemText(1, 1);
+//	m_prc2.SetWindowTextA(strPrc);
+//
+//	float fPrc = (float)atof(strPrc);
+//	if (fPrc > 0)
+//	{
+//		fPrc = (float)(lBalance / (fPrc * 250000));
+//		int b = (int)fPrc;
+//		strPrc.Format("%d", b);
+//	}
+//
+//	m_qty2.SetWindowTextA(strPrc);
+//}
 
-	CString strPrc = m_lst2105_.GetItemText(1, 1);
-	m_prc2.SetWindowTextA(strPrc);
-
-	float fPrc = (float)atof(strPrc);
-	if (fPrc > 0)
-	{
-		fPrc = (float)(lBalance / (fPrc * 250000));
-		int b = (int)fPrc;
-		strPrc.Format("%d", b);
-	}
-
-	m_qty2.SetWindowTextA(strPrc);
-}
-
-void CDlg_JEKYLL::OnBnClickedButtonRequest11()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest11()
+//{
 	// TODO: Add your control notification handler code here
-	nProfit = nGoalFlat; // nGoalFlat 이익률로 매수매도
-
-	CString str1, str2;
-	GetDlgItemTextA(IDC_QTY2, str1);
-	GetDlgItemTextA(IDC_PRC2, str2);
-	Request100_(PutCode[0], "2", str2, str1);
+//	nProfit = nGoalFlat; // nGoalFlat 이익률로 매수매도
+//
+//	CString str1, str2;
+//	GetDlgItemTextA(IDC_QTY2, str1);
+//	GetDlgItemTextA(IDC_PRC2, str2);
+//	Request100_(PutCode[0], "2", str2, str1);
 	//bPut = FALSE;
-}
+//}
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest12()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest12()
+//{
 	// TODO: Add your control notification handler code here
-	Request100(PutCode[0], "1", fPho9);
-}
+//	Request100(PutCode[0], "1", fPho9);
+//}
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest13()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest13()
+//{
 	// TODO: Add your control notification handler code here
-	/*GetDlgItemTextA(IDC_ORGORDNO2, strOrgOrdNo);
-	CString strQty;
-	GetDlgItemTextA(IDC_QTY2, strQty);
-	Request300(PutCode[0], strOrgOrdNo, strQty);*/
-	Request600();
+//	/*GetDlgItemTextA(IDC_ORGORDNO2, strOrgOrdNo);
+//	CString strQty;
+//	GetDlgItemTextA(IDC_QTY2, strQty);
+//	Request300(PutCode[0], strOrgOrdNo, strQty);*/
+//	Request600();
+//
+//}
 
-}
-
-void CDlg_JEKYLL::OnBnClickedButtonRequest14()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest14()
+//{
 	// TODO: Add your control notification handler code here
-	GetDlgItemTextA(IDC_ORGORDNO2, strOrgOrdNo);
-	CString strPrc, strQty;
-	GetDlgItemTextA(IDC_PRC2, strPrc);
-	GetDlgItemTextA(IDC_QTY2, strQty);
-	Request200(PutCode[0], strOrgOrdNo, strPrc, strQty);
-}
+//	GetDlgItemTextA(IDC_ORGORDNO2, strOrgOrdNo);
+//	CString strPrc, strQty;
+//	GetDlgItemTextA(IDC_PRC2, strPrc);
+//	GetDlgItemTextA(IDC_QTY2, strQty);
+//	Request200(PutCode[0], strOrgOrdNo, strPrc, strQty);
+//}
 
 void CDlg_JEKYLL::OnBnClickedButtonRequest19()
 {
@@ -8523,30 +9154,40 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice(); //기본 per = 50 % 적용
                 }
             }
-            else if (lCallQty[0] < 40)
+            else if (lCallQty[0] < 50)
             {
                 if (lCallQty[0] / 2 < lCho9)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 2));
+                else
+                    Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
-            else if (lCallQty[0] < 80)
+            else if (lCallQty[0] < 100)
             {
-                if (lCallQty[0] / 3 < lCho9)
-                    Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 3));
-            }
-            else if (lCallQty[0] < 120)
-            {
-                if (lCallQty[0] / 5 < lCho9)
-                    Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 5));
+                if (lCallQty[0] / 4 < lCho9)
+                    Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 4));
+                else
+                    Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
             else if (lCallQty[0] < 200)
             {
                 if (lCallQty[0] / 8 < lCho9)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 8));
+                else
+                    Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
-            else
+            else if (lCallQty[0] < 300)
             {
                 if (lCallQty[0] / 12 < lCho9)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 12));
+                else
+                    Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
+            }
+            else
+            {
+                if (lCallQty[0] / 15 < lCho9)
+                    Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 15));
+                else
+                    Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
         }
 
@@ -8568,30 +9209,40 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice();//기본 per = 15 % 적용
                 }
             }
-            else if (lCallQty[1] < 40)
+            else if (lCallQty[1] < 50)
             {
                 if (lCallQty[1] / 2 < lC2ho9)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 2));
+                else
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
-            else if (lCallQty[1] < 80)
+            else if (lCallQty[1] < 100)
             {
-                if (lCallQty[1] / 3 < lC2ho9)
-                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 3));
-            }
-            else if (lCallQty[1] < 120)
-            {
-                if (lCallQty[1] / 5 < lC2ho9)
-                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 5));
+                if (lCallQty[1] / 4 < lC2ho9)
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 4));
+                else
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
             else if (lCallQty[1] < 200)
             {
                 if (lCallQty[1] / 8 < lC2ho9)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 8));
+                else
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
-            else
+            else if (lCallQty[1] < 300)
             {
                 if (lCallQty[1] / 12 < lC2ho9)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 12));
+                else
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
+            }
+            else
+            {
+                if (lCallQty[1] / 15 < lC2ho9)
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 15));
+                else
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
         }
 
@@ -8613,30 +9264,40 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice();//기본 per = 15 % 적용
                 }
             }
-            else if (lCallQty[2] < 40)
+            else if (lCallQty[2] < 50)
             {
                 if (lCallQty[2] / 2 < lC3ho9)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 2));
+                else
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
-            else if (lCallQty[2] < 80)
+            else if (lCallQty[2] < 100)
             {
-                if (lCallQty[2] / 3 < lC3ho9)
-                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 3));
-            }
-            else if (lCallQty[2] < 120)
-            {
-                if (lCallQty[2] / 5 < lC3ho9)
-                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 5));
+                if (lCallQty[2] / 4 < lC3ho9)
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 4));
+                else
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
             else if (lCallQty[2] < 200)
             {
                 if (lCallQty[2] / 8 < lC3ho9)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 8));
+                else
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
-            else
+            else if (lCallQty[2] < 300)
             {
                 if (lCallQty[2] / 12 < lC3ho9)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 12));
+                else
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
+            }
+            else
+            {
+                if (lCallQty[2] / 15 < lC3ho9)
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 15));
+                else
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
         }
 
@@ -8660,30 +9321,44 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice();
                 }
             }
-            else if (lPutQty[0] < 40)
+            else if (lPutQty[0] < 50)
             {
                 if (lPutQty[0] / 2 < lPho9)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 2));
+                else
+                    Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
             }
-            else if (lPutQty[0] < 80)
+            else if (lPutQty[0] < 100)
             {
-                if (lPutQty[0] / 3 < lPho9)
-                    Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 3));
-            }
-            else if (lPutQty[0] < 120)
-            {
-                if (lPutQty[0] / 5 < lPho9)
-                    Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 5));
+                if (lPutQty[0] / 4 < lPho9)
+                    Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 4));
+                else
+                    Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
+
             }
             else if (lPutQty[0] < 200)
             {
                 if (lPutQty[0] / 8 < lPho9)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 8));
+                else
+                    Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
+
             }
-            else
+            else if (lPutQty[0] < 300)
             {
                 if (lPutQty[0] / 12 < lPho9)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 12));
+                else
+                    Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
+
+            }
+            else
+            {
+                if (lPutQty[0] / 15 < lPho9)
+                    Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 15));
+                else
+                    Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
+
             }
         }
 
@@ -8705,30 +9380,44 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice();
                 }
             }
-            else if (lPutQty[1] < 40)
+            else if (lPutQty[1] < 50)
             {
                 if (lPutQty[1] / 2 < lP2ho9)
-                    Request100_(PutCode[1], "1", fPrc + fProfit, (int)(lPutQty[1] / 2));
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 2));
+                else
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
             }
-            else if (lPutQty[1] < 80)
+            else if (lPutQty[1] < 100)
             {
-                if (lPutQty[1] / 3 < lP2ho9)
-                    Request100_(PutCode[1], "1", fPrc + fProfit, (int)(lPutQty[1] / 3));
-            }
-            else if (lPutQty[1] < 120)
-            {
-                if (lPutQty[1] / 5 < lP2ho9)
-                    Request100_(PutCode[1], "1", fPrc + fProfit, (int)(lPutQty[1] / 5));
+                if (lPutQty[1] / 4 < lP2ho9)
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 4));
+                else
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
+
             }
             else if (lPutQty[1] < 200)
             {
                 if (lPutQty[1] / 8 < lP2ho9)
-                    Request100_(PutCode[1], "1", fPrc + fProfit, (int)(lPutQty[1] / 8));
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 8));
+                else
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
+
+            }
+            else if (lPutQty[1] < 300)
+            {
+                if (lPutQty[1] / 12 < lP2ho9)
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 12));
+                else
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
+
             }
             else
             {
-                if (lPutQty[1] / 12 < lP2ho9)
-                    Request100_(PutCode[1], "1", fPrc + fProfit, (int)(lPutQty[1] / 12));
+                if (lPutQty[1] / 15 < lP2ho9)
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 15));
+                else
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
+
             }
         }
 
@@ -8750,30 +9439,44 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
                     SetPrice();
                 }
             }
-            else if (lPutQty[2] < 40)
+            else if (lPutQty[2] < 50)
             {
                 if (lPutQty[2] / 2 < lP3ho9)
-                    Request100_(PutCode[2], "1", fPrc + fProfit, (int)(lPutQty[2] / 2));
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 2));
+                else
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
             }
-            else if (lPutQty[2] < 80)
+            else if (lPutQty[2] < 100)
             {
-                if (lPutQty[2] / 3 < lP3ho9)
-                    Request100_(PutCode[2], "1", fPrc + fProfit, (int)(lPutQty[2] / 3));
-            }
-            else if (lPutQty[2] < 120)
-            {
-                if (lPutQty[2] / 5 < lP3ho9)
-                    Request100_(PutCode[2], "1", fPrc + fProfit, (int)(lPutQty[2] / 5));
+                if (lPutQty[2] / 4 < lP3ho9)
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 4));
+                else
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
+
             }
             else if (lPutQty[2] < 200)
             {
                 if (lPutQty[2] / 8 < lP3ho9)
-                    Request100_(PutCode[2], "1", fPrc + fProfit, (int)(lPutQty[2] / 8));
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 8));
+                else
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
+
+            }
+            else if (lPutQty[2] < 300)
+            {
+                if (lPutQty[2] / 12 < lP3ho9)
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 12));
+                else
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
+
             }
             else
             {
-                if (lPutQty[2] / 12 < lP3ho9)
-                    Request100_(PutCode[2], "1", fPrc + fProfit, (int)(lPutQty[2] / 12));
+                if (lPutQty[2] / 15 < lP3ho9)
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 15));
+                else
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
+
             }
         }
 
@@ -9828,40 +10531,41 @@ void CDlg_JEKYLL::SellFast() // 100ms 속도로 큐잉하면서 back값이 max�
 }
 
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest8() //Fast Sell
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest8() //Fast Sell
+//{
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	if (lLqdt == (lCallQty[0] + lPutQty[0]))
-	{
-		SetTimer(7, 100, NULL); //SellFast(); // fast sell
-	}
-	else
-	{
-		if (lCallQty[0] >= 0)		Request10100(CallCode[0]);
-		if (lCallQty[0] < 0)		Request10100_(CallCode[0]);
-		if (lPutQty[0] >= 0)		Request10100(PutCode[0]);
-		if (lPutQty[0] < 0)		Request10100_(PutCode[0]);
-	}
-}
+//	if (lLqdt == (lCallQty[0] + lPutQty[0]))
+//	{
+//		SetTimer(7, 100, NULL); //SellFast(); // fast sell
+//	}
+//	else
+//	{
+//		if (lCallQty[0] >= 0)		Request10100(CallCode[0]);
+//		if (lCallQty[0] < 0)		Request10100_(CallCode[0]);
+//		if (lPutQty[0] >= 0)		Request10100(PutCode[0]);
+//		if (lPutQty[0] < 0)		Request10100_(PutCode[0]);
+//	}
+//}
 
 
-void CDlg_JEKYLL::OnBnClickedButtonRequest9()
-{
+//void CDlg_JEKYLL::OnBnClickedButtonRequest9()
+//{
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	KillTimer(7);
-}
+//	KillTimer(7);
+//}
 
 void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOption0(자동거래) 가동
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str1, str2;
+	CString str1, str2, str3;
 	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
 	GetDlgItemText(IDC_EDITPRC5, str2);//입력 가격
+    GetDlgItemText(IDC_EDITPRC15, str3);//저항치 입력 가격
 	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 
-	float prc1 = (float)atof(str1), prc2 = (float)atof(str2);
+	float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3);
 	
-	if ((!bOption && (prc1 <= prc2)) || (bOption && (prc1 >= prc2))) // 콜매수 || 풋매수
+	if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수 || 풋매수
 	{
 		CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
 
@@ -9899,7 +10603,7 @@ void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOp
 void CDlg_JEKYLL::OnBnClickedButtonprofit9() // 세팅된 선물가격이 되었을경우 콜/풋 선택여부에 따라 매수
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	SetTimer(4, 1000, NULL);//BuyOption2 실행
+	SetTimer(4, 1000, NULL);//BuyOption2 실행(원하는 선물가격이 되었을경우 BuyOption0(자동거래) 가동)
 	m_tauto.SetWindowTextA("4 Running");
 }
 
@@ -9910,37 +10614,22 @@ void CDlg_JEKYLL::BuyOption4()// 원하는 선물가격이 되었을경우 BuyOp
 	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
 	GetDlgItemText(IDC_BOLGR10M, str2);//10분 중심선 대비 내 위치
 
-	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 	float prc2 = (float)atof(str2);
-	if (abs(prc2) < 0.03)
-	{
-		if (!bOption) // 콜매수
-		{
-			CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-			CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-			pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-			float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-			pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-			pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-			pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-			pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		}
-		else if (bOption) // 풋매수
-		{
-			CString sPrc1 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-			CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-			pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-			float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-			pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-			pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-			pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-			pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		}
+    if (fabs(prc2) < 0.03)
+    {
+        CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
+        CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
+        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
+        float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
+        pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
+        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
+        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+        pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 
-		KillTimer(10);
-		Sleep(1000);
-		OnBnClickedButtonprofit2();
-	}
+        KillTimer(10);
+        Sleep(1000);
+        OnBnClickedButtonprofit2();
+    }
 }
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit11() //볼린저밴드 중심선 터치
@@ -9958,7 +10647,7 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit11() //볼린저밴드 중심선 터치
 		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
 	}
 	SetTimer(10, 1000, NULL);//BuyOption4 실행(중심선 터치)
-	m_tauto.SetWindowTextA("10 Running");
+	m_tauto.SetWindowTextA("10 Running(Center)");
 }
 
 
@@ -9969,37 +10658,22 @@ void CDlg_JEKYLL::BuyOption5()// 원하는 선물가격이 되었을경우 BuyOp
 	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
 	GetDlgItemText(IDC_FUTURE60MA, str2);//60분 중심선 대비 내 위치
 
-	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 	float prc2 = (float)atof(str2);
-	if (abs(prc2) < 0.03)
-	{
-		if (!bOption) // 콜매수
-		{
-			CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-			CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-			pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-			float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-			pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-			pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-			pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-			pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		}
-		else if (bOption) // 풋매수
-		{
-			CString sPrc1 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-			CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-			pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-			float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-			pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-			pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-			pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-			pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		}
+    if (fabs(prc2) < 0.03)
+    {
+        CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
+        CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
+        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
+        float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
+        pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
+        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
+        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+        pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 
-		KillTimer(13);
-		Sleep(1000);
-		OnBnClickedButtonprofit2();
-	}
+        KillTimer(13);
+        Sleep(1000);
+        OnBnClickedButtonprofit2();
+    }
 }
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit19() // 60m 선 터치할 경우(상단에서는 콜 매수, 하단에서는 풋 매수)
@@ -10028,7 +10702,10 @@ void CDlg_JEKYLL::BuyOption3()// 원하는 선물가격이 되었을경우 BuyOp
 	GetDlgItemText(IDC_20MSMA2, str2);//20mSMA
 	GetDlgItemText(IDC_SD2, str3);//width
 	float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3);
-	if (prc1 >= (prc2 + prc3 - 0.1))// 풋매수( 상단 터치 상향돌파시) - 여유 0.1
+
+    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+
+	if (bOption && prc1 >= (prc2 + prc3 - 0.1))// 풋매수( 상단 터치 상향돌파시) - 여유 0.1
 	{
 		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
 		CString sPrc1 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
@@ -10044,7 +10721,7 @@ void CDlg_JEKYLL::BuyOption3()// 원하는 선물가격이 되었을경우 BuyOp
 		OnBnClickedButtonprofit2();
 	}
 
-	if (prc1 <= (prc2 - prc3 + 0.1))// 콜매수 ( 하단 터치 하향돌파시) - 여유 0.1
+	if (!bOption && prc1 <= (prc2 - prc3 + 0.1))// 콜매수 ( 하단 터치 하향돌파시) - 여유 0.1
 	{
 		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
 		CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
@@ -10072,10 +10749,23 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit16()//BuyOption3 실행(볼린저밴드
 void CDlg_JEKYLL::OnBnClickedButtonprofit17()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	KillTimer(4);
-	KillTimer(10);
-	KillTimer(12);
-	KillTimer(13);
+	KillTimer(4);//BuyOption2 실행
+	KillTimer(10);//BuyOption4 실행(중심선 터치)
+	KillTimer(12);//BuyOption3 실행(볼린저밴드 상하단 터치)
+	KillTimer(13);//BuyOption5 실행(60m 터치)
+
+    CEdit* pEdit;
+    CString str;
+
+    GetDlgItemTextA(IDC_FUTURE, str);
+
+    pEdit = (CEdit*)GetDlgItem(IDC_EDITPRC5); pEdit->SetWindowText(str);//선물가
+    float temp = (float)atof(str);
+    temp += 2.0f;
+    str.Format("%.2f", temp);
+    pEdit = (CEdit*)GetDlgItem(IDC_EDITPRC15); pEdit->SetWindowText(str);//선물가
+    pEdit = NULL;
+
 	m_tauto.SetWindowTextA("Stop");
 }
 
@@ -10398,108 +11088,108 @@ void CDlg_JEKYLL::OnDeltaposSpin6(NMHDR *pNMHDR, LRESULT *pResult)
 }
 
 
-void CDlg_JEKYLL::OnDeltaposSpin1(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+//void CDlg_JEKYLL::OnDeltaposSpin1(NMHDR *pNMHDR, LRESULT *pResult)
+//{
+//	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str;
-	GetDlgItemTextA(IDC_PRC, str);
-	float f1 = (float)atof(str);
+//	CString str;
+//	GetDlgItemTextA(IDC_PRC, str);
+//	float f1 = (float)atof(str);
+//
+//	if (pNMUpDown->iDelta < 0) //상 버튼
+//	{
+//		f1 += 0.01f;
+//	}
+//	else // 하 버튼
+//	{
+//		f1 -= 0.01f;
+//	}
+//
+//	str.Format("%.2f", f1);
+//	CEdit *pEdit1;
+//	pEdit1 = (CEdit*)GetDlgItem(IDC_PRC); pEdit1->SetWindowText(str);
+//	pEdit1 = NULL;
+//
+//	*pResult = 0;
+//}
 
-	if (pNMUpDown->iDelta < 0) //상 버튼
-	{
-		f1 += 0.01f;
-	}
-	else // 하 버튼
-	{
-		f1 -= 0.01f;
-	}
 
-	str.Format("%.2f", f1);
-	CEdit *pEdit1;
-	pEdit1 = (CEdit*)GetDlgItem(IDC_PRC); pEdit1->SetWindowText(str);
-	pEdit1 = NULL;
-
-	*pResult = 0;
-}
-
-
-void CDlg_JEKYLL::OnDeltaposSpin2(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+//void CDlg_JEKYLL::OnDeltaposSpin2(NMHDR *pNMHDR, LRESULT *pResult)
+//{
+//	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str;
-	GetDlgItemTextA(IDC_PRC2, str);
-	float f1 = (float)atof(str);
+//	CString str;
+//	GetDlgItemTextA(IDC_PRC2, str);
+//	float f1 = (float)atof(str);
+//
+//	if (pNMUpDown->iDelta < 0) //상 버튼
+//	{
+//		f1 += 0.01f;
+//	}
+//	else // 하 버튼
+//	{
+//		f1 -= 0.01f;
+//	}
+//
+//	str.Format("%.2f", f1);
+//	CEdit *pEdit1;
+//	pEdit1 = (CEdit*)GetDlgItem(IDC_PRC2); pEdit1->SetWindowText(str);
+//	pEdit1 = NULL;
+//
+//	*pResult = 0;
+//}
 
-	if (pNMUpDown->iDelta < 0) //상 버튼
-	{
-		f1 += 0.01f;
-	}
-	else // 하 버튼
-	{
-		f1 -= 0.01f;
-	}
 
-	str.Format("%.2f", f1);
-	CEdit *pEdit1;
-	pEdit1 = (CEdit*)GetDlgItem(IDC_PRC2); pEdit1->SetWindowText(str);
-	pEdit1 = NULL;
-
-	*pResult = 0;
-}
-
-
-void CDlg_JEKYLL::OnDeltaposSpin7(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+//void CDlg_JEKYLL::OnDeltaposSpin7(NMHDR *pNMHDR, LRESULT *pResult)
+//{
+//	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str;
-	GetDlgItemTextA(IDC_QTY, str);
-	int n1 = atoi(str);
+//	CString str;
+//	GetDlgItemTextA(IDC_QTY, str);
+//	int n1 = atoi(str);
+//
+//	if (pNMUpDown->iDelta < 0) //상 버튼
+//	{
+//		n1 += 1;
+//	}
+//	else // 하 버튼
+//	{
+//		n1 -= 1;
+//	}
+//
+//	str.Format("%d", n1);
+//	CEdit *pEdit1;
+//	pEdit1 = (CEdit*)GetDlgItem(IDC_QTY); pEdit1->SetWindowText(str);
+//	pEdit1 = NULL;
+//
+//	*pResult = 0;
+//}
 
-	if (pNMUpDown->iDelta < 0) //상 버튼
-	{
-		n1 += 1;
-	}
-	else // 하 버튼
-	{
-		n1 -= 1;
-	}
 
-	str.Format("%d", n1);
-	CEdit *pEdit1;
-	pEdit1 = (CEdit*)GetDlgItem(IDC_QTY); pEdit1->SetWindowText(str);
-	pEdit1 = NULL;
-
-	*pResult = 0;
-}
-
-
-void CDlg_JEKYLL::OnDeltaposSpin8(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+//void CDlg_JEKYLL::OnDeltaposSpin8(NMHDR *pNMHDR, LRESULT *pResult)
+//{
+//	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str;
-	GetDlgItemTextA(IDC_QTY2, str);
-	int n1 = atoi(str);
-
-	if (pNMUpDown->iDelta < 0) //상 버튼
-	{
-		n1 += 1;
-	}
-	else // 하 버튼
-	{
-		n1 -= 1;
-	}
-
-	str.Format("%d", n1);
-	CEdit *pEdit1;
-	pEdit1 = (CEdit*)GetDlgItem(IDC_QTY2); pEdit1->SetWindowText(str);
-	pEdit1 = NULL;
-
-	*pResult = 0;
-}
+//	CString str;
+//	GetDlgItemTextA(IDC_QTY2, str);
+//	int n1 = atoi(str);
+//
+//	if (pNMUpDown->iDelta < 0) //상 버튼
+//	{
+//		n1 += 1;
+//	}
+//	else // 하 버튼
+//	{
+//		n1 -= 1;
+//	}
+//
+//	str.Format("%d", n1);
+//	CEdit *pEdit1;
+//	pEdit1 = (CEdit*)GetDlgItem(IDC_QTY2); pEdit1->SetWindowText(str);
+//	pEdit1 = NULL;
+//
+//	*pResult = 0;
+//}
 
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit18()
@@ -11245,5 +11935,160 @@ void CDlg_JEKYLL::UpdateCheckedCount(int nCheckBoxID) {
 	CEdit* pEdit;
 	pEdit = (CEdit*)GetDlgItem(IDC_TST8); pEdit->SetWindowText(str);// nCheckedCount 확인
 	pEdit = NULL;
+
+}
+
+
+void CDlg_JEKYLL::OnDeltaposSpin36(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_EDITPRC15, str);
+    float f1 = (float)atof(str);
+
+    if (pNMUpDown->iDelta < 0) //상 버튼
+    {
+        f1 += 0.05f;
+    }
+    else // 하 버튼
+    {
+        f1 -= 0.05f;
+    }
+
+    str.Format("%.2f", f1);
+    CEdit* pEdit1;
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC15); pEdit1->SetWindowText(str);
+    pEdit1 = NULL;
+
+    *pResult = 0;
+}
+
+
+void CDlg_JEKYLL::OnDeltaposSpin35(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_EDITPRC5, str);
+    float f1 = (float)atof(str);
+
+    if (pNMUpDown->iDelta < 0) //상 버튼
+    {
+        f1 += 0.05f;
+    }
+    else // 하 버튼
+    {
+        f1 -= 0.05f;
+    }
+
+    str.Format("%.2f", f1);
+    CEdit* pEdit1;
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC5); pEdit1->SetWindowText(str);
+    pEdit1 = NULL;
+
+    *pResult = 0;
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest22()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request8415Y(FutureCode);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest23()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	//Request8415(FutureCode);
+    CString strFilePath = "./csv/" + strDateY + "_10m.csv";
+
+    FILE* fp = NULL; //파일 객체 선언
+    fopen_s(&fp, strFilePath, "r"); //해당 경로에 파일을 읽어라
+
+    if (fp) //해당 파일이 있고
+    {
+        char szContent[2048] = { 0, };
+        memset(szContent, NULL, 2048);
+
+        for (int i = 0; i < 43; i++) //파일을 한 라인씩 읽어라, 첫 행(제목)은 무시, 총43행
+        {
+            fgets(szContent, 2048, fp);
+            CString strContent;
+            strContent.Format("%s", szContent);
+            memset(szContent, NULL, 2048);
+
+            if (strContent.Find("#") >= 0) //만약 csv 파일 안의 데이터 중 #이 있으면 건너 뛰어라
+                continue;
+            strContent.Remove('\r');
+            strContent.Remove('\n');
+            CString rString;
+            int nSubString = 0;
+            //AfxExtractSubString() 함수를 이용하여 해당 CSV 파일은 , 단위로 
+
+
+            while (AfxExtractSubString(rString, strContent, nSubString++, ','))
+            {
+                if (i > 0) // 첫행은 무시(제목)
+                {
+                    switch (nSubString)
+                    {
+                    case 2: fAr10mOpenY[i - 1] = (float)atof(rString); break;
+                    case 3: fAr10mCloseY[i - 1] = (float)atof(rString); break;
+                    case 4: fAr10mHighY[i - 1] = (float)atof(rString); break;
+                    case 5: fAr10mLowY[i - 1] = (float)atof(rString); break;
+                    case 6: fAr10mKY[i - 1] = (float)atof(rString); break;
+                    case 7: fAr10mDY[i - 1] = (float)atof(rString); break;
+                    case 8: fAr10mSlowDY[i - 1] = (float)atof(rString); break;
+                    case 9: fAr10m20mSMAY[i - 1] = (float)atof(rString); break;
+                    case 10: fAr10m20mSDY[i - 1] = (float)atof(rString); break;
+                    }
+                }
+            }
+        }
+        fclose(fp); //파일 닫기
+    }
+
+    CString strFilePath2 = "./csv/" + strDateY + ".csv";
+
+    FILE* fp2 = NULL; //파일 객체 선언
+    fopen_s(&fp2, strFilePath2, "r"); //해당 경로에 파일을 읽어라
+    if (fp2) //해당 파일이 있고
+    {
+        char szContent[2048] = { 0, };
+        memset(szContent, NULL, 2048);
+
+        for (int i = 0; i < 412; i++) //파일을 한 라인씩 읽어라, 총 412행, 1행(제목)은 무시
+        {
+            fgets(szContent, 2048, fp);
+            CString strContent;
+            strContent.Format("%s", szContent);
+            memset(szContent, NULL, 2048);
+
+            if (strContent.Find("#") >= 0) //만약 csv 파일 안의 데이터 중 #이 있으면 건너 뛰어라
+                continue;
+            strContent.Remove('\r');
+            strContent.Remove('\n');
+            CString rString;
+            int nSubString = 0;//			AfxExtractSubString() 함수를 이용하여 해당 CSV 파일은, 단위로
+
+            while (AfxExtractSubString(rString, strContent, nSubString++, ','))
+            {
+                if (i > 0) // 첫행은 무시(제목)
+                {
+                    switch (nSubString)
+                    {
+                    case 3: fArCloseY[i - 1] = atof(rString); break;
+                    case 7: fAr20mSMAY[i - 1] = atof(rString); break;
+                    }
+                }
+            }
+        }
+        fclose(fp2); //파일 닫기
+    }
+    CString temp2; temp2.Format("%.3f", fAr10m20mSDY[41]);
+    m_tst.SetWindowTextA(temp2);
+
 
 }

@@ -1,4 +1,4 @@
-// Dlg_CSPAQ03700.cpp : implementation file
+ï»¿// Dlg_CSPAQ03700.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -74,16 +74,16 @@ void CDlg_CSPAQ03700::OnButtonRequestNext()
 }
 
 //--------------------------------------------------------------------------------------
-// ÄÁÆ®·Ñ ÃÊ±âÈ­
+// ì»¨íŠ¸ë¡¤ ì´ˆê¸°í™”
 //--------------------------------------------------------------------------------------
 void CDlg_CSPAQ03700::InitCtrls()
 {
 	int nCol;
 
 	//-------------------------------------------------------------------------
-	// InBlock : ±âº»°ª ¼¼ÆÃ
+	// InBlock : ê¸°ë³¸ê°’ ì„¸íŒ…
 	
-	// °èÁÂ¹øÈ£ ¼¼ÆÃ
+	// ê³„ì¢Œë²ˆí˜¸ ì„¸íŒ…
 	char szAccount[20];
 	int nCount = g_iXingAPI.GetAccountListCount();
 	for( int i=0; i<nCount; i++ )
@@ -97,74 +97,74 @@ void CDlg_CSPAQ03700::InitCtrls()
 	//-------------------------------------------------------------------------
 	// OutBlock1
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "·¹ÄÚµå°¹¼ö   ", FALSE,    5 );    // [long  ,    5] ·¹ÄÚµå°¹¼ö   
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "°èÁÂ¹øÈ£     ", TRUE ,   20 );    // [string,   20] °èÁÂ¹øÈ£     
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÀÔ·Âºñ¹Ğ¹øÈ£ ", TRUE ,    8 );    // [string,    8] ÀÔ·Âºñ¹Ğ¹øÈ£ 
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÁÖ¹®½ÃÀåÄÚµå ", TRUE ,    2 );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå 
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¸Å¸Å±¸ºĞ     ", TRUE ,    1 );    // [string,    1] ¸Å¸Å±¸ºĞ     
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Á¾¸ñ¹øÈ£     ", TRUE ,   12 );    // [string,   12] Á¾¸ñ¹øÈ£     
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Ã¼°á¿©ºÎ     ", TRUE ,    1 );    // [string,    1] Ã¼°á¿©ºÎ     
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÁÖ¹®ÀÏ       ", TRUE ,    8 );    // [string,    8] ÁÖ¹®ÀÏ       
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "½ÃÀÛÁÖ¹®¹øÈ£2", FALSE,   10 );    // [long  ,   10] ½ÃÀÛÁÖ¹®¹øÈ£2
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¿ª¼ø±¸ºĞ     ", TRUE ,    1 );    // [string,    1] ¿ª¼ø±¸ºĞ     
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÁÖ¹®À¯ÇüÄÚµå ", TRUE ,    2 );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå 
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ë ˆì½”ë“œê°¯ìˆ˜   ", FALSE,    5 );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜   
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ê³„ì¢Œë²ˆí˜¸     ", TRUE ,   20 );    // [string,   20] ê³„ì¢Œë²ˆí˜¸     
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì…ë ¥ë¹„ë°€ë²ˆí˜¸ ", TRUE ,    8 );    // [string,    8] ì…ë ¥ë¹„ë°€ë²ˆí˜¸ 
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì£¼ë¬¸ì‹œì¥ì½”ë“œ ", TRUE ,    2 );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ 
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ë§¤ë§¤êµ¬ë¶„     ", TRUE ,    1 );    // [string,    1] ë§¤ë§¤êµ¬ë¶„     
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì¢…ëª©ë²ˆí˜¸     ", TRUE ,   12 );    // [string,   12] ì¢…ëª©ë²ˆí˜¸     
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì²´ê²°ì—¬ë¶€     ", TRUE ,    1 );    // [string,    1] ì²´ê²°ì—¬ë¶€     
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì£¼ë¬¸ì¼       ", TRUE ,    8 );    // [string,    8] ì£¼ë¬¸ì¼       
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì‹œì‘ì£¼ë¬¸ë²ˆí˜¸2", FALSE,   10 );    // [long  ,   10] ì‹œì‘ì£¼ë¬¸ë²ˆí˜¸2
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì—­ìˆœêµ¬ë¶„     ", TRUE ,    1 );    // [string,    1] ì—­ìˆœêµ¬ë¶„     
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì£¼ë¬¸ìœ í˜•ì½”ë“œ ", TRUE ,    2 );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ 
 	
 	//-------------------------------------------------------------------------
 	// OutBlock2
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "·¹ÄÚµå°¹¼ö  ", FALSE,    5 );    // [long  ,    5] ·¹ÄÚµå°¹¼ö  
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸ÅµµÃ¼°á±İ¾×", FALSE,   16 );    // [long  ,   16] ¸ÅµµÃ¼°á±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸Å¼öÃ¼°á±İ¾×", FALSE,   16 );    // [long  ,   16] ¸Å¼öÃ¼°á±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸ÅµµÃ¼°á¼ö·®", FALSE,   16 );    // [long  ,   16] ¸ÅµµÃ¼°á¼ö·®
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸Å¼öÃ¼°á¼ö·®", FALSE,   16 );    // [long  ,   16] ¸Å¼öÃ¼°á¼ö·®
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸ÅµµÁÖ¹®¼ö·®", FALSE,   16 );    // [long  ,   16] ¸ÅµµÁÖ¹®¼ö·®
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸Å¼öÁÖ¹®¼ö·®", FALSE,   16 );    // [long  ,   16] ¸Å¼öÁÖ¹®¼ö·®
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë ˆì½”ë“œê°¯ìˆ˜  ", FALSE,    5 );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜  
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ë„ì²´ê²°ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ë„ì²´ê²°ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ìˆ˜ì²´ê²°ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ìˆ˜ì²´ê²°ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ë„ì²´ê²°ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ë§¤ë„ì²´ê²°ìˆ˜ëŸ‰
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ìˆ˜ì²´ê²°ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ë§¤ìˆ˜ì²´ê²°ìˆ˜ëŸ‰
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ë„ì£¼ë¬¸ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ë§¤ë„ì£¼ë¬¸ìˆ˜ëŸ‰
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ìˆ˜ì£¼ë¬¸ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ë§¤ìˆ˜ì£¼ë¬¸ìˆ˜ëŸ‰
 	
 	//-------------------------------------------------------------------------
 	// OutBlock3
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®ÀÏ          ", TRUE ,    8 );    // [string,    8] ÁÖ¹®ÀÏ          
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "°ü¸®ÁöÁ¡¹øÈ£    ", TRUE ,    3 );    // [string,    3] °ü¸®ÁöÁ¡¹øÈ£    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®½ÃÀåÄÚµå    ", TRUE ,    2 );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®¹øÈ£        ", FALSE,   10 );    // [long  ,   10] ÁÖ¹®¹øÈ£        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¿øÁÖ¹®¹øÈ£      ", FALSE,   10 );    // [long  ,   10] ¿øÁÖ¹®¹øÈ£      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¾¸ñ¹øÈ£        ", TRUE ,   12 );    // [string,   12] Á¾¸ñ¹øÈ£        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¾¸ñ¸í          ", TRUE ,   40 );    // [string,   40] Á¾¸ñ¸í          
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¸Å¸Å±¸ºĞ        ", TRUE ,    1 );    // [string,    1] ¸Å¸Å±¸ºĞ        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¸Å¸Å±¸ºĞ        ", TRUE ,   10 );    // [string,   10] ¸Å¸Å±¸ºĞ        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®À¯ÇüÄÚµå    ", TRUE ,    2 );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®À¯Çü¸í      ", TRUE ,   40 );    // [string,   40] ÁÖ¹®À¯Çü¸í      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®Ã³¸®À¯ÇüÄÚµå", FALSE,    9 );    // [long  ,    9] ÁÖ¹®Ã³¸®À¯ÇüÄÚµå
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®Ã³¸®À¯Çü¸í  ", TRUE ,   50 );    // [string,   50] ÁÖ¹®Ã³¸®À¯Çü¸í  
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¤Á¤Ãë¼Ò±¸ºĞ    ", TRUE ,    1 );    // [string,    1] Á¤Á¤Ãë¼Ò±¸ºĞ    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¤Á¤Ãë¼Ò±¸ºĞ¸í  ", TRUE ,   10 );    // [string,   10] Á¤Á¤Ãë¼Ò±¸ºĞ¸í  
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¤Á¤Ãë¼Ò¼ö·®    ", FALSE,   16 );    // [long  ,   16] Á¤Á¤Ãë¼Ò¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Á¤Á¤Ãë¼Ò°¡´É¼ö·®", FALSE,   16 );    // [long  ,   16] Á¤Á¤Ãë¼Ò°¡´É¼ö·®
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®¼ö·®        ", FALSE,   16 );    // [long  ,   16] ÁÖ¹®¼ö·®        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®°¡°İ        ", FALSE, 15.2 );    // [double, 15.2] ÁÖ¹®°¡°İ        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ã¼°á¼ö·®        ", FALSE,   16 );    // [long  ,   16] Ã¼°á¼ö·®        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ã¼°á°¡          ", FALSE, 15.2 );    // [double, 15.2] Ã¼°á°¡          
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ã¼°áÃ³¸®½Ã°¢    ", TRUE ,    9 );    // [string,    9] Ã¼°áÃ³¸®½Ã°¢    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÃÖÁ¾Ã¼°á½Ã°¢    ", TRUE ,    9 );    // [string,    9] ÃÖÁ¾Ã¼°á½Ã°¢    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "È£°¡À¯ÇüÄÚµå    ", TRUE ,    2 );    // [string,    2] È£°¡À¯ÇüÄÚµå    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "È£°¡À¯Çü¸í      ", TRUE ,   40 );    // [string,   40] È£°¡À¯Çü¸í      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®Á¶°Ç±¸ºĞ    ", TRUE ,    1 );    // [string,    1] ÁÖ¹®Á¶°Ç±¸ºĞ    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÀüÃ¼Ã¼°á¼ö·®    ", FALSE,   16 );    // [long  ,   16] ÀüÃ¼Ã¼°á¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Åë½Å¸ÅÃ¼ÄÚµå    ", TRUE ,    2 );    // [string,    2] Åë½Å¸ÅÃ¼ÄÚµå    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Åë½Å¸ÅÃ¼¸í      ", TRUE ,   40 );    // [string,   40] Åë½Å¸ÅÃ¼¸í      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "È¸¿ø¹øÈ£        ", TRUE ,    3 );    // [string,    3] È¸¿ø¹øÈ£        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¿¹¾àÁÖ¹®¿©ºÎ    ", TRUE ,    1 );    // [string,    1] ¿¹¾àÁÖ¹®¿©ºÎ    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "´ëÃâÀÏ          ", TRUE ,    8 );    // [string,    8] ´ëÃâÀÏ          
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®½Ã°¢        ", TRUE ,    9 );    // [string,    9] ÁÖ¹®½Ã°¢        
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¿î¿ëÁö½Ã¹øÈ£    ", TRUE ,   12 );    // [string,   12] ¿î¿ëÁö½Ã¹øÈ£    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ÁÖ¹®ÀÚID        ", TRUE ,   16 );    // [string,   16] ÁÖ¹®ÀÚID        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì¼          ", TRUE ,    8 );    // [string,    8] ì£¼ë¬¸ì¼          
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ê´€ë¦¬ì§€ì ë²ˆí˜¸    ", TRUE ,    3 );    // [string,    3] ê´€ë¦¬ì§€ì ë²ˆí˜¸    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì‹œì¥ì½”ë“œ    ", TRUE ,    2 );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ë²ˆí˜¸        ", FALSE,   10 );    // [long  ,   10] ì£¼ë¬¸ë²ˆí˜¸        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì›ì£¼ë¬¸ë²ˆí˜¸      ", FALSE,   10 );    // [long  ,   10] ì›ì£¼ë¬¸ë²ˆí˜¸      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì¢…ëª©ë²ˆí˜¸        ", TRUE ,   12 );    // [string,   12] ì¢…ëª©ë²ˆí˜¸        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì¢…ëª©ëª…          ", TRUE ,   40 );    // [string,   40] ì¢…ëª©ëª…          
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ë§¤ë§¤êµ¬ë¶„        ", TRUE ,    1 );    // [string,    1] ë§¤ë§¤êµ¬ë¶„        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ë§¤ë§¤êµ¬ë¶„        ", TRUE ,   10 );    // [string,   10] ë§¤ë§¤êµ¬ë¶„        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ìœ í˜•ì½”ë“œ    ", TRUE ,    2 );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ìœ í˜•ëª…      ", TRUE ,   40 );    // [string,   40] ì£¼ë¬¸ìœ í˜•ëª…      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ì½”ë“œ", FALSE,    9 );    // [long  ,    9] ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ì½”ë“œ
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ëª…  ", TRUE ,   50 );    // [string,   50] ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ëª…  
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì •ì •ì·¨ì†Œêµ¬ë¶„    ", TRUE ,    1 );    // [string,    1] ì •ì •ì·¨ì†Œêµ¬ë¶„    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì •ì •ì·¨ì†Œêµ¬ë¶„ëª…  ", TRUE ,   10 );    // [string,   10] ì •ì •ì·¨ì†Œêµ¬ë¶„ëª…  
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì •ì •ì·¨ì†Œìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì •ì •ì·¨ì†Œìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì •ì •ì·¨ì†Œê°€ëŠ¥ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ì •ì •ì·¨ì†Œê°€ëŠ¥ìˆ˜ëŸ‰
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ìˆ˜ëŸ‰        ", FALSE,   16 );    // [long  ,   16] ì£¼ë¬¸ìˆ˜ëŸ‰        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ê°€ê²©        ", FALSE, 15.2 );    // [double, 15.2] ì£¼ë¬¸ê°€ê²©        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì²´ê²°ìˆ˜ëŸ‰        ", FALSE,   16 );    // [long  ,   16] ì²´ê²°ìˆ˜ëŸ‰        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì²´ê²°ê°€          ", FALSE, 15.2 );    // [double, 15.2] ì²´ê²°ê°€          
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì²´ê²°ì²˜ë¦¬ì‹œê°    ", TRUE ,    9 );    // [string,    9] ì²´ê²°ì²˜ë¦¬ì‹œê°    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ìµœì¢…ì²´ê²°ì‹œê°    ", TRUE ,    9 );    // [string,    9] ìµœì¢…ì²´ê²°ì‹œê°    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í˜¸ê°€ìœ í˜•ì½”ë“œ    ", TRUE ,    2 );    // [string,    2] í˜¸ê°€ìœ í˜•ì½”ë“œ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í˜¸ê°€ìœ í˜•ëª…      ", TRUE ,   40 );    // [string,   40] í˜¸ê°€ìœ í˜•ëª…      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì¡°ê±´êµ¬ë¶„    ", TRUE ,    1 );    // [string,    1] ì£¼ë¬¸ì¡°ê±´êµ¬ë¶„    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì „ì²´ì²´ê²°ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì „ì²´ì²´ê²°ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í†µì‹ ë§¤ì²´ì½”ë“œ    ", TRUE ,    2 );    // [string,    2] í†µì‹ ë§¤ì²´ì½”ë“œ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í†µì‹ ë§¤ì²´ëª…      ", TRUE ,   40 );    // [string,   40] í†µì‹ ë§¤ì²´ëª…      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "íšŒì›ë²ˆí˜¸        ", TRUE ,    3 );    // [string,    3] íšŒì›ë²ˆí˜¸        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì˜ˆì•½ì£¼ë¬¸ì—¬ë¶€    ", TRUE ,    1 );    // [string,    1] ì˜ˆì•½ì£¼ë¬¸ì—¬ë¶€    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ëŒ€ì¶œì¼          ", TRUE ,    8 );    // [string,    8] ëŒ€ì¶œì¼          
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ì‹œê°        ", TRUE ,    9 );    // [string,    9] ì£¼ë¬¸ì‹œê°        
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ìš´ìš©ì§€ì‹œë²ˆí˜¸    ", TRUE ,   12 );    // [string,   12] ìš´ìš©ì§€ì‹œë²ˆí˜¸    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì£¼ë¬¸ìID        ", TRUE ,   16 );    // [string,   16] ì£¼ë¬¸ìID        
 	
 	ZeroMemory( m_szContKey, sizeof( m_szContKey ) );
 	GetDlgItem( IDC_BUTTON_REQUEST_NEXT )->EnableWindow( FALSE );
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ Á¶È¸
+// ë°ì´í„° ì¡°íšŒ
 //--------------------------------------------------------------------------------------
 void CDlg_CSPAQ03700::RequestData( BOOL bNext )
 {
@@ -175,46 +175,46 @@ void CDlg_CSPAQ03700::RequestData( BOOL bNext )
 	char			szNextKey[]		= "";
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Ãëµæ
-    CString strAcntNo     ;		GetDlgItemText( IDC_INBLOCK_ACNTNO     , strAcntNo      );    // [string,   20] °èÁÂ¹øÈ£     
-    CString strInptPwd    ;		GetDlgItemText( IDC_INBLOCK_INPTPWD    , strInptPwd     );    // [string,    8] ÀÔ·Âºñ¹Ğ¹øÈ£ 
-    CString strOrdMktCode ;		GetDlgItemText( IDC_INBLOCK_ORDMKTCODE , strOrdMktCode  );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå 
-    CString strBnsTpCode  ;		GetDlgItemText( IDC_INBLOCK_BNSTPCODE  , strBnsTpCode   );    // [string,    1] ¸Å¸Å±¸ºĞ     
-    CString strIsuNo      ;		GetDlgItemText( IDC_INBLOCK_ISUNO      , strIsuNo       );    // [string,   12] Á¾¸ñ¹øÈ£     
-    CString strExecYn     ;		GetDlgItemText( IDC_INBLOCK_EXECYN     , strExecYn      );    // [string,    1] Ã¼°á¿©ºÎ     
-    CString strOrdDt      ;		GetDlgItemText( IDC_INBLOCK_ORDDT      , strOrdDt       );    // [string,    8] ÁÖ¹®ÀÏ       
-    CString strSrtOrdNo2  ;		GetDlgItemText( IDC_INBLOCK_SRTORDNO2  , strSrtOrdNo2   );    // [long  ,   10] ½ÃÀÛÁÖ¹®¹øÈ£2
-    CString strBkseqTpCode;		GetDlgItemText( IDC_INBLOCK_BKSEQTPCODE, strBkseqTpCode );    // [string,    1] ¿ª¼ø±¸ºĞ     
-    CString strOrdPtnCode ;		GetDlgItemText( IDC_INBLOCK_ORDPTNCODE , strOrdPtnCode  );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå 
+	// ë°ì´í„° ì·¨ë“
+    CString strAcntNo     ;		GetDlgItemText( IDC_INBLOCK_ACNTNO     , strAcntNo      );    // [string,   20] ê³„ì¢Œë²ˆí˜¸     
+    CString strInptPwd    ;		GetDlgItemText( IDC_INBLOCK_INPTPWD    , strInptPwd     );    // [string,    8] ì…ë ¥ë¹„ë°€ë²ˆí˜¸ 
+    CString strOrdMktCode ;		GetDlgItemText( IDC_INBLOCK_ORDMKTCODE , strOrdMktCode  );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ 
+    CString strBnsTpCode  ;		GetDlgItemText( IDC_INBLOCK_BNSTPCODE  , strBnsTpCode   );    // [string,    1] ë§¤ë§¤êµ¬ë¶„     
+    CString strIsuNo      ;		GetDlgItemText( IDC_INBLOCK_ISUNO      , strIsuNo       );    // [string,   12] ì¢…ëª©ë²ˆí˜¸     
+    CString strExecYn     ;		GetDlgItemText( IDC_INBLOCK_EXECYN     , strExecYn      );    // [string,    1] ì²´ê²°ì—¬ë¶€     
+    CString strOrdDt      ;		GetDlgItemText( IDC_INBLOCK_ORDDT      , strOrdDt       );    // [string,    8] ì£¼ë¬¸ì¼       
+    CString strSrtOrdNo2  ;		GetDlgItemText( IDC_INBLOCK_SRTORDNO2  , strSrtOrdNo2   );    // [long  ,   10] ì‹œì‘ì£¼ë¬¸ë²ˆí˜¸2
+    CString strBkseqTpCode;		GetDlgItemText( IDC_INBLOCK_BKSEQTPCODE, strBkseqTpCode );    // [string,    1] ì—­ìˆœêµ¬ë¶„     
+    CString strOrdPtnCode ;		GetDlgItemText( IDC_INBLOCK_ORDPTNCODE , strOrdPtnCode  );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ 
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÃÊ±âÈ­
+	// ë°ì´í„° ì´ˆê¸°í™”
 	FillMemory( &pckInBlock, sizeof( pckInBlock ), ' ' );
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÀÔ·Â
-	SetPacketData( pckInBlock.RecCnt     , sizeof( pckInBlock.RecCnt      ), "1"           , DATA_TYPE_LONG   );    // [long  ,    5] ·¹ÄÚµå°¹¼ö   
-	SetPacketData( pckInBlock.AcntNo     , sizeof( pckInBlock.AcntNo      ), strAcntNo     , DATA_TYPE_STRING );    // [string,   20] °èÁÂ¹øÈ£     
-	SetPacketData( pckInBlock.InptPwd    , sizeof( pckInBlock.InptPwd     ), strInptPwd    , DATA_TYPE_STRING );    // [string,    8] ÀÔ·Âºñ¹Ğ¹øÈ£ 
-	SetPacketData( pckInBlock.OrdMktCode , sizeof( pckInBlock.OrdMktCode  ), strOrdMktCode , DATA_TYPE_STRING );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå 
-	SetPacketData( pckInBlock.BnsTpCode  , sizeof( pckInBlock.BnsTpCode   ), strBnsTpCode  , DATA_TYPE_STRING );    // [string,    1] ¸Å¸Å±¸ºĞ     
-	SetPacketData( pckInBlock.IsuNo      , sizeof( pckInBlock.IsuNo       ), strIsuNo      , DATA_TYPE_STRING );    // [string,   12] Á¾¸ñ¹øÈ£     
-	SetPacketData( pckInBlock.ExecYn     , sizeof( pckInBlock.ExecYn      ), strExecYn     , DATA_TYPE_STRING );    // [string,    1] Ã¼°á¿©ºÎ     
-	SetPacketData( pckInBlock.OrdDt      , sizeof( pckInBlock.OrdDt       ), strOrdDt      , DATA_TYPE_STRING );    // [string,    8] ÁÖ¹®ÀÏ       
-	SetPacketData( pckInBlock.SrtOrdNo2  , sizeof( pckInBlock.SrtOrdNo2   ), strSrtOrdNo2  , DATA_TYPE_LONG   );    // [long  ,   10] ½ÃÀÛÁÖ¹®¹øÈ£2
-	SetPacketData( pckInBlock.BkseqTpCode, sizeof( pckInBlock.BkseqTpCode ), strBkseqTpCode, DATA_TYPE_STRING );    // [string,    1] ¿ª¼ø±¸ºĞ     
-	SetPacketData( pckInBlock.OrdPtnCode , sizeof( pckInBlock.OrdPtnCode  ), strOrdPtnCode , DATA_TYPE_STRING );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå 
+	// ë°ì´í„° ì…ë ¥
+	SetPacketData( pckInBlock.RecCnt     , sizeof( pckInBlock.RecCnt      ), "1"           , DATA_TYPE_LONG   );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜   
+	SetPacketData( pckInBlock.AcntNo     , sizeof( pckInBlock.AcntNo      ), strAcntNo     , DATA_TYPE_STRING );    // [string,   20] ê³„ì¢Œë²ˆí˜¸     
+	SetPacketData( pckInBlock.InptPwd    , sizeof( pckInBlock.InptPwd     ), strInptPwd    , DATA_TYPE_STRING );    // [string,    8] ì…ë ¥ë¹„ë°€ë²ˆí˜¸ 
+	SetPacketData( pckInBlock.OrdMktCode , sizeof( pckInBlock.OrdMktCode  ), strOrdMktCode , DATA_TYPE_STRING );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ 
+	SetPacketData( pckInBlock.BnsTpCode  , sizeof( pckInBlock.BnsTpCode   ), strBnsTpCode  , DATA_TYPE_STRING );    // [string,    1] ë§¤ë§¤êµ¬ë¶„     
+	SetPacketData( pckInBlock.IsuNo      , sizeof( pckInBlock.IsuNo       ), strIsuNo      , DATA_TYPE_STRING );    // [string,   12] ì¢…ëª©ë²ˆí˜¸     
+	SetPacketData( pckInBlock.ExecYn     , sizeof( pckInBlock.ExecYn      ), strExecYn     , DATA_TYPE_STRING );    // [string,    1] ì²´ê²°ì—¬ë¶€     
+	SetPacketData( pckInBlock.OrdDt      , sizeof( pckInBlock.OrdDt       ), strOrdDt      , DATA_TYPE_STRING );    // [string,    8] ì£¼ë¬¸ì¼       
+	SetPacketData( pckInBlock.SrtOrdNo2  , sizeof( pckInBlock.SrtOrdNo2   ), strSrtOrdNo2  , DATA_TYPE_LONG   );    // [long  ,   10] ì‹œì‘ì£¼ë¬¸ë²ˆí˜¸2
+	SetPacketData( pckInBlock.BkseqTpCode, sizeof( pckInBlock.BkseqTpCode ), strBkseqTpCode, DATA_TYPE_STRING );    // [string,    1] ì—­ìˆœêµ¬ë¶„     
+	SetPacketData( pckInBlock.OrdPtnCode , sizeof( pckInBlock.OrdPtnCode  ), strOrdPtnCode , DATA_TYPE_STRING );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ 
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Àü¼Û
+	// ë°ì´í„° ì „ì†¡
 	int nRqID = g_iXingAPI.Request( 
-		GetSafeHwnd(),				// µ¥ÀÌÅÍ¸¦ ¹ŞÀ» À©µµ¿ì, XM_RECEIVE_DATA À¸·Î ¿Â´Ù.
-		szTrNo,						// TR ¹øÈ£
-		&pckInBlock,				// InBlock µ¥ÀÌÅÍ
-		sizeof( pckInBlock ),		// InBlock µ¥ÀÌÅÍ Å©±â
-		bNext,						// ´ÙÀ½Á¶È¸ ¿©ºÎ : ´ÙÀ½Á¶È¸ÀÏ °æ¿ì¿¡ ¼¼ÆÃÇÑ´Ù.
-		bNext ? m_szContKey : "",	// ´ÙÀ½Á¶È¸ Key : Header TypeÀÌ B ÀÏ °æ¿ì¿£ ÀÌÀü Á¶È¸¶§ ¹ŞÀº Next Key¸¦ ³Ö¾îÁØ´Ù.
-		30							// Timeout(ÃÊ) : ÇØ´ç ½Ã°£(ÃÊ)µ¿¾È µ¥ÀÌÅÍ°¡ ¿ÀÁö ¾ÊÀ¸¸é Timeout¿¡ ¹ß»ıÇÑ´Ù. XM_TIMEOUT_DATA ¸Ş½ÃÁö°¡ ¹ß»ıÇÑ´Ù.
+		GetSafeHwnd(),				// ë°ì´í„°ë¥¼ ë°›ì„ ìœˆë„ìš°, XM_RECEIVE_DATA ìœ¼ë¡œ ì˜¨ë‹¤.
+		szTrNo,						// TR ë²ˆí˜¸
+		&pckInBlock,				// InBlock ë°ì´í„°
+		sizeof( pckInBlock ),		// InBlock ë°ì´í„° í¬ê¸°
+		bNext,						// ë‹¤ìŒì¡°íšŒ ì—¬ë¶€ : ë‹¤ìŒì¡°íšŒì¼ ê²½ìš°ì— ì„¸íŒ…í•œë‹¤.
+		bNext ? m_szContKey : "",	// ë‹¤ìŒì¡°íšŒ Key : Header Typeì´ B ì¼ ê²½ìš°ì—” ì´ì „ ì¡°íšŒë•Œ ë°›ì€ Next Keyë¥¼ ë„£ì–´ì¤€ë‹¤.
+		30							// Timeout(ì´ˆ) : í•´ë‹¹ ì‹œê°„(ì´ˆ)ë™ì•ˆ ë°ì´í„°ê°€ ì˜¤ì§€ ì•Šìœ¼ë©´ Timeoutì— ë°œìƒí•œë‹¤. XM_TIMEOUT_DATA ë©”ì‹œì§€ê°€ ë°œìƒí•œë‹¤.
 	);
 
 	m_ctrlOutBlock1.DeleteAllItems();
@@ -225,20 +225,20 @@ void CDlg_CSPAQ03700::RequestData( BOOL bNext )
 	}
 
 	//-----------------------------------------------------------
-	// Request ID°¡ 0º¸´Ù ÀÛÀ» °æ¿ì¿¡´Â ¿¡·¯ÀÌ´Ù.
+	// Request IDê°€ 0ë³´ë‹¤ ì‘ì„ ê²½ìš°ì—ëŠ” ì—ëŸ¬ì´ë‹¤.
 	if( nRqID < 0 )
 	{
-		MessageBox( "Á¶È¸½ÇÆĞ", "¿¡·¯", MB_ICONSTOP );
+		MessageBox( "ì¡°íšŒì‹¤íŒ¨", "ì—ëŸ¬", MB_ICONSTOP );
 	}
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ¸¦ ¹ŞÀ½
+// ë°ì´í„°ë¥¼ ë°›ìŒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 {
 	//-------------------------------------------------------------------------------------
-	// Data¸¦ ¹ŞÀ½
+	// Dataë¥¼ ë°›ìŒ
 	if( wParam == REQUEST_DATA )
 	{
 		typedef struct
@@ -257,14 +257,14 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		int						nCount;
 		char					szCount[6] = { 0 };
 
-		// ¿¬¼ÓÅ°¸¦ ÀúÀåÇÑ´Ù.
-		strcpy( m_szContKey, pRpData->szContKey );
+		// ì—°ì†í‚¤ë¥¼ ì €ì¥í•œë‹¤.
+		strcpy_s( m_szContKey, pRpData->szContKey );
 		GetDlgItem( IDC_BUTTON_REQUEST_NEXT )->EnableWindow( pRpData->cCont[0] == 'Y' );
 
 		//------------------------------------------------
 		// OutBlock1
 		
-		// ¹ŞÀº µ¥ÀÌÅÍ Å©±â°¡ Block Å©±âº¸´Ù ÀÛ´Ù¸é Ã³¸®ÇÏÁö ¾Ê´Â´Ù.
+		// ë°›ì€ ë°ì´í„° í¬ê¸°ê°€ Block í¬ê¸°ë³´ë‹¤ ì‘ë‹¤ë©´ ì²˜ë¦¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		nDataLength -= sizeof( CSPAQ03700OutBlock1 );
 		if( nDataLength < 0 )
 		{
@@ -273,17 +273,17 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 
 		nCol = 0;
 		m_ctrlOutBlock1.InsertItem( 0, "" );
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.RecCnt     , sizeof( pAllOutBlock->outBlock1.RecCnt      ), DATA_TYPE_LONG   ) );    // [long  ,    5] ·¹ÄÚµå°¹¼ö   
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.AcntNo     , sizeof( pAllOutBlock->outBlock1.AcntNo      ), DATA_TYPE_STRING ) );    // [string,   20] °èÁÂ¹øÈ£     
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.InptPwd    , sizeof( pAllOutBlock->outBlock1.InptPwd     ), DATA_TYPE_STRING ) );    // [string,    8] ÀÔ·Âºñ¹Ğ¹øÈ£ 
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdMktCode , sizeof( pAllOutBlock->outBlock1.OrdMktCode  ), DATA_TYPE_STRING ) );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå 
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.BnsTpCode  , sizeof( pAllOutBlock->outBlock1.BnsTpCode   ), DATA_TYPE_STRING ) );    // [string,    1] ¸Å¸Å±¸ºĞ     
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.IsuNo      , sizeof( pAllOutBlock->outBlock1.IsuNo       ), DATA_TYPE_STRING ) );    // [string,   12] Á¾¸ñ¹øÈ£     
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.ExecYn     , sizeof( pAllOutBlock->outBlock1.ExecYn      ), DATA_TYPE_STRING ) );    // [string,    1] Ã¼°á¿©ºÎ     
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdDt      , sizeof( pAllOutBlock->outBlock1.OrdDt       ), DATA_TYPE_STRING ) );    // [string,    8] ÁÖ¹®ÀÏ       
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.SrtOrdNo2  , sizeof( pAllOutBlock->outBlock1.SrtOrdNo2   ), DATA_TYPE_LONG   ) );    // [long  ,   10] ½ÃÀÛÁÖ¹®¹øÈ£2
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.BkseqTpCode, sizeof( pAllOutBlock->outBlock1.BkseqTpCode ), DATA_TYPE_STRING ) );    // [string,    1] ¿ª¼ø±¸ºĞ     
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdPtnCode , sizeof( pAllOutBlock->outBlock1.OrdPtnCode  ), DATA_TYPE_STRING ) );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå 
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.RecCnt     , sizeof( pAllOutBlock->outBlock1.RecCnt      ), DATA_TYPE_LONG   ) );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜   
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.AcntNo     , sizeof( pAllOutBlock->outBlock1.AcntNo      ), DATA_TYPE_STRING ) );    // [string,   20] ê³„ì¢Œë²ˆí˜¸     
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.InptPwd    , sizeof( pAllOutBlock->outBlock1.InptPwd     ), DATA_TYPE_STRING ) );    // [string,    8] ì…ë ¥ë¹„ë°€ë²ˆí˜¸ 
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdMktCode , sizeof( pAllOutBlock->outBlock1.OrdMktCode  ), DATA_TYPE_STRING ) );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ 
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.BnsTpCode  , sizeof( pAllOutBlock->outBlock1.BnsTpCode   ), DATA_TYPE_STRING ) );    // [string,    1] ë§¤ë§¤êµ¬ë¶„     
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.IsuNo      , sizeof( pAllOutBlock->outBlock1.IsuNo       ), DATA_TYPE_STRING ) );    // [string,   12] ì¢…ëª©ë²ˆí˜¸     
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.ExecYn     , sizeof( pAllOutBlock->outBlock1.ExecYn      ), DATA_TYPE_STRING ) );    // [string,    1] ì²´ê²°ì—¬ë¶€     
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdDt      , sizeof( pAllOutBlock->outBlock1.OrdDt       ), DATA_TYPE_STRING ) );    // [string,    8] ì£¼ë¬¸ì¼       
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.SrtOrdNo2  , sizeof( pAllOutBlock->outBlock1.SrtOrdNo2   ), DATA_TYPE_LONG   ) );    // [long  ,   10] ì‹œì‘ì£¼ë¬¸ë²ˆí˜¸2
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.BkseqTpCode, sizeof( pAllOutBlock->outBlock1.BkseqTpCode ), DATA_TYPE_STRING ) );    // [string,    1] ì—­ìˆœêµ¬ë¶„     
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock1.OrdPtnCode , sizeof( pAllOutBlock->outBlock1.OrdPtnCode  ), DATA_TYPE_STRING ) );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ 
 		
 		//------------------------------------------------
 		// OutBlock2
@@ -295,18 +295,18 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		
 		nCol = 0;
 		m_ctrlOutBlock2.InsertItem( 0, "" );
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.RecCnt     , sizeof( pAllOutBlock->outBlock2.RecCnt      ), DATA_TYPE_LONG   ) );    // [long  ,    5] ·¹ÄÚµå°¹¼ö       
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellExecAmt, sizeof( pAllOutBlock->outBlock2.SellExecAmt ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸ÅµµÃ¼°á±İ¾×     
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyExecAmt , sizeof( pAllOutBlock->outBlock2.BuyExecAmt  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸Å¼öÃ¼°á±İ¾×     
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellExecQty, sizeof( pAllOutBlock->outBlock2.SellExecQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸ÅµµÃ¼°á¼ö·®     
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyExecQty , sizeof( pAllOutBlock->outBlock2.BuyExecQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸Å¼öÃ¼°á¼ö·®     
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellOrdQty , sizeof( pAllOutBlock->outBlock2.SellOrdQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸ÅµµÁÖ¹®¼ö·®     
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyOrdQty  , sizeof( pAllOutBlock->outBlock2.BuyOrdQty   ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸Å¼öÁÖ¹®¼ö·®     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.RecCnt     , sizeof( pAllOutBlock->outBlock2.RecCnt      ), DATA_TYPE_LONG   ) );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜       
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellExecAmt, sizeof( pAllOutBlock->outBlock2.SellExecAmt ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ë„ì²´ê²°ê¸ˆì•¡     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyExecAmt , sizeof( pAllOutBlock->outBlock2.BuyExecAmt  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ìˆ˜ì²´ê²°ê¸ˆì•¡     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellExecQty, sizeof( pAllOutBlock->outBlock2.SellExecQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ë„ì²´ê²°ìˆ˜ëŸ‰     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyExecQty , sizeof( pAllOutBlock->outBlock2.BuyExecQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ìˆ˜ì²´ê²°ìˆ˜ëŸ‰     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.SellOrdQty , sizeof( pAllOutBlock->outBlock2.SellOrdQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ë„ì£¼ë¬¸ìˆ˜ëŸ‰     
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pAllOutBlock->outBlock2.BuyOrdQty  , sizeof( pAllOutBlock->outBlock2.BuyOrdQty   ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ìˆ˜ì£¼ë¬¸ìˆ˜ëŸ‰     
 		
 		//------------------------------------------------
 		// OutBlock3
 		
-		// Count °è»ê
+		// Count ê³„ì‚°
 		nDataLength -= 5;
 		if( nDataLength < 0 )
 		{
@@ -327,46 +327,46 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		{
 			nCol = 0;
 			nRow = m_ctrlOutBlock3.InsertItem( m_ctrlOutBlock3.GetItemCount(), "" );
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdDt        , sizeof( pAllOutBlock->outBlock3[i].OrdDt         ), DATA_TYPE_STRING ) );    // [string,    8] ÁÖ¹®ÀÏ              
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MgmtBrnNo    , sizeof( pAllOutBlock->outBlock3[i].MgmtBrnNo     ), DATA_TYPE_STRING ) );    // [string,    3] °ü¸®ÁöÁ¡¹øÈ£        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdMktCode   , sizeof( pAllOutBlock->outBlock3[i].OrdMktCode    ), DATA_TYPE_STRING ) );    // [string,    2] ÁÖ¹®½ÃÀåÄÚµå        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdNo        , sizeof( pAllOutBlock->outBlock3[i].OrdNo         ), DATA_TYPE_LONG   ) );    // [long  ,   10] ÁÖ¹®¹øÈ£            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrgOrdNo     , sizeof( pAllOutBlock->outBlock3[i].OrgOrdNo      ), DATA_TYPE_LONG   ) );    // [long  ,   10] ¿øÁÖ¹®¹øÈ£          
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].IsuNo        , sizeof( pAllOutBlock->outBlock3[i].IsuNo         ), DATA_TYPE_STRING ) );    // [string,   12] Á¾¸ñ¹øÈ£            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].IsuNm        , sizeof( pAllOutBlock->outBlock3[i].IsuNm         ), DATA_TYPE_STRING ) );    // [string,   40] Á¾¸ñ¸í              
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].BnsTpCode    , sizeof( pAllOutBlock->outBlock3[i].BnsTpCode     ), DATA_TYPE_STRING ) );    // [string,    1] ¸Å¸Å±¸ºĞ            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].BnsTpNm      , sizeof( pAllOutBlock->outBlock3[i].BnsTpNm       ), DATA_TYPE_STRING ) );    // [string,   10] ¸Å¸Å±¸ºĞ            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPtnCode   , sizeof( pAllOutBlock->outBlock3[i].OrdPtnCode    ), DATA_TYPE_STRING ) );    // [string,    2] ÁÖ¹®À¯ÇüÄÚµå        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPtnNm     , sizeof( pAllOutBlock->outBlock3[i].OrdPtnNm      ), DATA_TYPE_STRING ) );    // [string,   40] ÁÖ¹®À¯Çü¸í          
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTrxPtnCode, sizeof( pAllOutBlock->outBlock3[i].OrdTrxPtnCode ), DATA_TYPE_LONG   ) );    // [long  ,    9] ÁÖ¹®Ã³¸®À¯ÇüÄÚµå    
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTrxPtnNm  , sizeof( pAllOutBlock->outBlock3[i].OrdTrxPtnNm   ), DATA_TYPE_STRING ) );    // [string,   50] ÁÖ¹®Ã³¸®À¯Çü¸í      
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcTpCode    , sizeof( pAllOutBlock->outBlock3[i].MrcTpCode     ), DATA_TYPE_STRING ) );    // [string,    1] Á¤Á¤Ãë¼Ò±¸ºĞ        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcTpNm      , sizeof( pAllOutBlock->outBlock3[i].MrcTpNm       ), DATA_TYPE_STRING ) );    // [string,   10] Á¤Á¤Ãë¼Ò±¸ºĞ¸í      
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcQty       , sizeof( pAllOutBlock->outBlock3[i].MrcQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] Á¤Á¤Ãë¼Ò¼ö·®        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcAbleQty   , sizeof( pAllOutBlock->outBlock3[i].MrcAbleQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] Á¤Á¤Ãë¼Ò°¡´É¼ö·®    
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdQty       , sizeof( pAllOutBlock->outBlock3[i].OrdQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] ÁÖ¹®¼ö·®            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPrc       , sizeof( pAllOutBlock->outBlock3[i].OrdPrc        ), DATA_TYPE_DOT, 2 ) );    // [double, 15.2] ÁÖ¹®°¡°İ            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecQty      , sizeof( pAllOutBlock->outBlock3[i].ExecQty       ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ã¼°á¼ö·®            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecPrc      , sizeof( pAllOutBlock->outBlock3[i].ExecPrc       ), DATA_TYPE_DOT, 2 ) );    // [double, 15.2] Ã¼°á°¡              
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecTrxTime  , sizeof( pAllOutBlock->outBlock3[i].ExecTrxTime   ), DATA_TYPE_STRING ) );    // [string,    9] Ã¼°áÃ³¸®½Ã°¢        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].LastExecTime , sizeof( pAllOutBlock->outBlock3[i].LastExecTime  ), DATA_TYPE_STRING ) );    // [string,    9] ÃÖÁ¾Ã¼°á½Ã°¢        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdprcPtnCode, sizeof( pAllOutBlock->outBlock3[i].OrdprcPtnCode ), DATA_TYPE_STRING ) );    // [string,    2] È£°¡À¯ÇüÄÚµå        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdprcPtnNm  , sizeof( pAllOutBlock->outBlock3[i].OrdprcPtnNm   ), DATA_TYPE_STRING ) );    // [string,   40] È£°¡À¯Çü¸í          
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdCndiTpCode, sizeof( pAllOutBlock->outBlock3[i].OrdCndiTpCode ), DATA_TYPE_STRING ) );    // [string,    1] ÁÖ¹®Á¶°Ç±¸ºĞ        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].AllExecQty   , sizeof( pAllOutBlock->outBlock3[i].AllExecQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ÀüÃ¼Ã¼°á¼ö·®        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].RegCommdaCode, sizeof( pAllOutBlock->outBlock3[i].RegCommdaCode ), DATA_TYPE_STRING ) );    // [string,    2] Åë½Å¸ÅÃ¼ÄÚµå        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].CommdaNm     , sizeof( pAllOutBlock->outBlock3[i].CommdaNm      ), DATA_TYPE_STRING ) );    // [string,   40] Åë½Å¸ÅÃ¼¸í          
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MbrNo        , sizeof( pAllOutBlock->outBlock3[i].MbrNo         ), DATA_TYPE_STRING ) );    // [string,    3] È¸¿ø¹øÈ£            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].RsvOrdYn     , sizeof( pAllOutBlock->outBlock3[i].RsvOrdYn      ), DATA_TYPE_STRING ) );    // [string,    1] ¿¹¾àÁÖ¹®¿©ºÎ        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].LoanDt       , sizeof( pAllOutBlock->outBlock3[i].LoanDt        ), DATA_TYPE_STRING ) );    // [string,    8] ´ëÃâÀÏ              
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTime      , sizeof( pAllOutBlock->outBlock3[i].OrdTime       ), DATA_TYPE_STRING ) );    // [string,    9] ÁÖ¹®½Ã°¢            
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OpDrtnNo     , sizeof( pAllOutBlock->outBlock3[i].OpDrtnNo      ), DATA_TYPE_STRING ) );    // [string,   12] ¿î¿ëÁö½Ã¹øÈ£        
-			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OdrrId       , sizeof( pAllOutBlock->outBlock3[i].OdrrId        ), DATA_TYPE_STRING ) );    // [string,   16] ÁÖ¹®ÀÚID            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdDt        , sizeof( pAllOutBlock->outBlock3[i].OrdDt         ), DATA_TYPE_STRING ) );    // [string,    8] ì£¼ë¬¸ì¼              
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MgmtBrnNo    , sizeof( pAllOutBlock->outBlock3[i].MgmtBrnNo     ), DATA_TYPE_STRING ) );    // [string,    3] ê´€ë¦¬ì§€ì ë²ˆí˜¸        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdMktCode   , sizeof( pAllOutBlock->outBlock3[i].OrdMktCode    ), DATA_TYPE_STRING ) );    // [string,    2] ì£¼ë¬¸ì‹œì¥ì½”ë“œ        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdNo        , sizeof( pAllOutBlock->outBlock3[i].OrdNo         ), DATA_TYPE_LONG   ) );    // [long  ,   10] ì£¼ë¬¸ë²ˆí˜¸            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrgOrdNo     , sizeof( pAllOutBlock->outBlock3[i].OrgOrdNo      ), DATA_TYPE_LONG   ) );    // [long  ,   10] ì›ì£¼ë¬¸ë²ˆí˜¸          
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].IsuNo        , sizeof( pAllOutBlock->outBlock3[i].IsuNo         ), DATA_TYPE_STRING ) );    // [string,   12] ì¢…ëª©ë²ˆí˜¸            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].IsuNm        , sizeof( pAllOutBlock->outBlock3[i].IsuNm         ), DATA_TYPE_STRING ) );    // [string,   40] ì¢…ëª©ëª…              
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].BnsTpCode    , sizeof( pAllOutBlock->outBlock3[i].BnsTpCode     ), DATA_TYPE_STRING ) );    // [string,    1] ë§¤ë§¤êµ¬ë¶„            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].BnsTpNm      , sizeof( pAllOutBlock->outBlock3[i].BnsTpNm       ), DATA_TYPE_STRING ) );    // [string,   10] ë§¤ë§¤êµ¬ë¶„            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPtnCode   , sizeof( pAllOutBlock->outBlock3[i].OrdPtnCode    ), DATA_TYPE_STRING ) );    // [string,    2] ì£¼ë¬¸ìœ í˜•ì½”ë“œ        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPtnNm     , sizeof( pAllOutBlock->outBlock3[i].OrdPtnNm      ), DATA_TYPE_STRING ) );    // [string,   40] ì£¼ë¬¸ìœ í˜•ëª…          
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTrxPtnCode, sizeof( pAllOutBlock->outBlock3[i].OrdTrxPtnCode ), DATA_TYPE_LONG   ) );    // [long  ,    9] ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ì½”ë“œ    
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTrxPtnNm  , sizeof( pAllOutBlock->outBlock3[i].OrdTrxPtnNm   ), DATA_TYPE_STRING ) );    // [string,   50] ì£¼ë¬¸ì²˜ë¦¬ìœ í˜•ëª…      
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcTpCode    , sizeof( pAllOutBlock->outBlock3[i].MrcTpCode     ), DATA_TYPE_STRING ) );    // [string,    1] ì •ì •ì·¨ì†Œêµ¬ë¶„        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcTpNm      , sizeof( pAllOutBlock->outBlock3[i].MrcTpNm       ), DATA_TYPE_STRING ) );    // [string,   10] ì •ì •ì·¨ì†Œêµ¬ë¶„ëª…      
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcQty       , sizeof( pAllOutBlock->outBlock3[i].MrcQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì •ì •ì·¨ì†Œìˆ˜ëŸ‰        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MrcAbleQty   , sizeof( pAllOutBlock->outBlock3[i].MrcAbleQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì •ì •ì·¨ì†Œê°€ëŠ¥ìˆ˜ëŸ‰    
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdQty       , sizeof( pAllOutBlock->outBlock3[i].OrdQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì£¼ë¬¸ìˆ˜ëŸ‰            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdPrc       , sizeof( pAllOutBlock->outBlock3[i].OrdPrc        ), DATA_TYPE_DOT, 2 ) );    // [double, 15.2] ì£¼ë¬¸ê°€ê²©            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecQty      , sizeof( pAllOutBlock->outBlock3[i].ExecQty       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì²´ê²°ìˆ˜ëŸ‰            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecPrc      , sizeof( pAllOutBlock->outBlock3[i].ExecPrc       ), DATA_TYPE_DOT, 2 ) );    // [double, 15.2] ì²´ê²°ê°€              
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].ExecTrxTime  , sizeof( pAllOutBlock->outBlock3[i].ExecTrxTime   ), DATA_TYPE_STRING ) );    // [string,    9] ì²´ê²°ì²˜ë¦¬ì‹œê°        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].LastExecTime , sizeof( pAllOutBlock->outBlock3[i].LastExecTime  ), DATA_TYPE_STRING ) );    // [string,    9] ìµœì¢…ì²´ê²°ì‹œê°        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdprcPtnCode, sizeof( pAllOutBlock->outBlock3[i].OrdprcPtnCode ), DATA_TYPE_STRING ) );    // [string,    2] í˜¸ê°€ìœ í˜•ì½”ë“œ        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdprcPtnNm  , sizeof( pAllOutBlock->outBlock3[i].OrdprcPtnNm   ), DATA_TYPE_STRING ) );    // [string,   40] í˜¸ê°€ìœ í˜•ëª…          
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdCndiTpCode, sizeof( pAllOutBlock->outBlock3[i].OrdCndiTpCode ), DATA_TYPE_STRING ) );    // [string,    1] ì£¼ë¬¸ì¡°ê±´êµ¬ë¶„        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].AllExecQty   , sizeof( pAllOutBlock->outBlock3[i].AllExecQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì „ì²´ì²´ê²°ìˆ˜ëŸ‰        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].RegCommdaCode, sizeof( pAllOutBlock->outBlock3[i].RegCommdaCode ), DATA_TYPE_STRING ) );    // [string,    2] í†µì‹ ë§¤ì²´ì½”ë“œ        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].CommdaNm     , sizeof( pAllOutBlock->outBlock3[i].CommdaNm      ), DATA_TYPE_STRING ) );    // [string,   40] í†µì‹ ë§¤ì²´ëª…          
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].MbrNo        , sizeof( pAllOutBlock->outBlock3[i].MbrNo         ), DATA_TYPE_STRING ) );    // [string,    3] íšŒì›ë²ˆí˜¸            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].RsvOrdYn     , sizeof( pAllOutBlock->outBlock3[i].RsvOrdYn      ), DATA_TYPE_STRING ) );    // [string,    1] ì˜ˆì•½ì£¼ë¬¸ì—¬ë¶€        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].LoanDt       , sizeof( pAllOutBlock->outBlock3[i].LoanDt        ), DATA_TYPE_STRING ) );    // [string,    8] ëŒ€ì¶œì¼              
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OrdTime      , sizeof( pAllOutBlock->outBlock3[i].OrdTime       ), DATA_TYPE_STRING ) );    // [string,    9] ì£¼ë¬¸ì‹œê°            
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OpDrtnNo     , sizeof( pAllOutBlock->outBlock3[i].OpDrtnNo      ), DATA_TYPE_STRING ) );    // [string,   12] ìš´ìš©ì§€ì‹œë²ˆí˜¸        
+			m_ctrlOutBlock3.SetItemText(  nRow, nCol++, GetDispData( pAllOutBlock->outBlock3[i].OdrrId       , sizeof( pAllOutBlock->outBlock3[i].OdrrId        ), DATA_TYPE_STRING ) );    // [string,   16] ì£¼ë¬¸ìID            
 		}
 	}
 	
 	//-------------------------------------------------------------------------------------
-	// ¸Ş½ÃÁö¸¦ ¹ŞÀ½
+	// ë©”ì‹œì§€ë¥¼ ë°›ìŒ
 	else if( wParam == MESSAGE_DATA )
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -378,7 +378,7 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 	}
 	
 	//-------------------------------------------------------------------------------------
-	// System Error¸¦ ¹ŞÀ½
+	// System Errorë¥¼ ë°›ìŒ
 	else if( wParam == SYSTEM_ERROR_DATA )
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -390,7 +390,7 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 	}
 
 	//-------------------------------------------------------------------------------------
-	// Release Data¸¦ ¹ŞÀ½
+	// Release Dataë¥¼ ë°›ìŒ
 	else if( wParam == RELEASE_DATA )
 	{
 		g_iXingAPI.ReleaseRequestData( (int)lParam );
@@ -400,7 +400,7 @@ LRESULT CDlg_CSPAQ03700::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 }
 
 //--------------------------------------------------------------------------------------
-// Timeout ¹ß»ı
+// Timeout ë°œìƒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_CSPAQ03700::OnXMTimeoutData( WPARAM wParam, LPARAM lParam )
 {

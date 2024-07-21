@@ -1,4 +1,4 @@
-// Dlg_0H0.cpp : implementation file
+ï»¿// Dlg_0H0.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -74,60 +74,60 @@ void CDlg_EH0::OnButtonRequest()
 }
 
 //--------------------------------------------------------------------------------------
-// ÄÁÆ®·Ñ ÃÊ±âÈ­
+// ì»¨íŠ¸ë¡¤ ì´ˆê¸°í™”
 //--------------------------------------------------------------------------------------
 void CDlg_EH0::InitCtrls()
 {
 	//-------------------------------------------------------------------------
 	// OutBlock
-	m_ctrlOutBlock.InsertColumn(0, "ÇÊµå  ", LVCFMT_LEFT, 150);
-	m_ctrlOutBlock.InsertColumn(1, "µ¥ÀÌÅÍ", LVCFMT_LEFT, 200);
+	m_ctrlOutBlock.InsertColumn(0, "í•„ë“œ  ", LVCFMT_LEFT, 150);
+	m_ctrlOutBlock.InsertColumn(1, "ë°ì´í„°", LVCFMT_LEFT, 200);
 
 	int nRow = 0;
-	m_ctrlOutBlock.InsertItem(nRow++, "È£°¡½Ã°£");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡1");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡1");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡¼ö·®1");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡¼ö·®1");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡2");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡2");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡¼ö·®2");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡¼ö·®2");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡3");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡3");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡¼ö·®3");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡¼ö·®3");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸ÅµµÈ£°¡ÃÑ¼ö·®");
-	m_ctrlOutBlock.InsertItem(nRow++, "¸Å¼öÈ£°¡ÃÑ¼ö·®");
-	m_ctrlOutBlock.InsertItem(nRow++, "´ÜÃàÄÚµå");
+	m_ctrlOutBlock.InsertItem(nRow++, "í˜¸ê°€ì‹œê°„");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€1");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€1");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰1");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰1");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€2");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€2");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰2");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰2");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€3");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€3");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰3");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰3");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ë„í˜¸ê°€ì´ìˆ˜ëŸ‰");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë§¤ìˆ˜í˜¸ê°€ì´ìˆ˜ëŸ‰");
+	m_ctrlOutBlock.InsertItem(nRow++, "ë‹¨ì¶•ì½”ë“œ");
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ Advise
+// ë°ì´í„° Advise
 //--------------------------------------------------------------------------------------
 void CDlg_EH0::AdviseEH0()
 {
 	TCHAR	szTrCode[] = "EH0";
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Ãëµæ
+	// ë°ì´í„° ì·¨ë“
 	CString strCode; GetDlgItemText(IDC_EDIT_CODE, strCode);
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Àü¼Û
+	// ë°ì´í„° ì „ì†¡
 	BOOL bSuccess = g_iXingAPI.AdviseRealData(
-		GetSafeHwnd(),				// µ¥ÀÌÅÍ¸¦ ¹ÞÀ» À©µµ¿ì, XM_RECEIVE_REAL_DATA À¸·Î ¿Â´Ù.
-		szTrCode,					// TR ¹øÈ£
-		strCode,					// Á¾¸ñÄÚµå
+		GetSafeHwnd(),				// ë°ì´í„°ë¥¼ ë°›ì„ ìœˆë„ìš°, XM_RECEIVE_REAL_DATA ìœ¼ë¡œ ì˜¨ë‹¤.
+		szTrCode,					// TR ë²ˆí˜¸
+		strCode,					// ì¢…ëª©ì½”ë“œ
 		strCode.GetLength()
-		//sizeof(EH0_InBlock)		// Á¾¸ñÄÚµå ±æÀÌ
+		//sizeof(EH0_InBlock)		// ì¢…ëª©ì½”ë“œ ê¸¸ì´
 		);
 
 	//-----------------------------------------------------------
-	// ¿¡·¯Ã¼Å©
+	// ì—ëŸ¬ì²´í¬
 	if (bSuccess == FALSE)
 	{
-		MessageBox("Á¶È¸½ÇÆÐ", "¿¡·¯", MB_ICONSTOP);
+		MessageBox("ì¡°íšŒì‹¤íŒ¨", "ì—ëŸ¬", MB_ICONSTOP);
 	}
 	else
 	{
@@ -136,12 +136,12 @@ void CDlg_EH0::AdviseEH0()
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ Unadvise
+// ë°ì´í„° Unadvise
 //--------------------------------------------------------------------------------------
 void CDlg_EH0::UnadviseEH0()
 {
 	//-----------------------------------------------------------
-	// ÀÌÀü¿¡ µî·ÏÇÑ Á¾¸ñÀÌ ¾ø´Ù¸é ReturnÇÑ´Ù.
+	// ì´ì „ì— ë“±ë¡í•œ ì¢…ëª©ì´ ì—†ë‹¤ë©´ Returní•œë‹¤.
 	if (m_strCode.IsEmpty())
 	{
 		return;
@@ -150,20 +150,20 @@ void CDlg_EH0::UnadviseEH0()
 	TCHAR	szTrCode[] = "EH0";
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Àü¼Û
+	// ë°ì´í„° ì „ì†¡
 	BOOL bSuccess = g_iXingAPI.UnadviseRealData(
-		GetSafeHwnd(),				// µ¥ÀÌÅÍ¸¦ ¹ÞÀ» À©µµ¿ì, XM_RECEIVE_REAL_DATA À¸·Î ¿Â´Ù.
-		szTrCode,					// TR ¹øÈ£
-		m_strCode,					// Á¾¸ñÄÚµå
+		GetSafeHwnd(),				// ë°ì´í„°ë¥¼ ë°›ì„ ìœˆë„ìš°, XM_RECEIVE_REAL_DATA ìœ¼ë¡œ ì˜¨ë‹¤.
+		szTrCode,					// TR ë²ˆí˜¸
+		m_strCode,					// ì¢…ëª©ì½”ë“œ
 		m_strCode.GetLength()
-		//sizeof(EH0_InBlock)		// Á¾¸ñÄÚµå ±æÀÌ
+		//sizeof(EH0_InBlock)		// ì¢…ëª©ì½”ë“œ ê¸¸ì´
 		);
 
 	//-----------------------------------------------------------
-	// ¿¡·¯Ã¼Å©
+	// ì—ëŸ¬ì²´í¬
 	if (bSuccess == FALSE)
 	{
-		MessageBox("Á¶È¸½ÇÆÐ", "¿¡·¯", MB_ICONSTOP);
+		MessageBox("ì¡°íšŒì‹¤íŒ¨", "ì—ëŸ¬", MB_ICONSTOP);
 	}
 	else
 	{
@@ -173,7 +173,7 @@ void CDlg_EH0::UnadviseEH0()
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ¸¦ ¹ÞÀ½
+// ë°ì´í„°ë¥¼ ë°›ìŒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_EH0::OnXMReceiveRealEH0(WPARAM wParam, LPARAM lParam)
 {
@@ -184,21 +184,21 @@ LRESULT CDlg_EH0::OnXMReceiveRealEH0(WPARAM wParam, LPARAM lParam)
 
 		LPEH0_OutBlock pOutBlock = (LPEH0_OutBlock)pRealPacket->pszData;
 		int nRow = 0;
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->hotime, sizeof(pOutBlock->hotime), DATA_TYPE_STRING));    // È£°¡½Ã°£
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho1, sizeof(pOutBlock->offerho1), DATA_TYPE_FLOAT, 2.2));    // ¸ÅµµÈ£°¡1
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho1, sizeof(pOutBlock->bidho1), DATA_TYPE_FLOAT, 2.2));    // ¸Å¼öÈ£°¡1
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem1, sizeof(pOutBlock->offerrem1), DATA_TYPE_LONG));    // ¸ÅµµÈ£°¡¼ö·®1
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem1, sizeof(pOutBlock->bidrem1), DATA_TYPE_LONG));    // ¸Å¼öÈ£°¡¼ö·®1
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho2, sizeof(pOutBlock->offerho2), DATA_TYPE_FLOAT, 2.2));    // ¸ÅµµÈ£°¡2
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho2, sizeof(pOutBlock->bidho2), DATA_TYPE_FLOAT, 2.2));    // ¸Å¼öÈ£°¡2
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem2, sizeof(pOutBlock->offerrem2), DATA_TYPE_LONG));    // ¸ÅµµÈ£°¡¼ö·®2
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem2, sizeof(pOutBlock->bidrem2), DATA_TYPE_LONG));    // ¸Å¼öÈ£°¡¼ö·®2
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho3, sizeof(pOutBlock->offerho3), DATA_TYPE_FLOAT, 2.2));    // ¸ÅµµÈ£°¡3
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho3, sizeof(pOutBlock->bidho3), DATA_TYPE_FLOAT, 2.2));    // ¸Å¼öÈ£°¡3
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem3, sizeof(pOutBlock->offerrem3), DATA_TYPE_LONG));    // ¸ÅµµÈ£°¡¼ö·®3
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem3, sizeof(pOutBlock->bidrem3), DATA_TYPE_LONG));    // ¸Å¼öÈ£°¡¼ö·®3
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->totofferrem, sizeof(pOutBlock->totofferrem), DATA_TYPE_LONG));    // ¸ÅµµÈ£°¡ÃÑ¼ö·®
-		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->totbidrem, sizeof(pOutBlock->totbidrem), DATA_TYPE_LONG));    // ¸Å¼öÈ£°¡ÃÑ¼ö·®
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->hotime, sizeof(pOutBlock->hotime), DATA_TYPE_STRING));    // í˜¸ê°€ì‹œê°„
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho1, sizeof(pOutBlock->offerho1), DATA_TYPE_FLOAT, 2));    // ë§¤ë„í˜¸ê°€1
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho1, sizeof(pOutBlock->bidho1), DATA_TYPE_FLOAT, 2));    // ë§¤ìˆ˜í˜¸ê°€1
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem1, sizeof(pOutBlock->offerrem1), DATA_TYPE_LONG));    // ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰1
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem1, sizeof(pOutBlock->bidrem1), DATA_TYPE_LONG));    // ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰1
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho2, sizeof(pOutBlock->offerho2), DATA_TYPE_FLOAT, 2));    // ë§¤ë„í˜¸ê°€2
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho2, sizeof(pOutBlock->bidho2), DATA_TYPE_FLOAT, 2));    // ë§¤ìˆ˜í˜¸ê°€2
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem2, sizeof(pOutBlock->offerrem2), DATA_TYPE_LONG));    // ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰2
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem2, sizeof(pOutBlock->bidrem2), DATA_TYPE_LONG));    // ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰2
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerho3, sizeof(pOutBlock->offerho3), DATA_TYPE_FLOAT, 2));    // ë§¤ë„í˜¸ê°€3
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidho3, sizeof(pOutBlock->bidho3), DATA_TYPE_FLOAT, 2));    // ë§¤ìˆ˜í˜¸ê°€3
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->offerrem3, sizeof(pOutBlock->offerrem3), DATA_TYPE_LONG));    // ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰3
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->bidrem3, sizeof(pOutBlock->bidrem3), DATA_TYPE_LONG));    // ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰3
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->totofferrem, sizeof(pOutBlock->totofferrem), DATA_TYPE_LONG));    // ë§¤ë„í˜¸ê°€ì´ìˆ˜ëŸ‰
+		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->totbidrem, sizeof(pOutBlock->totbidrem), DATA_TYPE_LONG));    // ë§¤ìˆ˜í˜¸ê°€ì´ìˆ˜ëŸ‰
 		m_ctrlOutBlock.SetItemText(nRow++, 1, GetDispData(pOutBlock->optcode, sizeof(pOutBlock->optcode), DATA_TYPE_STRING));    // 
 	}
 	return 0L;

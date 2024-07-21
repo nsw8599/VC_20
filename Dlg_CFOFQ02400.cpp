@@ -1,4 +1,4 @@
-// Dlg_CFOFQ02400.cpp : implementation file
+ï»¿// Dlg_CFOFQ02400.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -75,16 +75,16 @@ void CDlg_CFOFQ02400::OnButtonRequestNext()
 }
 
 //--------------------------------------------------------------------------------------
-// ÄÁÆ®·Ñ ÃÊ±âÈ­
+// ì»¨íŠ¸ë¡¤ ì´ˆê¸°í™”
 //--------------------------------------------------------------------------------------
 void CDlg_CFOFQ02400::InitCtrls()
 {
 	int nCol;
 
 	//-------------------------------------------------------------------------
-	// InBlock : ±âº»°ª ¼¼ÆÃ
+	// InBlock : ê¸°ë³¸ê°’ ì„¸íŒ…
 	
-	// °èÁÂ¹øÈ£ ¼¼ÆÃ
+	// ê³„ì¢Œë²ˆí˜¸ ì„¸íŒ…
 	char szAccount[20];
 	int nCount = g_iXingAPI.GetAccountListCount();
 	for( int i=0; i<nCount; i++ )
@@ -98,90 +98,90 @@ void CDlg_CFOFQ02400::InitCtrls()
 	//-------------------------------------------------------------------------
 	// OutBlock1
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "·¹ÄÚµå°¹¼ö      ", FALSE,    5 );    // [long  ,    5] ·¹ÄÚµå°¹¼ö      
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "°èÁÂ¸í          ", TRUE ,   40 );    // [string,   40] °èÁÂ¸í          
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¼±¹°¾àÁ¤¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¾àÁ¤¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¿É¼Ç¾àÁ¤¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¿É¼Ç¾àÁ¤¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¾àÁ¤¼ö·®        ", FALSE,   16 );    // [long  ,   16] ¾àÁ¤¼ö·®        
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¼±¹°¾àÁ¤±İ¾×    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¾àÁ¤±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¼±¹°¸Å¼ö¾àÁ¤±İ¾×", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Å¼ö¾àÁ¤±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¼±¹°¸Åµµ¾àÁ¤±İ¾×", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Åµµ¾àÁ¤±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Äİ¿É¼Ç¾àÁ¤±İ¾×  ", FALSE,   16 );    // [long  ,   16] Äİ¿É¼Ç¾àÁ¤±İ¾×  
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Äİ¸Å¼ö±İ¾×      ", FALSE,   16 );    // [long  ,   16] Äİ¸Å¼ö±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Äİ¸Åµµ±İ¾×      ", FALSE,   16 );    // [long  ,   16] Äİ¸Åµµ±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Ç²¿É¼Ç¾àÁ¤±İ¾×  ", FALSE,   16 );    // [long  ,   16] Ç²¿É¼Ç¾àÁ¤±İ¾×  
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Ç²¸Å¼ö±İ¾×      ", FALSE,   16 );    // [long  ,   16] Ç²¸Å¼ö±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "Ç²¸Åµµ±İ¾×      ", FALSE,   16 );    // [long  ,   16] Ç²¸Åµµ±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÀüÃ¼¾àÁ¤±İ¾×    ", FALSE,   16 );    // [long  ,   16] ÀüÃ¼¾àÁ¤±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¸Å¼ö¾àÁ¤´©°è±İ¾×", FALSE,   16 );    // [long  ,   16] ¸Å¼ö¾àÁ¤´©°è±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¸Åµµ¾àÁ¤´©°è±İ¾×", FALSE,   16 );    // [long  ,   16] ¸Åµµ¾àÁ¤´©°è±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¼±¹°¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¼ÕÀÍÇÕ°è    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "¿É¼Ç¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ¿É¼Ç¼ÕÀÍÇÕ°è    
-	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ÀüÃ¼¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ÀüÃ¼¼ÕÀÍÇÕ°è    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ë ˆì½”ë“œê°¯ìˆ˜      ", FALSE,    5 );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜      
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ê³„ì¢Œëª…          ", TRUE ,   40 );    // [string,   40] ê³„ì¢Œëª…          
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì„ ë¬¼ì•½ì •ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì•½ì •ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì˜µì…˜ì•½ì •ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì˜µì…˜ì•½ì •ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì•½ì •ìˆ˜ëŸ‰        ", FALSE,   16 );    // [long  ,   16] ì•½ì •ìˆ˜ëŸ‰        
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì„ ë¬¼ì•½ì •ê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì•½ì •ê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì„ ë¬¼ë§¤ìˆ˜ì•½ì •ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ì•½ì •ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì„ ë¬¼ë§¤ë„ì•½ì •ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ì•½ì •ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì½œì˜µì…˜ì•½ì •ê¸ˆì•¡  ", FALSE,   16 );    // [long  ,   16] ì½œì˜µì…˜ì•½ì •ê¸ˆì•¡  
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì½œë§¤ìˆ˜ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ìˆ˜ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì½œë§¤ë„ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ë„ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "í’‹ì˜µì…˜ì•½ì •ê¸ˆì•¡  ", FALSE,   16 );    // [long  ,   16] í’‹ì˜µì…˜ì•½ì •ê¸ˆì•¡  
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "í’‹ë§¤ìˆ˜ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ìˆ˜ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "í’‹ë§¤ë„ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ë„ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì „ì²´ì•½ì •ê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] ì „ì²´ì•½ì •ê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ë§¤ìˆ˜ì•½ì •ëˆ„ê³„ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ìˆ˜ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ë§¤ë„ì•½ì •ëˆ„ê³„ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ë„ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì„ ë¬¼ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì†ìµí•©ê³„    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì˜µì…˜ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì˜µì…˜ì†ìµí•©ê³„    
+	InsertColumn4List( this, IDC_OUTBLOCK1, nCol++, "ì „ì²´ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì „ì²´ì†ìµí•©ê³„    
 	
 	//-------------------------------------------------------------------------
 	// OutBlock2
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "·¹ÄÚµå°¹¼ö      ", FALSE,    5 );    // [long  ,    5] ·¹ÄÚµå°¹¼ö      
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "°èÁÂ¸í          ", TRUE ,   40 );    // [string,   40] °èÁÂ¸í          
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¼±¹°¾àÁ¤¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¾àÁ¤¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¿É¼Ç¾àÁ¤¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¿É¼Ç¾àÁ¤¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¾àÁ¤¼ö·®        ", FALSE,   16 );    // [long  ,   16] ¾àÁ¤¼ö·®        
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¼±¹°¾àÁ¤±İ¾×    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¾àÁ¤±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¼±¹°¸Å¼ö¾àÁ¤±İ¾×", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Å¼ö¾àÁ¤±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¼±¹°¸Åµµ¾àÁ¤±İ¾×", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Åµµ¾àÁ¤±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Äİ¿É¼Ç¾àÁ¤±İ¾×  ", FALSE,   16 );    // [long  ,   16] Äİ¿É¼Ç¾àÁ¤±İ¾×  
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Äİ¸Å¼ö±İ¾×      ", FALSE,   16 );    // [long  ,   16] Äİ¸Å¼ö±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Äİ¸Åµµ±İ¾×      ", FALSE,   16 );    // [long  ,   16] Äİ¸Åµµ±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Ç²¿É¼Ç¾àÁ¤±İ¾×  ", FALSE,   16 );    // [long  ,   16] Ç²¿É¼Ç¾àÁ¤±İ¾×  
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Ç²¸Å¼ö±İ¾×      ", FALSE,   16 );    // [long  ,   16] Ç²¸Å¼ö±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "Ç²¸Åµµ±İ¾×      ", FALSE,   16 );    // [long  ,   16] Ç²¸Åµµ±İ¾×      
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ÀüÃ¼¾àÁ¤±İ¾×    ", FALSE,   16 );    // [long  ,   16] ÀüÃ¼¾àÁ¤±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸Å¼ö¾àÁ¤´©°è±İ¾×", FALSE,   16 );    // [long  ,   16] ¸Å¼ö¾àÁ¤´©°è±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¸Åµµ¾àÁ¤´©°è±İ¾×", FALSE,   16 );    // [long  ,   16] ¸Åµµ¾àÁ¤´©°è±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¼±¹°¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¼ÕÀÍÇÕ°è    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "¿É¼Ç¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ¿É¼Ç¼ÕÀÍÇÕ°è    
-	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ÀüÃ¼¼ÕÀÍÇÕ°è    ", FALSE,   16 );    // [long  ,   16] ÀüÃ¼¼ÕÀÍÇÕ°è    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë ˆì½”ë“œê°¯ìˆ˜      ", FALSE,    5 );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜      
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ê³„ì¢Œëª…          ", TRUE ,   40 );    // [string,   40] ê³„ì¢Œëª…          
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì„ ë¬¼ì•½ì •ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì•½ì •ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì˜µì…˜ì•½ì •ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì˜µì…˜ì•½ì •ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì•½ì •ìˆ˜ëŸ‰        ", FALSE,   16 );    // [long  ,   16] ì•½ì •ìˆ˜ëŸ‰        
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì„ ë¬¼ì•½ì •ê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì•½ì •ê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì„ ë¬¼ë§¤ìˆ˜ì•½ì •ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ì•½ì •ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì„ ë¬¼ë§¤ë„ì•½ì •ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ì•½ì •ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì½œì˜µì…˜ì•½ì •ê¸ˆì•¡  ", FALSE,   16 );    // [long  ,   16] ì½œì˜µì…˜ì•½ì •ê¸ˆì•¡  
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì½œë§¤ìˆ˜ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ìˆ˜ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì½œë§¤ë„ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ë„ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "í’‹ì˜µì…˜ì•½ì •ê¸ˆì•¡  ", FALSE,   16 );    // [long  ,   16] í’‹ì˜µì…˜ì•½ì •ê¸ˆì•¡  
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "í’‹ë§¤ìˆ˜ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ìˆ˜ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "í’‹ë§¤ë„ê¸ˆì•¡      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ë„ê¸ˆì•¡      
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì „ì²´ì•½ì •ê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] ì „ì²´ì•½ì •ê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ìˆ˜ì•½ì •ëˆ„ê³„ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ìˆ˜ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ë§¤ë„ì•½ì •ëˆ„ê³„ê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] ë§¤ë„ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì„ ë¬¼ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ì†ìµí•©ê³„    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì˜µì…˜ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì˜µì…˜ì†ìµí•©ê³„    
+	InsertColumn4List( this, IDC_OUTBLOCK2, nCol++, "ì „ì²´ì†ìµí•©ê³„    ", FALSE,   16 );    // [long  ,   16] ì „ì²´ì†ìµí•©ê³„    
 	
 	//-------------------------------------------------------------------------
 	// OutBlock3
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¼±¹°¿É¼ÇÇ°¸ñ±¸ºĞ", TRUE ,    1 );    // [string,    1] ¼±¹°¿É¼ÇÇ°¸ñ±¸ºĞ
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¼±¹°¸Åµµ¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Åµµ¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¼±¹°¸Åµµ¼ÕÀÍ    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Åµµ¼ÕÀÍ    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¼±¹°¸Å¼ö¼ö·®    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Å¼ö¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "¼±¹°¸Å¼ö¼ÕÀÍ    ", FALSE,   16 );    // [long  ,   16] ¼±¹°¸Å¼ö¼ÕÀÍ    
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Äİ¸Åµµ¼ö·®      ", FALSE,   16 );    // [long  ,   16] Äİ¸Åµµ¼ö·®      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Äİ¸Åµµ¼ÕÀÍ      ", FALSE,   16 );    // [long  ,   16] Äİ¸Åµµ¼ÕÀÍ      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Äİ¸Å¼ö¼ö·®      ", FALSE,   16 );    // [long  ,   16] Äİ¸Å¼ö¼ö·®      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Äİ¸Å¼ö¼ÕÀÍ      ", FALSE,   16 );    // [long  ,   16] Äİ¸Å¼ö¼ÕÀÍ      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ç²¸Åµµ¼ö·®      ", FALSE,   16 );    // [long  ,   16] Ç²¸Åµµ¼ö·®      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ç²¸Åµµ¼ÕÀÍ      ", FALSE,   16 );    // [long  ,   16] Ç²¸Åµµ¼ÕÀÍ      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ç²¸Å¼ö¼ö·®      ", FALSE,   16 );    // [long  ,   16] Ç²¸Å¼ö¼ö·®      
-	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "Ç²¸Å¼ö¼ÕÀÍ      ", FALSE,   16 );    // [long  ,   16] Ç²¸Å¼ö¼ÕÀÍ      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì„ ë¬¼ì˜µì…˜í’ˆëª©êµ¬ë¶„", TRUE ,    1 );    // [string,    1] ì„ ë¬¼ì˜µì…˜í’ˆëª©êµ¬ë¶„
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì„ ë¬¼ë§¤ë„ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì„ ë¬¼ë§¤ë„ì†ìµ    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ì†ìµ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì„ ë¬¼ë§¤ìˆ˜ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì„ ë¬¼ë§¤ìˆ˜ì†ìµ    ", FALSE,   16 );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ì†ìµ    
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì½œë§¤ë„ìˆ˜ëŸ‰      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ë„ìˆ˜ëŸ‰      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì½œë§¤ë„ì†ìµ      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ë„ì†ìµ      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì½œë§¤ìˆ˜ìˆ˜ëŸ‰      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ìˆ˜ìˆ˜ëŸ‰      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "ì½œë§¤ìˆ˜ì†ìµ      ", FALSE,   16 );    // [long  ,   16] ì½œë§¤ìˆ˜ì†ìµ      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í’‹ë§¤ë„ìˆ˜ëŸ‰      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ë„ìˆ˜ëŸ‰      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í’‹ë§¤ë„ì†ìµ      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ë„ì†ìµ      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í’‹ë§¤ìˆ˜ìˆ˜ëŸ‰      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ìˆ˜ìˆ˜ëŸ‰      
+	InsertColumn4List( this, IDC_OUTBLOCK3, nCol++, "í’‹ë§¤ìˆ˜ì†ìµ      ", FALSE,   16 );    // [long  ,   16] í’‹ë§¤ìˆ˜ì†ìµ      
 	
 	//-------------------------------------------------------------------------
 	// OutBlock4
 	nCol = 0;
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Á¾¸ñ¹øÈ£    ", TRUE ,   12 );    // [string,   12] Á¾¸ñ¹øÈ£    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Á¾¸ñ¸í      ", TRUE ,   40 );    // [string,   40] Á¾¸ñ¸í      
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "¸Å¸Å±¸ºĞ    ", TRUE ,    1 );    // [string,    1] ¸Å¸Å±¸ºĞ    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "¸Å¸Å±¸ºĞ    ", TRUE ,   10 );    // [string,   10] ¸Å¸Å±¸ºĞ    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ÀÜ°í¼ö·®    ", FALSE,   16 );    // [long  ,   16] ÀÜ°í¼ö·®    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Æò±Õ°¡      ", FALSE, 19.8 );    // [double, 19.8] Æò±Õ°¡      
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "´çÃÊ±İ¾×    ", FALSE,   16 );    // [long  ,   16] ´çÃÊ±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "´çÀÏÃ»»ê¼ö·®", FALSE,   16 );    // [long  ,   16] ´çÀÏÃ»»ê¼ö·®
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ÇöÀç°¡      ", FALSE, 13.2 );    // [double, 13.2] ÇöÀç°¡      
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Æò°¡±İ¾×    ", FALSE,   16 );    // [long  ,   16] Æò°¡±İ¾×    
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Æò°¡¼ÕÀÍ±İ¾×", FALSE,   16 );    // [long  ,   16] Æò°¡¼ÕÀÍ±İ¾×
-	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "Æò°¡¼öÀÍ·ü  ", FALSE, 12.6 );    // [double, 12.6] Æò°¡¼öÀÍ·ü  
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ì¢…ëª©ë²ˆí˜¸    ", TRUE ,   12 );    // [string,   12] ì¢…ëª©ë²ˆí˜¸    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ì¢…ëª©ëª…      ", TRUE ,   40 );    // [string,   40] ì¢…ëª©ëª…      
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ë§¤ë§¤êµ¬ë¶„    ", TRUE ,    1 );    // [string,    1] ë§¤ë§¤êµ¬ë¶„    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ë§¤ë§¤êµ¬ë¶„    ", TRUE ,   10 );    // [string,   10] ë§¤ë§¤êµ¬ë¶„    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ì”ê³ ìˆ˜ëŸ‰    ", FALSE,   16 );    // [long  ,   16] ì”ê³ ìˆ˜ëŸ‰    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "í‰ê· ê°€      ", FALSE, 19.8 );    // [double, 19.8] í‰ê· ê°€      
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ë‹¹ì´ˆê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] ë‹¹ì´ˆê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "ë‹¹ì¼ì²­ì‚°ìˆ˜ëŸ‰", FALSE,   16 );    // [long  ,   16] ë‹¹ì¼ì²­ì‚°ìˆ˜ëŸ‰
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "í˜„ì¬ê°€      ", FALSE, 13.2 );    // [double, 13.2] í˜„ì¬ê°€      
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "í‰ê°€ê¸ˆì•¡    ", FALSE,   16 );    // [long  ,   16] í‰ê°€ê¸ˆì•¡    
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "í‰ê°€ì†ìµê¸ˆì•¡", FALSE,   16 );    // [long  ,   16] í‰ê°€ì†ìµê¸ˆì•¡
+	InsertColumn4List( this, IDC_OUTBLOCK4, nCol++, "í‰ê°€ìˆ˜ìµë¥   ", FALSE, 12.6 );    // [double, 12.6] í‰ê°€ìˆ˜ìµë¥   
 
 	ZeroMemory( m_szContKey, sizeof( m_szContKey ) );
 	GetDlgItem( IDC_BUTTON_REQUEST_NEXT )->EnableWindow( FALSE );
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ Á¶È¸
+// ë°ì´í„° ì¡°íšŒ
 //--------------------------------------------------------------------------------------
 void CDlg_CFOFQ02400::RequestData( BOOL bNext )
 {
@@ -192,34 +192,34 @@ void CDlg_CFOFQ02400::RequestData( BOOL bNext )
 	char			szNextKey[]		= "";
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Ãëµæ
-    CString strAcntNo    ;		GetDlgItemText( IDC_INBLOCK_ACNTNO    , strAcntNo     );    // °èÁÂ¹øÈ£       
-    CString strPwd       ;		GetDlgItemText( IDC_INBLOCK_PWD       , strPwd        );    // ºñ¹Ğ¹øÈ£       
-    CString strRegMktCode;		GetDlgItemText( IDC_INBLOCK_REGMKTCODE, strRegMktCode );    // µî·Ï½ÃÀåÄÚµå   
-    CString strBuyDt     ;		GetDlgItemText( IDC_INBLOCK_BUYDT     , strBuyDt      );    // ¸Å¼öÀÏÀÚ       
+	// ë°ì´í„° ì·¨ë“
+    CString strAcntNo    ;		GetDlgItemText( IDC_INBLOCK_ACNTNO    , strAcntNo     );    // ê³„ì¢Œë²ˆí˜¸       
+    CString strPwd       ;		GetDlgItemText( IDC_INBLOCK_PWD       , strPwd        );    // ë¹„ë°€ë²ˆí˜¸       
+    CString strRegMktCode;		GetDlgItemText( IDC_INBLOCK_REGMKTCODE, strRegMktCode );    // ë“±ë¡ì‹œì¥ì½”ë“œ   
+    CString strBuyDt     ;		GetDlgItemText( IDC_INBLOCK_BUYDT     , strBuyDt      );    // ë§¤ìˆ˜ì¼ì       
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÃÊ±âÈ­
+	// ë°ì´í„° ì´ˆê¸°í™”
 	FillMemory( &pckInBlock, sizeof( pckInBlock ), ' ' );
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ ÀÔ·Â
-	SetPacketData( pckInBlock.RecCnt    , sizeof( pckInBlock.RecCnt     ), "1"          , DATA_TYPE_LONG   );    // [long  ,    5] ·¹ÄÚµå°¹¼ö  
-	SetPacketData( pckInBlock.AcntNo    , sizeof( pckInBlock.AcntNo     ), strAcntNo    , DATA_TYPE_STRING );    // [string,   20] °èÁÂ¹øÈ£    
-	SetPacketData( pckInBlock.Pwd       , sizeof( pckInBlock.Pwd        ), strPwd       , DATA_TYPE_STRING );    // [string,    8] ºñ¹Ğ¹øÈ£    
-	SetPacketData( pckInBlock.RegMktCode, sizeof( pckInBlock.RegMktCode ), strRegMktCode, DATA_TYPE_STRING );    // [string,    2] µî·Ï½ÃÀåÄÚµå
-	SetPacketData( pckInBlock.BuyDt     , sizeof( pckInBlock.BuyDt      ), strBuyDt     , DATA_TYPE_STRING );    // [string,    8] ¸Å¼öÀÏÀÚ    
+	// ë°ì´í„° ì…ë ¥
+	SetPacketData( pckInBlock.RecCnt    , sizeof( pckInBlock.RecCnt     ), "1"          , DATA_TYPE_LONG   );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜  
+	SetPacketData( pckInBlock.AcntNo    , sizeof( pckInBlock.AcntNo     ), strAcntNo    , DATA_TYPE_STRING );    // [string,   20] ê³„ì¢Œë²ˆí˜¸    
+	SetPacketData( pckInBlock.Pwd       , sizeof( pckInBlock.Pwd        ), strPwd       , DATA_TYPE_STRING );    // [string,    8] ë¹„ë°€ë²ˆí˜¸    
+	SetPacketData( pckInBlock.RegMktCode, sizeof( pckInBlock.RegMktCode ), strRegMktCode, DATA_TYPE_STRING );    // [string,    2] ë“±ë¡ì‹œì¥ì½”ë“œ
+	SetPacketData( pckInBlock.BuyDt     , sizeof( pckInBlock.BuyDt      ), strBuyDt     , DATA_TYPE_STRING );    // [string,    8] ë§¤ìˆ˜ì¼ì    
 
 	//-----------------------------------------------------------
-	// µ¥ÀÌÅÍ Àü¼Û
+	// ë°ì´í„° ì „ì†¡
 	int nRqID = g_iXingAPI.Request( 
-		GetSafeHwnd(),				// µ¥ÀÌÅÍ¸¦ ¹ŞÀ» À©µµ¿ì, XM_RECEIVE_DATA À¸·Î ¿Â´Ù.
-		szTrNo,						// TR ¹øÈ£
-		&pckInBlock,				// InBlock µ¥ÀÌÅÍ
-		sizeof( pckInBlock ),		// InBlock µ¥ÀÌÅÍ Å©±â
-		bNext,						// ´ÙÀ½Á¶È¸ ¿©ºÎ : ´ÙÀ½Á¶È¸ÀÏ °æ¿ì¿¡ ¼¼ÆÃÇÑ´Ù.
-		bNext ? m_szContKey : "",	// ´ÙÀ½Á¶È¸ Key : Header TypeÀÌ B ÀÏ °æ¿ì¿£ ÀÌÀü Á¶È¸¶§ ¹ŞÀº Next Key¸¦ ³Ö¾îÁØ´Ù.
-		30							// Timeout(ÃÊ) : ÇØ´ç ½Ã°£(ÃÊ)µ¿¾È µ¥ÀÌÅÍ°¡ ¿ÀÁö ¾ÊÀ¸¸é Timeout¿¡ ¹ß»ıÇÑ´Ù. XM_TIMEOUT_DATA ¸Ş½ÃÁö°¡ ¹ß»ıÇÑ´Ù.
+		GetSafeHwnd(),				// ë°ì´í„°ë¥¼ ë°›ì„ ìœˆë„ìš°, XM_RECEIVE_DATA ìœ¼ë¡œ ì˜¨ë‹¤.
+		szTrNo,						// TR ë²ˆí˜¸
+		&pckInBlock,				// InBlock ë°ì´í„°
+		sizeof( pckInBlock ),		// InBlock ë°ì´í„° í¬ê¸°
+		bNext,						// ë‹¤ìŒì¡°íšŒ ì—¬ë¶€ : ë‹¤ìŒì¡°íšŒì¼ ê²½ìš°ì— ì„¸íŒ…í•œë‹¤.
+		bNext ? m_szContKey : "",	// ë‹¤ìŒì¡°íšŒ Key : Header Typeì´ B ì¼ ê²½ìš°ì—” ì´ì „ ì¡°íšŒë•Œ ë°›ì€ Next Keyë¥¼ ë„£ì–´ì¤€ë‹¤.
+		30							// Timeout(ì´ˆ) : í•´ë‹¹ ì‹œê°„(ì´ˆ)ë™ì•ˆ ë°ì´í„°ê°€ ì˜¤ì§€ ì•Šìœ¼ë©´ Timeoutì— ë°œìƒí•œë‹¤. XM_TIMEOUT_DATA ë©”ì‹œì§€ê°€ ë°œìƒí•œë‹¤.
 	);
 
 	m_ctrlOutBlock1.DeleteAllItems();
@@ -231,22 +231,22 @@ void CDlg_CFOFQ02400::RequestData( BOOL bNext )
 	}
 
 	//-----------------------------------------------------------
-	// Request ID°¡ 0º¸´Ù ÀÛÀ» °æ¿ì¿¡´Â ¿¡·¯ÀÌ´Ù.
+	// Request IDê°€ 0ë³´ë‹¤ ì‘ì„ ê²½ìš°ì—ëŠ” ì—ëŸ¬ì´ë‹¤.
 	if( nRqID < 0 )
 	{
 		CString strMsg;
 		strMsg.Format( "[%d] %s", nRqID, g_iXingAPI.GetErrorMessage( nRqID ) );
-		MessageBox( strMsg, "Á¶È¸½ÇÆĞ", MB_ICONSTOP );
+		MessageBox( strMsg, "ì¡°íšŒì‹¤íŒ¨", MB_ICONSTOP );
 	}
 }
 
 //--------------------------------------------------------------------------------------
-// µ¥ÀÌÅÍ¸¦ ¹ŞÀ½
+// ë°ì´í„°ë¥¼ ë°›ìŒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 {
 	//-------------------------------------------------------------------------------------
-	// Data¸¦ ¹ŞÀ½
+	// Dataë¥¼ ë°›ìŒ
 	if( wParam == REQUEST_DATA )
 	{
 		LPRECV_PACKET	pRpData		= (LPRECV_PACKET)lParam;
@@ -259,14 +259,14 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		int				nCount;
 		char			szCount[6] = { 0 };
 
-		// ¿¬¼ÓÅ°¸¦ ÀúÀåÇÑ´Ù.
-		strcpy( m_szContKey, pRpData->szContKey );
+		// ì—°ì†í‚¤ë¥¼ ì €ì¥í•œë‹¤.
+		strcpy_s( m_szContKey, pRpData->szContKey );
 		GetDlgItem( IDC_BUTTON_REQUEST_NEXT )->EnableWindow( pRpData->cCont[0] == 'Y' );
 		
 		//------------------------------------------------
 		// OutBlock1
 		
-		// ¹ŞÀº µ¥ÀÌÅÍ Å©±â°¡ Block Å©±âº¸´Ù ÀÛ´Ù¸é Ã³¸®ÇÏÁö ¾Ê´Â´Ù.
+		// ë°›ì€ ë°ì´í„° í¬ê¸°ê°€ Block í¬ê¸°ë³´ë‹¤ ì‘ë‹¤ë©´ ì²˜ë¦¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		nBlockSize   = sizeof( CFOFQ02400OutBlock1 );
 		nDataLength -= nBlockSize;
 		if( nDataLength < 0 )
@@ -279,16 +279,16 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 
 		nCol = 0;
 		m_ctrlOutBlock1.InsertItem( 0, "" );
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->RecCnt    , sizeof( pOutBlock1->RecCnt     ), DATA_TYPE_LONG   ) );    // [long  ,    5] ·¹ÄÚµå°¹¼ö  
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->AcntNo    , sizeof( pOutBlock1->AcntNo     ), DATA_TYPE_STRING ) );    // [string,   20] °èÁÂ¹øÈ£    
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->Pwd       , sizeof( pOutBlock1->Pwd        ), DATA_TYPE_STRING ) );    // [string,    8] ºñ¹Ğ¹øÈ£    
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->RegMktCode, sizeof( pOutBlock1->RegMktCode ), DATA_TYPE_STRING ) );    // [string,    2] µî·Ï½ÃÀåÄÚµå
-		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->BuyDt     , sizeof( pOutBlock1->BuyDt      ), DATA_TYPE_STRING ) );    // [string,    8] ¸Å¼öÀÏÀÚ    
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->RecCnt    , sizeof( pOutBlock1->RecCnt     ), DATA_TYPE_LONG   ) );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜  
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->AcntNo    , sizeof( pOutBlock1->AcntNo     ), DATA_TYPE_STRING ) );    // [string,   20] ê³„ì¢Œë²ˆí˜¸    
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->Pwd       , sizeof( pOutBlock1->Pwd        ), DATA_TYPE_STRING ) );    // [string,    8] ë¹„ë°€ë²ˆí˜¸    
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->RegMktCode, sizeof( pOutBlock1->RegMktCode ), DATA_TYPE_STRING ) );    // [string,    2] ë“±ë¡ì‹œì¥ì½”ë“œ
+		m_ctrlOutBlock1.SetItemText(  0, nCol++, GetDispData( pOutBlock1->BuyDt     , sizeof( pOutBlock1->BuyDt      ), DATA_TYPE_STRING ) );    // [string,    8] ë§¤ìˆ˜ì¼ì    
 		
 		//------------------------------------------------
 		// OutBlock2
 		
-		// ¹ŞÀº µ¥ÀÌÅÍ Å©±â°¡ Block Å©±âº¸´Ù ÀÛ´Ù¸é Ã³¸®ÇÏÁö ¾Ê´Â´Ù.
+		// ë°›ì€ ë°ì´í„° í¬ê¸°ê°€ Block í¬ê¸°ë³´ë‹¤ ì‘ë‹¤ë©´ ì²˜ë¦¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		nBlockSize   = sizeof( CFOFQ02400OutBlock2 );
 		nDataLength -= nBlockSize;
 		if( nDataLength < 0 )
@@ -301,31 +301,31 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 
 		nCol = 0;
 		m_ctrlOutBlock2.InsertItem( 0, "" );
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->RecCnt         , sizeof( pOutBlock2->RecCnt          ), DATA_TYPE_LONG   ) );    // [long  ,    5] ·¹ÄÚµå°¹¼ö      
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AcntNm         , sizeof( pOutBlock2->AcntNm          ), DATA_TYPE_STRING ) );    // [string,   40] °èÁÂ¸í          
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsCtrctQty   , sizeof( pOutBlock2->FutsCtrctQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¾àÁ¤¼ö·®    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->OptCtrctQty    , sizeof( pOutBlock2->OptCtrctQty     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¿É¼Ç¾àÁ¤¼ö·®    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CtrctQty       , sizeof( pOutBlock2->CtrctQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¾àÁ¤¼ö·®        
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsCtrctAmt   , sizeof( pOutBlock2->FutsCtrctAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¾àÁ¤±İ¾×    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsBuyctrAmt  , sizeof( pOutBlock2->FutsBuyctrAmt   ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Å¼ö¾àÁ¤±İ¾×
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsSlctrAmt   , sizeof( pOutBlock2->FutsSlctrAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Åµµ¾àÁ¤±İ¾×
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CalloptCtrctAmt, sizeof( pOutBlock2->CalloptCtrctAmt ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¿É¼Ç¾àÁ¤±İ¾×  
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CallBuyAmt     , sizeof( pOutBlock2->CallBuyAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Å¼ö±İ¾×      
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CallSellAmt    , sizeof( pOutBlock2->CallSellAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Åµµ±İ¾×      
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutoptCtrctAmt , sizeof( pOutBlock2->PutoptCtrctAmt  ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¿É¼Ç¾àÁ¤±İ¾×  
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutBuyAmt      , sizeof( pOutBlock2->PutBuyAmt       ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Å¼ö±İ¾×      
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutSellAmt     , sizeof( pOutBlock2->PutSellAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Åµµ±İ¾×      
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AllCtrctAmt    , sizeof( pOutBlock2->AllCtrctAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ÀüÃ¼¾àÁ¤±İ¾×    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->BuyctrAsmAmt   , sizeof( pOutBlock2->BuyctrAsmAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸Å¼ö¾àÁ¤´©°è±İ¾×
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->SlctrAsmAmt    , sizeof( pOutBlock2->SlctrAsmAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¸Åµµ¾àÁ¤´©°è±İ¾×
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsPnlSum     , sizeof( pOutBlock2->FutsPnlSum      ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¼ÕÀÍÇÕ°è    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->OptPnlSum      , sizeof( pOutBlock2->OptPnlSum       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¿É¼Ç¼ÕÀÍÇÕ°è    
-		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AllPnlSum      , sizeof( pOutBlock2->AllPnlSum       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ÀüÃ¼¼ÕÀÍÇÕ°è    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->RecCnt         , sizeof( pOutBlock2->RecCnt          ), DATA_TYPE_LONG   ) );    // [long  ,    5] ë ˆì½”ë“œê°¯ìˆ˜      
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AcntNm         , sizeof( pOutBlock2->AcntNm          ), DATA_TYPE_STRING ) );    // [string,   40] ê³„ì¢Œëª…          
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsCtrctQty   , sizeof( pOutBlock2->FutsCtrctQty    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ì•½ì •ìˆ˜ëŸ‰    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->OptCtrctQty    , sizeof( pOutBlock2->OptCtrctQty     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì˜µì…˜ì•½ì •ìˆ˜ëŸ‰    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CtrctQty       , sizeof( pOutBlock2->CtrctQty        ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì•½ì •ìˆ˜ëŸ‰        
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsCtrctAmt   , sizeof( pOutBlock2->FutsCtrctAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ì•½ì •ê¸ˆì•¡    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsBuyctrAmt  , sizeof( pOutBlock2->FutsBuyctrAmt   ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ì•½ì •ê¸ˆì•¡
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsSlctrAmt   , sizeof( pOutBlock2->FutsSlctrAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ì•½ì •ê¸ˆì•¡
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CalloptCtrctAmt, sizeof( pOutBlock2->CalloptCtrctAmt ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œì˜µì…˜ì•½ì •ê¸ˆì•¡  
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CallBuyAmt     , sizeof( pOutBlock2->CallBuyAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ìˆ˜ê¸ˆì•¡      
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->CallSellAmt    , sizeof( pOutBlock2->CallSellAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ë„ê¸ˆì•¡      
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutoptCtrctAmt , sizeof( pOutBlock2->PutoptCtrctAmt  ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ì˜µì…˜ì•½ì •ê¸ˆì•¡  
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutBuyAmt      , sizeof( pOutBlock2->PutBuyAmt       ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ìˆ˜ê¸ˆì•¡      
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->PutSellAmt     , sizeof( pOutBlock2->PutSellAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ë„ê¸ˆì•¡      
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AllCtrctAmt    , sizeof( pOutBlock2->AllCtrctAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì „ì²´ì•½ì •ê¸ˆì•¡    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->BuyctrAsmAmt   , sizeof( pOutBlock2->BuyctrAsmAmt    ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ìˆ˜ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->SlctrAsmAmt    , sizeof( pOutBlock2->SlctrAsmAmt     ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë§¤ë„ì•½ì •ëˆ„ê³„ê¸ˆì•¡
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->FutsPnlSum     , sizeof( pOutBlock2->FutsPnlSum      ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ì†ìµí•©ê³„    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->OptPnlSum      , sizeof( pOutBlock2->OptPnlSum       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì˜µì…˜ì†ìµí•©ê³„    
+		m_ctrlOutBlock2.SetItemText(  0, nCol++, GetDispData( pOutBlock2->AllPnlSum      , sizeof( pOutBlock2->AllPnlSum       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì „ì²´ì†ìµí•©ê³„    
 		
 		//------------------------------------------------
 		// OutBlock3
 
-		// Count °è»ê
+		// Count ê³„ì‚°
 		nBlockSize   = 5;
 		nDataLength -= nBlockSize;
 		if( nDataLength < 0 )
@@ -352,25 +352,25 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		{
 			nCol = 0;
 			nRow = m_ctrlOutBlock3.InsertItem( m_ctrlOutBlock3.GetItemCount(), "" );
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FnoClssCode, sizeof( pOutBlock3[i].FnoClssCode ), DATA_TYPE_STRING ) );    // [string,    1] ¼±¹°¿É¼ÇÇ°¸ñ±¸ºĞ
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsSellQty, sizeof( pOutBlock3[i].FutsSellQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Åµµ¼ö·®    
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsSellPnl, sizeof( pOutBlock3[i].FutsSellPnl ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Åµµ¼ÕÀÍ    
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsBuyQty , sizeof( pOutBlock3[i].FutsBuyQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Å¼ö¼ö·®    
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsBuyPnl , sizeof( pOutBlock3[i].FutsBuyPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ¼±¹°¸Å¼ö¼ÕÀÍ    
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallSellQty, sizeof( pOutBlock3[i].CallSellQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Åµµ¼ö·®      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallSellPnl, sizeof( pOutBlock3[i].CallSellPnl ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Åµµ¼ÕÀÍ      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallBuyQty , sizeof( pOutBlock3[i].CallBuyQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Å¼ö¼ö·®      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallBuyPnl , sizeof( pOutBlock3[i].CallBuyPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] Äİ¸Å¼ö¼ÕÀÍ      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutSellQty , sizeof( pOutBlock3[i].PutSellQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Åµµ¼ö·®      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutSellPnl , sizeof( pOutBlock3[i].PutSellPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Åµµ¼ÕÀÍ      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutBuyQty  , sizeof( pOutBlock3[i].PutBuyQty   ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Å¼ö¼ö·®      
-			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutBuyPnl  , sizeof( pOutBlock3[i].PutBuyPnl   ), DATA_TYPE_LONG   ) );    // [long  ,   16] Ç²¸Å¼ö¼ÕÀÍ      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FnoClssCode, sizeof( pOutBlock3[i].FnoClssCode ), DATA_TYPE_STRING ) );    // [string,    1] ì„ ë¬¼ì˜µì…˜í’ˆëª©êµ¬ë¶„
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsSellQty, sizeof( pOutBlock3[i].FutsSellQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ìˆ˜ëŸ‰    
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsSellPnl, sizeof( pOutBlock3[i].FutsSellPnl ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ë„ì†ìµ    
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsBuyQty , sizeof( pOutBlock3[i].FutsBuyQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ìˆ˜ëŸ‰    
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].FutsBuyPnl , sizeof( pOutBlock3[i].FutsBuyPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì„ ë¬¼ë§¤ìˆ˜ì†ìµ    
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallSellQty, sizeof( pOutBlock3[i].CallSellQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ë„ìˆ˜ëŸ‰      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallSellPnl, sizeof( pOutBlock3[i].CallSellPnl ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ë„ì†ìµ      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallBuyQty , sizeof( pOutBlock3[i].CallBuyQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ìˆ˜ìˆ˜ëŸ‰      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].CallBuyPnl , sizeof( pOutBlock3[i].CallBuyPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì½œë§¤ìˆ˜ì†ìµ      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutSellQty , sizeof( pOutBlock3[i].PutSellQty  ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ë„ìˆ˜ëŸ‰      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutSellPnl , sizeof( pOutBlock3[i].PutSellPnl  ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ë„ì†ìµ      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutBuyQty  , sizeof( pOutBlock3[i].PutBuyQty   ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ìˆ˜ìˆ˜ëŸ‰      
+			m_ctrlOutBlock3.SetItemText( nRow, nCol++, GetDispData( pOutBlock3[i].PutBuyPnl  , sizeof( pOutBlock3[i].PutBuyPnl   ), DATA_TYPE_LONG   ) );    // [long  ,   16] í’‹ë§¤ìˆ˜ì†ìµ      
 		}
 		
 		//------------------------------------------------
 		// OutBlock4
 		
-		// Count °è»ê
+		// Count ê³„ì‚°
 		nBlockSize   = 5;
 		nDataLength -= nBlockSize;
 		if( nDataLength < 0 )
@@ -397,23 +397,23 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 		{
 			nCol = 0;
 			nRow = m_ctrlOutBlock4.InsertItem( m_ctrlOutBlock4.GetItemCount(), "" );
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].IsuNo       , sizeof( pOutBlock4[i].IsuNo        ), DATA_TYPE_STRING ) );    // [string,   12] Á¾¸ñ¹øÈ£    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].IsuNm       , sizeof( pOutBlock4[i].IsuNm        ), DATA_TYPE_STRING ) );    // [string,   40] Á¾¸ñ¸í      
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BnsTpCode   , sizeof( pOutBlock4[i].BnsTpCode    ), DATA_TYPE_STRING ) );    // [string,    1] ¸Å¸Å±¸ºĞ    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BnsTpNm     , sizeof( pOutBlock4[i].BnsTpNm      ), DATA_TYPE_STRING ) );    // [string,   10] ¸Å¸Å±¸ºĞ    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BalQty      , sizeof( pOutBlock4[i].BalQty       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ÀÜ°í¼ö·®    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].FnoAvrPrc   , sizeof( pOutBlock4[i].FnoAvrPrc    ), DATA_TYPE_DOT, 8 ) );    // [double, 19.8] Æò±Õ°¡      
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BgnAmt      , sizeof( pOutBlock4[i].BgnAmt       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ´çÃÊ±İ¾×    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].ThdayLqdtQty, sizeof( pOutBlock4[i].ThdayLqdtQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ´çÀÏÃ»»ê¼ö·®
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].Curprc      , sizeof( pOutBlock4[i].Curprc       ), DATA_TYPE_DOT, 2 ) );    // [double, 13.2] ÇöÀç°¡      
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalAmt     , sizeof( pOutBlock4[i].EvalAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] Æò°¡±İ¾×    
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalPnlAmt  , sizeof( pOutBlock4[i].EvalPnlAmt   ), DATA_TYPE_LONG   ) );    // [long  ,   16] Æò°¡¼ÕÀÍ±İ¾×
-			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalErnrat  , sizeof( pOutBlock4[i].EvalErnrat   ), DATA_TYPE_DOT, 6 ) );    // [double, 12.6] Æò°¡¼öÀÍ·ü  
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].IsuNo       , sizeof( pOutBlock4[i].IsuNo        ), DATA_TYPE_STRING ) );    // [string,   12] ì¢…ëª©ë²ˆí˜¸    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].IsuNm       , sizeof( pOutBlock4[i].IsuNm        ), DATA_TYPE_STRING ) );    // [string,   40] ì¢…ëª©ëª…      
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BnsTpCode   , sizeof( pOutBlock4[i].BnsTpCode    ), DATA_TYPE_STRING ) );    // [string,    1] ë§¤ë§¤êµ¬ë¶„    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BnsTpNm     , sizeof( pOutBlock4[i].BnsTpNm      ), DATA_TYPE_STRING ) );    // [string,   10] ë§¤ë§¤êµ¬ë¶„    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BalQty      , sizeof( pOutBlock4[i].BalQty       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ì”ê³ ìˆ˜ëŸ‰    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].FnoAvrPrc   , sizeof( pOutBlock4[i].FnoAvrPrc    ), DATA_TYPE_DOT, 8 ) );    // [double, 19.8] í‰ê· ê°€      
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].BgnAmt      , sizeof( pOutBlock4[i].BgnAmt       ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë‹¹ì´ˆê¸ˆì•¡    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].ThdayLqdtQty, sizeof( pOutBlock4[i].ThdayLqdtQty ), DATA_TYPE_LONG   ) );    // [long  ,   16] ë‹¹ì¼ì²­ì‚°ìˆ˜ëŸ‰
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].Curprc      , sizeof( pOutBlock4[i].Curprc       ), DATA_TYPE_DOT, 2 ) );    // [double, 13.2] í˜„ì¬ê°€      
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalAmt     , sizeof( pOutBlock4[i].EvalAmt      ), DATA_TYPE_LONG   ) );    // [long  ,   16] í‰ê°€ê¸ˆì•¡    
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalPnlAmt  , sizeof( pOutBlock4[i].EvalPnlAmt   ), DATA_TYPE_LONG   ) );    // [long  ,   16] í‰ê°€ì†ìµê¸ˆì•¡
+			m_ctrlOutBlock4.SetItemText( nRow, nCol++, GetDispData( pOutBlock4[i].EvalErnrat  , sizeof( pOutBlock4[i].EvalErnrat   ), DATA_TYPE_DOT, 6 ) );    // [double, 12.6] í‰ê°€ìˆ˜ìµë¥   
 		}
 	}
 	
 	//-------------------------------------------------------------------------------------
-	// ¸Ş½ÃÁö¸¦ ¹ŞÀ½
+	// ë©”ì‹œì§€ë¥¼ ë°›ìŒ
 	else if( wParam == MESSAGE_DATA )
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -425,7 +425,7 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 	}
 	
 	//-------------------------------------------------------------------------------------
-	// System Error¸¦ ¹ŞÀ½
+	// System Errorë¥¼ ë°›ìŒ
 	else if( wParam == SYSTEM_ERROR_DATA )
 	{
 		LPMSG_PACKET pMsg = (LPMSG_PACKET)lParam;
@@ -437,7 +437,7 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 	}
 	
 	//-------------------------------------------------------------------------------------
-	// Release Data¸¦ ¹ŞÀ½
+	// Release Dataë¥¼ ë°›ìŒ
 	else if( wParam == RELEASE_DATA )
 	{
 		g_iXingAPI.ReleaseRequestData( (int)lParam );
@@ -447,7 +447,7 @@ LRESULT CDlg_CFOFQ02400::OnXMReceiveData( WPARAM wParam, LPARAM lParam )
 }
 
 //--------------------------------------------------------------------------------------
-// Timeout ¹ß»ı
+// Timeout ë°œìƒ
 //--------------------------------------------------------------------------------------
 LRESULT CDlg_CFOFQ02400::OnXMTimeoutData( WPARAM wParam, LPARAM lParam )
 {

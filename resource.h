@@ -141,7 +141,9 @@
 #define IDC_BUTTON_REQUEST21            1034
 #define IDC_OUTBLOCK6                   1034
 #define IDC_OUTBLOCK2                   1035
+#define IDC_BUTTON_REQUEST22            1035
 #define IDC_OUTBLOCK3                   1036
+#define IDC_BUTTON_REQUEST23            1036
 #define IDC_OUTBLOCK4                   1037
 #define IDC_INBLOCK_SHCODE              1039
 #define IDC_INBLOCK_GUBUN               1040
@@ -335,7 +337,9 @@
 #define IDC_SPIN32                      1220
 #define IDC_SPIN33                      1221
 #define IDC_SPIN34                      1222
+#define IDC_SPIN35                      1223
 #define IDC_BCANCEL                     1224
+#define IDC_SPIN36                      1225
 #define IDC_NPROFIT                     1226
 #define IDC_BCALL                       1231
 #define IDC_BPUT                        1232
@@ -438,6 +442,7 @@
 #define IDC_BUTTONPROFIT11              1405
 #define IDC_EDITPRC13                   1406
 #define IDC_EDITPRC5                    1408
+#define IDC_EDITPRC15                   1409
 #define IDC_BUTTONPROFIT16              1413
 #define IDC_BUTTONPROFIT17              1414
 #define IDC_TAUTO                       1416
