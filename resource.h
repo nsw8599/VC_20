@@ -134,6 +134,7 @@
 #define IDC_BUTTON_REQUEST14            1029
 #define IDC_CHECK7                      1030
 #define IDC_CHECK8                      1031
+#define IDC_BUTTON_REQUEST15            1031
 #define IDC_BUTTON_REQUEST19            1032
 #define IDC_OUTBLOCK                    1033
 #define IDC_BUTTON_REQUEST20            1033
@@ -341,6 +342,8 @@
 #define IDC_BCANCEL                     1224
 #define IDC_SPIN36                      1225
 #define IDC_NPROFIT                     1226
+#define IDC_SPIN37                      1227
+#define IDC_SPIN38                      1228
 #define IDC_BCALL                       1231
 #define IDC_BPUT                        1232
 #define IDC_CURVALUE                    1243

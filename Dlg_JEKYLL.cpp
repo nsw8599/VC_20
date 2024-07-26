@@ -236,6 +236,13 @@ BEGIN_MESSAGE_MAP(CDlg_JEKYLL, CDialog)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN35, &CDlg_JEKYLL::OnDeltaposSpin35)
     ON_BN_CLICKED(IDC_BUTTON_REQUEST22, &CDlg_JEKYLL::OnBnClickedButtonRequest22)
     ON_BN_CLICKED(IDC_BUTTON_REQUEST23, &CDlg_JEKYLL::OnBnClickedButtonRequest23)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST15, &CDlg_JEKYLL::OnBnClickedButtonRequest15)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST8, &CDlg_JEKYLL::OnBnClickedButtonRequest8)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST12, &CDlg_JEKYLL::OnBnClickedButtonRequest12)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST9, &CDlg_JEKYLL::OnBnClickedButtonRequest9)
+    ON_BN_CLICKED(IDC_BUTTON_REQUEST13, &CDlg_JEKYLL::OnBnClickedButtonRequest13)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN38, &CDlg_JEKYLL::OnDeltaposSpin38)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN37, &CDlg_JEKYLL::OnDeltaposSpin37)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10183,20 +10190,20 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit3()
 	//while (!fQSellPrc.empty()) fQSellPrc.pop(); queue<float>().swap(fQSellPrc);
 }
 
-void CDlg_JEKYLL::OnBnClickedButtonprofit4() // fPrc = fCho9 - fProfit
+void CDlg_JEKYLL::OnBnClickedButtonprofit4() // fPrc = fCho9 - fProfit  // 매도 즉시 가능한 청산실행 버튼
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CString str, str1, str2, str3, str4, str5, str6;
-	str1 = m_lst2105.GetItemText(9, 1);
+	str1 = m_lst2105.GetItemText(9, 1); //매수1호가
 	str2 = m_lst2105_.GetItemText(9, 1);
 	str3 = m_lst2105__.GetItemText(9, 1);
-	GetDlgItemTextA(IDC_EDITPRC2, str4);
+	GetDlgItemTextA(IDC_EDITPRC2, str4); // 목표이익
 	GetDlgItemTextA(IDC_EDITPRC7, str5);
 	GetDlgItemTextA(IDC_EDITPRC11, str6);
 	float f1 = (float)atof(str1), f2 = (float)atof(str2), f3 = (float)atof(str3);
 	float f4 = (float)atof(str4), f5 = (float)atof(str5), f6 = (float)atof(str6);
 
-	f1 -= f4;
+	f1 -= f4; // 매수1호가 - 목표이익
 	f2 -= f5;
 	f3 -= f6;
 
@@ -10563,41 +10570,45 @@ void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOp
     GetDlgItemText(IDC_EDITPRC15, str3);//저항치 입력 가격
 	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 
-	float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3);
+    float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3), prc4 = 330.0f;
 	
-	if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수 || 풋매수
-	{
-		CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
+    if (prc1 < prc4 || prc2 < prc4 || prc3 < prc4) return;
+    else
+    {
+        if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수 || 풋매수
+        {
+            CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
 
-		CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-		float p1 = ((float)atof(sPrc1)*0.6f);										//이익을 60%로 설정
-		p1 = roundf(p1*100) / 100; //소수점2자리 반올림
-		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", p1); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+            CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
+            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
+            float p1 = ((float)atof(sPrc1) * 0.6f);										//이익을 60%로 설정
+            p1 = roundf(p1 * 100) / 100; //소수점2자리 반올림
+            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", p1); pEdit2->SetWindowText(str);//원하는 이익
+            pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
+            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
 
 
-		CString sPrc2 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC6); pEdit1->SetWindowText(sPrc2);//시작 매수 가격
-		float p2 = ((float)atof(sPrc2)*0.6f);										//이익을 60%로 설정
-		p2 = roundf(p2*100) / 100; //소수점2자리 반올림
-		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC7); str.Format("%.2f", p2); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC9); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+            CString sPrc2 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
+            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC6); pEdit1->SetWindowText(sPrc2);//시작 매수 가격
+            float p2 = ((float)atof(sPrc2) * 0.6f);										//이익을 60%로 설정
+            p2 = roundf(p2 * 100) / 100; //소수점2자리 반올림
+            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC7); str.Format("%.2f", p2); pEdit2->SetWindowText(str);//원하는 이익
+            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC9); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
 
-		CString sPrc3 = m_lst2105__.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC10); pEdit1->SetWindowText(sPrc3);//시작 매수 가격
-		float p3 = ((float)atof(sPrc3)*0.6f);										//이익을 60%로 설정
-		p3 = roundf(p3*100) / 100; //소수점2자리 반올림
-		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC11); str.Format("%.2f", p3); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC13); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+            CString sPrc3 = m_lst2105__.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
+            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC10); pEdit1->SetWindowText(sPrc3);//시작 매수 가격
+            float p3 = ((float)atof(sPrc3) * 0.6f);										//이익을 60%로 설정
+            p3 = roundf(p3 * 100) / 100; //소수점2자리 반올림
+            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC11); str.Format("%.2f", p3); pEdit2->SetWindowText(str);//원하는 이익
+            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC13); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
 
-		KillTimer(4);
-		pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
+            KillTimer(4);
+            pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 
-		Sleep(1000);
-		OnBnClickedButtonprofit2();
-	}
+            Sleep(1000);
+            OnBnClickedButtonprofit2();
+        }
+    }
 }
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit9() // 세팅된 선물가격이 되었을경우 콜/풋 선택여부에 따라 매수
@@ -12091,4 +12102,91 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest23()
     m_tst.SetWindowTextA(temp2);
 
 
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest15()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request8415(FutureCode);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest8()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request84152(CallCode[0]);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest12()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request84153(PutCode[0]);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest9()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request1602("1", "001", "2"); // 코스피 거래량
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonRequest13()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request1602("4", "900", "1");
+}
+
+
+void CDlg_JEKYLL::OnDeltaposSpin38(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_EDITPRC15, str);
+    float f1 = (float)atof(str);
+
+    if (pNMUpDown->iDelta < 0) //상 버튼
+    {
+        f1 += 1.0f;
+    }
+    else // 하 버튼
+    {
+        f1 -= 1.0f;
+    }
+
+    str.Format("%.2f", f1);
+    CEdit* pEdit1;
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC15); pEdit1->SetWindowText(str);
+    pEdit1 = NULL;
+
+    *pResult = 0;
+}
+
+
+void CDlg_JEKYLL::OnDeltaposSpin37(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_EDITPRC5, str);
+    float f1 = (float)atof(str);
+
+    if (pNMUpDown->iDelta < 0) //상 버튼
+    {
+        f1 += 1.0f;
+    }
+    else // 하 버튼
+    {
+        f1 -= 1.0f;
+    }
+
+    str.Format("%.2f", f1);
+    CEdit* pEdit1;
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC5); pEdit1->SetWindowText(str);
+    pEdit1 = NULL;
+
+    *pResult = 0;
 }

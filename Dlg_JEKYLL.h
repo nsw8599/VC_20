@@ -515,4 +515,11 @@ public:
 	afx_msg void OnDeltaposSpin35(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnBnClickedButtonRequest22();
     afx_msg void OnBnClickedButtonRequest23();
+    afx_msg void OnBnClickedButtonRequest15();
+    afx_msg void OnBnClickedButtonRequest8();
+    afx_msg void OnBnClickedButtonRequest12();
+    afx_msg void OnBnClickedButtonRequest9();
+    afx_msg void OnBnClickedButtonRequest13();
+    afx_msg void OnDeltaposSpin38(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDeltaposSpin37(NMHDR* pNMHDR, LRESULT* pResult);
 };
