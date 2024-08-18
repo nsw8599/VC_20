@@ -207,7 +207,7 @@ public:
 	int nCheckedCount; // 구매할 옵션코드 개수(1~3)
 
 	long lBalance, lMaxBalance, lLqdt, lNewSell; //매수가능금액, 청산가능 10100, 신규매도가능수량
-	long lCallAvrPrc, lPutAvrPrc, lCho8, lPho8, lCho9, lPho9, lC2ho8, lP2ho8, lC2ho9, lP2ho9, lC3ho8, lP3ho8, lC3ho9, lP3ho9; // 콜,풋 매입금액, 콜금액, 풋금액
+	long lCallAvrPrc, lPutAvrPrc, lCho8, lPho8, lCho9, lPho9, lC2ho8, lP2ho8, lC2ho9, lP2ho9, lC3ho8, lP3ho8, lC3ho9, lP3ho9, lCho21, lPho21, lC2ho21, lP2ho21, lC3ho21, lP3ho21; // 콜,풋 매입금액, 콜금액, 풋금액
 	long *lCallQty, *lPutQty; // 콜,풋 매입수량
 	float *fCallAvrPrc, *fPutAvrPrc; //콜,풋 평단가
 	float fFutPrc, f60mEMAY, fCallSellPrc, fPutSellPrc, fCho8, fCho9, fPho8, fPho9, fC2ho8, fC2ho9, fP2ho8, fP2ho9, fC3ho8, fC3ho9, fP3ho8, fP3ho9;// 선물현재가, 평단가, 팔가격(목표가격), 콜풋 현재가격(ho8,9)

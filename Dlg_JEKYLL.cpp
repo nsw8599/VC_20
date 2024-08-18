@@ -319,6 +319,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	// 콜풋 현재가
 	fCho8 = 0.0, fCho9 = 0.0, fPho8 = 0.0, fPho9 = 0.0;
 	lCho8 = 0, lPho8 = 0, lCho9 = 0, lPho9 = 0;
+    lCho21 = 0, lPho21 = 0, lC2ho21 = 0, lP2ho21 = 0, lC3ho21 = 0, lP3ho21 = 0;
 
 
 	pEdit1 = (CEdit*)GetDlgItem(IDC_REF); str.Format("%.2f",0.77); pEdit1->SetWindowText(str);//옵션 기준가격 설정 **************************************************************************************
@@ -6397,6 +6398,9 @@ void CDlg_JEKYLL::GetData()
 		lCho9 = atol(m_lst2105.GetItemText(11, 1));																	// 매수호가1수량(콜)	
 		lC2ho9 = atol(m_lst2105_.GetItemText(11, 1));																// 매수호가1수량(콜2)	
 		lC3ho9 = atol(m_lst2105__.GetItemText(11, 1));																// 매수호가1수량(콜3)	
+        lCho21 = atol(m_lst2105.GetItemText(21, 1));																// 매수호가 총수량(콜1)	
+        lC2ho21 = atol(m_lst2105_.GetItemText(21, 1));																// 매수호가 총수량(콜2)	
+        lC3ho21 = atol(m_lst2105__.GetItemText(21, 1));																// 매수호가 총수량(콜3)	
 
 		m_tst2.SetWindowTextA(CallCode[0]);
 		m_tst3.SetWindowTextA(CallCode[1]);
@@ -6416,6 +6420,9 @@ void CDlg_JEKYLL::GetData()
 		lPho9 = atol(m_lst2105.GetItemText(11, 1));																	// 매수호가1수량(풋)	
 		lP2ho9 = atol(m_lst2105_.GetItemText(11, 1));																// 매수호가1수량(풋2)	
 		lP3ho9 = atol(m_lst2105__.GetItemText(11, 1));																// 매수호가1수량(풋3)	
+        lPho21 = atol(m_lst2105.GetItemText(21, 1));																// 매수호가 총수량(풋)	
+        lP2ho21 = atol(m_lst2105_.GetItemText(21, 1));																// 매수호가 총수량(풋2)	
+        lP3ho21 = atol(m_lst2105__.GetItemText(21, 1));																// 매수호가 총수량(풋3)	
 
 		m_tst2.SetWindowTextA(PutCode[0]);
 		m_tst3.SetWindowTextA(PutCode[1]);
@@ -9142,9 +9149,31 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
 	// ******************************************************************************************************* 콜청산
     if ((nSellOption == 1)) //청산가능물량이 있고 가격옵션일 경우
-    {
+    {  
         if (lCallQty[0] > 0 && (fCho9 >= (fPrc + fProfit)))				//콜옵션보유수가 있을경우-1
         {
+            if (fCho9 >= fPrc + fProfit + 0.1f) // 물량 한번에 터는 조건1
+            {
+                if (lCallQty[0] < lCho21)
+                {
+                    Request100_(CallCode[0], "1", fPrc + fProfit, (int)lCallQty[0]);
+                }
+                else  Request100(CallCode[0], "1", fPrc + fProfit, (int)lCho21);
+
+                if (lCallQty[0] == 0 && lCallQty[1] == 0 && lCallQty[2] == 0)
+                {
+                    bCall = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice(); //기본 per = 50 % 적용
+                }
+            }
+
             if ((lCallQty[0] < 10 && lCallQty[0] < lCho9) || (lCallQty[0] < lCho9)) // 
             {
                 Request100_(CallCode[0], "1", fPrc + fProfit, (int)lCallQty[0]);
@@ -9163,35 +9192,35 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lCallQty[0] < 50)
             {
-                if (lCallQty[0] / 2 < lCho9)
+                if (lCallQty[0] / 2 < lCho9 || fCho9 >= fPrc + fProfit + 0.05f)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 2));
                 else
                     Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
             else if (lCallQty[0] < 100)
             {
-                if (lCallQty[0] / 4 < lCho9)
+                if (lCallQty[0] / 4 < lCho9 || fCho9 >= fPrc + fProfit + 0.05f)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 4));
                 else
                     Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
             else if (lCallQty[0] < 200)
             {
-                if (lCallQty[0] / 8 < lCho9)
+                if (lCallQty[0] / 8 < lCho9 || fCho9 >= fPrc + fProfit + 0.05f)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 8));
                 else
                     Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
             else if (lCallQty[0] < 300)
             {
-                if (lCallQty[0] / 12 < lCho9)
+                if (lCallQty[0] / 12 < lCho9 || fCho9 >= fPrc + fProfit + 0.05f)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 12));
                 else
                     Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
             }
             else
             {
-                if (lCallQty[0] / 15 < lCho9)
+                if (lCallQty[0] / 15 < lCho9 || fCho9 >= fPrc + fProfit + 0.05f)
                     Request100_(CallCode[0], "1", fPrc + fProfit, (int)(lCallQty[0] / 15));
                 else
                     Request100_(CallCode[0], "1", fPrc + fProfit, lCho9);
@@ -9200,6 +9229,28 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
         if (lCallQty[1] > 0 && (fC2ho9 >= (fPrc2 + fProfit2)))				//콜옵션보유수가 있을경우2
         {
+            if (fC2ho9 >= fPrc2 + fProfit2 + 0.1f) // 물량 한번에 터는 조건1
+            {
+                if (lCallQty[1] < lC2ho21)
+                {
+                    Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)lCallQty[1]);
+                }
+                else  Request100(CallCode[1], "1", fPrc2 + fProfit2, (int)lC2ho21);
+
+                if (lCallQty[0] == 0 && lCallQty[1] == 0 && lCallQty[2] == 0)
+                {
+                    bCall = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice();//기본 per = 15 % 적용
+                }
+            }
+
             if ((lCallQty[1] < 10 && lCallQty[1] < lC2ho9) || (lCallQty[1] < lC2ho9))
             {
                 Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)lCallQty[1]);
@@ -9218,35 +9269,35 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lCallQty[1] < 50)
             {
-                if (lCallQty[1] / 2 < lC2ho9)
+                if (lCallQty[1] / 2 < lC2ho9 || fC2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 2));
                 else
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
             else if (lCallQty[1] < 100)
             {
-                if (lCallQty[1] / 4 < lC2ho9)
+                if (lCallQty[1] / 4 < lC2ho9 || fC2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 4));
                 else
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
             else if (lCallQty[1] < 200)
             {
-                if (lCallQty[1] / 8 < lC2ho9)
+                if (lCallQty[1] / 8 < lC2ho9 || fC2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 8));
                 else
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
             else if (lCallQty[1] < 300)
             {
-                if (lCallQty[1] / 12 < lC2ho9)
+                if (lCallQty[1] / 12 < lC2ho9 || fC2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 12));
                 else
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
             }
             else
             {
-                if (lCallQty[1] / 15 < lC2ho9)
+                if (lCallQty[1] / 15 < lC2ho9 || fC2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, (int)(lCallQty[1] / 15));
                 else
                     Request100_(CallCode[1], "1", fPrc2 + fProfit2, lC2ho9);
@@ -9255,6 +9306,28 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
         if (lCallQty[2] > 0 && (fC3ho9 >= (fPrc3 + fProfit3)))				//콜옵션보유수가 있을경우3
         {
+            if (fC3ho9 >= fPrc3 + fProfit3 + 0.1f) // 물량 한번에 터는 조건1
+            {
+                if (lCallQty[2] < lC3ho21)
+                {
+                    Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)lCallQty[2]);
+                }
+                else  Request100(CallCode[2], "1", fPrc3 + fProfit3, (int)lC3ho21);
+
+                if (lCallQty[0] == 0 && lCallQty[1] == 0 && lCallQty[2] == 0)
+                {
+                    bCall = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice();//기본 per = 15 % 적용
+                }
+            }
+
             if ((lCallQty[2] < 10 && lCallQty[2] < lC3ho9) || (lCallQty[2] < lC3ho9))
             {
                 Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)lCallQty[2]);
@@ -9273,35 +9346,35 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lCallQty[2] < 50)
             {
-                if (lCallQty[2] / 2 < lC3ho9)
+                if (lCallQty[2] / 2 < lC3ho9 || fC3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 2));
                 else
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
             else if (lCallQty[2] < 100)
             {
-                if (lCallQty[2] / 4 < lC3ho9)
+                if (lCallQty[2] / 4 < lC3ho9 || fC3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 4));
                 else
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
             else if (lCallQty[2] < 200)
             {
-                if (lCallQty[2] / 8 < lC3ho9)
+                if (lCallQty[2] / 8 < lC3ho9 || fC3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 8));
                 else
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
             else if (lCallQty[2] < 300)
             {
-                if (lCallQty[2] / 12 < lC3ho9)
+                if (lCallQty[2] / 12 < lC3ho9 || fC3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 12));
                 else
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
             }
             else
             {
-                if (lCallQty[2] / 15 < lC3ho9)
+                if (lCallQty[2] / 15 < lC3ho9 || fC3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, (int)(lCallQty[2] / 15));
                 else
                     Request100_(CallCode[2], "1", fPrc3 + fProfit3, lC3ho9);
@@ -9312,6 +9385,28 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
         if (lPutQty[0] > 0 && (fPho9 >= (fPrc + fProfit)))					//풋옵션보유수가 있을경우1
         {
+            if (fPho9 >= fPrc + fProfit + 0.1f) // 풋 한번에 터는 조건1
+            {
+                if (lPutQty[0] < lPho21)
+                {
+                    Request100_(PutCode[0], "1", fPrc + fProfit, (int)lPutQty[0]);                    
+                }
+                else   Request100_(PutCode[0], "1", fPrc + fProfit, (int)lPho21);
+
+                if (lPutQty[0] == 0 && lPutQty[1] == 0 && lPutQty[2] == 0)
+                {
+                    bPut = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice();
+                }
+            }
+
             if ((lPutQty[0] < 10 && lPutQty[0] < lPho9) || (lPutQty[0] < lPho9))
             {
                 Request100_(PutCode[0], "1", fPrc + fProfit, (int)lPutQty[0]);
@@ -9330,14 +9425,14 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[0] < 50)
             {
-                if (lPutQty[0] / 2 < lPho9)
+                if (lPutQty[0] / 2 < lPho9 || fPho9 >= fPrc + fProfit + 0.05f)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 2));
                 else
                     Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
             }
             else if (lPutQty[0] < 100)
             {
-                if (lPutQty[0] / 4 < lPho9)
+                if (lPutQty[0] / 4 < lPho9 || fPho9 >= fPrc + fProfit + 0.05f)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 4));
                 else
                     Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
@@ -9345,7 +9440,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[0] < 200)
             {
-                if (lPutQty[0] / 8 < lPho9)
+                if (lPutQty[0] / 8 < lPho9 || fPho9 >= fPrc + fProfit + 0.05f)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 8));
                 else
                     Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
@@ -9353,7 +9448,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[0] < 300)
             {
-                if (lPutQty[0] / 12 < lPho9)
+                if (lPutQty[0] / 12 < lPho9 || fPho9 >= fPrc + fProfit + 0.05f)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 12));
                 else
                     Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
@@ -9361,7 +9456,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else
             {
-                if (lPutQty[0] / 15 < lPho9)
+                if (lPutQty[0] / 15 < lPho9 || fPho9 >= fPrc + fProfit + 0.05f)
                     Request100_(PutCode[0], "1", fPrc + fProfit, (int)(lPutQty[0] / 15));
                 else
                     Request100_(PutCode[0], "1", fPrc + fProfit, lPho9);
@@ -9371,6 +9466,28 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
         if (lPutQty[1] > 0 && (fP2ho9 >= (fPrc2 + fProfit2)))					//풋옵션보유수가 있을경우2
         {
+            if (fP2ho9 >= fPrc2 + fProfit2 + 0.1f) // 풋 한번에 터는 조건1
+            {
+                if (lPutQty[1] < lP2ho21)
+                {
+                    Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)lPutQty[1]);
+                }
+                else   Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)lP2ho21);
+
+                if (lPutQty[0] == 0 && lPutQty[1] == 0 && lPutQty[2] == 0)
+                {
+                    bPut = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice();
+                }
+            }
+
             if ((lPutQty[1] < 10 && lPutQty[1] < lP2ho9) || (lPutQty[1] < lP2ho9))
             {
                 Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)lPutQty[1]);
@@ -9389,14 +9506,14 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[1] < 50)
             {
-                if (lPutQty[1] / 2 < lP2ho9)
+                if (lPutQty[1] / 2 < lP2ho9 || fP2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 2));
                 else
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
             }
             else if (lPutQty[1] < 100)
             {
-                if (lPutQty[1] / 4 < lP2ho9)
+                if (lPutQty[1] / 4 < lP2ho9 || fP2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 4));
                 else
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
@@ -9404,7 +9521,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[1] < 200)
             {
-                if (lPutQty[1] / 8 < lP2ho9)
+                if (lPutQty[1] / 8 < lP2ho9 || fP2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 8));
                 else
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
@@ -9412,7 +9529,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[1] < 300)
             {
-                if (lPutQty[1] / 12 < lP2ho9)
+                if (lPutQty[1] / 12 < lP2ho9 || fP2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 12));
                 else
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
@@ -9420,7 +9537,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else
             {
-                if (lPutQty[1] / 15 < lP2ho9)
+                if (lPutQty[1] / 15 < lP2ho9 || fP2ho9 >= fPrc2 + fProfit2 + 0.05f)
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, (int)(lPutQty[1] / 15));
                 else
                     Request100_(PutCode[1], "1", fPrc2 + fProfit2, lP2ho9);
@@ -9430,6 +9547,28 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
 
         if (lPutQty[2] > 0 && (fP3ho9 >= (fPrc3 + fProfit3)))					//풋옵션보유수가 있을경우3
         {
+            if (fP3ho9 >= fPrc3 + fProfit3 + 0.1f) // 풋 한번에 터는 조건1
+            {
+                if (lPutQty[2] < lP3ho21)
+                {
+                    Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)lPutQty[2]);
+                }
+                else   Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)lP3ho21);
+
+                if (lPutQty[0] == 0 && lPutQty[1] == 0 && lPutQty[2] == 0)
+                {
+                    bPut = TRUE;
+                    Request2400();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        gIter[i] = iter; //
+                    }
+                    bSetPrice = TRUE;
+                    //OnBnClickedButtonprofit3();//kill
+                    SetPrice();
+                }
+            }
+
             if ((lPutQty[2] < 10 && lPutQty[2] < lP3ho9) || (lPutQty[2] < lP3ho9))
             {
                 Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)lPutQty[2]);
@@ -9448,14 +9587,14 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[2] < 50)
             {
-                if (lPutQty[2] / 2 < lP3ho9)
+                if (lPutQty[2] / 2 < lP3ho9 || fP3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 2));
                 else
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
             }
             else if (lPutQty[2] < 100)
             {
-                if (lPutQty[2] / 4 < lP3ho9)
+                if (lPutQty[2] / 4 < lP3ho9 || fP3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 4));
                 else
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
@@ -9463,7 +9602,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[2] < 200)
             {
-                if (lPutQty[2] / 8 < lP3ho9)
+                if (lPutQty[2] / 8 < lP3ho9 || fP3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 8));
                 else
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
@@ -9471,7 +9610,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else if (lPutQty[2] < 300)
             {
-                if (lPutQty[2] / 12 < lP3ho9)
+                if (lPutQty[2] / 12 < lP3ho9 || fP3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 12));
                 else
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
@@ -9479,7 +9618,7 @@ void CDlg_JEKYLL::BuyOption0() // 정해진 가격에 사고 팔기 + 매수물�
             }
             else
             {
-                if (lPutQty[2] / 15 < lP3ho9)
+                if (lPutQty[2] / 15 < lP3ho9 || fP3ho9 >= fPrc3 + fProfit3 + 0.05f)
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, (int)(lPutQty[2] / 15));
                 else
                     Request100_(PutCode[2], "1", fPrc3 + fProfit3, lP3ho9);
