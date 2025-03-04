@@ -2,44 +2,45 @@
 #define _t1631_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// í”„ë¡œê·¸ë¨ë§¤ë§¤ì¢…í•©ì¡°íšŒ(t1631) ( attr,block,headtype=A )
+// ÇÁ·Î±×·¥¸Å¸ÅÁ¾ÇÕÁ¶È¸(t1631) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1631     "t1631"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1631InBlock
 {
-    char    gubun               [   1];    char    _gubun               ;    // [string,    1] êµ¬ë¶„                           StartPos 0, Length 1
-    char    dgubun              [   1];    char    _dgubun              ;    // [string,    1] ì¼ìêµ¬ë¶„                       StartPos 2, Length 1
-    char    sdate               [   8];    char    _sdate               ;    // [string,    8] ì‹œì‘ì¼ì                       StartPos 4, Length 8
-    char    edate               [   8];    char    _edate               ;    // [string,    8] ì¢…ë£Œì¼ì                       StartPos 13, Length 8
+    char    gubun               [   1];    char    _gubun               ;    // [string,    1] ±¸ºĞ                            StartPos 0, Length 1
+    char    dgubun              [   1];    char    _dgubun              ;    // [string,    1] ÀÏÀÚ±¸ºĞ                        StartPos 2, Length 1
+    char    sdate               [   8];    char    _sdate               ;    // [string,    8] ½ÃÀÛÀÏÀÚ                        StartPos 4, Length 8
+    char    edate               [   8];    char    _edate               ;    // [string,    8] Á¾·áÀÏÀÚ                        StartPos 13, Length 8
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 22, Length 1
 } t1631InBlock, *LPt1631InBlock;
 #define NAME_t1631InBlock     "t1631InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1631OutBlock
 {
-    char    cdhrem              [   8];    char    _cdhrem              ;    // [long  ,    8] ë§¤ë„ì°¨ìµë¯¸ì²´ê²°ì”ëŸ‰             StartPos 0, Length 8
-    char    bdhrem              [   8];    char    _bdhrem              ;    // [long  ,    8] ë§¤ë„ë¹„ì°¨ìµë¯¸ì²´ê²°ì”ëŸ‰           StartPos 9, Length 8
-    char    tcdrem              [   8];    char    _tcdrem              ;    // [long  ,    8] ë§¤ë„ì°¨ìµì£¼ë¬¸ìˆ˜ëŸ‰               StartPos 18, Length 8
-    char    tbdrem              [   8];    char    _tbdrem              ;    // [long  ,    8] ë§¤ë„ë¹„ì°¨ìµì£¼ë¬¸ìˆ˜ëŸ‰             StartPos 27, Length 8
-    char    cshrem              [   8];    char    _cshrem              ;    // [long  ,    8] ë§¤ìˆ˜ì°¨ìµë¯¸ì²´ê²°ì”ëŸ‰             StartPos 36, Length 8
-    char    bshrem              [   8];    char    _bshrem              ;    // [long  ,    8] ë§¤ìˆ˜ë¹„ì°¨ìµë¯¸ì²´ê²°ì”ëŸ‰           StartPos 45, Length 8
-    char    tcsrem              [   8];    char    _tcsrem              ;    // [long  ,    8] ë§¤ìˆ˜ì°¨ìµì£¼ë¬¸ìˆ˜ëŸ‰               StartPos 54, Length 8
-    char    tbsrem              [   8];    char    _tbsrem              ;    // [long  ,    8] ë§¤ìˆ˜ë¹„ì°¨ìµì£¼ë¬¸ìˆ˜ëŸ‰             StartPos 63, Length 8
+    char    cdhrem              [   8];    char    _cdhrem              ;    // [long  ,    8] ¸ÅµµÂ÷ÀÍ¹ÌÃ¼°áÀÜ·®              StartPos 0, Length 8
+    char    bdhrem              [   8];    char    _bdhrem              ;    // [long  ,    8] ¸ÅµµºñÂ÷ÀÍ¹ÌÃ¼°áÀÜ·®            StartPos 9, Length 8
+    char    tcdrem              [   8];    char    _tcdrem              ;    // [long  ,    8] ¸ÅµµÂ÷ÀÍÁÖ¹®¼ö·®                StartPos 18, Length 8
+    char    tbdrem              [   8];    char    _tbdrem              ;    // [long  ,    8] ¸ÅµµºñÂ÷ÀÍÁÖ¹®¼ö·®              StartPos 27, Length 8
+    char    cshrem              [   8];    char    _cshrem              ;    // [long  ,    8] ¸Å¼öÂ÷ÀÍ¹ÌÃ¼°áÀÜ·®              StartPos 36, Length 8
+    char    bshrem              [   8];    char    _bshrem              ;    // [long  ,    8] ¸Å¼öºñÂ÷ÀÍ¹ÌÃ¼°áÀÜ·®            StartPos 45, Length 8
+    char    tcsrem              [   8];    char    _tcsrem              ;    // [long  ,    8] ¸Å¼öÂ÷ÀÍÁÖ¹®¼ö·®                StartPos 54, Length 8
+    char    tbsrem              [   8];    char    _tbsrem              ;    // [long  ,    8] ¸Å¼öºñÂ÷ÀÍÁÖ¹®¼ö·®              StartPos 63, Length 8
 } t1631OutBlock, *LPt1631OutBlock;
 #define NAME_t1631OutBlock     "t1631OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1631OutBlock1
 {
-    char    offervolume         [   8];    char    _offervolume         ;    // [long  ,    8] ë§¤ë„ìˆ˜ëŸ‰                       StartPos 0, Length 8
-    char    offervalue          [  12];    char    _offervalue          ;    // [long  ,   12] ë§¤ë„ê¸ˆì•¡                       StartPos 9, Length 12
-    char    bidvolume           [   8];    char    _bidvolume           ;    // [long  ,    8] ë§¤ìˆ˜ìˆ˜ëŸ‰                       StartPos 22, Length 8
-    char    bidvalue            [  12];    char    _bidvalue            ;    // [long  ,   12] ë§¤ìˆ˜ê¸ˆì•¡                       StartPos 31, Length 12
-    char    volume              [   8];    char    _volume              ;    // [long  ,    8] ìˆœë§¤ìˆ˜ìˆ˜ëŸ‰                     StartPos 44, Length 8
-    char    value               [  12];    char    _value               ;    // [long  ,   12] ìˆœë§¤ìˆ˜ê¸ˆì•¡                     StartPos 53, Length 12
+    char    offervolume         [   8];    char    _offervolume         ;    // [long  ,    8] ¸Åµµ¼ö·®                        StartPos 0, Length 8
+    char    offervalue          [  12];    char    _offervalue          ;    // [long  ,   12] ¸Åµµ±İ¾×                        StartPos 9, Length 12
+    char    bidvolume           [   8];    char    _bidvolume           ;    // [long  ,    8] ¸Å¼ö¼ö·®                        StartPos 22, Length 8
+    char    bidvalue            [  12];    char    _bidvalue            ;    // [long  ,   12] ¸Å¼ö±İ¾×                        StartPos 31, Length 12
+    char    volume              [   8];    char    _volume              ;    // [long  ,    8] ¼ø¸Å¼ö¼ö·®                      StartPos 44, Length 8
+    char    value               [  12];    char    _value               ;    // [long  ,   12] ¼ø¸Å¼ö±İ¾×                      StartPos 53, Length 12
 } t1631OutBlock1, *LPt1631OutBlock1;
 #define NAME_t1631OutBlock1     "t1631OutBlock1"
 

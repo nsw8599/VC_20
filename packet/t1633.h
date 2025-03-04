@@ -2,50 +2,51 @@
 #define _t1633_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ê¸°ê°„ë³„í”„ë¡œê·¸ë¨ë§¤ë§¤ì¶”ì´(t1633) ( attr,block,headtype=A )
+// ±â°£º°ÇÁ·Î±×·¥¸Å¸ÅÃßÀÌ(t1633) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1633     "t1633"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1633InBlock
 {
-    char    gubun               [   1];    char    _gubun               ;    // [string,    1] ì‹œì¥êµ¬ë¶„                       StartPos 0, Length 1
-    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ê¸ˆì•¡ìˆ˜ëŸ‰êµ¬ë¶„                   StartPos 2, Length 1
-    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ìˆ˜ì¹˜ëˆ„ì êµ¬ë¶„                   StartPos 4, Length 1
-    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ì¼ì£¼ì›”êµ¬ë¶„                     StartPos 6, Length 1
-    char    fdate               [   8];    char    _fdate               ;    // [string,    8] fromì¼ì                       StartPos 8, Length 8
-    char    tdate               [   8];    char    _tdate               ;    // [string,    8] toì¼ì                         StartPos 17, Length 8
-    char    gubun4              [   1];    char    _gubun4              ;    // [string,    1] ì§ì „ëŒ€ë¹„ì¦ê°êµ¬ë¶„               StartPos 26, Length 1
-    char    date                [   8];    char    _date                ;    // [string,    8] ë‚ ì§œ                           StartPos 28, Length 8
+    char    gubun               [   1];    char    _gubun               ;    // [string,    1] ½ÃÀå±¸ºĞ                        StartPos 0, Length 1
+    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ±İ¾×¼ö·®±¸ºĞ                    StartPos 2, Length 1
+    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ¼öÄ¡´©Àû±¸ºĞ                    StartPos 4, Length 1
+    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ÀÏÁÖ¿ù±¸ºĞ                      StartPos 6, Length 1
+    char    fdate               [   8];    char    _fdate               ;    // [string,    8] fromÀÏÀÚ                        StartPos 8, Length 8
+    char    tdate               [   8];    char    _tdate               ;    // [string,    8] toÀÏÀÚ                          StartPos 17, Length 8
+    char    gubun4              [   1];    char    _gubun4              ;    // [string,    1] Á÷Àü´ëºñÁõ°¨±¸ºĞ                StartPos 26, Length 1
+    char    date                [   8];    char    _date                ;    // [string,    8] ³¯Â¥                            StartPos 28, Length 8
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 37, Length 1
 } t1633InBlock, *LPt1633InBlock;
 #define NAME_t1633InBlock     "t1633InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1633OutBlock
 {
-    char    date                [   8];    char    _date                ;    // [string,    8] ë‚ ì§œ                           StartPos 0, Length 8
-    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                            StartPos 9, Length 4
+    char    date                [   8];    char    _date                ;    // [string,    8] ³¯Â¥                            StartPos 0, Length 8
+    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                             StartPos 9, Length 4
 } t1633OutBlock, *LPt1633OutBlock;
 #define NAME_t1633OutBlock     "t1633OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1633OutBlock1
 {
-    char    date                [   8];    char    _date                ;    // [string,    8] ì¼ì                           StartPos 0, Length 8
-    char    jisu                [   6];    char    _jisu                ;    // [float ,  6.2] KP200                          StartPos 9, Length 6
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ëŒ€ë¹„êµ¬ë¶„                       StartPos 16, Length 1
-    char    change              [   6];    char    _change              ;    // [float ,  6.2] ëŒ€ë¹„                           StartPos 18, Length 6
-    char    tot3                [  12];    char    _tot3                ;    // [long  ,   12] ì „ì²´ìˆœë§¤ìˆ˜                     StartPos 25, Length 12
-    char    tot1                [  12];    char    _tot1                ;    // [long  ,   12] ì „ì²´ë§¤ìˆ˜                       StartPos 38, Length 12
-    char    tot2                [  12];    char    _tot2                ;    // [long  ,   12] ì „ì²´ë§¤ë„                       StartPos 51, Length 12
-    char    cha3                [  12];    char    _cha3                ;    // [long  ,   12] ì°¨ìµìˆœë§¤ìˆ˜                     StartPos 64, Length 12
-    char    cha1                [  12];    char    _cha1                ;    // [long  ,   12] ì°¨ìµë§¤ìˆ˜                       StartPos 77, Length 12
-    char    cha2                [  12];    char    _cha2                ;    // [long  ,   12] ì°¨ìµë§¤ë„                       StartPos 90, Length 12
-    char    bcha3               [  12];    char    _bcha3               ;    // [long  ,   12] ë¹„ì°¨ìµìˆœë§¤ìˆ˜                   StartPos 103, Length 12
-    char    bcha1               [  12];    char    _bcha1               ;    // [long  ,   12] ë¹„ì°¨ìµë§¤ìˆ˜                     StartPos 116, Length 12
-    char    bcha2               [  12];    char    _bcha2               ;    // [long  ,   12] ë¹„ì°¨ìµë§¤ë„                     StartPos 129, Length 12
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ê±°ë˜ëŸ‰                         StartPos 142, Length 12
+    char    date                [   8];    char    _date                ;    // [string,    8] ÀÏÀÚ                            StartPos 0, Length 8
+    char    jisu                [   6];    char    _jisu                ;    // [float ,  6.2] KP200                           StartPos 9, Length 6
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ´ëºñ±¸ºĞ                        StartPos 16, Length 1
+    char    change              [   6];    char    _change              ;    // [float ,  6.2] ´ëºñ                            StartPos 18, Length 6
+    char    tot3                [  12];    char    _tot3                ;    // [long  ,   12] ÀüÃ¼¼ø¸Å¼ö                      StartPos 25, Length 12
+    char    tot1                [  12];    char    _tot1                ;    // [long  ,   12] ÀüÃ¼¸Å¼ö                        StartPos 38, Length 12
+    char    tot2                [  12];    char    _tot2                ;    // [long  ,   12] ÀüÃ¼¸Åµµ                        StartPos 51, Length 12
+    char    cha3                [  12];    char    _cha3                ;    // [long  ,   12] Â÷ÀÍ¼ø¸Å¼ö                      StartPos 64, Length 12
+    char    cha1                [  12];    char    _cha1                ;    // [long  ,   12] Â÷ÀÍ¸Å¼ö                        StartPos 77, Length 12
+    char    cha2                [  12];    char    _cha2                ;    // [long  ,   12] Â÷ÀÍ¸Åµµ                        StartPos 90, Length 12
+    char    bcha3               [  12];    char    _bcha3               ;    // [long  ,   12] ºñÂ÷ÀÍ¼ø¸Å¼ö                    StartPos 103, Length 12
+    char    bcha1               [  12];    char    _bcha1               ;    // [long  ,   12] ºñÂ÷ÀÍ¸Å¼ö                      StartPos 116, Length 12
+    char    bcha2               [  12];    char    _bcha2               ;    // [long  ,   12] ºñÂ÷ÀÍ¸Åµµ                      StartPos 129, Length 12
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] °Å·¡·®                          StartPos 142, Length 12
 } t1633OutBlock1, *LPt1633OutBlock1;
 #define NAME_t1633OutBlock1     "t1633OutBlock1"
 

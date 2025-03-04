@@ -2,34 +2,35 @@
 #define _t1640_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// í”„ë¡œê·¸ë¨ë§¤ë§¤ì¢…í•©ì¡°íšŒ(ë¯¸ë‹ˆ)(t1640) ( attr,block,headtype=A )
+// ÇÁ·Î±×·¥¸Å¸ÅÁ¾ÇÕÁ¶È¸(¹Ì´Ï)(t1640) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1640     "t1640"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1640InBlock
 {
-    char    gubun               [   2];    char    _gubun               ;    // [string,    2] êµ¬ë¶„                           StartPos 0, Length 2
+    char    gubun               [   2];    char    _gubun               ;    // [string,    2] ±¸ºĞ                            StartPos 0, Length 2
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 3, Length 1
 } t1640InBlock, *LPt1640InBlock;
 #define NAME_t1640InBlock     "t1640InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1640OutBlock
 {
-    char    offervolume         [   8];    char    _offervolume         ;    // [long  ,    8] ë§¤ë„ìˆ˜ëŸ‰                       StartPos 0, Length 8
-    char    bidvolume           [   8];    char    _bidvolume           ;    // [long  ,    8] ë§¤ìˆ˜ìˆ˜ëŸ‰                       StartPos 9, Length 8
-    char    volume              [   8];    char    _volume              ;    // [long  ,    8] ìˆœë§¤ìˆ˜ìˆ˜ëŸ‰                     StartPos 18, Length 8
-    char    offerdiff           [   8];    char    _offerdiff           ;    // [long  ,    8] ë§¤ë„ì¦ê°                       StartPos 27, Length 8
-    char    biddiff             [   8];    char    _biddiff             ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°                       StartPos 36, Length 8
-    char    sundiff             [   8];    char    _sundiff             ;    // [long  ,    8] ìˆœë§¤ìˆ˜ì¦ê°                     StartPos 45, Length 8
-    char    basis               [   6];    char    _basis               ;    // [float ,  6.2] ë² ì´ì‹œìŠ¤                       StartPos 54, Length 6
-    char    offervalue          [  12];    char    _offervalue          ;    // [double,   12] ë§¤ë„ê¸ˆì•¡                       StartPos 61, Length 12
-    char    bidvalue            [  12];    char    _bidvalue            ;    // [double,   12] ë§¤ìˆ˜ê¸ˆì•¡                       StartPos 74, Length 12
-    char    value               [  12];    char    _value               ;    // [double,   12] ìˆœë§¤ìˆ˜ê¸ˆì•¡                     StartPos 87, Length 12
-    char    offervaldiff        [  12];    char    _offervaldiff        ;    // [double,   12] ë§¤ë„ê¸ˆì•¡ì¦ê°                   StartPos 100, Length 12
-    char    bidvaldiff          [  12];    char    _bidvaldiff          ;    // [double,   12] ë§¤ìˆ˜ê¸ˆì•¡ì¦ê°                   StartPos 113, Length 12
-    char    sunvaldiff          [  12];    char    _sunvaldiff          ;    // [double,   12] ìˆœë§¤ìˆ˜ì¦ê°                     StartPos 126, Length 12
+    char    offervolume         [   8];    char    _offervolume         ;    // [long  ,    8] ¸Åµµ¼ö·®                        StartPos 0, Length 8
+    char    bidvolume           [   8];    char    _bidvolume           ;    // [long  ,    8] ¸Å¼ö¼ö·®                        StartPos 9, Length 8
+    char    volume              [   8];    char    _volume              ;    // [long  ,    8] ¼ø¸Å¼ö¼ö·®                      StartPos 18, Length 8
+    char    offerdiff           [   8];    char    _offerdiff           ;    // [long  ,    8] ¸ÅµµÁõ°¨                        StartPos 27, Length 8
+    char    biddiff             [   8];    char    _biddiff             ;    // [long  ,    8] ¸Å¼öÁõ°¨                        StartPos 36, Length 8
+    char    sundiff             [   8];    char    _sundiff             ;    // [long  ,    8] ¼ø¸Å¼öÁõ°¨                      StartPos 45, Length 8
+    char    basis               [   6];    char    _basis               ;    // [float ,  6.2] º£ÀÌ½Ã½º                        StartPos 54, Length 6
+    char    offervalue          [  12];    char    _offervalue          ;    // [double,   12] ¸Åµµ±İ¾×                        StartPos 61, Length 12
+    char    bidvalue            [  12];    char    _bidvalue            ;    // [double,   12] ¸Å¼ö±İ¾×                        StartPos 74, Length 12
+    char    value               [  12];    char    _value               ;    // [double,   12] ¼ø¸Å¼ö±İ¾×                      StartPos 87, Length 12
+    char    offervaldiff        [  12];    char    _offervaldiff        ;    // [double,   12] ¸Åµµ±İ¾×Áõ°¨                    StartPos 100, Length 12
+    char    bidvaldiff          [  12];    char    _bidvaldiff          ;    // [double,   12] ¸Å¼ö±İ¾×Áõ°¨                    StartPos 113, Length 12
+    char    sunvaldiff          [  12];    char    _sunvaldiff          ;    // [double,   12] ¼ø¸Å¼öÁõ°¨                      StartPos 126, Length 12
 } t1640OutBlock, *LPt1640OutBlock;
 #define NAME_t1640OutBlock     "t1640OutBlock"
 

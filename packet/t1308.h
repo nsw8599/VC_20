@@ -2,40 +2,48 @@
 #define _t1308_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì£¼ì‹ì‹œê°„ëŒ€ë³„ì²´ê²°ì¡°íšŒì± íŠ¸(t1308) ( attr,block,headtype=A )
+// ÁÖ½Ä½Ã°£´ëº°Ã¼°áÁ¶È¸Ã­Æ®(t1308) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1308     "t1308"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1308InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
-    char    starttime           [   4];    char    _starttime           ;    // [string,    4] ì‹œì‘ì‹œê°„                       StartPos 7, Length 4
-    char    endtime             [   4];    char    _endtime             ;    // [string,    4] ì¢…ë£Œì‹œê°„                       StartPos 12, Length 4
-    char    bun_term            [   2];    char    _bun_term            ;    // [string,    2] ë¶„ê°„ê²©                         StartPos 17, Length 2
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
+    char    starttime           [   4];    char    _starttime           ;    // [string,    4] ½ÃÀÛ½Ã°£                        StartPos 7, Length 4
+    char    endtime             [   4];    char    _endtime             ;    // [string,    4] Á¾·á½Ã°£                        StartPos 12, Length 4
+    char    bun_term            [   2];    char    _bun_term            ;    // [string,    2] ºĞ°£°İ                          StartPos 17, Length 2
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 20, Length 1
 } t1308InBlock, *LPt1308InBlock;
 #define NAME_t1308InBlock     "t1308InBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â                           
+typedef struct _t1308OutBlock
+{
+    char    ex_shcode           [  10];    char    _ex_shcode           ;    // [string,   10] °Å·¡¼Òº°´ÜÃàÄÚµå                StartPos 0, Length 10
+} t1308OutBlock, *LPt1308OutBlock;
+#define NAME_t1308OutBlock     "t1308OutBlock"
+
+// Ãâ·Â1                          , occurs
 typedef struct _t1308OutBlock1
 {
-    char    chetime             [   8];    char    _chetime             ;    // [string,    8] ì‹œê°„                           StartPos 0, Length 8
-    char    price               [   8];    char    _price               ;    // [long  ,    8] í˜„ì¬ê°€                         StartPos 9, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ì „ì¼ëŒ€ë¹„êµ¬ë¶„                   StartPos 18, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] ì „ì¼ëŒ€ë¹„                       StartPos 20, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] ë“±ë½ìœ¨                         StartPos 29, Length 6
-    char    cvolume             [   8];    char    _cvolume             ;    // [long  ,    8] ì²´ê²°ìˆ˜ëŸ‰                       StartPos 36, Length 8
-    char    chdegvol            [   8];    char    _chdegvol            ;    // [float ,  8.2] ì²´ê²°ê°•ë„(ê±°ë˜ëŸ‰)               StartPos 45, Length 8
-    char    chdegcnt            [   8];    char    _chdegcnt            ;    // [float ,  8.2] ì²´ê²°ê°•ë„(ê±´ìˆ˜)                 StartPos 54, Length 8
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ê±°ë˜ëŸ‰                         StartPos 63, Length 12
-    char    mdvolume            [  12];    char    _mdvolume            ;    // [long  ,   12] ë§¤ë„ì²´ê²°ìˆ˜ëŸ‰                   StartPos 76, Length 12
-    char    mdchecnt            [   8];    char    _mdchecnt            ;    // [long  ,    8] ë§¤ë„ì²´ê²°ê±´ìˆ˜                   StartPos 89, Length 8
-    char    msvolume            [  12];    char    _msvolume            ;    // [long  ,   12] ë§¤ìˆ˜ì²´ê²°ìˆ˜ëŸ‰                   StartPos 98, Length 12
-    char    mschecnt            [   8];    char    _mschecnt            ;    // [long  ,    8] ë§¤ìˆ˜ì²´ê²°ê±´ìˆ˜                   StartPos 111, Length 8
-    char    open                [   8];    char    _open                ;    // [long  ,    8] ì‹œê°€                           StartPos 120, Length 8
-    char    high                [   8];    char    _high                ;    // [long  ,    8] ê³ ê°€                           StartPos 129, Length 8
-    char    low                 [   8];    char    _low                 ;    // [long  ,    8] ì €ê°€                           StartPos 138, Length 8
+    char    chetime             [   8];    char    _chetime             ;    // [string,    8] ½Ã°£                            StartPos 0, Length 8
+    char    price               [   8];    char    _price               ;    // [long  ,    8] ÇöÀç°¡                          StartPos 9, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ÀüÀÏ´ëºñ±¸ºĞ                    StartPos 18, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ÀüÀÏ´ëºñ                        StartPos 20, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µî¶ôÀ²                          StartPos 29, Length 6
+    char    cvolume             [   8];    char    _cvolume             ;    // [long  ,    8] Ã¼°á¼ö·®                        StartPos 36, Length 8
+    char    chdegvol            [   8];    char    _chdegvol            ;    // [double,  8.2] Ã¼°á°­µµ(°Å·¡·®)                StartPos 45, Length 8
+    char    chdegcnt            [   8];    char    _chdegcnt            ;    // [double,  8.2] Ã¼°á°­µµ(°Ç¼ö)                  StartPos 54, Length 8
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] °Å·¡·®                          StartPos 63, Length 12
+    char    mdvolume            [  12];    char    _mdvolume            ;    // [long  ,   12] ¸ÅµµÃ¼°á¼ö·®                    StartPos 76, Length 12
+    char    mdchecnt            [   8];    char    _mdchecnt            ;    // [long  ,    8] ¸ÅµµÃ¼°á°Ç¼ö                    StartPos 89, Length 8
+    char    msvolume            [  12];    char    _msvolume            ;    // [long  ,   12] ¸Å¼öÃ¼°á¼ö·®                    StartPos 98, Length 12
+    char    mschecnt            [   8];    char    _mschecnt            ;    // [long  ,    8] ¸Å¼öÃ¼°á°Ç¼ö                    StartPos 111, Length 8
+    char    open                [   8];    char    _open                ;    // [long  ,    8] ½Ã°¡                            StartPos 120, Length 8
+    char    high                [   8];    char    _high                ;    // [long  ,    8] °í°¡                            StartPos 129, Length 8
+    char    low                 [   8];    char    _low                 ;    // [long  ,    8] Àú°¡                            StartPos 138, Length 8
 } t1308OutBlock1, *LPt1308OutBlock1;
 #define NAME_t1308OutBlock1     "t1308OutBlock1"
 

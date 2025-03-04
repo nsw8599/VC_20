@@ -2,42 +2,43 @@
 #define _t1104_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì£¼ì‹í˜„ì¬ê°€ì‹œì„¸ë©”ëª¨(t1104) ( block,headtype=A )
+// ÁÖ½ÄÇöÀç°¡½Ã¼¼¸Ş¸ğ(t1104) ( block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1104     "t1104"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1104InBlock
 {
-    char    code                [   6];    // [string,    6] ì¢…ëª©ì½”ë“œ                       StartPos 0, Length 6
-    char    nrec                [   2];    // [string,    2] ê±´ìˆ˜                           StartPos 6, Length 2
+    char    code                [   6];    // [string,    6] Á¾¸ñÄÚµå                        StartPos 0, Length 6
+    char    nrec                [   2];    // [string,    2] °Ç¼ö                            StartPos 6, Length 2
+    char    exchgubun           [   1];    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 8, Length 1
 } t1104InBlock, *LPt1104InBlock;
 #define NAME_t1104InBlock     "t1104InBlock"
 
-// ê¸°ë³¸ì…ë ¥1, occurs
+// ±âº»ÀÔ·Â1                      , occurs
 typedef struct _t1104InBlock1
 {
-    char    indx                [   1];    // [string,    1] ì¸ë±ìŠ¤                         StartPos 0, Length 1
-    char    gubn                [   1];    // [string,    1] ì¡°ê±´êµ¬ë¶„                       StartPos 1, Length 1
-    char    dat1                [   1];    // [string,    1] ë°ì´íƒ€1                        StartPos 2, Length 1
-    char    dat2                [   8];    // [string,    8] ë°ì´íƒ€2                        StartPos 3, Length 8
+    char    indx                [   1];    // [string,    1] ÀÎµ¦½º                          StartPos 0, Length 1
+    char    gubn                [   1];    // [string,    1] Á¶°Ç±¸ºĞ                        StartPos 1, Length 1
+    char    dat1                [   1];    // [string,    1] µ¥ÀÌÅ¸1                         StartPos 2, Length 1
+    char    dat2                [   8];    // [string,    8] µ¥ÀÌÅ¸2                         StartPos 3, Length 8
 } t1104InBlock1, *LPt1104InBlock1;
 #define NAME_t1104InBlock1     "t1104InBlock1"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1104OutBlock
 {
-    char    nrec                [   2];    // [string,    2] ì¶œë ¥ê±´ìˆ˜                       StartPos 0, Length 2
+    char    nrec                [   2];    // [string,    2] Ãâ·Â°Ç¼ö                        StartPos 0, Length 2
 } t1104OutBlock, *LPt1104OutBlock;
 #define NAME_t1104OutBlock     "t1104OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1104OutBlock1
 {
-    char    indx                [   1];    // [string,    1] ì¸ë±ìŠ¤                         StartPos 0, Length 1
-    char    gubn                [   1];    // [string,    1] ì¡°ê±´êµ¬ë¶„                       StartPos 1, Length 1
-    char    vals                [   8];    // [string,    8] ì¶œë ¥ê°’                         StartPos 2, Length 8
+    char    indx                [   1];    // [string,    1] ÀÎµ¦½º                          StartPos 0, Length 1
+    char    gubn                [   1];    // [string,    1] Á¶°Ç±¸ºĞ                        StartPos 1, Length 1
+    char    vals                [   8];    // [string,    8] Ãâ·Â°ª                          StartPos 2, Length 8
 } t1104OutBlock1, *LPt1104OutBlock1;
 #define NAME_t1104OutBlock1     "t1104OutBlock1"
 

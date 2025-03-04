@@ -2,75 +2,77 @@
 #define _t1621_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì—…ì¢…ë³„ë¶„ë³„íˆ¬ììë§¤ë§¤ë™í–¥(ì± íŠ¸ìš©) ( attr,block,headtype=A )
+// ¾÷Á¾º°ºĞº°ÅõÀÚÀÚ¸Å¸Åµ¿Çâ(Ã­Æ®¿ë) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1621     "t1621"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1621InBlock
 {
-    char    upcode              [   3];    char    _upcode              ;    // [string,    3] ì—…ì¢…ì½”ë“œ                       StartPos 0, Length 3
-    char    nmin                [   2];    char    _nmin                ;    // [string,    2] Në¶„                            StartPos 4, Length 2
-    char    cnt                 [   3];    char    _cnt                 ;    // [string,    3] ì¡°íšŒê±´ìˆ˜                       StartPos 7, Length 3
-    char    bgubun              [   1];    char    _bgubun              ;    // [string,    1] ì „ì¼ë¶„                         StartPos 11, Length 1
+    char    upcode              [   3];    char    _upcode              ;    // [string,    3] ¾÷Á¾ÄÚµå                        StartPos 0, Length 3
+    char    nmin                [   2];    char    _nmin                ;    // [long  ,    2] NºĞ                             StartPos 4, Length 2
+    char    cnt                 [   3];    char    _cnt                 ;    // [long  ,    3] Á¶È¸°Ç¼ö                        StartPos 7, Length 3
+    char    bgubun              [   1];    char    _bgubun              ;    // [string,    1] ÀüÀÏºĞ                          StartPos 11, Length 1
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 13, Length 1
 } t1621InBlock, *LPt1621InBlock;
 #define NAME_t1621InBlock     "t1621InBlock"
 
-// ê¸°ë³¸ì¶œë ¥
+// ±âº»Ãâ·Â                       
 typedef struct _t1621OutBlock
 {
-    char    indcode             [   4];    char    _indcode             ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                 StartPos 0, Length 4
-    char    forcode             [   4];    char    _forcode             ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ               StartPos 5, Length 4
-    char    syscode             [   4];    char    _syscode             ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ               StartPos 10, Length 4
-    char    stocode             [   4];    char    _stocode             ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                 StartPos 15, Length 4
-    char    invcode             [   4];    char    _invcode             ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                 StartPos 20, Length 4
-    char    bancode             [   4];    char    _bancode             ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                 StartPos 25, Length 4
-    char    inscode             [   4];    char    _inscode             ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                 StartPos 30, Length 4
-    char    fincode             [   4];    char    _fincode             ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                 StartPos 35, Length 4
-    char    moncode             [   4];    char    _moncode             ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                 StartPos 40, Length 4
-    char    etccode             [   4];    char    _etccode             ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                 StartPos 45, Length 4
-    char    natcode             [   4];    char    _natcode             ;    // [string,    4] êµ­ê°€íˆ¬ììì½”ë“œ                 StartPos 50, Length 4
-    char    pefcode             [   4];    char    _pefcode             ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ             StartPos 55, Length 4
-    char    jisucd              [   8];    char    _jisucd              ;    // [string,    8] ê¸°ì¤€ì§€ìˆ˜ì½”ë“œ                   StartPos 60, Length 8
-    char    jisunm              [  20];    char    _jisunm              ;    // [string,   20] ê¸°ì¤€ì§€ìˆ˜ëª…                     StartPos 69, Length 20
+    char    indcode             [   4];    char    _indcode             ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
+    char    forcode             [   4];    char    _forcode             ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 5, Length 4
+    char    syscode             [   4];    char    _syscode             ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 10, Length 4
+    char    stocode             [   4];    char    _stocode             ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 15, Length 4
+    char    invcode             [   4];    char    _invcode             ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 20, Length 4
+    char    bancode             [   4];    char    _bancode             ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 25, Length 4
+    char    inscode             [   4];    char    _inscode             ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 30, Length 4
+    char    fincode             [   4];    char    _fincode             ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 35, Length 4
+    char    moncode             [   4];    char    _moncode             ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 40, Length 4
+    char    etccode             [   4];    char    _etccode             ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 45, Length 4
+    char    natcode             [   4];    char    _natcode             ;    // [string,    4] ±¹°¡ÅõÀÚÀÚÄÚµå                  StartPos 50, Length 4
+    char    pefcode             [   4];    char    _pefcode             ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 55, Length 4
+    char    jisucd              [   8];    char    _jisucd              ;    // [string,    8] ±âÁØÁö¼öÄÚµå                    StartPos 60, Length 8
+    char    jisunm              [  20];    char    _jisunm              ;    // [string,   20] ±âÁØÁö¼ö¸í                      StartPos 69, Length 20
+    char    ex_upcode           [   4];    char    _ex_upcode           ;    // [string,    4] °Å·¡¼Òº°¾÷Á¾ÄÚµå                StartPos 90, Length 4
 } t1621OutBlock, *LPt1621OutBlock;
 #define NAME_t1621OutBlock     "t1621OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1621OutBlock1
 {
-    char    date                [   8];    char    _date                ;    // [string,    8] ì¼ì                           StartPos 0, Length 8
-    char    time                [   6];    char    _time                ;    // [string,    6] ì‹œê°„                           StartPos 9, Length 6
-    char    datetime            [  14];    char    _datetime            ;    // [string,   14] ì¼ìì‹œê°„                       StartPos 16, Length 14
-    char    indmsvol            [   8];    char    _indmsvol            ;    // [long  ,    8] ê°œì¸ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 31, Length 8
-    char    indmsamt            [  12];    char    _indmsamt            ;    // [double,   12] ê°œì¸ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 40, Length 12
-    char    formsvol            [   8];    char    _formsvol            ;    // [long  ,    8] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰             StartPos 53, Length 8
-    char    formsamt            [  12];    char    _formsamt            ;    // [double,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ           StartPos 62, Length 12
-    char    sysmsvol            [   8];    char    _sysmsvol            ;    // [long  ,    8] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰             StartPos 75, Length 8
-    char    sysmsamt            [  12];    char    _sysmsamt            ;    // [double,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ           StartPos 84, Length 12
-    char    stomsvol            [   8];    char    _stomsvol            ;    // [long  ,    8] ì¦ê¶Œìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 97, Length 8
-    char    stomsamt            [  12];    char    _stomsamt            ;    // [double,   12] ì¦ê¶Œìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 106, Length 12
-    char    invmsvol            [   8];    char    _invmsvol            ;    // [long  ,    8] íˆ¬ì‹ ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 119, Length 8
-    char    invmsamt            [  12];    char    _invmsamt            ;    // [double,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 128, Length 12
-    char    banmsvol            [   8];    char    _banmsvol            ;    // [long  ,    8] ì€í–‰ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 141, Length 8
-    char    banmsamt            [  12];    char    _banmsamt            ;    // [double,   12] ì€í–‰ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 150, Length 12
-    char    insmsvol            [   8];    char    _insmsvol            ;    // [long  ,    8] ë³´í—˜ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 163, Length 8
-    char    insmsamt            [  12];    char    _insmsamt            ;    // [double,   12] ë³´í—˜ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 172, Length 12
-    char    finmsvol            [   8];    char    _finmsvol            ;    // [long  ,    8] ì¢…ê¸ˆìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 185, Length 8
-    char    finmsamt            [  12];    char    _finmsamt            ;    // [double,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 194, Length 12
-    char    monmsvol            [   8];    char    _monmsvol            ;    // [long  ,    8] ê¸°ê¸ˆìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 207, Length 8
-    char    monmsamt            [  12];    char    _monmsamt            ;    // [double,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 216, Length 12
-    char    etcmsvol            [   8];    char    _etcmsvol            ;    // [long  ,    8] ê¸°íƒ€ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 229, Length 8
-    char    etcmsamt            [  12];    char    _etcmsamt            ;    // [double,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 238, Length 12
-    char    natmsvol            [   8];    char    _natmsvol            ;    // [long  ,    8] êµ­ê°€ìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰               StartPos 251, Length 8
-    char    natmsamt            [  12];    char    _natmsamt            ;    // [double,   12] êµ­ê°€ìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ             StartPos 260, Length 12
-    char    pefmsvol            [   8];    char    _pefmsvol            ;    // [long  ,    8] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜ê±°ë˜ëŸ‰           StartPos 273, Length 8
-    char    pefmsamt            [  12];    char    _pefmsamt            ;    // [double,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜ê±°ë˜ëŒ€ê¸ˆ         StartPos 282, Length 12
-    char    upclose             [   6];    char    _upclose             ;    // [float ,  6.2] ê¸°ì¤€ì§€ìˆ˜                       StartPos 295, Length 6
-    char    upcvolume           [   8];    char    _upcvolume           ;    // [long  ,    8] ê¸°ì¤€ì²´ê²°ê±°ë˜ëŸ‰                 StartPos 302, Length 8
-    char    upvolume            [  12];    char    _upvolume            ;    // [double,   12] ê¸°ì¤€ëˆ„ì ê±°ë˜ëŸ‰                 StartPos 311, Length 12
-    char    upvalue             [  12];    char    _upvalue             ;    // [double,   12] ê¸°ì¤€ê±°ë˜ëŒ€ê¸ˆ                   StartPos 324, Length 12
+    char    date                [   8];    char    _date                ;    // [string,    8] ÀÏÀÚ                            StartPos 0, Length 8
+    char    time                [   6];    char    _time                ;    // [string,    6] ½Ã°£                            StartPos 9, Length 6
+    char    datetime            [  14];    char    _datetime            ;    // [string,   14] ÀÏÀÚ½Ã°£                        StartPos 16, Length 14
+    char    indmsvol            [   8];    char    _indmsvol            ;    // [long  ,    8] °³ÀÎ¼ø¸Å¼ö°Å·¡·®                StartPos 31, Length 8
+    char    indmsamt            [  12];    char    _indmsamt            ;    // [double,   12] °³ÀÎ¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 40, Length 12
+    char    formsvol            [   8];    char    _formsvol            ;    // [long  ,    8] ¿Ü±¹ÀÎ¼ø¸Å¼ö°Å·¡·®              StartPos 53, Length 8
+    char    formsamt            [  12];    char    _formsamt            ;    // [double,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö°Å·¡´ë±İ            StartPos 62, Length 12
+    char    sysmsvol            [   8];    char    _sysmsvol            ;    // [long  ,    8] ±â°ü°è¼ø¸Å¼ö°Å·¡·®              StartPos 75, Length 8
+    char    sysmsamt            [  12];    char    _sysmsamt            ;    // [double,   12] ±â°ü°è¼ø¸Å¼ö°Å·¡´ë±İ            StartPos 84, Length 12
+    char    stomsvol            [   8];    char    _stomsvol            ;    // [long  ,    8] Áõ±Ç¼ø¸Å¼ö°Å·¡·®                StartPos 97, Length 8
+    char    stomsamt            [  12];    char    _stomsamt            ;    // [double,   12] Áõ±Ç¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 106, Length 12
+    char    invmsvol            [   8];    char    _invmsvol            ;    // [long  ,    8] Åõ½Å¼ø¸Å¼ö°Å·¡·®                StartPos 119, Length 8
+    char    invmsamt            [  12];    char    _invmsamt            ;    // [double,   12] Åõ½Å¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 128, Length 12
+    char    banmsvol            [   8];    char    _banmsvol            ;    // [long  ,    8] ÀºÇà¼ø¸Å¼ö°Å·¡·®                StartPos 141, Length 8
+    char    banmsamt            [  12];    char    _banmsamt            ;    // [double,   12] ÀºÇà¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 150, Length 12
+    char    insmsvol            [   8];    char    _insmsvol            ;    // [long  ,    8] º¸Çè¼ø¸Å¼ö°Å·¡·®                StartPos 163, Length 8
+    char    insmsamt            [  12];    char    _insmsamt            ;    // [double,   12] º¸Çè¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 172, Length 12
+    char    finmsvol            [   8];    char    _finmsvol            ;    // [long  ,    8] Á¾±İ¼ø¸Å¼ö°Å·¡·®                StartPos 185, Length 8
+    char    finmsamt            [  12];    char    _finmsamt            ;    // [double,   12] Á¾±İ¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 194, Length 12
+    char    monmsvol            [   8];    char    _monmsvol            ;    // [long  ,    8] ±â±İ¼ø¸Å¼ö°Å·¡·®                StartPos 207, Length 8
+    char    monmsamt            [  12];    char    _monmsamt            ;    // [double,   12] ±â±İ¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 216, Length 12
+    char    etcmsvol            [   8];    char    _etcmsvol            ;    // [long  ,    8] ±âÅ¸¼ø¸Å¼ö°Å·¡·®                StartPos 229, Length 8
+    char    etcmsamt            [  12];    char    _etcmsamt            ;    // [double,   12] ±âÅ¸¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 238, Length 12
+    char    natmsvol            [   8];    char    _natmsvol            ;    // [long  ,    8] ±¹°¡¼ø¸Å¼ö°Å·¡·®                StartPos 251, Length 8
+    char    natmsamt            [  12];    char    _natmsamt            ;    // [double,   12] ±¹°¡¼ø¸Å¼ö°Å·¡´ë±İ              StartPos 260, Length 12
+    char    pefmsvol            [   8];    char    _pefmsvol            ;    // [long  ,    8] »ç¸ğÆİµå¼ø¸Å¼ö°Å·¡·®            StartPos 273, Length 8
+    char    pefmsamt            [  12];    char    _pefmsamt            ;    // [double,   12] »ç¸ğÆİµå¼ø¸Å¼ö°Å·¡´ë±İ          StartPos 282, Length 12
+    char    upclose             [   6];    char    _upclose             ;    // [double,  6.2] ±âÁØÁö¼ö                        StartPos 295, Length 6
+    char    upcvolume           [   8];    char    _upcvolume           ;    // [long  ,    8] ±âÁØÃ¼°á°Å·¡·®                  StartPos 302, Length 8
+    char    upvolume            [  12];    char    _upvolume            ;    // [double,   12] ±âÁØ´©Àû°Å·¡·®                  StartPos 311, Length 12
+    char    upvalue             [  12];    char    _upvalue             ;    // [double,   12] ±âÁØ°Å·¡´ë±İ                    StartPos 324, Length 12
 } t1621OutBlock1, *LPt1621OutBlock1;
 #define NAME_t1621OutBlock1     "t1621OutBlock1"
 

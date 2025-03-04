@@ -92,7 +92,7 @@ protected:
 	afx_msg void OnClick2830outblock(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnClick2830outblock2(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	DECLARE_MESSAGE_MAP(CDlg_night, CDialog)
+	DECLARE_MESSAGE_MAP()
 
 public:
 

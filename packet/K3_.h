@@ -2,47 +2,48 @@
 #define _K3__H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// KOSDAQì²´ê²°(K3) ( attr,block )
+// KOSDAQÃ¼°á(K3) ( attr,key=6,group=4 )
 #pragma pack( push, 1 )
 
 #define NAME_K3_     "K3_"
 
-// ì…ë ¥
+// ÀÔ·Â                           
 typedef struct _K3__InBlock
 {
-    char    shcode              [   6];                                      // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
 } K3__InBlock, *LPK3__InBlock;
 #define NAME_K3__InBlock     "InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _K3__OutBlock
 {
-    char    chetime             [   6];    char    _chetime             ;    // [string,    6] ì²´ê²°ì‹œê°„                       StartPos 0, Length 6
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ì „ì¼ëŒ€ë¹„êµ¬ë¶„                   StartPos 7, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] ì „ì¼ëŒ€ë¹„                       StartPos 9, Length 8
-    char    drate               [   6];    char    _drate               ;    // [float ,  6.2] ë“±ë½ìœ¨                         StartPos 18, Length 6
-    char    price               [   8];    char    _price               ;    // [long  ,    8] í˜„ì¬ê°€                         StartPos 25, Length 8
-    char    opentime            [   6];    char    _opentime            ;    // [string,    6] ì‹œê°€ì‹œê°„                       StartPos 34, Length 6
-    char    open                [   8];    char    _open                ;    // [long  ,    8] ì‹œê°€                           StartPos 41, Length 8
-    char    hightime            [   6];    char    _hightime            ;    // [string,    6] ê³ ê°€ì‹œê°„                       StartPos 50, Length 6
-    char    high                [   8];    char    _high                ;    // [long  ,    8] ê³ ê°€                           StartPos 57, Length 8
-    char    lowtime             [   6];    char    _lowtime             ;    // [string,    6] ì €ê°€ì‹œê°„                       StartPos 66, Length 6
-    char    low                 [   8];    char    _low                 ;    // [long  ,    8] ì €ê°€                           StartPos 73, Length 8
-    char    cgubun              [   1];    char    _cgubun              ;    // [string,    1] ì²´ê²°êµ¬ë¶„                       StartPos 82, Length 1
-    char    cvolume             [   8];    char    _cvolume             ;    // [long  ,    8] ì²´ê²°ëŸ‰                         StartPos 84, Length 8
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ëˆ„ì ê±°ë˜ëŸ‰                     StartPos 93, Length 12
-    char    value               [  12];    char    _value               ;    // [long  ,   12] ëˆ„ì ê±°ë˜ëŒ€ê¸ˆ                   StartPos 106, Length 12
-    char    mdvolume            [  12];    char    _mdvolume            ;    // [long  ,   12] ë§¤ë„ëˆ„ì ì²´ê²°ëŸ‰                 StartPos 119, Length 12
-    char    mdchecnt            [   8];    char    _mdchecnt            ;    // [long  ,    8] ë§¤ë„ëˆ„ì ì²´ê²°ê±´ìˆ˜               StartPos 132, Length 8
-    char    msvolume            [  12];    char    _msvolume            ;    // [long  ,   12] ë§¤ìˆ˜ëˆ„ì ì²´ê²°ëŸ‰                 StartPos 141, Length 12
-    char    mschecnt            [   8];    char    _mschecnt            ;    // [long  ,    8] ë§¤ìˆ˜ëˆ„ì ì²´ê²°ê±´ìˆ˜               StartPos 154, Length 8
-    char    cpower              [   9];    char    _cpower              ;    // [float ,  9.2] ì²´ê²°ê°•ë„                       StartPos 163, Length 9
-    char    w_avrg              [   8];    char    _w_avrg              ;    // [long  ,    8] ê°€ì¤‘í‰ê· ê°€                     StartPos 173, Length 8
-    char    offerho             [   8];    char    _offerho             ;    // [long  ,    8] ë§¤ë„í˜¸ê°€                       StartPos 182, Length 8
-    char    bidho               [   8];    char    _bidho               ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€                       StartPos 191, Length 8
-    char    status              [   2];    char    _status              ;    // [string,    2] ì¥ì •ë³´                         StartPos 200, Length 2
-    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] ì „ì¼ë™ì‹œê°„ëŒ€ê±°ë˜ëŸ‰             StartPos 203, Length 12
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 216, Length 6
+    char    chetime             [   6];    char    _chetime             ;    // [string,    6] Ã¼°á½Ã°£                        StartPos 0, Length 6
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ÀüÀÏ´ëºñ±¸ºĞ                    StartPos 7, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ÀüÀÏ´ëºñ                        StartPos 9, Length 8
+    char    drate               [   6];    char    _drate               ;    // [float ,  6.2] µî¶ôÀ²                          StartPos 18, Length 6
+    char    price               [   8];    char    _price               ;    // [long  ,    8] ÇöÀç°¡                          StartPos 25, Length 8
+    char    opentime            [   6];    char    _opentime            ;    // [string,    6] ½Ã°¡½Ã°£                        StartPos 34, Length 6
+    char    open                [   8];    char    _open                ;    // [long  ,    8] ½Ã°¡                            StartPos 41, Length 8
+    char    hightime            [   6];    char    _hightime            ;    // [string,    6] °í°¡½Ã°£                        StartPos 50, Length 6
+    char    high                [   8];    char    _high                ;    // [long  ,    8] °í°¡                            StartPos 57, Length 8
+    char    lowtime             [   6];    char    _lowtime             ;    // [string,    6] Àú°¡½Ã°£                        StartPos 66, Length 6
+    char    low                 [   8];    char    _low                 ;    // [long  ,    8] Àú°¡                            StartPos 73, Length 8
+    char    cgubun              [   1];    char    _cgubun              ;    // [string,    1] Ã¼°á±¸ºĞ                        StartPos 82, Length 1
+    char    cvolume             [   8];    char    _cvolume             ;    // [long  ,    8] Ã¼°á·®                          StartPos 84, Length 8
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ´©Àû°Å·¡·®                      StartPos 93, Length 12
+    char    value               [  12];    char    _value               ;    // [long  ,   12] ´©Àû°Å·¡´ë±İ                    StartPos 106, Length 12
+    char    mdvolume            [  12];    char    _mdvolume            ;    // [long  ,   12] ¸Åµµ´©ÀûÃ¼°á·®                  StartPos 119, Length 12
+    char    mdchecnt            [   8];    char    _mdchecnt            ;    // [long  ,    8] ¸Åµµ´©ÀûÃ¼°á°Ç¼ö                StartPos 132, Length 8
+    char    msvolume            [  12];    char    _msvolume            ;    // [long  ,   12] ¸Å¼ö´©ÀûÃ¼°á·®                  StartPos 141, Length 12
+    char    mschecnt            [   8];    char    _mschecnt            ;    // [long  ,    8] ¸Å¼ö´©ÀûÃ¼°á°Ç¼ö                StartPos 154, Length 8
+    char    cpower              [   9];    char    _cpower              ;    // [float ,  9.2] Ã¼°á°­µµ                        StartPos 163, Length 9
+    char    w_avrg              [   8];    char    _w_avrg              ;    // [long  ,    8] °¡ÁßÆò±Õ°¡                      StartPos 173, Length 8
+    char    offerho             [   8];    char    _offerho             ;    // [long  ,    8] ¸ÅµµÈ£°¡                        StartPos 182, Length 8
+    char    bidho               [   8];    char    _bidho               ;    // [long  ,    8] ¸Å¼öÈ£°¡                        StartPos 191, Length 8
+    char    status              [   2];    char    _status              ;    // [string,    2] ÀåÁ¤º¸                          StartPos 200, Length 2
+    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] ÀüÀÏµ¿½Ã°£´ë°Å·¡·®              StartPos 203, Length 12
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 216, Length 6
+    char    exchname            [   3];    char    _exchname            ;    // [string,    3] °Å·¡¼Ò¸í                        StartPos 223, Length 3
 } K3__OutBlock, *LPK3__OutBlock;
 #define NAME_K3__OutBlock     "OutBlock"
 

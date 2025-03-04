@@ -1,4 +1,4 @@
-// XingAPI_Sample.cpp : Defines the class behaviors for the application.
+﻿// XingAPI_Sample.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -54,9 +54,9 @@ BOOL CXingAPI_SampleApp::InitInstance()
 	//  the specific initialization routines you do not need.
 
 #ifdef _AFXDLL
-	Enable3dControls();			// Call this when using MFC in a shared DLL
-#else
-	Enable3dControlsStatic();	// Call this when linking to MFC statically
+	//Enable3dControls();			// Call this when using MFC in a shared DLL
+//#else
+	//Enable3dControlsStatic();	// Call this when linking to MFC statically
 #endif
 
 	// Change the registry key under which our settings are stored.
@@ -90,7 +90,7 @@ BOOL CXingAPI_SampleApp::InitInstance()
 	pFrame->UpdateWindow();
 	
 	//-----------------------------------------------------------------------------------------
-	// Login ǥ��
+	// Login 표시
 	CDlgLogin dlg( pFrame );
 	if( dlg.DoModal() == IDCANCEL )
 	{

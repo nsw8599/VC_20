@@ -2,107 +2,112 @@
 #define _t1101_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì£¼ì‹í˜„ì¬ê°€í˜¸ê°€ì¡°íšŒ(t1101) ( attr,block,headtype=A )
+// ÁÖ½ÄÇöÀç°¡È£°¡Á¶È¸(t1101) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1101     "t1101"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1101InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
 } t1101InBlock, *LPt1101InBlock;
 #define NAME_t1101InBlock     "t1101InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1101OutBlock
 {
-    char    hname               [  20];    char    _hname               ;    // [string,   20] í•œê¸€ëª…                         StartPos 0, Length 20
-    char    price               [   8];    char    _price               ;    // [long  ,    8] í˜„ì¬ê°€                         StartPos 21, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ì „ì¼ëŒ€ë¹„êµ¬ë¶„                   StartPos 30, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] ì „ì¼ëŒ€ë¹„                       StartPos 32, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] ë“±ë½ìœ¨                         StartPos 41, Length 6
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ëˆ„ì ê±°ë˜ëŸ‰                     StartPos 48, Length 12
-    char    jnilclose           [   8];    char    _jnilclose           ;    // [long  ,    8] ì „ì¼ì¢…ê°€                       StartPos 61, Length 8
-    char    offerho1            [   8];    char    _offerho1            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€1                      StartPos 70, Length 8
-    char    bidho1              [   8];    char    _bidho1              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€1                      StartPos 79, Length 8
-    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰1                  StartPos 88, Length 12
-    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰1                  StartPos 101, Length 12
-    char    preoffercha1        [  12];    char    _preoffercha1        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰1              StartPos 114, Length 12
-    char    prebidcha1          [  12];    char    _prebidcha1          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰1              StartPos 127, Length 12
-    char    offerho2            [   8];    char    _offerho2            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€2                      StartPos 140, Length 8
-    char    bidho2              [   8];    char    _bidho2              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€2                      StartPos 149, Length 8
-    char    offerrem2           [  12];    char    _offerrem2           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰2                  StartPos 158, Length 12
-    char    bidrem2             [  12];    char    _bidrem2             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰2                  StartPos 171, Length 12
-    char    preoffercha2        [  12];    char    _preoffercha2        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰2              StartPos 184, Length 12
-    char    prebidcha2          [  12];    char    _prebidcha2          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰2              StartPos 197, Length 12
-    char    offerho3            [   8];    char    _offerho3            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€3                      StartPos 210, Length 8
-    char    bidho3              [   8];    char    _bidho3              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€3                      StartPos 219, Length 8
-    char    offerrem3           [  12];    char    _offerrem3           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰3                  StartPos 228, Length 12
-    char    bidrem3             [  12];    char    _bidrem3             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰3                  StartPos 241, Length 12
-    char    preoffercha3        [  12];    char    _preoffercha3        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰3              StartPos 254, Length 12
-    char    prebidcha3          [  12];    char    _prebidcha3          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰3              StartPos 267, Length 12
-    char    offerho4            [   8];    char    _offerho4            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€4                      StartPos 280, Length 8
-    char    bidho4              [   8];    char    _bidho4              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€4                      StartPos 289, Length 8
-    char    offerrem4           [  12];    char    _offerrem4           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰4                  StartPos 298, Length 12
-    char    bidrem4             [  12];    char    _bidrem4             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰4                  StartPos 311, Length 12
-    char    preoffercha4        [  12];    char    _preoffercha4        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰4              StartPos 324, Length 12
-    char    prebidcha4          [  12];    char    _prebidcha4          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰4              StartPos 337, Length 12
-    char    offerho5            [   8];    char    _offerho5            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€5                      StartPos 350, Length 8
-    char    bidho5              [   8];    char    _bidho5              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€5                      StartPos 359, Length 8
-    char    offerrem5           [  12];    char    _offerrem5           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰5                  StartPos 368, Length 12
-    char    bidrem5             [  12];    char    _bidrem5             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰5                  StartPos 381, Length 12
-    char    preoffercha5        [  12];    char    _preoffercha5        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰5              StartPos 394, Length 12
-    char    prebidcha5          [  12];    char    _prebidcha5          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰5              StartPos 407, Length 12
-    char    offerho6            [   8];    char    _offerho6            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€6                      StartPos 420, Length 8
-    char    bidho6              [   8];    char    _bidho6              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€6                      StartPos 429, Length 8
-    char    offerrem6           [  12];    char    _offerrem6           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰6                  StartPos 438, Length 12
-    char    bidrem6             [  12];    char    _bidrem6             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰6                  StartPos 451, Length 12
-    char    preoffercha6        [  12];    char    _preoffercha6        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰6              StartPos 464, Length 12
-    char    prebidcha6          [  12];    char    _prebidcha6          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰6              StartPos 477, Length 12
-    char    offerho7            [   8];    char    _offerho7            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€7                      StartPos 490, Length 8
-    char    bidho7              [   8];    char    _bidho7              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€7                      StartPos 499, Length 8
-    char    offerrem7           [  12];    char    _offerrem7           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰7                  StartPos 508, Length 12
-    char    bidrem7             [  12];    char    _bidrem7             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰7                  StartPos 521, Length 12
-    char    preoffercha7        [  12];    char    _preoffercha7        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰7              StartPos 534, Length 12
-    char    prebidcha7          [  12];    char    _prebidcha7          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰7              StartPos 547, Length 12
-    char    offerho8            [   8];    char    _offerho8            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€8                      StartPos 560, Length 8
-    char    bidho8              [   8];    char    _bidho8              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€8                      StartPos 569, Length 8
-    char    offerrem8           [  12];    char    _offerrem8           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰8                  StartPos 578, Length 12
-    char    bidrem8             [  12];    char    _bidrem8             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰8                  StartPos 591, Length 12
-    char    preoffercha8        [  12];    char    _preoffercha8        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰8              StartPos 604, Length 12
-    char    prebidcha8          [  12];    char    _prebidcha8          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰8              StartPos 617, Length 12
-    char    offerho9            [   8];    char    _offerho9            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€9                      StartPos 630, Length 8
-    char    bidho9              [   8];    char    _bidho9              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€9                      StartPos 639, Length 8
-    char    offerrem9           [  12];    char    _offerrem9           ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰9                  StartPos 648, Length 12
-    char    bidrem9             [  12];    char    _bidrem9             ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰9                  StartPos 661, Length 12
-    char    preoffercha9        [  12];    char    _preoffercha9        ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰9              StartPos 674, Length 12
-    char    prebidcha9          [  12];    char    _prebidcha9          ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰9              StartPos 687, Length 12
-    char    offerho10           [   8];    char    _offerho10           ;    // [long  ,    8] ë§¤ë„í˜¸ê°€10                     StartPos 700, Length 8
-    char    bidho10             [   8];    char    _bidho10             ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€10                     StartPos 709, Length 8
-    char    offerrem10          [  12];    char    _offerrem10          ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰10                 StartPos 718, Length 12
-    char    bidrem10            [  12];    char    _bidrem10            ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰10                 StartPos 731, Length 12
-    char    preoffercha10       [  12];    char    _preoffercha10       ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰10             StartPos 744, Length 12
-    char    prebidcha10         [  12];    char    _prebidcha10         ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰10             StartPos 757, Length 12
-    char    offer               [  12];    char    _offer               ;    // [long  ,   12] ë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰í•©                 StartPos 770, Length 12
-    char    bid                 [  12];    char    _bid                 ;    // [long  ,   12] ë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰í•©                 StartPos 783, Length 12
-    char    preoffercha         [  12];    char    _preoffercha         ;    // [long  ,   12] ì§ì „ë§¤ë„ëŒ€ë¹„ìˆ˜ëŸ‰í•©             StartPos 796, Length 12
-    char    prebidcha           [  12];    char    _prebidcha           ;    // [long  ,   12] ì§ì „ë§¤ìˆ˜ëŒ€ë¹„ìˆ˜ëŸ‰í•©             StartPos 809, Length 12
-    char    hotime              [   8];    char    _hotime              ;    // [string,    8] ìˆ˜ì‹ ì‹œê°„                       StartPos 822, Length 8
-    char    yeprice             [   8];    char    _yeprice             ;    // [long  ,    8] ì˜ˆìƒì²´ê²°ê°€ê²©                   StartPos 831, Length 8
-    char    yevolume            [  12];    char    _yevolume            ;    // [long  ,   12] ì˜ˆìƒì²´ê²°ìˆ˜ëŸ‰                   StartPos 840, Length 12
-    char    yesign              [   1];    char    _yesign              ;    // [string,    1] ì˜ˆìƒì²´ê²°ì „ì¼êµ¬ë¶„               StartPos 853, Length 1
-    char    yechange            [   8];    char    _yechange            ;    // [long  ,    8] ì˜ˆìƒì²´ê²°ì „ì¼ëŒ€ë¹„               StartPos 855, Length 8
-    char    yediff              [   6];    char    _yediff              ;    // [float ,  6.2] ì˜ˆìƒì²´ê²°ë“±ë½ìœ¨                 StartPos 864, Length 6
-    char    tmoffer             [  12];    char    _tmoffer             ;    // [long  ,   12] ì‹œê°„ì™¸ë§¤ë„ì”ëŸ‰                 StartPos 871, Length 12
-    char    tmbid               [  12];    char    _tmbid               ;    // [long  ,   12] ì‹œê°„ì™¸ë§¤ìˆ˜ì”ëŸ‰                 StartPos 884, Length 12
-    char    ho_status           [   1];    char    _ho_status           ;    // [string,    1] ë™ì‹œêµ¬ë¶„                       StartPos 897, Length 1
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 899, Length 6
-    char    uplmtprice          [   8];    char    _uplmtprice          ;    // [long  ,    8] ìƒí•œê°€                         StartPos 906, Length 8
-    char    dnlmtprice          [   8];    char    _dnlmtprice          ;    // [long  ,    8] í•˜í•œê°€                         StartPos 915, Length 8
-    char    open                [   8];    char    _open                ;    // [long  ,    8] ì‹œê°€                           StartPos 924, Length 8
-    char    high                [   8];    char    _high                ;    // [long  ,    8] ê³ ê°€                           StartPos 933, Length 8
-    char    low                 [   8];    char    _low                 ;    // [long  ,    8] ì €ê°€                           StartPos 942, Length 8
+    char    hname               [  20];    char    _hname               ;    // [string,   20] ÇÑ±Û¸í                          StartPos 0, Length 20
+    char    price               [   8];    char    _price               ;    // [long  ,    8] ÇöÀç°¡                          StartPos 21, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ÀüÀÏ´ëºñ±¸ºĞ                    StartPos 30, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ÀüÀÏ´ëºñ                        StartPos 32, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µî¶ôÀ²                          StartPos 41, Length 6
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ´©Àû°Å·¡·®                      StartPos 48, Length 12
+    char    jnilclose           [   8];    char    _jnilclose           ;    // [long  ,    8] ÀüÀÏÁ¾°¡(±âÁØ°¡)                StartPos 61, Length 8
+    char    offerho1            [   8];    char    _offerho1            ;    // [long  ,    8] ¸ÅµµÈ£°¡1                       StartPos 70, Length 8
+    char    bidho1              [   8];    char    _bidho1              ;    // [long  ,    8] ¸Å¼öÈ£°¡1                       StartPos 79, Length 8
+    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®1                   StartPos 88, Length 12
+    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®1                   StartPos 101, Length 12
+    char    preoffercha1        [  12];    char    _preoffercha1        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®1               StartPos 114, Length 12
+    char    prebidcha1          [  12];    char    _prebidcha1          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®1               StartPos 127, Length 12
+    char    offerho2            [   8];    char    _offerho2            ;    // [long  ,    8] ¸ÅµµÈ£°¡2                       StartPos 140, Length 8
+    char    bidho2              [   8];    char    _bidho2              ;    // [long  ,    8] ¸Å¼öÈ£°¡2                       StartPos 149, Length 8
+    char    offerrem2           [  12];    char    _offerrem2           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®2                   StartPos 158, Length 12
+    char    bidrem2             [  12];    char    _bidrem2             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®2                   StartPos 171, Length 12
+    char    preoffercha2        [  12];    char    _preoffercha2        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®2               StartPos 184, Length 12
+    char    prebidcha2          [  12];    char    _prebidcha2          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®2               StartPos 197, Length 12
+    char    offerho3            [   8];    char    _offerho3            ;    // [long  ,    8] ¸ÅµµÈ£°¡3                       StartPos 210, Length 8
+    char    bidho3              [   8];    char    _bidho3              ;    // [long  ,    8] ¸Å¼öÈ£°¡3                       StartPos 219, Length 8
+    char    offerrem3           [  12];    char    _offerrem3           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®3                   StartPos 228, Length 12
+    char    bidrem3             [  12];    char    _bidrem3             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®3                   StartPos 241, Length 12
+    char    preoffercha3        [  12];    char    _preoffercha3        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®3               StartPos 254, Length 12
+    char    prebidcha3          [  12];    char    _prebidcha3          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®3               StartPos 267, Length 12
+    char    offerho4            [   8];    char    _offerho4            ;    // [long  ,    8] ¸ÅµµÈ£°¡4                       StartPos 280, Length 8
+    char    bidho4              [   8];    char    _bidho4              ;    // [long  ,    8] ¸Å¼öÈ£°¡4                       StartPos 289, Length 8
+    char    offerrem4           [  12];    char    _offerrem4           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®4                   StartPos 298, Length 12
+    char    bidrem4             [  12];    char    _bidrem4             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®4                   StartPos 311, Length 12
+    char    preoffercha4        [  12];    char    _preoffercha4        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®4               StartPos 324, Length 12
+    char    prebidcha4          [  12];    char    _prebidcha4          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®4               StartPos 337, Length 12
+    char    offerho5            [   8];    char    _offerho5            ;    // [long  ,    8] ¸ÅµµÈ£°¡5                       StartPos 350, Length 8
+    char    bidho5              [   8];    char    _bidho5              ;    // [long  ,    8] ¸Å¼öÈ£°¡5                       StartPos 359, Length 8
+    char    offerrem5           [  12];    char    _offerrem5           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®5                   StartPos 368, Length 12
+    char    bidrem5             [  12];    char    _bidrem5             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®5                   StartPos 381, Length 12
+    char    preoffercha5        [  12];    char    _preoffercha5        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®5               StartPos 394, Length 12
+    char    prebidcha5          [  12];    char    _prebidcha5          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®5               StartPos 407, Length 12
+    char    offerho6            [   8];    char    _offerho6            ;    // [long  ,    8] ¸ÅµµÈ£°¡6                       StartPos 420, Length 8
+    char    bidho6              [   8];    char    _bidho6              ;    // [long  ,    8] ¸Å¼öÈ£°¡6                       StartPos 429, Length 8
+    char    offerrem6           [  12];    char    _offerrem6           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®6                   StartPos 438, Length 12
+    char    bidrem6             [  12];    char    _bidrem6             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®6                   StartPos 451, Length 12
+    char    preoffercha6        [  12];    char    _preoffercha6        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®6               StartPos 464, Length 12
+    char    prebidcha6          [  12];    char    _prebidcha6          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®6               StartPos 477, Length 12
+    char    offerho7            [   8];    char    _offerho7            ;    // [long  ,    8] ¸ÅµµÈ£°¡7                       StartPos 490, Length 8
+    char    bidho7              [   8];    char    _bidho7              ;    // [long  ,    8] ¸Å¼öÈ£°¡7                       StartPos 499, Length 8
+    char    offerrem7           [  12];    char    _offerrem7           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®7                   StartPos 508, Length 12
+    char    bidrem7             [  12];    char    _bidrem7             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®7                   StartPos 521, Length 12
+    char    preoffercha7        [  12];    char    _preoffercha7        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®7               StartPos 534, Length 12
+    char    prebidcha7          [  12];    char    _prebidcha7          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®7               StartPos 547, Length 12
+    char    offerho8            [   8];    char    _offerho8            ;    // [long  ,    8] ¸ÅµµÈ£°¡8                       StartPos 560, Length 8
+    char    bidho8              [   8];    char    _bidho8              ;    // [long  ,    8] ¸Å¼öÈ£°¡8                       StartPos 569, Length 8
+    char    offerrem8           [  12];    char    _offerrem8           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®8                   StartPos 578, Length 12
+    char    bidrem8             [  12];    char    _bidrem8             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®8                   StartPos 591, Length 12
+    char    preoffercha8        [  12];    char    _preoffercha8        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®8               StartPos 604, Length 12
+    char    prebidcha8          [  12];    char    _prebidcha8          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®8               StartPos 617, Length 12
+    char    offerho9            [   8];    char    _offerho9            ;    // [long  ,    8] ¸ÅµµÈ£°¡9                       StartPos 630, Length 8
+    char    bidho9              [   8];    char    _bidho9              ;    // [long  ,    8] ¸Å¼öÈ£°¡9                       StartPos 639, Length 8
+    char    offerrem9           [  12];    char    _offerrem9           ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®9                   StartPos 648, Length 12
+    char    bidrem9             [  12];    char    _bidrem9             ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®9                   StartPos 661, Length 12
+    char    preoffercha9        [  12];    char    _preoffercha9        ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®9               StartPos 674, Length 12
+    char    prebidcha9          [  12];    char    _prebidcha9          ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®9               StartPos 687, Length 12
+    char    offerho10           [   8];    char    _offerho10           ;    // [long  ,    8] ¸ÅµµÈ£°¡10                      StartPos 700, Length 8
+    char    bidho10             [   8];    char    _bidho10             ;    // [long  ,    8] ¸Å¼öÈ£°¡10                      StartPos 709, Length 8
+    char    offerrem10          [  12];    char    _offerrem10          ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®10                  StartPos 718, Length 12
+    char    bidrem10            [  12];    char    _bidrem10            ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®10                  StartPos 731, Length 12
+    char    preoffercha10       [  12];    char    _preoffercha10       ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®10              StartPos 744, Length 12
+    char    prebidcha10         [  12];    char    _prebidcha10         ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®10              StartPos 757, Length 12
+    char    offer               [  12];    char    _offer               ;    // [long  ,   12] ¸ÅµµÈ£°¡¼ö·®ÇÕ                  StartPos 770, Length 12
+    char    bid                 [  12];    char    _bid                 ;    // [long  ,   12] ¸Å¼öÈ£°¡¼ö·®ÇÕ                  StartPos 783, Length 12
+    char    preoffercha         [  12];    char    _preoffercha         ;    // [long  ,   12] Á÷Àü¸Åµµ´ëºñ¼ö·®ÇÕ              StartPos 796, Length 12
+    char    prebidcha           [  12];    char    _prebidcha           ;    // [long  ,   12] Á÷Àü¸Å¼ö´ëºñ¼ö·®ÇÕ              StartPos 809, Length 12
+    char    hotime              [   8];    char    _hotime              ;    // [string,    8] ¼ö½Å½Ã°£                        StartPos 822, Length 8
+    char    yeprice             [   8];    char    _yeprice             ;    // [long  ,    8] ¿¹»óÃ¼°á°¡°İ                    StartPos 831, Length 8
+    char    yevolume            [  12];    char    _yevolume            ;    // [long  ,   12] ¿¹»óÃ¼°á¼ö·®                    StartPos 840, Length 12
+    char    yesign              [   1];    char    _yesign              ;    // [string,    1] ¿¹»óÃ¼°áÀüÀÏ±¸ºĞ                StartPos 853, Length 1
+    char    yechange            [   8];    char    _yechange            ;    // [long  ,    8] ¿¹»óÃ¼°áÀüÀÏ´ëºñ                StartPos 855, Length 8
+    char    yediff              [   6];    char    _yediff              ;    // [double,  6.2] ¿¹»óÃ¼°áµî¶ôÀ²                  StartPos 864, Length 6
+    char    tmoffer             [  12];    char    _tmoffer             ;    // [long  ,   12] ½Ã°£¿Ü¸ÅµµÀÜ·®                  StartPos 871, Length 12
+    char    tmbid               [  12];    char    _tmbid               ;    // [long  ,   12] ½Ã°£¿Ü¸Å¼öÀÜ·®                  StartPos 884, Length 12
+    char    ho_status           [   1];    char    _ho_status           ;    // [string,    1] µ¿½Ã±¸ºĞ                        StartPos 897, Length 1
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 899, Length 6
+    char    uplmtprice          [   8];    char    _uplmtprice          ;    // [long  ,    8] »óÇÑ°¡                          StartPos 906, Length 8
+    char    dnlmtprice          [   8];    char    _dnlmtprice          ;    // [long  ,    8] ÇÏÇÑ°¡                          StartPos 915, Length 8
+    char    open                [   8];    char    _open                ;    // [long  ,    8] ½Ã°¡                            StartPos 924, Length 8
+    char    high                [   8];    char    _high                ;    // [long  ,    8] °í°¡                            StartPos 933, Length 8
+    char    low                 [   8];    char    _low                 ;    // [long  ,    8] Àú°¡                            StartPos 942, Length 8
+    char    krx_midprice        [   8];    char    _krx_midprice        ;    // [long  ,    8] KRXÁß°£°¡°İ                     StartPos 951, Length 8
+    char    krx_offermidsumrem  [   9];    char    _krx_offermidsumrem  ;    // [long  ,    9] KRX¸ÅµµÁß°£°¡ÀÜ·®ÇÕ°è¼ö·®       StartPos 960, Length 9
+    char    krx_bidmidsumrem    [   9];    char    _krx_bidmidsumrem    ;    // [long  ,    9] KRX¸Å¼öÁß°£°¡ÀÜ·®ÇÕ°è¼ö·®       StartPos 970, Length 9
+    char    krx_midsumrem       [   9];    char    _krx_midsumrem       ;    // [long  ,    9] KRXÁß°£°¡ÀÜ·®ÇÕ°è¼ö·®           StartPos 980, Length 9
+    char    krx_midsumremgubun  [   1];    char    _krx_midsumremgubun  ;    // [string,    1] KRXÁß°£°¡ÀÜ·®±¸ºĞ(' '¾øÀ½'1'¸Åµ StartPos 990, Length 1
 } t1101OutBlock, *LPt1101OutBlock;
 #define NAME_t1101OutBlock     "t1101OutBlock"
 

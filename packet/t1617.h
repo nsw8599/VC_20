@@ -2,51 +2,53 @@
 #define _t1617_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// íˆ¬ììë§¤ë§¤ì¢…í•©2(t1617) ( attr,block,headtype=A )
+// ÅõÀÚÀÚ¸Å¸ÅÁ¾ÇÕ2(t1617) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1617     "t1617"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1617InBlock
 {
-    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ì‹œì¥êµ¬ë¶„(1:ì½”ìŠ¤í”¼2:ì½”ìŠ¤ë‹¥3:ì„ ë¬¼ StartPos 0, Length 1
-    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ìˆ˜ëŸ‰ê¸ˆì•¡êµ¬ë¶„(1:ìˆ˜ëŸ‰2:ê¸ˆì•¡)     StartPos 2, Length 1
-    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ì¼ìêµ¬ë¶„(1:ì‹œê°„ëŒ€ë³„2:ì¼ë³„)     StartPos 4, Length 1
-    char    cts_date            [   8];    char    _cts_date            ;    // [string,    8] CTSDATE(ì—°ì†í‚¤ê°’-ì¼ì)         StartPos 6, Length 8
-    char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME(ì—°ì†í‚¤ê°’-ì‹œê°„)         StartPos 15, Length 8
+    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ½ÃÀå±¸ºĞ(1:ÄÚ½ºÇÇ2:ÄÚ½º´Ú3:¼±¹° StartPos 0, Length 1
+    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ¼ö·®±İ¾×±¸ºĞ(1:¼ö·®2:±İ¾×)      StartPos 2, Length 1
+    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ÀÏÀÚ±¸ºĞ(1:½Ã°£´ëº°2:ÀÏº°)      StartPos 4, Length 1
+    char    cts_date            [   8];    char    _cts_date            ;    // [string,    8] CTSDATE(¿¬¼ÓÅ°°ª-ÀÏÀÚ)          StartPos 6, Length 8
+    char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME(¿¬¼ÓÅ°°ª-½Ã°£)          StartPos 15, Length 8
+    char    gubun4              [   1];    char    _gubun4              ;    // [string,    1] Á÷Àü´ëºñÁõ°¨(C:Á÷Àü´ëºñ)        StartPos 24, Length 1
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 26, Length 1
 } t1617InBlock, *LPt1617InBlock;
 #define NAME_t1617InBlock     "t1617InBlock"
 
-// ê¸°ë³¸ì¶œë ¥
+// ±âº»Ãâ·Â                       
 typedef struct _t1617OutBlock
 {
-    char    cts_date            [   8];    char    _cts_date            ;    // [string,    8] CTSDATE                        StartPos 0, Length 8
-    char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME                        StartPos 9, Length 8
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                       StartPos 18, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                       StartPos 31, Length 12
-    char    sv_08               [  12];    char    _sv_08               ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                     StartPos 44, Length 12
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                     StartPos 57, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                     StartPos 70, Length 12
-    char    sv_17               [  12];    char    _sv_17               ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                   StartPos 83, Length 12
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                     StartPos 96, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                     StartPos 109, Length 12
-    char    sv_18               [  12];    char    _sv_18               ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                   StartPos 122, Length 12
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                       StartPos 135, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                       StartPos 148, Length 12
-    char    sv_01               [  12];    char    _sv_01               ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                     StartPos 161, Length 12
+    char    cts_date            [   8];    char    _cts_date            ;    // [string,    8] CTSDATE                         StartPos 0, Length 8
+    char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME                         StartPos 9, Length 8
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 18, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 31, Length 12
+    char    sv_08               [  12];    char    _sv_08               ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 57, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 70, Length 12
+    char    sv_17               [  12];    char    _sv_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 83, Length 12
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 96, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 109, Length 12
+    char    sv_18               [  12];    char    _sv_18               ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 122, Length 12
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 135, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 148, Length 12
+    char    sv_01               [  12];    char    _sv_01               ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 161, Length 12
 } t1617OutBlock, *LPt1617OutBlock;
 #define NAME_t1617OutBlock     "t1617OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1617OutBlock1
 {
-    char    date                [   8];    char    _date                ;    // [string,    8] ë‚ ì§œ                           StartPos 0, Length 8
-    char    time                [   8];    char    _time                ;    // [string,    8] ì‹œê°„                           StartPos 9, Length 8
-    char    sv_08               [  12];    char    _sv_08               ;    // [long  ,   12] ê°œì¸                           StartPos 18, Length 12
-    char    sv_17               [  12];    char    _sv_17               ;    // [long  ,   12] ì™¸êµ­ì¸                         StartPos 31, Length 12
-    char    sv_18               [  12];    char    _sv_18               ;    // [long  ,   12] ê¸°ê´€ê³„                         StartPos 44, Length 12
-    char    sv_01               [  12];    char    _sv_01               ;    // [long  ,   12] ì¦ê¶Œ                           StartPos 57, Length 12
+    char    date                [   8];    char    _date                ;    // [string,    8] ³¯Â¥                            StartPos 0, Length 8
+    char    time                [   8];    char    _time                ;    // [string,    8] ½Ã°£                            StartPos 9, Length 8
+    char    sv_08               [  12];    char    _sv_08               ;    // [long  ,   12] °³ÀÎ                            StartPos 18, Length 12
+    char    sv_17               [  12];    char    _sv_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ                          StartPos 31, Length 12
+    char    sv_18               [  12];    char    _sv_18               ;    // [long  ,   12] ±â°ü°è                          StartPos 44, Length 12
+    char    sv_01               [  12];    char    _sv_01               ;    // [long  ,   12] Áõ±Ç                            StartPos 57, Length 12
 } t1617OutBlock1, *LPt1617OutBlock1;
 #define NAME_t1617OutBlock1     "t1617OutBlock1"
 

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////
 //
 // CSizingControlBar            Version 2.42
 //
@@ -667,7 +667,7 @@ void CSizingControlBar::StartTracking(UINT nHitTest)
         // the neighbour bar can be decreased to reach its minsize
         for (int i = 0; i < arrSCBars.GetSize(); i++)
             if (arrSCBars[i] == this) break;
-		int i;
+        int i=0;
         CSizingControlBar* pBar = arrSCBars[i+
             ((m_htEdge == HTTOP || m_htEdge == HTLEFT) ? -1 : 1)];
 

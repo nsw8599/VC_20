@@ -2,174 +2,187 @@
 #define _t1102_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì£¼ì‹í˜„ì¬ê°€(ì‹œì„¸)ì¡°íšŒ(t1102) ( attr,block,headtype=A )
+// ÁÖ½ÄÇöÀç°¡(½Ã¼¼)Á¶È¸(t1102) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1102     "t1102"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1102InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 7, Length 1
 } t1102InBlock, *LPt1102InBlock;
 #define NAME_t1102InBlock     "t1102InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1102OutBlock
 {
-    char    hname               [  20];    char    _hname               ;    // [string,   20] í•œê¸€ëª…                         StartPos 0, Length 20
-    char    price               [   8];    char    _price               ;    // [long  ,    8] í˜„ì¬ê°€                         StartPos 21, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ì „ì¼ëŒ€ë¹„êµ¬ë¶„                   StartPos 30, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] ì „ì¼ëŒ€ë¹„                       StartPos 32, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] ë“±ë½ìœ¨                         StartPos 41, Length 6
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ëˆ„ì ê±°ë˜ëŸ‰                     StartPos 48, Length 12
-    char    recprice            [   8];    char    _recprice            ;    // [long  ,    8] ê¸°ì¤€ê°€                         StartPos 61, Length 8
-    char    avg                 [   8];    char    _avg                 ;    // [long  ,    8] ê°€ì¤‘í‰ê·                        StartPos 70, Length 8
-    char    uplmtprice          [   8];    char    _uplmtprice          ;    // [long  ,    8] ìƒí•œê°€                         StartPos 79, Length 8
-    char    dnlmtprice          [   8];    char    _dnlmtprice          ;    // [long  ,    8] í•˜í•œê°€                         StartPos 88, Length 8
-    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] ì „ì¼ê±°ë˜ëŸ‰                     StartPos 97, Length 12
-    char    volumediff          [  12];    char    _volumediff          ;    // [long  ,   12] ê±°ë˜ëŸ‰ì°¨                       StartPos 110, Length 12
-    char    open                [   8];    char    _open                ;    // [long  ,    8] ì‹œê°€                           StartPos 123, Length 8
-    char    opentime            [   6];    char    _opentime            ;    // [string,    6] ì‹œê°€ì‹œê°„                       StartPos 132, Length 6
-    char    high                [   8];    char    _high                ;    // [long  ,    8] ê³ ê°€                           StartPos 139, Length 8
-    char    hightime            [   6];    char    _hightime            ;    // [string,    6] ê³ ê°€ì‹œê°„                       StartPos 148, Length 6
-    char    low                 [   8];    char    _low                 ;    // [long  ,    8] ì €ê°€                           StartPos 155, Length 8
-    char    lowtime             [   6];    char    _lowtime             ;    // [string,    6] ì €ê°€ì‹œê°„                       StartPos 164, Length 6
-    char    high52w             [   8];    char    _high52w             ;    // [long  ,    8] 52ìµœê³ ê°€                       StartPos 171, Length 8
-    char    high52wdate         [   8];    char    _high52wdate         ;    // [string,    8] 52ìµœê³ ê°€ì¼                     StartPos 180, Length 8
-    char    low52w              [   8];    char    _low52w              ;    // [long  ,    8] 52ìµœì €ê°€                       StartPos 189, Length 8
-    char    low52wdate          [   8];    char    _low52wdate          ;    // [string,    8] 52ìµœì €ê°€ì¼                     StartPos 198, Length 8
-    char    exhratio            [   6];    char    _exhratio            ;    // [float ,  6.2] ì†Œì§„ìœ¨                         StartPos 207, Length 6
-    char    per                 [   6];    char    _per                 ;    // [float ,  6.2] PER                            StartPos 214, Length 6
-    char    pbrx                [   6];    char    _pbrx                ;    // [float ,  6.2] PBRX                           StartPos 221, Length 6
-    char    listing             [  12];    char    _listing             ;    // [long  ,   12] ìƒì¥ì£¼ì‹ìˆ˜(ì²œ)                 StartPos 228, Length 12
-    char    jkrate              [   8];    char    _jkrate              ;    // [long  ,    8] ì¦ê±°ê¸ˆìœ¨                       StartPos 241, Length 8
-    char    memedan             [   5];    char    _memedan             ;    // [string,    5] ìˆ˜ëŸ‰ë‹¨ìœ„                       StartPos 250, Length 5
-    char    offernocd1          [   3];    char    _offernocd1          ;    // [string,    3] ë§¤ë„ì¦ê¶Œì‚¬ì½”ë“œ1                StartPos 256, Length 3
-    char    bidnocd1            [   3];    char    _bidnocd1            ;    // [string,    3] ë§¤ìˆ˜ì¦ê¶Œì‚¬ì½”ë“œ1                StartPos 260, Length 3
-    char    offerno1            [   6];    char    _offerno1            ;    // [string,    6] ë§¤ë„ì¦ê¶Œì‚¬ëª…1                  StartPos 264, Length 6
-    char    bidno1              [   6];    char    _bidno1              ;    // [string,    6] ë§¤ìˆ˜ì¦ê¶Œì‚¬ëª…1                  StartPos 271, Length 6
-    char    dvol1               [   8];    char    _dvol1               ;    // [long  ,    8] ì´ë§¤ë„ìˆ˜ëŸ‰1                    StartPos 278, Length 8
-    char    svol1               [   8];    char    _svol1               ;    // [long  ,    8] ì´ë§¤ìˆ˜ìˆ˜ëŸ‰1                    StartPos 287, Length 8
-    char    dcha1               [   8];    char    _dcha1               ;    // [long  ,    8] ë§¤ë„ì¦ê°1                      StartPos 296, Length 8
-    char    scha1               [   8];    char    _scha1               ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°1                      StartPos 305, Length 8
-    char    ddiff1              [   6];    char    _ddiff1              ;    // [float ,  6.2] ë§¤ë„ë¹„ìœ¨1                      StartPos 314, Length 6
-    char    sdiff1              [   6];    char    _sdiff1              ;    // [float ,  6.2] ë§¤ìˆ˜ë¹„ìœ¨1                      StartPos 321, Length 6
-    char    offernocd2          [   3];    char    _offernocd2          ;    // [string,    3] ë§¤ë„ì¦ê¶Œì‚¬ì½”ë“œ2                StartPos 328, Length 3
-    char    bidnocd2            [   3];    char    _bidnocd2            ;    // [string,    3] ë§¤ìˆ˜ì¦ê¶Œì‚¬ì½”ë“œ2                StartPos 332, Length 3
-    char    offerno2            [   6];    char    _offerno2            ;    // [string,    6] ë§¤ë„ì¦ê¶Œì‚¬ëª…2                  StartPos 336, Length 6
-    char    bidno2              [   6];    char    _bidno2              ;    // [string,    6] ë§¤ìˆ˜ì¦ê¶Œì‚¬ëª…2                  StartPos 343, Length 6
-    char    dvol2               [   8];    char    _dvol2               ;    // [long  ,    8] ì´ë§¤ë„ìˆ˜ëŸ‰2                    StartPos 350, Length 8
-    char    svol2               [   8];    char    _svol2               ;    // [long  ,    8] ì´ë§¤ìˆ˜ìˆ˜ëŸ‰2                    StartPos 359, Length 8
-    char    dcha2               [   8];    char    _dcha2               ;    // [long  ,    8] ë§¤ë„ì¦ê°2                      StartPos 368, Length 8
-    char    scha2               [   8];    char    _scha2               ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°2                      StartPos 377, Length 8
-    char    ddiff2              [   6];    char    _ddiff2              ;    // [float ,  6.2] ë§¤ë„ë¹„ìœ¨2                      StartPos 386, Length 6
-    char    sdiff2              [   6];    char    _sdiff2              ;    // [float ,  6.2] ë§¤ìˆ˜ë¹„ìœ¨2                      StartPos 393, Length 6
-    char    offernocd3          [   3];    char    _offernocd3          ;    // [string,    3] ë§¤ë„ì¦ê¶Œì‚¬ì½”ë“œ3                StartPos 400, Length 3
-    char    bidnocd3            [   3];    char    _bidnocd3            ;    // [string,    3] ë§¤ìˆ˜ì¦ê¶Œì‚¬ì½”ë“œ3                StartPos 404, Length 3
-    char    offerno3            [   6];    char    _offerno3            ;    // [string,    6] ë§¤ë„ì¦ê¶Œì‚¬ëª…3                  StartPos 408, Length 6
-    char    bidno3              [   6];    char    _bidno3              ;    // [string,    6] ë§¤ìˆ˜ì¦ê¶Œì‚¬ëª…3                  StartPos 415, Length 6
-    char    dvol3               [   8];    char    _dvol3               ;    // [long  ,    8] ì´ë§¤ë„ìˆ˜ëŸ‰3                    StartPos 422, Length 8
-    char    svol3               [   8];    char    _svol3               ;    // [long  ,    8] ì´ë§¤ìˆ˜ìˆ˜ëŸ‰3                    StartPos 431, Length 8
-    char    dcha3               [   8];    char    _dcha3               ;    // [long  ,    8] ë§¤ë„ì¦ê°3                      StartPos 440, Length 8
-    char    scha3               [   8];    char    _scha3               ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°3                      StartPos 449, Length 8
-    char    ddiff3              [   6];    char    _ddiff3              ;    // [float ,  6.2] ë§¤ë„ë¹„ìœ¨3                      StartPos 458, Length 6
-    char    sdiff3              [   6];    char    _sdiff3              ;    // [float ,  6.2] ë§¤ìˆ˜ë¹„ìœ¨3                      StartPos 465, Length 6
-    char    offernocd4          [   3];    char    _offernocd4          ;    // [string,    3] ë§¤ë„ì¦ê¶Œì‚¬ì½”ë“œ4                StartPos 472, Length 3
-    char    bidnocd4            [   3];    char    _bidnocd4            ;    // [string,    3] ë§¤ìˆ˜ì¦ê¶Œì‚¬ì½”ë“œ4                StartPos 476, Length 3
-    char    offerno4            [   6];    char    _offerno4            ;    // [string,    6] ë§¤ë„ì¦ê¶Œì‚¬ëª…4                  StartPos 480, Length 6
-    char    bidno4              [   6];    char    _bidno4              ;    // [string,    6] ë§¤ìˆ˜ì¦ê¶Œì‚¬ëª…4                  StartPos 487, Length 6
-    char    dvol4               [   8];    char    _dvol4               ;    // [long  ,    8] ì´ë§¤ë„ìˆ˜ëŸ‰4                    StartPos 494, Length 8
-    char    svol4               [   8];    char    _svol4               ;    // [long  ,    8] ì´ë§¤ìˆ˜ìˆ˜ëŸ‰4                    StartPos 503, Length 8
-    char    dcha4               [   8];    char    _dcha4               ;    // [long  ,    8] ë§¤ë„ì¦ê°4                      StartPos 512, Length 8
-    char    scha4               [   8];    char    _scha4               ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°4                      StartPos 521, Length 8
-    char    ddiff4              [   6];    char    _ddiff4              ;    // [float ,  6.2] ë§¤ë„ë¹„ìœ¨4                      StartPos 530, Length 6
-    char    sdiff4              [   6];    char    _sdiff4              ;    // [float ,  6.2] ë§¤ìˆ˜ë¹„ìœ¨4                      StartPos 537, Length 6
-    char    offernocd5          [   3];    char    _offernocd5          ;    // [string,    3] ë§¤ë„ì¦ê¶Œì‚¬ì½”ë“œ5                StartPos 544, Length 3
-    char    bidnocd5            [   3];    char    _bidnocd5            ;    // [string,    3] ë§¤ìˆ˜ì¦ê¶Œì‚¬ì½”ë“œ5                StartPos 548, Length 3
-    char    offerno5            [   6];    char    _offerno5            ;    // [string,    6] ë§¤ë„ì¦ê¶Œì‚¬ëª…5                  StartPos 552, Length 6
-    char    bidno5              [   6];    char    _bidno5              ;    // [string,    6] ë§¤ìˆ˜ì¦ê¶Œì‚¬ëª…5                  StartPos 559, Length 6
-    char    dvol5               [   8];    char    _dvol5               ;    // [long  ,    8] ì´ë§¤ë„ìˆ˜ëŸ‰5                    StartPos 566, Length 8
-    char    svol5               [   8];    char    _svol5               ;    // [long  ,    8] ì´ë§¤ìˆ˜ìˆ˜ëŸ‰5                    StartPos 575, Length 8
-    char    dcha5               [   8];    char    _dcha5               ;    // [long  ,    8] ë§¤ë„ì¦ê°5                      StartPos 584, Length 8
-    char    scha5               [   8];    char    _scha5               ;    // [long  ,    8] ë§¤ìˆ˜ì¦ê°5                      StartPos 593, Length 8
-    char    ddiff5              [   6];    char    _ddiff5              ;    // [float ,  6.2] ë§¤ë„ë¹„ìœ¨5                      StartPos 602, Length 6
-    char    sdiff5              [   6];    char    _sdiff5              ;    // [float ,  6.2] ë§¤ìˆ˜ë¹„ìœ¨5                      StartPos 609, Length 6
-    char    fwdvl               [  12];    char    _fwdvl               ;    // [long  ,   12] ì™¸êµ­ê³„ë§¤ë„í•©ê³„ìˆ˜ëŸ‰             StartPos 616, Length 12
-    char    ftradmdcha          [  12];    char    _ftradmdcha          ;    // [long  ,   12] ì™¸êµ­ê³„ë§¤ë„ì§ì „ëŒ€ë¹„             StartPos 629, Length 12
-    char    ftradmddiff         [   6];    char    _ftradmddiff         ;    // [float ,  6.2] ì™¸êµ­ê³„ë§¤ë„ë¹„ìœ¨                 StartPos 642, Length 6
-    char    fwsvl               [  12];    char    _fwsvl               ;    // [long  ,   12] ì™¸êµ­ê³„ë§¤ìˆ˜í•©ê³„ìˆ˜ëŸ‰             StartPos 649, Length 12
-    char    ftradmscha          [  12];    char    _ftradmscha          ;    // [long  ,   12] ì™¸êµ­ê³„ë§¤ìˆ˜ì§ì „ëŒ€ë¹„             StartPos 662, Length 12
-    char    ftradmsdiff         [   6];    char    _ftradmsdiff         ;    // [float ,  6.2] ì™¸êµ­ê³„ë§¤ìˆ˜ë¹„ìœ¨                 StartPos 675, Length 6
-    char    vol                 [   6];    char    _vol                 ;    // [float ,  6.2] íšŒì „ìœ¨                         StartPos 682, Length 6
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 689, Length 6
-    char    value               [  12];    char    _value               ;    // [long  ,   12] ëˆ„ì ê±°ë˜ëŒ€ê¸ˆ                   StartPos 696, Length 12
-    char    jvolume             [  12];    char    _jvolume             ;    // [long  ,   12] ì „ì¼ë™ì‹œê°„ê±°ë˜ëŸ‰               StartPos 709, Length 12
-    char    highyear            [   8];    char    _highyear            ;    // [long  ,    8] ì—°ì¤‘ìµœê³ ê°€                     StartPos 722, Length 8
-    char    highyeardate        [   8];    char    _highyeardate        ;    // [string,    8] ì—°ì¤‘ìµœê³ ì¼ì                   StartPos 731, Length 8
-    char    lowyear             [   8];    char    _lowyear             ;    // [long  ,    8] ì—°ì¤‘ìµœì €ê°€                     StartPos 740, Length 8
-    char    lowyeardate         [   8];    char    _lowyeardate         ;    // [string,    8] ì—°ì¤‘ìµœì €ì¼ì                   StartPos 749, Length 8
-    char    target              [   8];    char    _target              ;    // [long  ,    8] ëª©í‘œê°€                         StartPos 758, Length 8
-    char    capital             [  12];    char    _capital             ;    // [long  ,   12] ìë³¸ê¸ˆ                         StartPos 767, Length 12
-    char    abscnt              [  12];    char    _abscnt              ;    // [long  ,   12] ìœ ë™ì£¼ì‹ìˆ˜                     StartPos 780, Length 12
-    char    parprice            [   8];    char    _parprice            ;    // [long  ,    8] ì•¡ë©´ê°€                         StartPos 793, Length 8
-    char    gsmm                [   2];    char    _gsmm                ;    // [string,    2] ê²°ì‚°ì›”                         StartPos 802, Length 2
-    char    subprice            [   8];    char    _subprice            ;    // [long  ,    8] ëŒ€ìš©ê°€                         StartPos 805, Length 8
-    char    total               [  12];    char    _total               ;    // [long  ,   12] ì‹œê°€ì´ì•¡                       StartPos 814, Length 12
-    char    listdate            [   8];    char    _listdate            ;    // [string,    8] ìƒì¥ì¼                         StartPos 827, Length 8
-    char    name                [  10];    char    _name                ;    // [string,   10] ì „ë¶„ê¸°ëª…                       StartPos 836, Length 10
-    char    bfsales             [  12];    char    _bfsales             ;    // [long  ,   12] ì „ë¶„ê¸°ë§¤ì¶œì•¡                   StartPos 847, Length 12
-    char    bfoperatingincome   [  12];    char    _bfoperatingincome   ;    // [long  ,   12] ì „ë¶„ê¸°ì˜ì—…ì´ìµ                 StartPos 860, Length 12
-    char    bfordinaryincome    [  12];    char    _bfordinaryincome    ;    // [long  ,   12] ì „ë¶„ê¸°ê²½ìƒì´ìµ                 StartPos 873, Length 12
-    char    bfnetincome         [  12];    char    _bfnetincome         ;    // [long  ,   12] ì „ë¶„ê¸°ìˆœì´ìµ                   StartPos 886, Length 12
-    char    bfeps               [  13];    char    _bfeps               ;    // [float , 13.2] ì „ë¶„ê¸°EPS                      StartPos 899, Length 13
-    char    name2               [  10];    char    _name2               ;    // [string,   10] ì „ì „ë¶„ê¸°ëª…                     StartPos 913, Length 10
-    char    bfsales2            [  12];    char    _bfsales2            ;    // [long  ,   12] ì „ì „ë¶„ê¸°ë§¤ì¶œì•¡                 StartPos 924, Length 12
-    char    bfoperatingincome2  [  12];    char    _bfoperatingincome2  ;    // [long  ,   12] ì „ì „ë¶„ê¸°ì˜ì—…ì´ìµ               StartPos 937, Length 12
-    char    bfordinaryincome2   [  12];    char    _bfordinaryincome2   ;    // [long  ,   12] ì „ì „ë¶„ê¸°ê²½ìƒì´ìµ               StartPos 950, Length 12
-    char    bfnetincome2        [  12];    char    _bfnetincome2        ;    // [long  ,   12] ì „ì „ë¶„ê¸°ìˆœì´ìµ                 StartPos 963, Length 12
-    char    bfeps2              [  13];    char    _bfeps2              ;    // [float , 13.2] ì „ì „ë¶„ê¸°EPS                    StartPos 976, Length 13
-    char    salert              [   7];    char    _salert              ;    // [float ,  7.2] ì „ë…„ëŒ€ë¹„ë§¤ì¶œì•¡                 StartPos 990, Length 7
-    char    opert               [   7];    char    _opert               ;    // [float ,  7.2] ì „ë…„ëŒ€ë¹„ì˜ì—…ì´ìµ               StartPos 998, Length 7
-    char    ordrt               [   7];    char    _ordrt               ;    // [float ,  7.2] ì „ë…„ëŒ€ë¹„ê²½ìƒì´ìµ               StartPos 1006, Length 7
-    char    netrt               [   7];    char    _netrt               ;    // [float ,  7.2] ì „ë…„ëŒ€ë¹„ìˆœì´ìµ                 StartPos 1014, Length 7
-    char    epsrt               [   7];    char    _epsrt               ;    // [float ,  7.2] ì „ë…„ëŒ€ë¹„EPS                    StartPos 1022, Length 7
-    char    info1               [  10];    char    _info1               ;    // [string,   10] ë½êµ¬ë¶„                         StartPos 1030, Length 10
-    char    info2               [  10];    char    _info2               ;    // [string,   10] ê´€ë¦¬/ê¸‰ë“±êµ¬ë¶„                  StartPos 1041, Length 10
-    char    info3               [  10];    char    _info3               ;    // [string,   10] ì •ì§€/ì—°ì¥êµ¬ë¶„                  StartPos 1052, Length 10
-    char    info4               [  12];    char    _info4               ;    // [string,   12] íˆ¬ì/ë¶ˆì„±ì‹¤êµ¬ë¶„                StartPos 1063, Length 12
-    char    janginfo            [  10];    char    _janginfo            ;    // [string,   10] ì¥êµ¬ë¶„                         StartPos 1076, Length 10
-    char    t_per               [   6];    char    _t_per               ;    // [float ,  6.2] T.PER                          StartPos 1087, Length 6
-    char    tonghwa             [   3];    char    _tonghwa             ;    // [string,    3] í†µí™”ISOì½”ë“œ                    StartPos 1094, Length 3
-    char    dval1               [  18];    char    _dval1               ;    // [long  ,   18] ì´ë§¤ë„ëŒ€ê¸ˆ1                    StartPos 1098, Length 18
-    char    sval1               [  18];    char    _sval1               ;    // [long  ,   18] ì´ë§¤ìˆ˜ëŒ€ê¸ˆ1                    StartPos 1117, Length 18
-    char    dval2               [  18];    char    _dval2               ;    // [long  ,   18] ì´ë§¤ë„ëŒ€ê¸ˆ2                    StartPos 1136, Length 18
-    char    sval2               [  18];    char    _sval2               ;    // [long  ,   18] ì´ë§¤ìˆ˜ëŒ€ê¸ˆ2                    StartPos 1155, Length 18
-    char    dval3               [  18];    char    _dval3               ;    // [long  ,   18] ì´ë§¤ë„ëŒ€ê¸ˆ3                    StartPos 1174, Length 18
-    char    sval3               [  18];    char    _sval3               ;    // [long  ,   18] ì´ë§¤ìˆ˜ëŒ€ê¸ˆ3                    StartPos 1193, Length 18
-    char    dval4               [  18];    char    _dval4               ;    // [long  ,   18] ì´ë§¤ë„ëŒ€ê¸ˆ4                    StartPos 1212, Length 18
-    char    sval4               [  18];    char    _sval4               ;    // [long  ,   18] ì´ë§¤ìˆ˜ëŒ€ê¸ˆ4                    StartPos 1231, Length 18
-    char    dval5               [  18];    char    _dval5               ;    // [long  ,   18] ì´ë§¤ë„ëŒ€ê¸ˆ5                    StartPos 1250, Length 18
-    char    sval5               [  18];    char    _sval5               ;    // [long  ,   18] ì´ë§¤ìˆ˜ëŒ€ê¸ˆ5                    StartPos 1269, Length 18
-    char    davg1               [   8];    char    _davg1               ;    // [long  ,    8] ì´ë§¤ë„í‰ë‹¨ê°€1                  StartPos 1288, Length 8
-    char    savg1               [   8];    char    _savg1               ;    // [long  ,    8] ì´ë§¤ìˆ˜í‰ë‹¨ê°€1                  StartPos 1297, Length 8
-    char    davg2               [   8];    char    _davg2               ;    // [long  ,    8] ì´ë§¤ë„í‰ë‹¨ê°€2                  StartPos 1306, Length 8
-    char    savg2               [   8];    char    _savg2               ;    // [long  ,    8] ì´ë§¤ìˆ˜í‰ë‹¨ê°€2                  StartPos 1315, Length 8
-    char    davg3               [   8];    char    _davg3               ;    // [long  ,    8] ì´ë§¤ë„í‰ë‹¨ê°€3                  StartPos 1324, Length 8
-    char    savg3               [   8];    char    _savg3               ;    // [long  ,    8] ì´ë§¤ìˆ˜í‰ë‹¨ê°€3                  StartPos 1333, Length 8
-    char    davg4               [   8];    char    _davg4               ;    // [long  ,    8] ì´ë§¤ë„í‰ë‹¨ê°€4                  StartPos 1342, Length 8
-    char    savg4               [   8];    char    _savg4               ;    // [long  ,    8] ì´ë§¤ìˆ˜í‰ë‹¨ê°€4                  StartPos 1351, Length 8
-    char    davg5               [   8];    char    _davg5               ;    // [long  ,    8] ì´ë§¤ë„í‰ë‹¨ê°€5                  StartPos 1360, Length 8
-    char    savg5               [   8];    char    _savg5               ;    // [long  ,    8] ì´ë§¤ìˆ˜í‰ë‹¨ê°€5                  StartPos 1369, Length 8
-    char    ftradmdval          [  18];    char    _ftradmdval          ;    // [long  ,   18] ì™¸êµ­ê³„ë§¤ë„ëŒ€ê¸ˆ                 StartPos 1378, Length 18
-    char    ftradmsval          [  18];    char    _ftradmsval          ;    // [long  ,   18] ì™¸êµ­ê³„ë§¤ìˆ˜ëŒ€ê¸ˆ                 StartPos 1397, Length 18
-    char    ftradmdavg          [   8];    char    _ftradmdavg          ;    // [long  ,    8] ì™¸êµ­ê³„ë§¤ë„í‰ë‹¨ê°€               StartPos 1416, Length 8
-    char    ftradmsavg          [   8];    char    _ftradmsavg          ;    // [long  ,    8] ì™¸êµ­ê³„ë§¤ìˆ˜í‰ë‹¨ê°€               StartPos 1425, Length 8
-    char    info5               [   8];    char    _info5               ;    // [string,    8] íˆ¬ìì£¼ì˜í™˜ê¸°                   StartPos 1434, Length 8
-    char    spac_gubun          [   1];    char    _spac_gubun          ;    // [string,    1] ê¸°ì—…ì¸ìˆ˜ëª©ì íšŒì‚¬ì—¬ë¶€           StartPos 1443, Length 1
-    char    issueprice          [   8];    char    _issueprice          ;    // [long  ,    8] ë°œí–‰ê°€ê²©                       StartPos 1445, Length 8
-    char    alloc_gubun         [   1];    char    _alloc_gubun         ;    // [string,    1] ë°°ë¶„ì ìš©êµ¬ë¶„ì½”ë“œ(1:ë°°ë¶„ë°œìƒ2:ë°° StartPos 1454, Length 1
-    char    alloc_text          [   8];    char    _alloc_text          ;    // [string,    8] ë°°ë¶„ì ìš©êµ¬ë¶„                   StartPos 1456, Length 8
+    char    hname               [  20];    char    _hname               ;    // [string,   20] ÇÑ±Û¸í                          StartPos 0, Length 20
+    char    price               [   8];    char    _price               ;    // [long  ,    8] ÇöÀç°¡                          StartPos 21, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ÀüÀÏ´ëºñ±¸ºĞ                    StartPos 30, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ÀüÀÏ´ëºñ                        StartPos 32, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µî¶ôÀ²                          StartPos 41, Length 6
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ´©Àû°Å·¡·®                      StartPos 48, Length 12
+    char    recprice            [   8];    char    _recprice            ;    // [long  ,    8] ±âÁØ°¡(Æò°¡°¡°İ)                StartPos 61, Length 8
+    char    avg                 [   8];    char    _avg                 ;    // [long  ,    8] °¡ÁßÆò±Õ                        StartPos 70, Length 8
+    char    uplmtprice          [   8];    char    _uplmtprice          ;    // [long  ,    8] »óÇÑ°¡(ÃÖ°íÈ£°¡°¡°İ)            StartPos 79, Length 8
+    char    dnlmtprice          [   8];    char    _dnlmtprice          ;    // [long  ,    8] ÇÏÇÑ°¡(ÃÖÀúÈ£°¡°¡°İ)            StartPos 88, Length 8
+    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] ÀüÀÏ°Å·¡·®                      StartPos 97, Length 12
+    char    volumediff          [  12];    char    _volumediff          ;    // [long  ,   12] °Å·¡·®Â÷                        StartPos 110, Length 12
+    char    open                [   8];    char    _open                ;    // [long  ,    8] ½Ã°¡                            StartPos 123, Length 8
+    char    opentime            [   6];    char    _opentime            ;    // [string,    6] ½Ã°¡½Ã°£                        StartPos 132, Length 6
+    char    high                [   8];    char    _high                ;    // [long  ,    8] °í°¡                            StartPos 139, Length 8
+    char    hightime            [   6];    char    _hightime            ;    // [string,    6] °í°¡½Ã°£                        StartPos 148, Length 6
+    char    low                 [   8];    char    _low                 ;    // [long  ,    8] Àú°¡                            StartPos 155, Length 8
+    char    lowtime             [   6];    char    _lowtime             ;    // [string,    6] Àú°¡½Ã°£                        StartPos 164, Length 6
+    char    high52w             [   8];    char    _high52w             ;    // [long  ,    8] 52ÃÖ°í°¡                        StartPos 171, Length 8
+    char    high52wdate         [   8];    char    _high52wdate         ;    // [string,    8] 52ÃÖ°í°¡ÀÏ                      StartPos 180, Length 8
+    char    low52w              [   8];    char    _low52w              ;    // [long  ,    8] 52ÃÖÀú°¡                        StartPos 189, Length 8
+    char    low52wdate          [   8];    char    _low52wdate          ;    // [string,    8] 52ÃÖÀú°¡ÀÏ                      StartPos 198, Length 8
+    char    exhratio            [   6];    char    _exhratio            ;    // [double,  6.2] ¼ÒÁøÀ²                          StartPos 207, Length 6
+    char    per                 [   6];    char    _per                 ;    // [double,  6.2] PER                             StartPos 214, Length 6
+    char    pbrx                [   6];    char    _pbrx                ;    // [double,  6.2] PBRX                            StartPos 221, Length 6
+    char    listing             [  12];    char    _listing             ;    // [long  ,   12] »óÀåÁÖ½Ä¼ö(Ãµ)                  StartPos 228, Length 12
+    char    jkrate              [   8];    char    _jkrate              ;    // [long  ,    8] Áõ°Å±İÀ²                        StartPos 241, Length 8
+    char    memedan             [   5];    char    _memedan             ;    // [string,    5] ¼ö·®´ÜÀ§                        StartPos 250, Length 5
+    char    offernocd1          [   3];    char    _offernocd1          ;    // [string,    3] ¸ÅµµÁõ±Ç»çÄÚµå1                 StartPos 256, Length 3
+    char    bidnocd1            [   3];    char    _bidnocd1            ;    // [string,    3] ¸Å¼öÁõ±Ç»çÄÚµå1                 StartPos 260, Length 3
+    char    offerno1            [   6];    char    _offerno1            ;    // [string,    6] ¸ÅµµÁõ±Ç»ç¸í1                   StartPos 264, Length 6
+    char    bidno1              [   6];    char    _bidno1              ;    // [string,    6] ¸Å¼öÁõ±Ç»ç¸í1                   StartPos 271, Length 6
+    char    dvol1               [   8];    char    _dvol1               ;    // [long  ,    8] ÃÑ¸Åµµ¼ö·®1                     StartPos 278, Length 8
+    char    svol1               [   8];    char    _svol1               ;    // [long  ,    8] ÃÑ¸Å¼ö¼ö·®1                     StartPos 287, Length 8
+    char    dcha1               [   8];    char    _dcha1               ;    // [long  ,    8] ¸ÅµµÁõ°¨1                       StartPos 296, Length 8
+    char    scha1               [   8];    char    _scha1               ;    // [long  ,    8] ¸Å¼öÁõ°¨1                       StartPos 305, Length 8
+    char    ddiff1              [   6];    char    _ddiff1              ;    // [double,  6.2] ¸ÅµµºñÀ²1                       StartPos 314, Length 6
+    char    sdiff1              [   6];    char    _sdiff1              ;    // [double,  6.2] ¸Å¼öºñÀ²1                       StartPos 321, Length 6
+    char    offernocd2          [   3];    char    _offernocd2          ;    // [string,    3] ¸ÅµµÁõ±Ç»çÄÚµå2                 StartPos 328, Length 3
+    char    bidnocd2            [   3];    char    _bidnocd2            ;    // [string,    3] ¸Å¼öÁõ±Ç»çÄÚµå2                 StartPos 332, Length 3
+    char    offerno2            [   6];    char    _offerno2            ;    // [string,    6] ¸ÅµµÁõ±Ç»ç¸í2                   StartPos 336, Length 6
+    char    bidno2              [   6];    char    _bidno2              ;    // [string,    6] ¸Å¼öÁõ±Ç»ç¸í2                   StartPos 343, Length 6
+    char    dvol2               [   8];    char    _dvol2               ;    // [long  ,    8] ÃÑ¸Åµµ¼ö·®2                     StartPos 350, Length 8
+    char    svol2               [   8];    char    _svol2               ;    // [long  ,    8] ÃÑ¸Å¼ö¼ö·®2                     StartPos 359, Length 8
+    char    dcha2               [   8];    char    _dcha2               ;    // [long  ,    8] ¸ÅµµÁõ°¨2                       StartPos 368, Length 8
+    char    scha2               [   8];    char    _scha2               ;    // [long  ,    8] ¸Å¼öÁõ°¨2                       StartPos 377, Length 8
+    char    ddiff2              [   6];    char    _ddiff2              ;    // [double,  6.2] ¸ÅµµºñÀ²2                       StartPos 386, Length 6
+    char    sdiff2              [   6];    char    _sdiff2              ;    // [double,  6.2] ¸Å¼öºñÀ²2                       StartPos 393, Length 6
+    char    offernocd3          [   3];    char    _offernocd3          ;    // [string,    3] ¸ÅµµÁõ±Ç»çÄÚµå3                 StartPos 400, Length 3
+    char    bidnocd3            [   3];    char    _bidnocd3            ;    // [string,    3] ¸Å¼öÁõ±Ç»çÄÚµå3                 StartPos 404, Length 3
+    char    offerno3            [   6];    char    _offerno3            ;    // [string,    6] ¸ÅµµÁõ±Ç»ç¸í3                   StartPos 408, Length 6
+    char    bidno3              [   6];    char    _bidno3              ;    // [string,    6] ¸Å¼öÁõ±Ç»ç¸í3                   StartPos 415, Length 6
+    char    dvol3               [   8];    char    _dvol3               ;    // [long  ,    8] ÃÑ¸Åµµ¼ö·®3                     StartPos 422, Length 8
+    char    svol3               [   8];    char    _svol3               ;    // [long  ,    8] ÃÑ¸Å¼ö¼ö·®3                     StartPos 431, Length 8
+    char    dcha3               [   8];    char    _dcha3               ;    // [long  ,    8] ¸ÅµµÁõ°¨3                       StartPos 440, Length 8
+    char    scha3               [   8];    char    _scha3               ;    // [long  ,    8] ¸Å¼öÁõ°¨3                       StartPos 449, Length 8
+    char    ddiff3              [   6];    char    _ddiff3              ;    // [double,  6.2] ¸ÅµµºñÀ²3                       StartPos 458, Length 6
+    char    sdiff3              [   6];    char    _sdiff3              ;    // [double,  6.2] ¸Å¼öºñÀ²3                       StartPos 465, Length 6
+    char    offernocd4          [   3];    char    _offernocd4          ;    // [string,    3] ¸ÅµµÁõ±Ç»çÄÚµå4                 StartPos 472, Length 3
+    char    bidnocd4            [   3];    char    _bidnocd4            ;    // [string,    3] ¸Å¼öÁõ±Ç»çÄÚµå4                 StartPos 476, Length 3
+    char    offerno4            [   6];    char    _offerno4            ;    // [string,    6] ¸ÅµµÁõ±Ç»ç¸í4                   StartPos 480, Length 6
+    char    bidno4              [   6];    char    _bidno4              ;    // [string,    6] ¸Å¼öÁõ±Ç»ç¸í4                   StartPos 487, Length 6
+    char    dvol4               [   8];    char    _dvol4               ;    // [long  ,    8] ÃÑ¸Åµµ¼ö·®4                     StartPos 494, Length 8
+    char    svol4               [   8];    char    _svol4               ;    // [long  ,    8] ÃÑ¸Å¼ö¼ö·®4                     StartPos 503, Length 8
+    char    dcha4               [   8];    char    _dcha4               ;    // [long  ,    8] ¸ÅµµÁõ°¨4                       StartPos 512, Length 8
+    char    scha4               [   8];    char    _scha4               ;    // [long  ,    8] ¸Å¼öÁõ°¨4                       StartPos 521, Length 8
+    char    ddiff4              [   6];    char    _ddiff4              ;    // [double,  6.2] ¸ÅµµºñÀ²4                       StartPos 530, Length 6
+    char    sdiff4              [   6];    char    _sdiff4              ;    // [double,  6.2] ¸Å¼öºñÀ²4                       StartPos 537, Length 6
+    char    offernocd5          [   3];    char    _offernocd5          ;    // [string,    3] ¸ÅµµÁõ±Ç»çÄÚµå5                 StartPos 544, Length 3
+    char    bidnocd5            [   3];    char    _bidnocd5            ;    // [string,    3] ¸Å¼öÁõ±Ç»çÄÚµå5                 StartPos 548, Length 3
+    char    offerno5            [   6];    char    _offerno5            ;    // [string,    6] ¸ÅµµÁõ±Ç»ç¸í5                   StartPos 552, Length 6
+    char    bidno5              [   6];    char    _bidno5              ;    // [string,    6] ¸Å¼öÁõ±Ç»ç¸í5                   StartPos 559, Length 6
+    char    dvol5               [   8];    char    _dvol5               ;    // [long  ,    8] ÃÑ¸Åµµ¼ö·®5                     StartPos 566, Length 8
+    char    svol5               [   8];    char    _svol5               ;    // [long  ,    8] ÃÑ¸Å¼ö¼ö·®5                     StartPos 575, Length 8
+    char    dcha5               [   8];    char    _dcha5               ;    // [long  ,    8] ¸ÅµµÁõ°¨5                       StartPos 584, Length 8
+    char    scha5               [   8];    char    _scha5               ;    // [long  ,    8] ¸Å¼öÁõ°¨5                       StartPos 593, Length 8
+    char    ddiff5              [   6];    char    _ddiff5              ;    // [double,  6.2] ¸ÅµµºñÀ²5                       StartPos 602, Length 6
+    char    sdiff5              [   6];    char    _sdiff5              ;    // [double,  6.2] ¸Å¼öºñÀ²5                       StartPos 609, Length 6
+    char    fwdvl               [  12];    char    _fwdvl               ;    // [long  ,   12] ¿Ü±¹°è¸ÅµµÇÕ°è¼ö·®              StartPos 616, Length 12
+    char    ftradmdcha          [  12];    char    _ftradmdcha          ;    // [long  ,   12] ¿Ü±¹°è¸ÅµµÁ÷Àü´ëºñ              StartPos 629, Length 12
+    char    ftradmddiff         [   6];    char    _ftradmddiff         ;    // [double,  6.2] ¿Ü±¹°è¸ÅµµºñÀ²                  StartPos 642, Length 6
+    char    fwsvl               [  12];    char    _fwsvl               ;    // [long  ,   12] ¿Ü±¹°è¸Å¼öÇÕ°è¼ö·®              StartPos 649, Length 12
+    char    ftradmscha          [  12];    char    _ftradmscha          ;    // [long  ,   12] ¿Ü±¹°è¸Å¼öÁ÷Àü´ëºñ              StartPos 662, Length 12
+    char    ftradmsdiff         [   6];    char    _ftradmsdiff         ;    // [double,  6.2] ¿Ü±¹°è¸Å¼öºñÀ²                  StartPos 675, Length 6
+    char    vol                 [   6];    char    _vol                 ;    // [double,  6.2] È¸ÀüÀ²                          StartPos 682, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 689, Length 6
+    char    value               [  12];    char    _value               ;    // [long  ,   12] ´©Àû°Å·¡´ë±İ                    StartPos 696, Length 12
+    char    jvolume             [  12];    char    _jvolume             ;    // [long  ,   12] ÀüÀÏµ¿½Ã°£°Å·¡·®                StartPos 709, Length 12
+    char    highyear            [   8];    char    _highyear            ;    // [long  ,    8] ¿¬ÁßÃÖ°í°¡                      StartPos 722, Length 8
+    char    highyeardate        [   8];    char    _highyeardate        ;    // [string,    8] ¿¬ÁßÃÖ°íÀÏÀÚ                    StartPos 731, Length 8
+    char    lowyear             [   8];    char    _lowyear             ;    // [long  ,    8] ¿¬ÁßÃÖÀú°¡                      StartPos 740, Length 8
+    char    lowyeardate         [   8];    char    _lowyeardate         ;    // [string,    8] ¿¬ÁßÃÖÀúÀÏÀÚ                    StartPos 749, Length 8
+    char    target              [   8];    char    _target              ;    // [long  ,    8] ¸ñÇ¥°¡                          StartPos 758, Length 8
+    char    capital             [  12];    char    _capital             ;    // [long  ,   12] ÀÚº»±İ                          StartPos 767, Length 12
+    char    abscnt              [  12];    char    _abscnt              ;    // [long  ,   12] À¯µ¿ÁÖ½Ä¼ö                      StartPos 780, Length 12
+    char    parprice            [   8];    char    _parprice            ;    // [long  ,    8] ¾×¸é°¡                          StartPos 793, Length 8
+    char    gsmm                [   2];    char    _gsmm                ;    // [string,    2] °á»ê¿ù                          StartPos 802, Length 2
+    char    subprice            [   8];    char    _subprice            ;    // [long  ,    8] ´ë¿ë°¡                          StartPos 805, Length 8
+    char    total               [  12];    char    _total               ;    // [long  ,   12] ½Ã°¡ÃÑ¾×                        StartPos 814, Length 12
+    char    listdate            [   8];    char    _listdate            ;    // [string,    8] »óÀåÀÏ                          StartPos 827, Length 8
+    char    name                [  10];    char    _name                ;    // [string,   10] ÀüºĞ±â¸í                        StartPos 836, Length 10
+    char    bfsales             [  12];    char    _bfsales             ;    // [long  ,   12] ÀüºĞ±â¸ÅÃâ¾×                    StartPos 847, Length 12
+    char    bfoperatingincome   [  12];    char    _bfoperatingincome   ;    // [long  ,   12] ÀüºĞ±â¿µ¾÷ÀÌÀÍ                  StartPos 860, Length 12
+    char    bfordinaryincome    [  12];    char    _bfordinaryincome    ;    // [long  ,   12] ÀüºĞ±â°æ»óÀÌÀÍ                  StartPos 873, Length 12
+    char    bfnetincome         [  12];    char    _bfnetincome         ;    // [long  ,   12] ÀüºĞ±â¼øÀÌÀÍ                    StartPos 886, Length 12
+    char    bfeps               [  13];    char    _bfeps               ;    // [double, 13.2] ÀüºĞ±âEPS                       StartPos 899, Length 13
+    char    name2               [  10];    char    _name2               ;    // [string,   10] ÀüÀüºĞ±â¸í                      StartPos 913, Length 10
+    char    bfsales2            [  12];    char    _bfsales2            ;    // [long  ,   12] ÀüÀüºĞ±â¸ÅÃâ¾×                  StartPos 924, Length 12
+    char    bfoperatingincome2  [  12];    char    _bfoperatingincome2  ;    // [long  ,   12] ÀüÀüºĞ±â¿µ¾÷ÀÌÀÍ                StartPos 937, Length 12
+    char    bfordinaryincome2   [  12];    char    _bfordinaryincome2   ;    // [long  ,   12] ÀüÀüºĞ±â°æ»óÀÌÀÍ                StartPos 950, Length 12
+    char    bfnetincome2        [  12];    char    _bfnetincome2        ;    // [long  ,   12] ÀüÀüºĞ±â¼øÀÌÀÍ                  StartPos 963, Length 12
+    char    bfeps2              [  13];    char    _bfeps2              ;    // [double, 13.2] ÀüÀüºĞ±âEPS                     StartPos 976, Length 13
+    char    salert              [   7];    char    _salert              ;    // [double,  7.2] Àü³â´ëºñ¸ÅÃâ¾×                  StartPos 990, Length 7
+    char    opert               [   7];    char    _opert               ;    // [double,  7.2] Àü³â´ëºñ¿µ¾÷ÀÌÀÍ                StartPos 998, Length 7
+    char    ordrt               [   7];    char    _ordrt               ;    // [double,  7.2] Àü³â´ëºñ°æ»óÀÌÀÍ                StartPos 1006, Length 7
+    char    netrt               [   7];    char    _netrt               ;    // [double,  7.2] Àü³â´ëºñ¼øÀÌÀÍ                  StartPos 1014, Length 7
+    char    epsrt               [   7];    char    _epsrt               ;    // [double,  7.2] Àü³â´ëºñEPS                     StartPos 1022, Length 7
+    char    info1               [  10];    char    _info1               ;    // [string,   10] ¶ô±¸ºĞ                          StartPos 1030, Length 10
+    char    info2               [  10];    char    _info2               ;    // [string,   10] °ü¸®/±Şµî±¸ºĞ                   StartPos 1041, Length 10
+    char    info3               [  10];    char    _info3               ;    // [string,   10] Á¤Áö/¿¬Àå±¸ºĞ                   StartPos 1052, Length 10
+    char    info4               [  12];    char    _info4               ;    // [string,   12] ÅõÀÚ/ºÒ¼º½Ç±¸ºĞ                 StartPos 1063, Length 12
+    char    janginfo            [  10];    char    _janginfo            ;    // [string,   10] Àå±¸ºĞ                          StartPos 1076, Length 10
+    char    t_per               [   6];    char    _t_per               ;    // [double,  6.2] T.PER                           StartPos 1087, Length 6
+    char    tonghwa             [   3];    char    _tonghwa             ;    // [string,    3] ÅëÈ­ISOÄÚµå                     StartPos 1094, Length 3
+    char    dval1               [  18];    char    _dval1               ;    // [long  ,   18] ÃÑ¸Åµµ´ë±İ1                     StartPos 1098, Length 18
+    char    sval1               [  18];    char    _sval1               ;    // [long  ,   18] ÃÑ¸Å¼ö´ë±İ1                     StartPos 1117, Length 18
+    char    dval2               [  18];    char    _dval2               ;    // [long  ,   18] ÃÑ¸Åµµ´ë±İ2                     StartPos 1136, Length 18
+    char    sval2               [  18];    char    _sval2               ;    // [long  ,   18] ÃÑ¸Å¼ö´ë±İ2                     StartPos 1155, Length 18
+    char    dval3               [  18];    char    _dval3               ;    // [long  ,   18] ÃÑ¸Åµµ´ë±İ3                     StartPos 1174, Length 18
+    char    sval3               [  18];    char    _sval3               ;    // [long  ,   18] ÃÑ¸Å¼ö´ë±İ3                     StartPos 1193, Length 18
+    char    dval4               [  18];    char    _dval4               ;    // [long  ,   18] ÃÑ¸Åµµ´ë±İ4                     StartPos 1212, Length 18
+    char    sval4               [  18];    char    _sval4               ;    // [long  ,   18] ÃÑ¸Å¼ö´ë±İ4                     StartPos 1231, Length 18
+    char    dval5               [  18];    char    _dval5               ;    // [long  ,   18] ÃÑ¸Åµµ´ë±İ5                     StartPos 1250, Length 18
+    char    sval5               [  18];    char    _sval5               ;    // [long  ,   18] ÃÑ¸Å¼ö´ë±İ5                     StartPos 1269, Length 18
+    char    davg1               [   8];    char    _davg1               ;    // [long  ,    8] ÃÑ¸ÅµµÆò´Ü°¡1                   StartPos 1288, Length 8
+    char    savg1               [   8];    char    _savg1               ;    // [long  ,    8] ÃÑ¸Å¼öÆò´Ü°¡1                   StartPos 1297, Length 8
+    char    davg2               [   8];    char    _davg2               ;    // [long  ,    8] ÃÑ¸ÅµµÆò´Ü°¡2                   StartPos 1306, Length 8
+    char    savg2               [   8];    char    _savg2               ;    // [long  ,    8] ÃÑ¸Å¼öÆò´Ü°¡2                   StartPos 1315, Length 8
+    char    davg3               [   8];    char    _davg3               ;    // [long  ,    8] ÃÑ¸ÅµµÆò´Ü°¡3                   StartPos 1324, Length 8
+    char    savg3               [   8];    char    _savg3               ;    // [long  ,    8] ÃÑ¸Å¼öÆò´Ü°¡3                   StartPos 1333, Length 8
+    char    davg4               [   8];    char    _davg4               ;    // [long  ,    8] ÃÑ¸ÅµµÆò´Ü°¡4                   StartPos 1342, Length 8
+    char    savg4               [   8];    char    _savg4               ;    // [long  ,    8] ÃÑ¸Å¼öÆò´Ü°¡4                   StartPos 1351, Length 8
+    char    davg5               [   8];    char    _davg5               ;    // [long  ,    8] ÃÑ¸ÅµµÆò´Ü°¡5                   StartPos 1360, Length 8
+    char    savg5               [   8];    char    _savg5               ;    // [long  ,    8] ÃÑ¸Å¼öÆò´Ü°¡5                   StartPos 1369, Length 8
+    char    ftradmdval          [  18];    char    _ftradmdval          ;    // [long  ,   18] ¿Ü±¹°è¸Åµµ´ë±İ                  StartPos 1378, Length 18
+    char    ftradmsval          [  18];    char    _ftradmsval          ;    // [long  ,   18] ¿Ü±¹°è¸Å¼ö´ë±İ                  StartPos 1397, Length 18
+    char    ftradmdavg          [   8];    char    _ftradmdavg          ;    // [long  ,    8] ¿Ü±¹°è¸ÅµµÆò´Ü°¡                StartPos 1416, Length 8
+    char    ftradmsavg          [   8];    char    _ftradmsavg          ;    // [long  ,    8] ¿Ü±¹°è¸Å¼öÆò´Ü°¡                StartPos 1425, Length 8
+    char    info5               [   8];    char    _info5               ;    // [string,    8] ÅõÀÚÁÖÀÇÈ¯±â                    StartPos 1434, Length 8
+    char    spac_gubun          [   1];    char    _spac_gubun          ;    // [string,    1] ±â¾÷ÀÎ¼ö¸ñÀûÈ¸»ç¿©ºÎ            StartPos 1443, Length 1
+    char    issueprice          [   8];    char    _issueprice          ;    // [long  ,    8] ¹ßÇà°¡°İ                        StartPos 1445, Length 8
+    char    alloc_gubun         [   1];    char    _alloc_gubun         ;    // [string,    1] ¹èºĞÀû¿ë±¸ºĞÄÚµå(1:¹èºĞ¹ß»ı2:¹è StartPos 1454, Length 1
+    char    alloc_text          [   8];    char    _alloc_text          ;    // [string,    8] ¹èºĞÀû¿ë±¸ºĞ                    StartPos 1456, Length 8
+    char    shterm_text         [  10];    char    _shterm_text         ;    // [string,   10] ´Ü±â°ú¿­/VI¹ßµ¿                 StartPos 1465, Length 10
+    char    svi_uplmtprice      [   8];    char    _svi_uplmtprice      ;    // [long  ,    8] Á¤ÀûVI»óÇÑ°¡                    StartPos 1476, Length 8
+    char    svi_dnlmtprice      [   8];    char    _svi_dnlmtprice      ;    // [long  ,    8] Á¤ÀûVIÇÏÇÑ°¡                    StartPos 1485, Length 8
+    char    low_lqdt_gu         [   1];    char    _low_lqdt_gu         ;    // [string,    1] ÀúÀ¯µ¿¼ºÁ¾¸ñ¿©ºÎ                StartPos 1494, Length 1
+    char    abnormal_rise_gu    [   1];    char    _abnormal_rise_gu    ;    // [string,    1] ÀÌ»ó±ŞµîÁ¾¸ñ¿©ºÎ                StartPos 1496, Length 1
+    char    lend_text           [   8];    char    _lend_text           ;    // [string,    8] ´ëÂ÷ºÒ°¡Ç¥½Ã                    StartPos 1498, Length 8
+    char    ty_text             [   8];    char    _ty_text             ;    // [string,    8] ETF/ETNÅõÀÚÀ¯ÀÇ                 StartPos 1507, Length 8
+    char    nxt_janginfo        [  10];    char    _nxt_janginfo        ;    // [string,   10] NXTÀå±¸ºĞ                       StartPos 1516, Length 10
+    char    nxt_shterm_text     [  10];    char    _nxt_shterm_text     ;    // [string,   10] NXT´Ü±â°ú¿­/VI¹ßµ¿              StartPos 1527, Length 10
+    char    nxt_svi_uplmtprice  [   8];    char    _nxt_svi_uplmtprice  ;    // [long  ,    8] NXTÁ¤ÀûVI»óÇÑ°¡                 StartPos 1538, Length 8
+    char    nxt_svi_dnlmtprice  [   8];    char    _nxt_svi_dnlmtprice  ;    // [long  ,    8] NXTÁ¤ÀûVIÇÏÇÑ°¡                 StartPos 1547, Length 8
+    char    ex_shcode           [  10];    char    _ex_shcode           ;    // [string,   10] °Å·¡¼Òº°´ÜÃàÄÚµå                StartPos 1556, Length 10
 } t1102OutBlock, *LPt1102OutBlock;
 #define NAME_t1102OutBlock     "t1102OutBlock"
 

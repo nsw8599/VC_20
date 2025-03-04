@@ -407,7 +407,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 			strMonth = adjustedTime.Format(_T("%Y%m"));
 		}
 	}
-	//strMonth = "W2MON"; //************************************************************************************************************* 월설정
+	//strMonth = "W1MON"; //************************************************************************************************************* 월설정
 	//pEdit1 = (CEdit*)GetDlgItem(IDC_TST2); pEdit1->SetWindowText(strMonth);// strMonth 확인
 
 	// nCurMin 값 초기화
@@ -1228,6 +1228,7 @@ void CDlg_JEKYLL::Request1601(BOOL bNext)
 	CString str_gubun2 = "2";	// 옵션금액수량구분2(1:수량, 2:금액)
 	CString str_gubun3 = "";	// 사용안함(금액)
 	CString str_gubun4 = "1";	// 선물금액수량구분3(1:수량, 2:금액)
+    CString str_exchgubun = "K";	// 거래소구분(K:KRX, N:NXT, U:통합, 그외 입력값은 KRX로 처리)
 
 	// 데이터 초기화
 	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
@@ -1237,6 +1238,7 @@ void CDlg_JEKYLL::Request1601(BOOL bNext)
 	SetPacketData(pckInBlock.gubun2, sizeof(pckInBlock.gubun2), str_gubun2, DATA_TYPE_STRING);		// 옵션금액수량구분2
 	SetPacketData(pckInBlock.gubun3, sizeof(pckInBlock.gubun3), str_gubun3, DATA_TYPE_STRING);		// 사용안함: 금액단위3   
 	SetPacketData(pckInBlock.gubun4, sizeof(pckInBlock.gubun4), str_gubun4, DATA_TYPE_STRING);		// 선물금액수량구분4    
+    SetPacketData(pckInBlock.exchgubun, sizeof(pckInBlock.exchgubun), str_exchgubun, DATA_TYPE_STRING);		// 거래소구분코드   
 
 	// 데이터 전송
 	int nRqID = g_iXingAPI.Request(GetSafeHwnd(), szTrNo, &pckInBlock, sizeof(pckInBlock), bNext, "", 30);
@@ -1375,6 +1377,9 @@ void CDlg_JEKYLL::Request1602(CString str_market, CString str_upcode, CString st
 	//SetPacketData(pckInBlock.cts_idx, sizeof(pckInBlock.cts_idx), str_cts_idx, DATA_TYPE_LONG);   // [long  ,    4] CTSIDX    
 	SetPacketData(pckInBlock.gubun3, sizeof(pckInBlock.gubun3), str_gubun3, DATA_TYPE_STRING);		// [string,    1] 직전대비구분(C:직전대비) 
 	SetPacketData(pckInBlock.cnt, sizeof(pckInBlock.cnt), str_cnt, DATA_TYPE_STRING);
+
+    CString str_exchgubun = "K";	// 거래소구분(K:KRX, N:NXT, U:통합, 그외 입력값은 KRX로 처리)
+    SetPacketData(pckInBlock.exchgubun, sizeof(pckInBlock.exchgubun), str_exchgubun, DATA_TYPE_STRING);		// 거래소구분코드  
 
 	//-----------------------------------------------------------
 	// 데이터 전송
@@ -10346,15 +10351,30 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit4() // fPrc = fCho9 - fProfit  // 매�
 	f2 -= f5;
 	f3 -= f6;
 
-	if (f1 < 0) f1 = 0.0;
-	if (f2 < 0) f2 = 0.0;
-	if (f3 < 0) f3 = 0.0;
+    CEdit* pEdit1;
+    if (f1 < 0)
+    {
+        f4 += f1;
+        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC2); pEdit1->SetWindowText(str4);
+        f1 = 0.0;
+    }
+	if (f2 < 0)
+    {
+        f5 += f2;
+        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC7); pEdit1->SetWindowText(str5);
+        f2 = 0.0;
+    }
+	if (f3 < 0)
+    {
+        f6 += f3;
+        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC11); pEdit1->SetWindowText(str6);
+        f3 = 0.0;
+    }
 
 	str1.Format("%.2f", f1);
 	str2.Format("%.2f", f2);
 	str3.Format("%.2f", f3);
 
-	CEdit *pEdit1;
 	pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(str1);
 	pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC6); pEdit1->SetWindowText(str2);
 	pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC10); pEdit1->SetWindowText(str3);
@@ -12229,8 +12249,8 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest23()
                 {
                     switch (nSubString)
                     {
-                    case 3: fArCloseY[i - 1] = atof(rString); break;
-                    case 7: fAr20mSMAY[i - 1] = atof(rString); break;
+                    case 3: fArCloseY[i - 1] = (float)atof(rString); break;
+                    case 7: fAr20mSMAY[i - 1] = (float)atof(rString); break;
                     }
                 }
             }

@@ -2,30 +2,31 @@
 #define _t1105_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì£¼ì‹í”¼ëª»/ë””ë§ˆí¬ì¡°íšŒ(t1105) ( attr,block,headtype=A )
+// ÁÖ½ÄÇÇ¸ø/µğ¸¶Å©Á¶È¸(t1105) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1105     "t1105"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1105InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 7, Length 1
 } t1105InBlock, *LPt1105InBlock;
 #define NAME_t1105InBlock     "t1105InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1105OutBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
-    char    pbot                [   8];    char    _pbot                ;    // [long  ,    8] í”¼ë´‡                           StartPos 7, Length 8
-    char    offer1              [   8];    char    _offer1              ;    // [long  ,    8] 1ì°¨ì €í•­                        StartPos 16, Length 8
-    char    supp1               [   8];    char    _supp1               ;    // [long  ,    8] 1ì°¨ì§€ì§€                        StartPos 25, Length 8
-    char    offer2              [   8];    char    _offer2              ;    // [long  ,    8] 2ì°¨ì €í•­                        StartPos 34, Length 8
-    char    supp2               [   8];    char    _supp2               ;    // [long  ,    8] 2ì°¨ì§€ì§€                        StartPos 43, Length 8
-    char    stdprc              [   8];    char    _stdprc              ;    // [long  ,    8] ê¸°ì¤€ê°€ê²©                       StartPos 52, Length 8
-    char    offerd              [   8];    char    _offerd              ;    // [long  ,    8] Dì €í•­                          StartPos 61, Length 8
-    char    suppd               [   8];    char    _suppd               ;    // [long  ,    8] Dì§€ì§€                          StartPos 70, Length 8
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
+    char    pbot                [   8];    char    _pbot                ;    // [long  ,    8] ÇÇº¿                            StartPos 7, Length 8
+    char    offer1              [   8];    char    _offer1              ;    // [long  ,    8] 1Â÷ÀúÇ×                         StartPos 16, Length 8
+    char    supp1               [   8];    char    _supp1               ;    // [long  ,    8] 1Â÷ÁöÁö                         StartPos 25, Length 8
+    char    offer2              [   8];    char    _offer2              ;    // [long  ,    8] 2Â÷ÀúÇ×                         StartPos 34, Length 8
+    char    supp2               [   8];    char    _supp2               ;    // [long  ,    8] 2Â÷ÁöÁö                         StartPos 43, Length 8
+    char    stdprc              [   8];    char    _stdprc              ;    // [long  ,    8] ±âÁØ°¡°İ                        StartPos 52, Length 8
+    char    offerd              [   8];    char    _offerd              ;    // [long  ,    8] DÀúÇ×                           StartPos 61, Length 8
+    char    suppd               [   8];    char    _suppd               ;    // [long  ,    8] DÁöÁö                           StartPos 70, Length 8
 } t1105OutBlock, *LPt1105OutBlock;
 #define NAME_t1105OutBlock     "t1105OutBlock"
 

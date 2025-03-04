@@ -2,50 +2,53 @@
 #define _t1422_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ÏÉÅ/ÌïòÌïú(t1422) ( attr,block,headtype=A )
+// ªÛ/«œ«—(t1422) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1422     "t1422"
 
-// Í∏∞Î≥∏ÏûÖÎ†•
+// ±‚∫ª¿‘∑¬                       
 typedef struct _t1422InBlock
 {
-    char    qrygb               [   1];    char    _qrygb               ;    // [string,    1] Ï°∞ÌöåÍµ¨Î∂Ñ                       StartPos 0, Length 1
-    char    gubun               [   1];    char    _gubun               ;    // [string,    1] Íµ¨Î∂Ñ                           StartPos 2, Length 1
-    char    jnilgubun           [   1];    char    _jnilgubun           ;    // [string,    1] Ï†ÑÏùºÍµ¨Î∂Ñ                       StartPos 4, Length 1
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ÏÉÅÌïòÌïúÍµ¨Î∂Ñ                     StartPos 6, Length 1
-    char    jc_num              [  12];    char    _jc_num              ;    // [long  ,   12] ÎåÄÏÉÅÏ†úÏô∏                       StartPos 8, Length 12
-    char    sprice              [   8];    char    _sprice              ;    // [long  ,    8] ÏãúÏûëÍ∞ÄÍ≤©                       StartPos 21, Length 8
-    char    eprice              [   8];    char    _eprice              ;    // [long  ,    8] Ï¢ÖÎ£åÍ∞ÄÍ≤©                       StartPos 30, Length 8
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] Í±∞ÎûòÎüâ                         StartPos 39, Length 12
-    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                            StartPos 52, Length 4
+    char    qrygb               [   1];    char    _qrygb               ;    // [string,    1] ¡∂»∏±∏∫–                        StartPos 0, Length 1
+    char    gubun               [   1];    char    _gubun               ;    // [string,    1] ±∏∫–                            StartPos 2, Length 1
+    char    jnilgubun           [   1];    char    _jnilgubun           ;    // [string,    1] ¿¸¿œ±∏∫–                        StartPos 4, Length 1
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ªÛ«œ«—±∏∫–                      StartPos 6, Length 1
+    char    jc_num              [  12];    char    _jc_num              ;    // [long  ,   12] ¥ÎªÛ¡¶ø‹                        StartPos 8, Length 12
+    char    sprice              [   8];    char    _sprice              ;    // [long  ,    8] Ω√¿€∞°∞›                        StartPos 21, Length 8
+    char    eprice              [   8];    char    _eprice              ;    // [long  ,    8] ¡æ∑·∞°∞›                        StartPos 30, Length 8
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ∞≈∑°∑Æ                          StartPos 39, Length 12
+    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                             StartPos 52, Length 4
+    char    jshex               [   1];    char    _jshex               ;    // [string,    1] ¿¸¿œªÛ«œ«—¡¶ø‹(C:¡¶ø‹)          StartPos 57, Length 1
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] ∞≈∑°º“±∏∫–ƒ⁄µÂ                  StartPos 59, Length 1
 } t1422InBlock, *LPt1422InBlock;
 #define NAME_t1422InBlock     "t1422InBlock"
 
-// Ï∂úÎ†•
+// √‚∑¬                           
 typedef struct _t1422OutBlock
 {
-    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] CNT                            StartPos 0, Length 4
-    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                            StartPos 5, Length 4
+    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] CNT                             StartPos 0, Length 4
+    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                             StartPos 5, Length 4
 } t1422OutBlock, *LPt1422OutBlock;
 #define NAME_t1422OutBlock     "t1422OutBlock"
 
-// Ï∂úÎ†•1, occurs
+// √‚∑¬1                          , occurs
 typedef struct _t1422OutBlock1
 {
-    char    hname               [  20];    char    _hname               ;    // [string,   20] ÌïúÍ∏ÄÎ™Ö                         StartPos 0, Length 20
-    char    price               [   8];    char    _price               ;    // [long  ,    8] ÌòÑÏû¨Í∞Ä                         StartPos 21, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] Ï†ÑÏùºÎåÄÎπÑÍµ¨Î∂Ñ                   StartPos 30, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] Ï†ÑÏùºÎåÄÎπÑ                       StartPos 32, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] Îì±ÎùΩÏú®                         StartPos 41, Length 6
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ÎàÑÏ†ÅÍ±∞ÎûòÎüâ                     StartPos 48, Length 12
-    char    diff_vol            [  10];    char    _diff_vol            ;    // [float , 10.2] Í±∞ÎûòÏ¶ùÍ∞ÄÏú®                     StartPos 61, Length 10
-    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] Îß§ÎèÑÏûîÎüâ                       StartPos 72, Length 12
-    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] Îß§ÏàòÏûîÎüâ                       StartPos 85, Length 12
-    char    last                [   6];    char    _last                ;    // [string,    6] ÏµúÏ¢ÖÏßÑÏûÖ                       StartPos 98, Length 6
-    char    lmtdaycnt           [   8];    char    _lmtdaycnt           ;    // [long  ,    8] Ïó∞ÏÜç                           StartPos 105, Length 8
-    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] Ï†ÑÏùºÍ±∞ÎûòÎüâ                     StartPos 114, Length 12
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] Ï¢ÖÎ™©ÏΩîÎìú                       StartPos 127, Length 6
+    char    hname               [  20];    char    _hname               ;    // [string,   20] «—±€∏Ì                          StartPos 0, Length 20
+    char    price               [   8];    char    _price               ;    // [long  ,    8] «ˆ¿Á∞°                          StartPos 21, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ¿¸¿œ¥Î∫Ò±∏∫–                    StartPos 30, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ¿¸¿œ¥Î∫Ò                        StartPos 32, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µÓ∂Ù¿≤                          StartPos 41, Length 6
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ¥©¿˚∞≈∑°∑Æ                      StartPos 48, Length 12
+    char    diff_vol            [  10];    char    _diff_vol            ;    // [double, 10.2] ∞≈∑°¡ı∞°¿≤                      StartPos 61, Length 10
+    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] ∏≈µµ¿‹∑Æ                        StartPos 72, Length 12
+    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] ∏≈ºˆ¿‹∑Æ                        StartPos 85, Length 12
+    char    last                [   6];    char    _last                ;    // [string,    6] √÷¡æ¡¯¿‘                        StartPos 98, Length 6
+    char    lmtdaycnt           [   8];    char    _lmtdaycnt           ;    // [long  ,    8] ø¨º”                            StartPos 105, Length 8
+    char    jnilvolume          [  12];    char    _jnilvolume          ;    // [long  ,   12] ¿¸¿œ∞≈∑°∑Æ                      StartPos 114, Length 12
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ¡æ∏Òƒ⁄µÂ                        StartPos 127, Length 6
+    char    ex_shcode           [  10];    char    _ex_shcode           ;    // [string,   10] ∞≈∑°º“∫∞¥‹√‡ƒ⁄µÂ                StartPos 134, Length 10
 } t1422OutBlock1, *LPt1422OutBlock1;
 #define NAME_t1422OutBlock1     "t1422OutBlock1"
 

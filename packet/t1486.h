@@ -2,40 +2,43 @@
 #define _t1486_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì‹œê°„ë³„ì˜ˆìƒì²´ê²°ê°€(t1486) ( attr,block,headtype=A )
+// ½Ã°£º°¿¹»óÃ¼°á°¡(t1486) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1486     "t1486"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1486InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
-    char    cts_time            [  10];    char    _cts_time            ;    // [string,   10] ì‹œê°„CTS                        StartPos 7, Length 10
-    char    cnt                 [   4];    char    _cnt                 ;    // [string,    4] ì¡°íšŒê±´ìˆ˜                       StartPos 18, Length 4
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
+    char    cts_time            [  10];    char    _cts_time            ;    // [string,   10] ½Ã°£CTS                         StartPos 7, Length 10
+    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] Á¶È¸°Ç¼ö                        StartPos 18, Length 4
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 23, Length 1
 } t1486InBlock, *LPt1486InBlock;
 #define NAME_t1486InBlock     "t1486InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _t1486OutBlock
 {
-    char    cts_time            [  10];    char    _cts_time            ;    // [string,   10] ì‹œê°„CTS                        StartPos 0, Length 10
+    char    cts_time            [  10];    char    _cts_time            ;    // [string,   10] ½Ã°£CTS                         StartPos 0, Length 10
+    char    ex_shcode           [  10];    char    _ex_shcode           ;    // [string,   10] °Å·¡¼Òº°´ÜÃàÄÚµå                StartPos 11, Length 10
 } t1486OutBlock, *LPt1486OutBlock;
 #define NAME_t1486OutBlock     "t1486OutBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1486OutBlock1
 {
-    char    chetime             [   8];    char    _chetime             ;    // [string,    8] ì‹œê°„                           StartPos 0, Length 8
-    char    price               [   8];    char    _price               ;    // [long  ,    8] ì˜ˆìƒì²´ê²°ê°€                     StartPos 9, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] ì „ì¼ëŒ€ë¹„êµ¬ë¶„                   StartPos 18, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] ì „ì¼ëŒ€ë¹„                       StartPos 20, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] ë“±ë½ìœ¨                         StartPos 29, Length 6
-    char    cvolume             [  12];    char    _cvolume             ;    // [long  ,   12] ì˜ˆìƒì²´ê²°ëŸ‰                     StartPos 36, Length 12
-    char    offerho1            [   8];    char    _offerho1            ;    // [long  ,    8] ë§¤ë„í˜¸ê°€                       StartPos 49, Length 8
-    char    bidho1              [   8];    char    _bidho1              ;    // [long  ,    8] ë§¤ìˆ˜í˜¸ê°€                       StartPos 58, Length 8
-    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] ë§¤ë„ì”ëŸ‰                       StartPos 67, Length 12
-    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] ë§¤ìˆ˜ì”ëŸ‰                       StartPos 80, Length 12
+    char    chetime             [   8];    char    _chetime             ;    // [string,    8] ½Ã°£                            StartPos 0, Length 8
+    char    price               [   8];    char    _price               ;    // [long  ,    8] ¿¹»óÃ¼°á°¡                      StartPos 9, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ÀüÀÏ´ëºñ±¸ºĞ                    StartPos 18, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ÀüÀÏ´ëºñ                        StartPos 20, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µî¶ôÀ²                          StartPos 29, Length 6
+    char    cvolume             [  12];    char    _cvolume             ;    // [long  ,   12] ¿¹»óÃ¼°á·®                      StartPos 36, Length 12
+    char    offerho1            [   8];    char    _offerho1            ;    // [long  ,    8] ¸ÅµµÈ£°¡                        StartPos 49, Length 8
+    char    bidho1              [   8];    char    _bidho1              ;    // [long  ,    8] ¸Å¼öÈ£°¡                        StartPos 58, Length 8
+    char    offerrem1           [  12];    char    _offerrem1           ;    // [long  ,   12] ¸ÅµµÀÜ·®                        StartPos 67, Length 12
+    char    bidrem1             [  12];    char    _bidrem1             ;    // [long  ,   12] ¸Å¼öÀÜ·®                        StartPos 80, Length 12
+    char    exchname            [   3];    char    _exchname            ;    // [string,    3] °Å·¡¼Ò¸í                        StartPos 93, Length 3
 } t1486OutBlock1, *LPt1486OutBlock1;
 #define NAME_t1486OutBlock1     "t1486OutBlock1"
 

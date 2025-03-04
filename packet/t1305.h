@@ -1,63 +1,65 @@
-Ôªø#ifndef _t1305_H_
+#ifndef _t1305_H_
 #define _t1305_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Í∏∞Í∞ÑÎ≥ÑÏ£ºÍ∞Ä(t1305) ( attr,block,headtype=A )
+// ±‚∞£∫∞¡÷∞°(t1305) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1305     "t1305"
 
-// Í∏∞Î≥∏ÏûÖÎ†•
+// ±‚∫ª¿‘∑¬                       
 typedef struct _t1305InBlock
 {
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] Îã®Ï∂ïÏΩîÎìú                       StartPos 0, Length 6
-    char    dwmcode             [   1];    char    _dwmcode             ;    // [long  ,    1] ÏùºÏ£ºÏõîÍµ¨Î∂Ñ                     StartPos 7, Length 1
-    char    date                [   8];    char    _date                ;    // [string,    8] ÎÇ†Ïßú                           StartPos 9, Length 8
-    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                            StartPos 18, Length 4
-    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] Í±¥Ïàò                           StartPos 23, Length 4
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ¥‹√‡ƒ⁄µÂ                        StartPos 0, Length 6
+    char    dwmcode             [   1];    char    _dwmcode             ;    // [long  ,    1] ¿œ¡÷ø˘±∏∫–                      StartPos 7, Length 1
+    char    date                [   8];    char    _date                ;    // [string,    8] ≥Ø¬•                            StartPos 9, Length 8
+    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                             StartPos 18, Length 4
+    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] ∞«ºˆ                            StartPos 23, Length 4
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] ∞≈∑°º“±∏∫–ƒ⁄µÂ                  StartPos 28, Length 1
 } t1305InBlock, *LPt1305InBlock;
 #define NAME_t1305InBlock     "t1305InBlock"
 
-// Ï∂úÎ†•
+// √‚∑¬                           
 typedef struct _t1305OutBlock
 {
-    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] CNT                            StartPos 0, Length 4
-    char    date                [   8];    char    _date                ;    // [string,    8] ÎÇ†Ïßú                           StartPos 5, Length 8
-    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                            StartPos 14, Length 4
+    char    cnt                 [   4];    char    _cnt                 ;    // [long  ,    4] CNT                             StartPos 0, Length 4
+    char    date                [   8];    char    _date                ;    // [string,    8] ≥Ø¬•                            StartPos 5, Length 8
+    char    idx                 [   4];    char    _idx                 ;    // [long  ,    4] IDX                             StartPos 14, Length 4
+    char    ex_shcode           [  10];    char    _ex_shcode           ;    // [string,   10] ∞≈∑°º“∫∞¥‹√‡ƒ⁄µÂ                StartPos 19, Length 10
 } t1305OutBlock, *LPt1305OutBlock;
 #define NAME_t1305OutBlock     "t1305OutBlock"
 
-// Ï∂úÎ†•1, occurs
+// √‚∑¬1                          , occurs
 typedef struct _t1305OutBlock1
 {
-    char    date                [   8];    char    _date                ;    // [string,    8] ÎÇ†Ïßú                           StartPos 0, Length 8
-    char    open                [   8];    char    _open                ;    // [long  ,    8] ÏãúÍ∞Ä                           StartPos 9, Length 8
-    char    high                [   8];    char    _high                ;    // [long  ,    8] Í≥†Í∞Ä                           StartPos 18, Length 8
-    char    low                 [   8];    char    _low                 ;    // [long  ,    8] Ï†ÄÍ∞Ä                           StartPos 27, Length 8
-    char    close               [   8];    char    _close               ;    // [long  ,    8] Ï¢ÖÍ∞Ä                           StartPos 36, Length 8
-    char    sign                [   1];    char    _sign                ;    // [string,    1] Ï†ÑÏùºÎåÄÎπÑÍµ¨Î∂Ñ                   StartPos 45, Length 1
-    char    change              [   8];    char    _change              ;    // [long  ,    8] Ï†ÑÏùºÎåÄÎπÑ                       StartPos 47, Length 8
-    char    diff                [   6];    char    _diff                ;    // [float ,  6.2] Îì±ÎùΩÏú®                         StartPos 56, Length 6
-    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ÎàÑÏ†ÅÍ±∞ÎûòÎüâ                     StartPos 63, Length 12
-    char    diff_vol            [  10];    char    _diff_vol            ;    // [float , 10.2] Í±∞ÎûòÏ¶ùÍ∞ÄÏú®                     StartPos 76, Length 10
-    char    chdegree            [   6];    char    _chdegree            ;    // [float ,  6.2] Ï≤¥Í≤∞Í∞ïÎèÑ                       StartPos 87, Length 6
-    char    sojinrate           [   6];    char    _sojinrate           ;    // [float ,  6.2] ÏÜåÏßÑÏú®                         StartPos 94, Length 6
-    char    changerate          [   6];    char    _changerate          ;    // [float ,  6.2] ÌöåÏ†ÑÏú®                         StartPos 101, Length 6
-    char    fpvolume            [  12];    char    _fpvolume            ;    // [long  ,   12] Ïô∏Ïù∏ÏàúÎß§Ïàò                     StartPos 108, Length 12
-    char    covolume            [  12];    char    _covolume            ;    // [long  ,   12] Í∏∞Í¥ÄÏàúÎß§Ïàò                     StartPos 121, Length 12
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] Ï¢ÖÎ™©ÏΩîÎìú                       StartPos 134, Length 6
-    char    value               [  12];    char    _value               ;    // [long  ,   12] ÎàÑÏ†ÅÍ±∞ÎûòÎåÄÍ∏à(Îã®ÏúÑ:Î∞±Îßå)        StartPos 141, Length 12
-    char    ppvolume            [  12];    char    _ppvolume            ;    // [long  ,   12] Í∞úÏù∏ÏàúÎß§Ïàò                     StartPos 154, Length 12
-    char    o_sign              [   1];    char    _o_sign              ;    // [string,    1] ÏãúÍ∞ÄÎåÄÎπÑÍµ¨Î∂Ñ                   StartPos 167, Length 1
-    char    o_change            [   8];    char    _o_change            ;    // [long  ,    8] ÏãúÍ∞ÄÎåÄÎπÑ                       StartPos 169, Length 8
-    char    o_diff              [   6];    char    _o_diff              ;    // [float ,  6.2] ÏãúÍ∞ÄÍ∏∞Ï§ÄÎì±ÎùΩÏú®                 StartPos 178, Length 6
-    char    h_sign              [   1];    char    _h_sign              ;    // [string,    1] Í≥†Í∞ÄÎåÄÎπÑÍµ¨Î∂Ñ                   StartPos 185, Length 1
-    char    h_change            [   8];    char    _h_change            ;    // [long  ,    8] Í≥†Í∞ÄÎåÄÎπÑ                       StartPos 187, Length 8
-    char    h_diff              [   6];    char    _h_diff              ;    // [float ,  6.2] Í≥†Í∞ÄÍ∏∞Ï§ÄÎì±ÎùΩÏú®                 StartPos 196, Length 6
-    char    l_sign              [   1];    char    _l_sign              ;    // [string,    1] Ï†ÄÍ∞ÄÎåÄÎπÑÍµ¨Î∂Ñ                   StartPos 203, Length 1
-    char    l_change            [   8];    char    _l_change            ;    // [long  ,    8] Ï†ÄÍ∞ÄÎåÄÎπÑ                       StartPos 205, Length 8
-    char    l_diff              [   6];    char    _l_diff              ;    // [float ,  6.2] Ï†ÄÍ∞ÄÍ∏∞Ï§ÄÎì±ÎùΩÏú®                 StartPos 214, Length 6
-    char    marketcap           [  12];    char    _marketcap           ;    // [long  ,   12] ÏãúÍ∞ÄÏ¥ùÏï°(Îã®ÏúÑ:Î∞±Îßå)            StartPos 221, Length 12
+    char    date                [   8];    char    _date                ;    // [string,    8] ≥Ø¬•                            StartPos 0, Length 8
+    char    open                [   8];    char    _open                ;    // [long  ,    8] Ω√∞°                            StartPos 9, Length 8
+    char    high                [   8];    char    _high                ;    // [long  ,    8] ∞Ì∞°                            StartPos 18, Length 8
+    char    low                 [   8];    char    _low                 ;    // [long  ,    8] ¿˙∞°                            StartPos 27, Length 8
+    char    close               [   8];    char    _close               ;    // [long  ,    8] ¡æ∞°                            StartPos 36, Length 8
+    char    sign                [   1];    char    _sign                ;    // [string,    1] ¿¸¿œ¥Î∫Ò±∏∫–                    StartPos 45, Length 1
+    char    change              [   8];    char    _change              ;    // [long  ,    8] ¿¸¿œ¥Î∫Ò                        StartPos 47, Length 8
+    char    diff                [   6];    char    _diff                ;    // [double,  6.2] µÓ∂Ù¿≤                          StartPos 56, Length 6
+    char    volume              [  12];    char    _volume              ;    // [long  ,   12] ¥©¿˚∞≈∑°∑Æ                      StartPos 63, Length 12
+    char    diff_vol            [  10];    char    _diff_vol            ;    // [double, 10.2] ∞≈∑°¡ı∞°¿≤                      StartPos 76, Length 10
+    char    chdegree            [   6];    char    _chdegree            ;    // [double,  6.2] √º∞·∞≠µµ                        StartPos 87, Length 6
+    char    sojinrate           [   6];    char    _sojinrate           ;    // [double,  6.2] º“¡¯¿≤                          StartPos 94, Length 6
+    char    changerate          [   6];    char    _changerate          ;    // [double,  6.2] »∏¿¸¿≤                          StartPos 101, Length 6
+    char    fpvolume            [  12];    char    _fpvolume            ;    // [long  ,   12] ø‹¿Œº¯∏≈ºˆ                      StartPos 108, Length 12
+    char    covolume            [  12];    char    _covolume            ;    // [long  ,   12] ±‚∞¸º¯∏≈ºˆ                      StartPos 121, Length 12
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ¡æ∏Òƒ⁄µÂ                        StartPos 134, Length 6
+    char    value               [  12];    char    _value               ;    // [long  ,   12] ¥©¿˚∞≈∑°¥Î±›(¥‹¿ß:πÈ∏∏)         StartPos 141, Length 12
+    char    ppvolume            [  12];    char    _ppvolume            ;    // [long  ,   12] ∞≥¿Œº¯∏≈ºˆ                      StartPos 154, Length 12
+    char    o_sign              [   1];    char    _o_sign              ;    // [string,    1] ±‚¡ÿ∞°±‚¡ÿ Ω√∞°¥Î∫Ò±∏∫–         StartPos 167, Length 1
+    char    o_change            [   8];    char    _o_change            ;    // [long  ,    8] ±‚¡ÿ∞°±‚¡ÿ Ω√∞°¥Î∫Ò             StartPos 169, Length 8
+    char    o_diff              [   6];    char    _o_diff              ;    // [double,  6.2] ±‚¡ÿ∞°±‚¡ÿ Ω√∞°µÓ∂Ù¿≤           StartPos 178, Length 6
+    char    h_sign              [   1];    char    _h_sign              ;    // [string,    1] ±‚¡ÿ∞°±‚¡ÿ ∞Ì∞°¥Î∫Ò±∏∫–         StartPos 185, Length 1
+    char    h_change            [   8];    char    _h_change            ;    // [long  ,    8] ±‚¡ÿ∞°±‚¡ÿ ∞Ì∞°¥Î∫Ò             StartPos 187, Length 8
+    char    h_diff              [   6];    char    _h_diff              ;    // [double,  6.2] ±‚¡ÿ∞°±‚¡ÿ ∞Ì∞°µÓ∂Ù¿≤           StartPos 196, Length 6
+    char    l_sign              [   1];    char    _l_sign              ;    // [string,    1] ±‚¡ÿ∞°±‚¡ÿ ¿˙∞°¥Î∫Ò±∏∫–         StartPos 203, Length 1
+    char    l_change            [   8];    char    _l_change            ;    // [long  ,    8] ±‚¡ÿ∞°±‚¡ÿ ¿˙∞°¥Î∫Ò             StartPos 205, Length 8
+    char    l_diff              [   6];    char    _l_diff              ;    // [double,  6.2] ±‚¡ÿ∞°±‚¡ÿ ¿˙∞°µÓ∂Ù¿≤           StartPos 214, Length 6
+    char    marketcap           [  12];    char    _marketcap           ;    // [long  ,   12] Ω√∞°√—æ◊(¥‹¿ß:πÈ∏∏)             StartPos 221, Length 12
 } t1305OutBlock1, *LPt1305OutBlock1;
 #define NAME_t1305OutBlock1     "t1305OutBlock1"
 

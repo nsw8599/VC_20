@@ -2,32 +2,33 @@
 #define _YK3_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// KOSDAQì˜ˆìƒì²´ê²°(YK3) ( attr,block )
+// KOSDAQ¿¹»óÃ¼°á(YK3) ( attr,key=6,group=1 )
 #pragma pack( push, 1 )
 
 #define NAME_YK3     "YK3"
 
-// ì…ë ¥
+// ÀÔ·Â                           
 typedef struct _YK3_InBlock
 {
-    char    shcode              [   6];                                      // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 0, Length 6
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 0, Length 6
 } YK3_InBlock, *LPYK3_InBlock;
 #define NAME_YK3_InBlock     "InBlock"
 
-// ì¶œë ¥
+// Ãâ·Â                           
 typedef struct _YK3_OutBlock
 {
-    char    hotime              [   6];    char    _hotime              ;    // [string,    6] í˜¸ê°€ì‹œê°„                       StartPos 0, Length 6
-    char    yeprice             [   8];    char    _yeprice             ;    // [long  ,    8] ì˜ˆìƒì²´ê²°ê°€ê²©                   StartPos 7, Length 8
-    char    yevolume            [  12];    char    _yevolume            ;    // [long  ,   12] ì˜ˆìƒì²´ê²°ìˆ˜ëŸ‰                   StartPos 16, Length 12
-    char    jnilysign           [   1];    char    _jnilysign           ;    // [string,    1] ì˜ˆìƒì²´ê²°ê°€ì „ì¼ì¢…ê°€ëŒ€ë¹„êµ¬ë¶„     StartPos 29, Length 1
-    char    preychange          [   8];    char    _preychange          ;    // [long  ,    8] ì˜ˆìƒì²´ê²°ê°€ì „ì¼ì¢…ê°€ëŒ€ë¹„         StartPos 31, Length 8
-    char    jnilydrate          [   6];    char    _jnilydrate          ;    // [float ,  6.2] ì˜ˆìƒì²´ê²°ê°€ì „ì¼ì¢…ê°€ë“±ë½ìœ¨       StartPos 40, Length 6
-    char    yofferho0           [   8];    char    _yofferho0           ;    // [long  ,    8] ì˜ˆìƒë§¤ë„í˜¸ê°€                   StartPos 47, Length 8
-    char    ybidho0             [   8];    char    _ybidho0             ;    // [long  ,    8] ì˜ˆìƒë§¤ìˆ˜í˜¸ê°€                   StartPos 56, Length 8
-    char    yofferrem0          [  12];    char    _yofferrem0          ;    // [long  ,   12] ì˜ˆìƒë§¤ë„í˜¸ê°€ìˆ˜ëŸ‰               StartPos 65, Length 12
-    char    ybidrem0            [  12];    char    _ybidrem0            ;    // [long  ,   12] ì˜ˆìƒë§¤ìˆ˜í˜¸ê°€ìˆ˜ëŸ‰               StartPos 78, Length 12
-    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ë‹¨ì¶•ì½”ë“œ                       StartPos 91, Length 6
+    char    hotime              [   6];    char    _hotime              ;    // [string,    6] È£°¡½Ã°£                        StartPos 0, Length 6
+    char    yeprice             [   8];    char    _yeprice             ;    // [long  ,    8] ¿¹»óÃ¼°á°¡°İ                    StartPos 7, Length 8
+    char    yevolume            [  12];    char    _yevolume            ;    // [long  ,   12] ¿¹»óÃ¼°á¼ö·®                    StartPos 16, Length 12
+    char    jnilysign           [   1];    char    _jnilysign           ;    // [string,    1] ¿¹»óÃ¼°á°¡ÀüÀÏÁ¾°¡´ëºñ±¸ºĞ      StartPos 29, Length 1
+    char    preychange          [   8];    char    _preychange          ;    // [long  ,    8] ¿¹»óÃ¼°á°¡ÀüÀÏÁ¾°¡´ëºñ          StartPos 31, Length 8
+    char    jnilydrate          [   6];    char    _jnilydrate          ;    // [float ,  6.2] ¿¹»óÃ¼°á°¡ÀüÀÏÁ¾°¡µî¶ôÀ²        StartPos 40, Length 6
+    char    yofferho0           [   8];    char    _yofferho0           ;    // [long  ,    8] ¿¹»ó¸ÅµµÈ£°¡                    StartPos 47, Length 8
+    char    ybidho0             [   8];    char    _ybidho0             ;    // [long  ,    8] ¿¹»ó¸Å¼öÈ£°¡                    StartPos 56, Length 8
+    char    yofferrem0          [  12];    char    _yofferrem0          ;    // [long  ,   12] ¿¹»ó¸ÅµµÈ£°¡¼ö·®                StartPos 65, Length 12
+    char    ybidrem0            [  12];    char    _ybidrem0            ;    // [long  ,   12] ¿¹»ó¸Å¼öÈ£°¡¼ö·®                StartPos 78, Length 12
+    char    shcode              [   6];    char    _shcode              ;    // [string,    6] ´ÜÃàÄÚµå                        StartPos 91, Length 6
+    char    exchname            [   3];    char    _exchname            ;    // [string,    3] °Å·¡¼Ò¸í                        StartPos 98, Length 3
 } YK3_OutBlock, *LPYK3_OutBlock;
 #define NAME_YK3_OutBlock     "OutBlock"
 

@@ -2,39 +2,40 @@
 #define _t1664_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// íˆ¬ììë§¤ë§¤ì¢…í•©(ì± íŠ¸) ( attr,block,headtype=A )
+// ÅõÀÚÀÚ¸Å¸ÅÁ¾ÇÕ(Ã­Æ®) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1664     "t1664"
 
-// ê¸°ë³¸ì…ë ¥
+// ±âº»ÀÔ·Â                       
 typedef struct _t1664InBlock
 {
-    char    mgubun              [   1];    char    _mgubun              ;    // [string,    1] ì‹œì¥êµ¬ë¶„                       StartPos 0, Length 1
-    char    vagubun             [   1];    char    _vagubun             ;    // [string,    1] ê¸ˆì•¡ìˆ˜ëŸ‰êµ¬ë¶„                   StartPos 2, Length 1
-    char    bdgubun             [   1];    char    _bdgubun             ;    // [string,    1] ì‹œê°„ì¼ë³„êµ¬ë¶„                   StartPos 4, Length 1
-    char    cnt                 [   3];    char    _cnt                 ;    // [string,    3] ì¡°íšŒê±´ìˆ˜                       StartPos 6, Length 3
+    char    mgubun              [   1];    char    _mgubun              ;    // [string,    1] ½ÃÀå±¸ºĞ                        StartPos 0, Length 1
+    char    vagubun             [   1];    char    _vagubun             ;    // [string,    1] ±İ¾×¼ö·®±¸ºĞ                    StartPos 2, Length 1
+    char    bdgubun             [   1];    char    _bdgubun             ;    // [string,    1] ½Ã°£ÀÏº°±¸ºĞ                    StartPos 4, Length 1
+    char    cnt                 [   3];    char    _cnt                 ;    // [string,    3] Á¶È¸°Ç¼ö                        StartPos 6, Length 3
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 10, Length 1
 } t1664InBlock, *LPt1664InBlock;
 #define NAME_t1664InBlock     "t1664InBlock"
 
-// ì¶œë ¥1, occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1664OutBlock1
 {
-    char    dt                  [   8];    char    _dt                  ;    // [string,    8] ì¼ìì‹œê°„                       StartPos 0, Length 8
-    char    tjj01               [  12];    char    _tjj01               ;    // [double,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                     StartPos 9, Length 12
-    char    tjj02               [  12];    char    _tjj02               ;    // [double,   12] ë³´í—˜ìˆœë§¤ìˆ˜                     StartPos 22, Length 12
-    char    tjj03               [  12];    char    _tjj03               ;    // [double,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                     StartPos 35, Length 12
-    char    tjj04               [  12];    char    _tjj04               ;    // [double,   12] ì€í–‰ìˆœë§¤ìˆ˜                     StartPos 48, Length 12
-    char    tjj05               [  12];    char    _tjj05               ;    // [double,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                     StartPos 61, Length 12
-    char    tjj06               [  12];    char    _tjj06               ;    // [double,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                     StartPos 74, Length 12
-    char    tjj07               [  12];    char    _tjj07               ;    // [double,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                     StartPos 87, Length 12
-    char    tjj08               [  12];    char    _tjj08               ;    // [double,   12] ê°œì¸ìˆœë§¤ìˆ˜                     StartPos 100, Length 12
-    char    tjj17               [  12];    char    _tjj17               ;    // [double,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                   StartPos 113, Length 12
-    char    tjj18               [  12];    char    _tjj18               ;    // [double,   12] ê¸°ê´€ìˆœë§¤ìˆ˜                     StartPos 126, Length 12
-    char    cha                 [  12];    char    _cha                 ;    // [double,   12] ì°¨ìµìˆœë§¤ìˆ˜                     StartPos 139, Length 12
-    char    bicha               [  12];    char    _bicha               ;    // [double,   12] ë¹„ì°¨ìµìˆœë§¤ìˆ˜                   StartPos 152, Length 12
-    char    totcha              [  12];    char    _totcha              ;    // [double,   12] ì¢…í•©ìˆœë§¤ìˆ˜                     StartPos 165, Length 12
-    char    basis               [   6];    char    _basis               ;    // [float ,  6.2] ë² ì´ì‹œìŠ¤                       StartPos 178, Length 6
+    char    dt                  [   8];    char    _dt                  ;    // [string,    8] ÀÏÀÚ½Ã°£                        StartPos 0, Length 8
+    char    tjj01               [  12];    char    _tjj01               ;    // [double,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 9, Length 12
+    char    tjj02               [  12];    char    _tjj02               ;    // [double,   12] º¸Çè¼ø¸Å¼ö                      StartPos 22, Length 12
+    char    tjj03               [  12];    char    _tjj03               ;    // [double,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 35, Length 12
+    char    tjj04               [  12];    char    _tjj04               ;    // [double,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 48, Length 12
+    char    tjj05               [  12];    char    _tjj05               ;    // [double,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 61, Length 12
+    char    tjj06               [  12];    char    _tjj06               ;    // [double,   12] ±â±İ¼ø¸Å¼ö                      StartPos 74, Length 12
+    char    tjj07               [  12];    char    _tjj07               ;    // [double,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 87, Length 12
+    char    tjj08               [  12];    char    _tjj08               ;    // [double,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 100, Length 12
+    char    tjj17               [  12];    char    _tjj17               ;    // [double,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 113, Length 12
+    char    tjj18               [  12];    char    _tjj18               ;    // [double,   12] ±â°ü¼ø¸Å¼ö                      StartPos 126, Length 12
+    char    cha                 [  12];    char    _cha                 ;    // [double,   12] Â÷ÀÍ¼ø¸Å¼ö                      StartPos 139, Length 12
+    char    bicha               [  12];    char    _bicha               ;    // [double,   12] ºñÂ÷ÀÍ¼ø¸Å¼ö                    StartPos 152, Length 12
+    char    totcha              [  12];    char    _totcha              ;    // [double,   12] Á¾ÇÕ¼ø¸Å¼ö                      StartPos 165, Length 12
+    char    basis               [   6];    char    _basis               ;    // [float ,  6.2] º£ÀÌ½Ã½º                        StartPos 178, Length 6
 } t1664OutBlock1, *LPt1664OutBlock1;
 #define NAME_t1664OutBlock1     "t1664OutBlock1"
 

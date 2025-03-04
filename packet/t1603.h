@@ -2,43 +2,45 @@
 #define _t1603_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ì‹œê°„ëŒ€ë³„ íˆ¬ìì ë§¤ë§¤ì¶”ì´ ìƒì„¸ ( ATTR,BLOCK,HEADTYPE=A )
+// ½Ã°£´ëº°ÅõÀÚÀÚ¸Å¸ÅÃßÀÌ»ó¼¼(t1603) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1603     "t1603"
 
-// ê¸°ë³¸ì…ë ¥                       
+// ±âº»ÀÔ·Â                       
 typedef struct _t1603InBlock
 {
-    char    market              [   1];    char    _market              ;    // [string,    1] ì‹œì¥êµ¬ë¶„                        StartPos 0, Length 1
-    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] íˆ¬ììêµ¬ë¶„                      StartPos 2, Length 1
-    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ì „ì¼ë¶„êµ¬ë¶„                      StartPos 4, Length 1
+    char    market              [   1];    char    _market              ;    // [string,    1] ½ÃÀå±¸ºĞ                        StartPos 0, Length 1
+    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ÅõÀÚÀÚ±¸ºĞ                      StartPos 2, Length 1
+    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ÀüÀÏºĞ±¸ºĞ                      StartPos 4, Length 1
     char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME                         StartPos 6, Length 8
     char    cts_idx             [   4];    char    _cts_idx             ;    // [long  ,    4] CTSIDX                          StartPos 15, Length 4
-    char    cnt                 [   3];    char    _cnt                 ;    // [string,    3] ì¡°íšŒê±´ìˆ˜                        StartPos 20, Length 3
-    char    upcode              [   3];    char    _upcode              ;    // [string,    3] ì—…ì¢…ì½”ë“œ                        StartPos 24, Length 3
+    char    cnt                 [   3];    char    _cnt                 ;    // [string,    3] Á¶È¸°Ç¼ö                        StartPos 20, Length 3
+    char    upcode              [   3];    char    _upcode              ;    // [string,    3] ¾÷Á¾ÄÚµå                        StartPos 24, Length 3
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 28, Length 1
 } t1603InBlock, *LPt1603InBlock;
 #define NAME_t1603InBlock     "t1603InBlock"
 
-// ì¶œë ¥                           
+// Ãâ·Â                           
 typedef struct _t1603OutBlock
 {
     char    cts_idx             [   4];    char    _cts_idx             ;    // [long  ,    4] CTSIDX                          StartPos 0, Length 4
     char    cts_time            [   8];    char    _cts_time            ;    // [string,    8] CTSTIME                         StartPos 5, Length 8
+    char    ex_upcode           [   4];    char    _ex_upcode           ;    // [string,    4] °Å·¡¼Òº°¾÷Á¾ÄÚµå                StartPos 14, Length 4
 } t1603OutBlock, *LPt1603OutBlock;
 #define NAME_t1603OutBlock     "t1603OutBlock"
 
-// ì¶œë ¥1                          , occurs
+// Ãâ·Â1                          , occurs
 typedef struct _t1603OutBlock1
 {
-    char    time                [   8];    char    _time                ;    // [string,    8] ì‹œê°„                            StartPos 0, Length 8
-    char    tjjcode             [   4];    char    _tjjcode             ;    // [string,    4] íˆ¬ììêµ¬ë¶„                      StartPos 9, Length 4
-    char    msvolume            [   8];    char    _msvolume            ;    // [long  ,    8] ë§¤ìˆ˜ìˆ˜ëŸ‰                        StartPos 14, Length 8
-    char    mdvolume            [   8];    char    _mdvolume            ;    // [long  ,    8] ë§¤ë„ìˆ˜ëŸ‰                        StartPos 23, Length 8
-    char    msvalue             [  12];    char    _msvalue             ;    // [long  ,   12] ë§¤ìˆ˜ê¸ˆì•¡                        StartPos 32, Length 12
-    char    mdvalue             [  12];    char    _mdvalue             ;    // [long  ,   12] ë§¤ë„ê¸ˆì•¡                        StartPos 45, Length 12
-    char    svolume             [   8];    char    _svolume             ;    // [long  ,    8] ìˆœë§¤ìˆ˜ìˆ˜ëŸ‰                      StartPos 58, Length 8
-    char    svalue              [  12];    char    _svalue              ;    // [long  ,   12] ìˆœë§¤ìˆ˜ê¸ˆì•¡                      StartPos 67, Length 12
+    char    time                [   8];    char    _time                ;    // [string,    8] ½Ã°£                            StartPos 0, Length 8
+    char    tjjcode             [   4];    char    _tjjcode             ;    // [string,    4] ÅõÀÚÀÚ±¸ºĞ                      StartPos 9, Length 4
+    char    msvolume            [   8];    char    _msvolume            ;    // [long  ,    8] ¸Å¼ö¼ö·®                        StartPos 14, Length 8
+    char    mdvolume            [   8];    char    _mdvolume            ;    // [long  ,    8] ¸Åµµ¼ö·®                        StartPos 23, Length 8
+    char    msvalue             [  12];    char    _msvalue             ;    // [long  ,   12] ¸Å¼ö±İ¾×                        StartPos 32, Length 12
+    char    mdvalue             [  12];    char    _mdvalue             ;    // [long  ,   12] ¸Åµµ±İ¾×                        StartPos 45, Length 12
+    char    svolume             [   8];    char    _svolume             ;    // [long  ,    8] ¼ø¸Å¼ö¼ö·®                      StartPos 58, Length 8
+    char    svalue              [  12];    char    _svalue              ;    // [long  ,   12] ¼ø¸Å¼ö±İ¾×                      StartPos 67, Length 12
 } t1603OutBlock1, *LPt1603OutBlock1;
 #define NAME_t1603OutBlock1     "t1603OutBlock1"
 
