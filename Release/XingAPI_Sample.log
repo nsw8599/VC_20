@@ -1,0 +1,71 @@
+﻿  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  ChildFrm.cpp
+  ChildView.cpp
+  Coh0.cpp
+  Ct2830.cpp
+  DlgExcludeItem.cpp
+  DlgLogin.cpp
+  DlgTRBar.cpp
+  Dlg_BMT.cpp
+  Dlg_BM_.cpp
+  Dlg_CCEAT00100.cpp
+  Dlg_CCEAT00200.cpp
+  Dlg_CCEAT00300.cpp
+  Dlg_CEXAQ21200.cpp
+  Dlg_CFOAQ00600.cpp
+  Dlg_CFOAQ10100.cpp
+  Dlg_CFOAT00100.cpp
+  Dlg_CFOAT00200.cpp
+  Dlg_CFOAT00300.cpp
+  Dlg_CFOFQ02400.cpp
+  Dlg_CHART.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Dlg_CSPAQ02200.cpp
+  Dlg_CSPAQ02300.cpp
+  Dlg_CSPAQ03700.cpp
+  Dlg_CSPAT00600.cpp
+  Dlg_CSPAT00700.cpp
+  Dlg_CSPAT00800.cpp
+  Dlg_CSPBQ00200.cpp
+  Dlg_EH0.cpp
+  Dlg_FC0.cpp
+  Dlg_FH0.cpp
+  Dlg_FH1.cpp
+  Dlg_H1_.cpp
+  Dlg_H2_.cpp
+  Dlg_h2_ELW.cpp
+  Dlg_h3_ELW.cpp
+  Dlg_JC0.cpp
+  Dlg_JEKYLL.cpp
+  Dlg_night.cpp
+  Dlg_OC0.cpp
+  Dlg_OH0.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Dlg_OH1.cpp
+  Dlg_SC0.cpp
+  Dlg_SC1.cpp
+  Dlg_SC2.cpp
+  Dlg_SC3.cpp
+  Dlg_SC4.cpp
+  Dlg_t1101.cpp
+  Dlg_t1301.cpp
+  Dlg_t1305.cpp
+  Dlg_t1452.cpp
+  Dlg_t1601.cpp
+  Dlg_t1602.cpp
+  Dlg_t8415.cpp
+  Dlg_t9942.cpp
+  Dlg_t9943.cpp
+  Dlg_t9944.cpp
+  MainFrm.cpp
+  scbarg.cpp
+  sizecbar.cpp
+  TRBar.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  XingAPI_Sample.cpp
+  코드를 생성하고 있습니다...
+  XingAPI_Sample.vcxproj -> C:\Users\nsw85\OneDrive\문서\source\VC_20\Release\XingAPI_Sample.exe
