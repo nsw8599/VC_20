@@ -10792,8 +10792,8 @@ void CDlg_JEKYLL::BuyOption4()// 원하는 선물가격이 되었을경우 BuyOp
         pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
         float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
         pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
+        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
         pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 
         KillTimer(10);
@@ -10821,7 +10821,7 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit11() //볼린저밴드 중심선 터치
 }
 
 
-void CDlg_JEKYLL::BuyOption5()// 원하는 선물가격이 되었을경우 BuyOption5 가동 - 60m 터치
+void CDlg_JEKYLL::BuyOption5()// 원하는 선물가격이 되었을경우 BuyOption5 가동 - 60m 터치 / 5%수익 설정, 매수량 3%, 매수간격 0.02
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CString str1, str2;
@@ -10836,8 +10836,8 @@ void CDlg_JEKYLL::BuyOption5()// 원하는 선물가격이 되었을경우 BuyOp
         pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
         float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
         pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
+        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
         pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 
         KillTimer(13);
@@ -10883,8 +10883,8 @@ void CDlg_JEKYLL::BuyOption3()// 원하는 선물가격이 되었을경우 BuyOp
 		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
 		float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
 		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
+		pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
+		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
 		pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
 		KillTimer(12);
 		Sleep(1000);
