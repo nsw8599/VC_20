@@ -81,6 +81,8 @@ protected:
 	void				Receive600P(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
 	void				Receive600_(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 현재가로 매수정정
 	void				Receive100(LPRECV_PACKET pRpData);// 선옵 정상주문
+    void				Receive200(LPRECV_PACKET pRpData);// 선옵 정상주문
+    void				Receive300(LPRECV_PACKET pRpData);// 선옵 정상주문
 	void				Receive8415(LPRECV_PACKET pRpData);// 선물차트(n분)
     void				Receive8415Y(LPRECV_PACKET pRpData);// 선물차트(n분)
 	void				Receive84152(LPRECV_PACKET pRpData);// 옵션차트(n분)
@@ -148,6 +150,7 @@ protected:
 	void				ExportToCSVFile(const CListCtrl *plistctrlContent, BOOL bIncludeHeaderNames = TRUE, char cDelimiter = ',');
 	void				ExportToCSVFile();
 	void				UpdateCheckedCount(int nCheckBoxID);
+    CString             FormatNumberWithComma(long number);
 
 	afx_msg	LRESULT		OnXMReceiveData(WPARAM wParam, LPARAM lParam);
 	afx_msg	LRESULT		OnXMTimeoutData(WPARAM wParam, LPARAM lParam);
@@ -382,6 +385,8 @@ public:
     CStatic m_avrprc32;
 	CStatic m_curvalue;
     CStatic m_curvalue2;
+    CStatic m_curvalue3;
+    CStatic m_curvalue5;
     CStatic m_curvalue21;
     CStatic m_curvalue22;
 	CStatic m_curvalue4;

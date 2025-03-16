@@ -37,6 +37,7 @@
 #include <thread>
 #include <random>
 #include <chrono>
+#include <afx.h>  
 
 using namespace std;
 
@@ -99,6 +100,8 @@ void CDlg_JEKYLL::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_AVRPRC31, m_avrprc31);
     DDX_Control(pDX, IDC_AVRPRC32, m_avrprc32);
 	DDX_Control(pDX, IDC_CURVALUE, m_curvalue);
+    DDX_Control(pDX, IDC_CURVALUE3, m_curvalue3);
+    DDX_Control(pDX, IDC_CURVALUE5, m_curvalue5);
     DDX_Control(pDX, IDC_CURVALUE2, m_curvalue2);
     DDX_Control(pDX, IDC_CURVALUE21, m_curvalue21);
     DDX_Control(pDX, IDC_CURVALUE22, m_curvalue22);
@@ -1730,13 +1733,31 @@ void CDlg_JEKYLL::Request100_(CString code, CString bns, float prc, int qty, BOO
 	{
 		if (bns == "2")
 		{
-			if (code == CallCode[i])	lCallQty[i] += (long)qty;
-			if (code == PutCode[i])		lPutQty[i] += (long)qty;
+            if (code == CallCode[i])
+            {
+                fCallAvrPrc[i] = (float)((fCallAvrPrc[i] * lCallQty[i] + prc * qty) / (lCallQty[i] + qty));
+                lBalance -= ((long)(prc * 250000.0f) * qty);
+                lCallQty[i] += (long)qty;
+            }
+            if (code == PutCode[i])
+            {
+                fPutAvrPrc[i] = (float)((fPutAvrPrc[i] * lPutQty[i] + prc * qty) / (lPutQty[i] + qty));
+                lBalance -= ((long)(prc * 250000.0f) * qty);
+                lPutQty[i] += (long)qty;
+            }
 		}
 		if (bns == "1")
 		{
-			if (code == CallCode[i])	lCallQty[i] -= (long)qty;
-			if (code == PutCode[i])		lPutQty[i] -= (long)qty;
+            if (code == CallCode[i])
+            {
+                lBalance += ((long)(prc * 250000.0f) * qty);
+                lCallQty[i] -= (long)qty;
+            }
+            if (code == PutCode[i])
+            {
+                lBalance += ((long)(prc * 250000.0f) * qty);
+                lPutQty[i] -= (long)qty;
+            }
 		}
 	}
 	/*if (bNext == FALSE)
@@ -3167,6 +3188,10 @@ LRESULT CDlg_JEKYLL::OnXMReceiveData(WPARAM wParam, LPARAM lParam)
 			Receive600_(pRpData);
 		if (pRpData->nRqID == ID100)//매수매도
 			Receive100(pRpData);
+        if (pRpData->nRqID == ID200)//매수매도
+            Receive200(pRpData);
+        if (pRpData->nRqID == ID300)//매수매도
+            Receive300(pRpData);
 		if (pRpData->nRqID == ID8415)//차트(n분)
 			Receive8415(pRpData);
         if (pRpData->nRqID == ID8415Y)//차트(n분)
@@ -3347,7 +3372,7 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	LPCFOFQ02400OutBlock2 pOutBlock24002 = (LPCFOFQ02400OutBlock2)(lpData + nOffset);
 	nOffset += nBlockSize;
 
-	CString str1, str2, str3, str4;
+	CString str1, str2, str3, str4, str5, str6;
 	str1 = GetDispData(pOutBlock24002->CalloptCtrctAmt, sizeof(pOutBlock24002->CalloptCtrctAmt), DATA_TYPE_LONG);		// 콜계약금액
 	str2 = GetDispData(pOutBlock24002->PutoptCtrctAmt, sizeof(pOutBlock24002->PutoptCtrctAmt), DATA_TYPE_LONG);			// 풋계약금액
 	//str1 = GetDispData(pOutBlock24002->CallBuyAmt, sizeof(pOutBlock24002->CallBuyAmt), DATA_TYPE_LONG);	// 콜매수금액 
@@ -3355,6 +3380,8 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	//str3 = GetDispData(pOutBlock24002->PutBuyAmt, sizeof(pOutBlock24002->PutBuyAmt), DATA_TYPE_LONG);		// 풋매수금액 
 	//str4 = GetDispData(pOutBlock24002->PutSellAmt, sizeof(pOutBlock24002->PutSellAmt), DATA_TYPE_LONG);	// 풋매도금액 
 	str3 = GetDispData(pOutBlock24002->OptPnlSum, sizeof(pOutBlock24002->OptPnlSum), DATA_TYPE_LONG);					// 현재 순이익
+    str5 = GetDispData(pOutBlock24002->AllCtrctAmt, sizeof(pOutBlock24002->AllCtrctAmt), DATA_TYPE_LONG);		// 전체약정금액 
+    str6 = GetDispData(pOutBlock24002->AllPnlSum, sizeof(pOutBlock24002->AllPnlSum), DATA_TYPE_LONG);			// 전체손익합계 
 		
 	//lCallAvrPrc = atol(str1) + atol(str2);
 	//lPutAvrPrc = atol(str3) + atol(str4);
@@ -3362,9 +3389,15 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	lCallAvrPrc = atol(str1);							// 콜계약금액
 	lPutAvrPrc = atol(str2);							// 풋계약금액
 
+    str1.Format("%d", lCallAvrPrc / 10000);
+    str2.Format("%d", lPutAvrPrc / 10000);
 	m_curvalue.SetWindowTextA(str1);					// 콜계약금액 표시
 	m_curvaluef.SetWindowTextA(str2);					// 풋계약금액 표시
 	//m_curvalue4.SetWindowTextA(str3);					// 순이익 표시
+    str5 = FormatNumberWithComma(atol(str5));
+    str6 = FormatNumberWithComma(atol(str6));
+    m_curvalue3.SetWindowTextA(str5); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
+    m_curvalue5.SetWindowTextA(str6); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
 
 
 	// OutBlock3
@@ -3385,7 +3418,7 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	LPCFOFQ02400OutBlock3 pOutBlock24003 = (LPCFOFQ02400OutBlock3)(lpData + nOffset);
 	nOffset += nBlockSize;
 
-	CString str5, str6, str7, str8;
+	CString str7, str8;
 	//str5 = GetDispData(pOutBlock24003[0].CallBuyQty, sizeof(pOutBlock24003[0].CallBuyQty), DATA_TYPE_LONG); // 콜매수수량
 	//str6 = GetDispData(pOutBlock24003[0].CallSellQty, sizeof(pOutBlock24003[0].CallSellQty), DATA_TYPE_LONG);  // 콜매도수량
 	//str7 = GetDispData(pOutBlock24003[0].PutBuyQty, sizeof(pOutBlock24003[0].PutBuyQty), DATA_TYPE_LONG);  // 풋매수수량
@@ -4923,6 +4956,48 @@ void CDlg_JEKYLL::Receive100(LPRECV_PACKET pRpData)
 	//m_lst100.SetItemText(nRow, nCol++, GetDispData(pAllOutBlock->outBlock2.OrdAbleQty, sizeof(pAllOutBlock->outBlock2.OrdAbleQty), DATA_TYPE_LONG));    // 주문가능수량    
 }
 
+void CDlg_JEKYLL::Receive200(LPRECV_PACKET pRpData)
+{
+    typedef struct
+    {
+        CFOAT00200OutBlock1	outBlock1;
+        CFOAT00200OutBlock2	outBlock2;
+    } CFOAT00200AllOutBlock, * LPCFOAT00200AllOutBlock;
+
+    LPCFOAT00200AllOutBlock pAllOutBlock = (LPCFOAT00200AllOutBlock)pRpData->lpData;
+    int						nDataLength = pRpData->nDataLength;
+    //int						nCol;
+
+    //------------------------------------------------
+    // OutBlock1
+    nDataLength -= sizeof(CFOAT00200OutBlock1);
+    if (nDataLength < 0)		return;
+
+    Request2400();
+ 
+}
+
+void CDlg_JEKYLL::Receive300(LPRECV_PACKET pRpData)
+{
+    typedef struct
+    {
+        CFOAT00300OutBlock1	outBlock1;
+        CFOAT00300OutBlock2	outBlock2;
+    } CFOAT00300AllOutBlock, * LPCFOAT00300AllOutBlock;
+
+    LPCFOAT00300AllOutBlock pAllOutBlock = (LPCFOAT00300AllOutBlock)pRpData->lpData;
+    int						nDataLength = pRpData->nDataLength;
+    //int						nCol;
+
+    //------------------------------------------------
+    // OutBlock1
+    nDataLength -= sizeof(CFOAT00300OutBlock1);
+    if (nDataLength < 0)		return;
+
+    Request2400();
+
+}
+
 void CDlg_JEKYLL::Receive8415(LPRECV_PACKET pRpData) //선물옵션차트(n분) header A type
 {
 	CString shcode;
@@ -6456,20 +6531,20 @@ void CDlg_JEKYLL::GetData()
 		KillTimer(17);//BuyOption1();
 	}
 
-	if (bCheckOption)	// **************************************************************************************************************************************** 풋	
-	{
-		int isun = (int)(250000.0f*(fPho9*lPutQty[0] + fP2ho9 * lPutQty[1] + fP3ho9 * lPutQty[2]));
-		str.Format("%d", isun);
-		m_curvaluef4.SetWindowTextA(str);					// 현재보유옵션평가금액 표시
-		//if (isun > 210000000 && isun < 400000000) OnBnClickedButtonprofit4();
-	}
-	else				// **************************************************************************************************************************************** 콜
-	{
-		int isun = (int)(250000.0f*(fCho9*lCallQty[0] + fC2ho9 * lCallQty[1] + fC3ho9 * lCallQty[2]));
-		str.Format("%d", isun);
-		m_curvalue4.SetWindowTextA(str);					// 현재보유옵션평가금액 표시
-		if (isun > 210000000 && isun < 400000000) OnBnClickedButtonprofit4();
-	}
+	//if (bCheckOption)	// **************************************************************************************************************************************** 풋	
+	//{
+	//	int isun = (int)(250000.0f*(fPho9*lPutQty[0] + fP2ho9 * lPutQty[1] + fP3ho9 * lPutQty[2]));
+	//	str.Format("%d", isun / 10000);
+	//	m_curvaluef4.SetWindowTextA(str);					// 현재보유옵션평가금액 표시
+	//	//if (isun > 210000000 && isun < 400000000) OnBnClickedButtonprofit4(); //SellNow
+	//}
+	//else				// **************************************************************************************************************************************** 콜
+	//{
+	//	int isun = (int)(250000.0f*(fCho9*lCallQty[0] + fC2ho9 * lCallQty[1] + fC3ho9 * lCallQty[2]));
+	//	str.Format("%d", isun / 10000);
+	//	m_curvalue4.SetWindowTextA(str);					// 현재보유옵션평가금액 표시
+	//	//if (isun > 210000000 && isun < 400000000) OnBnClickedButtonprofit4(); //SellNow
+	//}
 
 
 	// 현재가가 시초가의 40% 미만일때 (기존 물량 청산) 및 매수(이익은 시초가의 20%로 한정) *********************************************************************** (자동 매입)
@@ -7508,7 +7583,10 @@ void CDlg_JEKYLL::DispAccnt()//계좌디스플레이
     (fPutAvrPrc[2] > 0) ? m_avrprc32f.SetWindowTextA(str6) : m_avrprc32f.SetWindowTextA("-");
 
 	//구입금액(콜/풋)
-	str7.Format("%d", lCallAvrPrc); str8.Format("%d", lPutAvrPrc);
+	//str7.Format("%d", lCallAvrPrc); 
+    //str8.Format("%d", lPutAvrPrc);
+    str7 = FormatNumberWithComma(lCallAvrPrc);
+    str8 = FormatNumberWithComma(lPutAvrPrc);
 	m_avrprc.SetWindowTextA(str7);
 	m_avrprcf.SetWindowTextA(str8);
 	
@@ -7516,23 +7594,35 @@ void CDlg_JEKYLL::DispAccnt()//계좌디스플레이
 	long lCurValue1 = (lCallQty[0] * (long)(250000 * fCho9));
 	lCurValue1 += (lCallQty[1] * (long)(250000 * fC2ho9));
 	lCurValue1 += (lCallQty[2] * (long)(250000 * fC3ho9));
+
+    long lCurValue_1 = (lCallQty[0] * (long)(250000 * fCallAvrPrc[0]));
+    lCurValue_1 += (lCallQty[1] * (long)(250000 * fCallAvrPrc[1]));
+    lCurValue_1 += (lCallQty[2] * (long)(250000 * fCallAvrPrc[2]));
+
 	//str9.Format("%d", lCurValue1);
 	//m_curvalue.SetWindowTextA(str9);					// 보유한 콜옵션 현재 평가금액
 	long lCurValue2 = (lPutQty[0] * (long)(250000 * fPho9));
 	lCurValue2 += (lPutQty[1] * (long)(250000 * fP2ho9));
 	lCurValue2 += (lPutQty[2] * (long)(250000 * fP3ho9));
+
+    long lCurValue_2 = (lPutQty[0] * (long)(250000 * fPutAvrPrc[0]));
+    lCurValue_2 += (lPutQty[1] * (long)(250000 * fPutAvrPrc[1]));
+    lCurValue_2 += (lPutQty[2] * (long)(250000 * fPutAvrPrc[2]));
+
 	//str10.Format("%d", lCurValue2);
 	//m_curvaluef.SetWindowTextA(str10);					// 보유한 풋옵션 현재 평가금액
 
+    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+
 	CString disp, disp2;								// 보유한 각 옵션 순이익 및 손실
-	if (lCallQty[0] > 0)		disp.Format("%d", lCurValue1 - lCallAvrPrc);
-	else		disp.Format("%d", lCallAvrPrc + lCurValue1);
+	if (lCallQty[0] > 0)		disp.Format("%d", (lCurValue1 - lCurValue_1) / 10000);
+	else		disp.Format("%d", (lCurValue1 + lCurValue_1) / 10000);
 
-	if (lPutQty[0] > 0)			disp2.Format("%d", lCurValue2 - lPutAvrPrc);
-	else		disp2.Format("%d", lPutAvrPrc + lCurValue2);
+	if (lPutQty[0] > 0)			disp2.Format("%d", (lCurValue2 - lCurValue_2) / 10000);
+	else		disp2.Format("%d", (lCurValue2 + lCurValue_2) / 10000);
 
-	//m_curvalue4.SetWindowTextA(disp);
-	//m_curvaluef4.SetWindowTextA(disp2);
+	if (!bOption) m_curvalue4.SetWindowTextA(disp);
+	else m_curvaluef4.SetWindowTextA(disp2);
 
 	return;
 }
@@ -10302,7 +10392,7 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit2()
 	}
 	nSellOption = 1;
 	bSetPrice = TRUE;
-	SetTimer(18, 1000, NULL); //BuyOption0/7 함수호출(매수잔량 감추기)
+	SetTimer(18, 1000, NULL); //BuyOption0 사용 /BuyOption0/7 함수호출(매수잔량 감추기)
 	//SetSell();
 	m_tauto.SetWindowTextA("Running");
 
@@ -12348,4 +12438,24 @@ void CDlg_JEKYLL::OnDeltaposSpin37(NMHDR* pNMHDR, LRESULT* pResult)
     pEdit1 = NULL;
 
     *pResult = 0;
+}
+
+CString CDlg_JEKYLL::FormatNumberWithComma(long number) {
+    CString result;
+    CString numStr;
+
+    // Convert number to string
+    numStr.Format("%d", number);
+
+    int len = numStr.GetLength();
+    int commaCount = 0;
+
+    // Traverse the string from the end to insert commas
+    for (int i = len - 3; i > 0; i -= 3) {
+        numStr.Insert(i, ",");
+        commaCount++;
+    }
+
+    result = numStr;
+    return result;
 }

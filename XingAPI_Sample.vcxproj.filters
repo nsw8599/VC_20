@@ -42,9 +42,6 @@
     <ClCompile Include="ChildView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DlgExcludeItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DlgTRBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -177,49 +174,10 @@
     <ClCompile Include="Dlg_CCEAT00300.cpp">
       <Filter>TR\선물 CME</Filter>
     </ClCompile>
-    <ClCompile Include="Dlg_FH1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_FH0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_OH0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_t8415.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_OC0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_CFOAQ10100.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_CEXAQ21200.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_t1602.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ct2830.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Coh0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Dlg_night.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dlg_JEKYLL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_EH0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_CHART.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dlg_OH1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,9 +191,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ChildView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DlgExcludeItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DlgTRBar.h">
@@ -376,49 +331,10 @@
     <ClInclude Include="Dlg_CCEAT00300.h">
       <Filter>TR\선물 CME</Filter>
     </ClInclude>
-    <ClInclude Include="Dlg_FH0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_FH1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_OH0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_t8415.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_OC0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_CFOAQ10100.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_CEXAQ21200.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_t1602.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ct2830.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coh0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Dlg_night.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dlg_JEKYLL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_EH0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_CHART.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dlg_OH1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

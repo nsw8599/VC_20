@@ -9,78 +9,78 @@
 
 #include "Dlg_JEKYLL.h"				// 종합조회
 // 주식
-#include "Dlg_t1101.h"				// 주식현재가호가조회
-#include "Dlg_t1301.h"				// 주식시간대별체결조회
-#include "Dlg_t1305.h"				// 기간별주가
-#include "Dlg_t1452.h"				// 거래량상위
-
-#include "Dlg_H1_.h"
-#include "Dlg_H2_.h"
-#include "Dlg_h3_ELW.h"
-#include "Dlg_h2_ELW.h"
-
-#include "Dlg_CSPAT00600.h"			// 현물정상주문
-#include "Dlg_CSPAT00700.h"			// 현물정정주문
-#include "Dlg_CSPAT00800.h"			// 현물취소주문
-
-#include "Dlg_SC0.h"				// 주식주문접수
-#include "Dlg_SC1.h"				// 주식주문체결
-#include "Dlg_SC2.h"				// 주식주문정정
-#include "Dlg_SC3.h"				// 주식주문취소
-#include "Dlg_SC4.h"				// 주식주문거부
-
-#include "Dlg_CSPAQ03700.h"			// 현물계좌 주문체결내역 조회
-#include "Dlg_CSPAQ02300.h"			// 현물계좌 잔고내역 조회
-#include "Dlg_CSPAQ02200.h"			// 현물계좌 예수금/주문가능금액/총평가 조회
-#include "Dlg_CSPBQ00200.h"			// 현물계좌 증거금률별 주문가능수량 조회
+//#include "Dlg_t1101.h"				// 주식현재가호가조회
+//#include "Dlg_t1301.h"				// 주식시간대별체결조회
+//#include "Dlg_t1305.h"				// 기간별주가
+//#include "Dlg_t1452.h"				// 거래량상위
+//
+//#include "Dlg_H1_.h"
+//#include "Dlg_H2_.h"
+//#include "Dlg_h3_ELW.h"
+//#include "Dlg_h2_ELW.h"
+//
+//#include "Dlg_CSPAT00600.h"			// 현물정상주문
+//#include "Dlg_CSPAT00700.h"			// 현물정정주문
+//#include "Dlg_CSPAT00800.h"			// 현물취소주문
+//
+//#include "Dlg_SC0.h"				// 주식주문접수
+//#include "Dlg_SC1.h"				// 주식주문체결
+//#include "Dlg_SC2.h"				// 주식주문정정
+//#include "Dlg_SC3.h"				// 주식주문취소
+//#include "Dlg_SC4.h"				// 주식주문거부
+//
+//#include "Dlg_CSPAQ03700.h"			// 현물계좌 주문체결내역 조회
+//#include "Dlg_CSPAQ02300.h"			// 현물계좌 잔고내역 조회
+//#include "Dlg_CSPAQ02200.h"			// 현물계좌 예수금/주문가능금액/총평가 조회
+//#include "Dlg_CSPBQ00200.h"			// 현물계좌 증거금률별 주문가능수량 조회
 
 // 선물옵션
-#include "Dlg_FC0.h"				// 선물체결
-#include "Dlg_FH0.h"				// 선물호가
-#include "Dlg_OC0.h"				// 옵션체결
-#include "Dlg_OH0.h"				// 옵션호가
-#include "Dlg_OH1.h"				// 옵션호가2
-#include "Dlg_EH0.h"				// 옵션호가(야간)
-#include "Dlg_t8415.h"              // 선물/옵션차트
-
-#include "Dlg_CFOAT00100.h"			// 선물옵션 정상주문
-#include "Dlg_CFOAT00200.h"			// 선물옵션 정정주문
-#include "Dlg_CFOAT00300.h"			// 선물옵션 취소주문
-
-#include "Dlg_CFOAQ00600.h"			// 선물옵션 계좌주문체결내역 조회
-#include "Dlg_CFOFQ02400.h"			// 선물옵션 미결제약정현황
-#include "Dlg_CFOAQ10100.h"			// 선물옵션 주문가능수량
-#include "Dlg_CEXAQ21200.h"			// 유렉스 주문가능수량
+//#include "Dlg_FC0.h"				// 선물체결
+//#include "Dlg_FH0.h"				// 선물호가
+//#include "Dlg_OC0.h"				// 옵션체결
+//#include "Dlg_OH0.h"				// 옵션호가
+//#include "Dlg_OH1.h"				// 옵션호가2
+//#include "Dlg_EH0.h"				// 옵션호가(야간)
+//#include "Dlg_t8415.h"              // 선물/옵션차트
+//
+//#include "Dlg_CFOAT00100.h"			// 선물옵션 정상주문
+//#include "Dlg_CFOAT00200.h"			// 선물옵션 정정주문
+//#include "Dlg_CFOAT00300.h"			// 선물옵션 취소주문
+//
+//#include "Dlg_CFOAQ00600.h"			// 선물옵션 계좌주문체결내역 조회
+//#include "Dlg_CFOFQ02400.h"			// 선물옵션 미결제약정현황
+//#include "Dlg_CFOAQ10100.h"			// 선물옵션 주문가능수량
+//#include "Dlg_CEXAQ21200.h"			// 유렉스 주문가능수량
 #include "Dlg_night.h"				// 유렉스 시세조회
 
 
 
 // 선물 CME
-#include "Dlg_CCEAT00100.h"			// 선물 CME 정상주문
-#include "Dlg_CCEAT00200.h"			// 선물 CME 정상주문
-#include "Dlg_CCEAT00300.h"			// 선물 CME 취소주문
-
-// 주식선물
-#include "Dlg_JC0.h"
-
-// 투자자별
-#include "Dlg_t1601.h"				// 투자자별종합
-#include "Dlg_t1602.h"				// 투자자매매추이 상세
-
-#include "Dlg_BMT.h"
-#include "Dlg_BM_.h"
-
-// 기타
-#include "Dlg_t9942.h"				// API용 ELW 마스터조회
-#include "Dlg_t9943.h"				// API용 지수선물 마스터조회
+//#include "Dlg_CCEAT00100.h"			// 선물 CME 정상주문
+//#include "Dlg_CCEAT00200.h"			// 선물 CME 정상주문
+//#include "Dlg_CCEAT00300.h"			// 선물 CME 취소주문
+//
+//// 주식선물
+//#include "Dlg_JC0.h"
+//
+//// 투자자별
+//#include "Dlg_t1601.h"				// 투자자별종합
+//#include "Dlg_t1602.h"				// 투자자매매추이 상세
+//
+//#include "Dlg_BMT.h"
+//#include "Dlg_BM_.h"
+//
+//// 기타
+//#include "Dlg_t9942.h"				// API용 ELW 마스터조회
+//#include "Dlg_t9943.h"				// API용 지수선물 마스터조회
 
 static TR_WINDOW_TABLE s_tblTrWindow[] = 
 {
 	//---------------------------------------------------------------------------------------------
 	// 주식/ELW 시세
-	{ "선물/옵션" , "시세", "조회TR",   "t2105"     , RUNTIME_CLASS(CDlg_t1101     ), IDD_t1101     , "옵션 현재가조회(t2105)" },
-	{ "유렉스" , "시세", "조회TR",   "t2830"     , RUNTIME_CLASS(CDlg_night	), IDD_night     , "유렉스 시세조회(t2830)" },
-	{ "유렉스", "옵션시세", "실시간TR", "EH0"       , RUNTIME_CLASS(CDlg_EH0),	IDD_EH0      , "야간옵션체결" },
+	//{ "선물/옵션" , "시세", "조회TR",   "t2105"     , RUNTIME_CLASS(CDlg_t1101     ), IDD_t1101     , "옵션 현재가조회(t2105)" },
+	//{ "유렉스" , "시세", "조회TR",   "t2830"     , RUNTIME_CLASS(CDlg_night	), IDD_night     , "유렉스 시세조회(t2830)" },
+	//{ "유렉스", "옵션시세", "실시간TR", "EH0"       , RUNTIME_CLASS(CDlg_EH0),	IDD_EH0      , "야간옵션체결" },
  	/*{ "주식/ELW" , "시세", "조회TR",   "t1301"     , RUNTIME_CLASS(CDlg_t1301     ), IDD_t1301     , "주식시간대별체결조회(t1301)" },
  	{ "주식/ELW" , "시세", "조회TR",   "t1305"     , RUNTIME_CLASS(CDlg_t1305     ), IDD_t1305     , "기간별주가(t1305)" },
  	{ "주식/ELW" , "시세", "조회TR",   "t1452"     , RUNTIME_CLASS(CDlg_t1452     ), IDD_t1452     , "거래량상위(t1452)" },
@@ -114,11 +114,11 @@ static TR_WINDOW_TABLE s_tblTrWindow[] =
 
 	//---------------------------------------------------------------------------------------------
 	// 선물/옵션 시세
-	{ "선물/옵션", "시세", "실시간TR", "FC0"       , RUNTIME_CLASS(CDlg_FC0       ), IDD_FC0       , "선물체결" },
+	/*{ "선물/옵션", "시세", "실시간TR", "FC0"       , RUNTIME_CLASS(CDlg_FC0       ), IDD_FC0       , "선물체결" },
 	{ "선물/옵션", "시세", "실시간TR", "FH0"       , RUNTIME_CLASS(CDlg_FH0		),	IDD_FH0      , "선물호가" },
 	{ "선물/옵션", "시세", "실시간TR", "OC0"       , RUNTIME_CLASS(CDlg_OC0		),	IDD_OC0      , "옵션체결" },
 	{ "선물/옵션", "시세", "실시간TR", "OH0"       , RUNTIME_CLASS(CDlg_OH0		),	IDD_OH0      , "옵션호가" },
-	{ "선물/옵션", "시세", "실시간TR", "OH1"       , RUNTIME_CLASS(CDlg_OH1		),	IDD_OH1      , "옵션호가" },
+	{ "선물/옵션", "시세", "실시간TR", "OH1"       , RUNTIME_CLASS(CDlg_OH1		),	IDD_OH1      , "옵션호가" },*/
 	
 	//---------------------------------------------------------------------------------------------
 	// 선물/옵션 주문
@@ -131,7 +131,7 @@ static TR_WINDOW_TABLE s_tblTrWindow[] =
 	// 선물/옵션 계좌
 	//{ "선물/옵션", "계좌", "조회TR"  , "CFOAQ00600", RUNTIME_CLASS(CDlg_CFOAQ00600), IDD_CFOAQ00600, "선물옵션 계좌주문체결내역 조회" },
 	//{ "선물/옵션", "계좌", "조회TR"  , "CFOFQ02400", RUNTIME_CLASS(CDlg_CFOFQ02400), IDD_CFOFQ02400, "선물옵션 미결제약정현황" },
-	{ "선물/옵션", "계좌", "조회TR"  , "CFOAQ10100", RUNTIME_CLASS(CDlg_CFOAQ10100), IDD_CFOAQ10100, "선물옵션 주문가능수량" },
+	//{ "선물/옵션", "계좌", "조회TR"  , "CFOAQ10100", RUNTIME_CLASS(CDlg_CFOAQ10100), IDD_CFOAQ10100, "선물옵션 주문가능수량" },
 	//{ "선물/옵션", "계좌", "조회TR"  , "CEXAQ21200", RUNTIME_CLASS(CDlg_CEXAQ21200), IDD_CEXAQ21200, "유렉스 주문가능수량" },
 	//---------------------------------------------------------------------------------------------
 	
@@ -153,8 +153,8 @@ static TR_WINDOW_TABLE s_tblTrWindow[] =
 	
 	//---------------------------------------------------------------------------------------------*/
 	// 투자자
-	{ "투자자", "", "조회TR", "t1601", RUNTIME_CLASS(CDlg_t1601), IDD_t1601, "투자자별종합" },
-	{ "투자자", "", "조회TR", "t1602", RUNTIME_CLASS(CDlg_t1602), IDD_t1602, "투자자별매매추이상세" },
+	//{ "투자자", "", "조회TR", "t1601", RUNTIME_CLASS(CDlg_t1601), IDD_t1601, "투자자별종합" },
+	//{ "투자자", "", "조회TR", "t1602", RUNTIME_CLASS(CDlg_t1602), IDD_t1602, "투자자별매매추이상세" },
 	/*	{ "투자자", "", "실시간TR", "BMT"  , RUNTIME_CLASS(CDlg_BMT), IDD_BMT, "시간대별 투자자매매추이" },
 	{ "투자자", "", "실시간TR", "BM_"  , RUNTIME_CLASS(CDlg_BM_), IDD_BM_, "투자자별 투자자별 매매현황" },
 	//---------------------------------------------------------------------------------------------
@@ -169,7 +169,7 @@ static TR_WINDOW_TABLE s_tblTrWindow[] =
 
 	//---------------------------------------------------------------------------------------------*/
 	// 차트
-	{ "선물/옵션", "차트", "조회TR", "t8415"       , RUNTIME_CLASS(CDlg_t8415		),	IDD_t8415      , "옵션차트" },
+	//{ "선물/옵션", "차트", "조회TR", "t8415"       , RUNTIME_CLASS(CDlg_t8415		),	IDD_t8415      , "옵션차트" },
 	//---------------------------------------------------------------------------------------------
 	/*
 	//---------------------------------------------------------------------------------------------
