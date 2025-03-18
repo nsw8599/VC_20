@@ -344,6 +344,9 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC8); str.Format("%d", 30); pEdit3->SetWindowText(str);// 기준가격을 해당 %로 낮춤
 	pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC14); str.Format("%d", 50); pEdit3->SetWindowText(str);//공통 이익률 %
 
+    //pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC15); str.Format("%.2f", 353.00); pEdit3->SetWindowText(str);// 저항치
+    //pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC5); str.Format("%.2f", 343.00); pEdit3->SetWindowText(str);// 지지치
+
 	bToken = FALSE;//옵션전광판 콜/풋코드를 받은뒤 bToken값을 1로 변경(코드 유지)
 	bAutoToken = TRUE; //자동옵션매수 설정 on/off 볼린저밴드상하단 1포인트 이상 초과시
 	bCall = TRUE, bPut = TRUE;
@@ -3372,32 +3375,32 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	LPCFOFQ02400OutBlock2 pOutBlock24002 = (LPCFOFQ02400OutBlock2)(lpData + nOffset);
 	nOffset += nBlockSize;
 
-	CString str1, str2, str3, str4, str5, str6;
-	str1 = GetDispData(pOutBlock24002->CalloptCtrctAmt, sizeof(pOutBlock24002->CalloptCtrctAmt), DATA_TYPE_LONG);		// 콜계약금액
-	str2 = GetDispData(pOutBlock24002->PutoptCtrctAmt, sizeof(pOutBlock24002->PutoptCtrctAmt), DATA_TYPE_LONG);			// 풋계약금액
-	//str1 = GetDispData(pOutBlock24002->CallBuyAmt, sizeof(pOutBlock24002->CallBuyAmt), DATA_TYPE_LONG);	// 콜매수금액 
-	//str2 = GetDispData(pOutBlock24002->CallSellAmt, sizeof(pOutBlock24002->CallSellAmt), DATA_TYPE_LONG);	// 콜매도금액 
-	//str3 = GetDispData(pOutBlock24002->PutBuyAmt, sizeof(pOutBlock24002->PutBuyAmt), DATA_TYPE_LONG);		// 풋매수금액 
-	//str4 = GetDispData(pOutBlock24002->PutSellAmt, sizeof(pOutBlock24002->PutSellAmt), DATA_TYPE_LONG);	// 풋매도금액 
-	str3 = GetDispData(pOutBlock24002->OptPnlSum, sizeof(pOutBlock24002->OptPnlSum), DATA_TYPE_LONG);					// 현재 순이익
-    str5 = GetDispData(pOutBlock24002->AllCtrctAmt, sizeof(pOutBlock24002->AllCtrctAmt), DATA_TYPE_LONG);		// 전체약정금액 
-    str6 = GetDispData(pOutBlock24002->AllPnlSum, sizeof(pOutBlock24002->AllPnlSum), DATA_TYPE_LONG);			// 전체손익합계 
+	CString str1, str2, str3, str4, str11, str22;
+	//str1 = GetDispData(pOutBlock24002->CalloptCtrctAmt, sizeof(pOutBlock24002->CalloptCtrctAmt), DATA_TYPE_LONG);		// 콜계약금액
+	//str2 = GetDispData(pOutBlock24002->PutoptCtrctAmt, sizeof(pOutBlock24002->PutoptCtrctAmt), DATA_TYPE_LONG);			// 풋계약금액
+	str1 = GetDispData(pOutBlock24002->CallBuyAmt, sizeof(pOutBlock24002->CallBuyAmt), DATA_TYPE_LONG);	// 콜매수금액 
+	str2 = GetDispData(pOutBlock24002->CallSellAmt, sizeof(pOutBlock24002->CallSellAmt), DATA_TYPE_LONG);	// 콜매도금액 
+	str3 = GetDispData(pOutBlock24002->PutBuyAmt, sizeof(pOutBlock24002->PutBuyAmt), DATA_TYPE_LONG);		// 풋매수금액 
+	str4 = GetDispData(pOutBlock24002->PutSellAmt, sizeof(pOutBlock24002->PutSellAmt), DATA_TYPE_LONG);	// 풋매도금액 
+	//str3 = GetDispData(pOutBlock24002->OptPnlSum, sizeof(pOutBlock24002->OptPnlSum), DATA_TYPE_LONG);					// 현재 순이익
+    str11 = GetDispData(pOutBlock24002->AllCtrctAmt, sizeof(pOutBlock24002->AllCtrctAmt), DATA_TYPE_LONG);		// 전체약정금액 
+    str22 = GetDispData(pOutBlock24002->AllPnlSum, sizeof(pOutBlock24002->AllPnlSum), DATA_TYPE_LONG);			// 전체손익합계 
 		
 	//lCallAvrPrc = atol(str1) + atol(str2);
 	//lPutAvrPrc = atol(str3) + atol(str4);
 
-	lCallAvrPrc = atol(str1);							// 콜계약금액
-	lPutAvrPrc = atol(str2);							// 풋계약금액
+    lCallAvrPrc = atol(str1) + atol(str2);
+    lPutAvrPrc = atol(str3) + atol(str4);
 
     str1.Format("%d", lCallAvrPrc / 10000);
     str2.Format("%d", lPutAvrPrc / 10000);
 	m_curvalue.SetWindowTextA(str1);					// 콜계약금액 표시
 	m_curvaluef.SetWindowTextA(str2);					// 풋계약금액 표시
 	//m_curvalue4.SetWindowTextA(str3);					// 순이익 표시
-    str5 = FormatNumberWithComma(atol(str5));
-    str6 = FormatNumberWithComma(atol(str6));
-    m_curvalue3.SetWindowTextA(str5); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
-    m_curvalue5.SetWindowTextA(str6); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
+    str11 = FormatNumberWithComma(atol(str11));
+    str22 = FormatNumberWithComma(atol(str22));
+    m_curvalue3.SetWindowTextA(str11); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
+    m_curvalue5.SetWindowTextA(str22); //************************************************************* IDC_AVRPRCF (Invest) Put 매입금액
 
 
 	// OutBlock3
@@ -3418,7 +3421,7 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	LPCFOFQ02400OutBlock3 pOutBlock24003 = (LPCFOFQ02400OutBlock3)(lpData + nOffset);
 	nOffset += nBlockSize;
 
-	CString str7, str8;
+	CString str5, str6, str7, str8;
 	//str5 = GetDispData(pOutBlock24003[0].CallBuyQty, sizeof(pOutBlock24003[0].CallBuyQty), DATA_TYPE_LONG); // 콜매수수량
 	//str6 = GetDispData(pOutBlock24003[0].CallSellQty, sizeof(pOutBlock24003[0].CallSellQty), DATA_TYPE_LONG);  // 콜매도수량
 	//str7 = GetDispData(pOutBlock24003[0].PutBuyQty, sizeof(pOutBlock24003[0].PutBuyQty), DATA_TYPE_LONG);  // 풋매수수량
@@ -3524,12 +3527,13 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	//str3.Format("%s, %d", CallCode[1], lCallQty[1]);
 	//str4.Format("%s, %d", CallCode[2], lCallQty[2]);	
 
+    CString str33, str44, str55;
 	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 	if (!bOption)
 	{
-		str2.Format("%d", lCallQty[0]);
-		str3.Format("%d", lCallQty[1]);
-		str4.Format("%d", lCallQty[2]);
+		str33.Format("%d", lCallQty[0]);
+		str44.Format("%d", lCallQty[1]);
+		str55.Format("%d", lCallQty[2]);
 
 		/*m_tst2.SetWindowTextA(CallCode[0]);
 		m_tst3.SetWindowTextA(CallCode[1]);
@@ -3539,18 +3543,18 @@ void CDlg_JEKYLL::Receive2400(LPRECV_PACKET pRpData)// header B type
 	else
 	{ 
 		
-		str2.Format("%d", lPutQty[0]);
-		str3.Format("%d", lPutQty[1]);
-		str4.Format("%d", lPutQty[2]);
+		str33.Format("%d", lPutQty[0]);
+		str44.Format("%d", lPutQty[1]);
+		str55.Format("%d", lPutQty[2]);
 
 		/*m_tst2.SetWindowTextA(PutCode[0]);
 		m_tst3.SetWindowTextA(PutCode[1]);
 		m_tst4.SetWindowTextA(PutCode[2]);*/
 		Request10100(PutCode[0]);
 	}
-	m_tst5.SetWindowTextA(str2);
-	m_tst6.SetWindowTextA(str3);
-	m_tst7.SetWindowTextA(str4);
+	m_tst5.SetWindowTextA(str33);
+	m_tst6.SetWindowTextA(str44);
+	m_tst7.SetWindowTextA(str55);
 
 	return;
 }
@@ -10815,16 +10819,16 @@ void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOp
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CString str1, str2, str3;
 	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
-	GetDlgItemText(IDC_EDITPRC5, str2);//입력 가격
+	GetDlgItemText(IDC_EDITPRC5, str2);//지지치 입력 가격
     GetDlgItemText(IDC_EDITPRC15, str3);//저항치 입력 가격
 	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 
     float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3), prc4 = 330.0f;
 	
-    if (prc1 < prc4 || prc2 < prc4 || prc3 < prc4) return;
+    if (prc1 < prc4 || prc2 < prc4 || prc3 < prc4) return; //330 보다 적으면 미작동
     else
     {
-        if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수 || 풋매수
+        if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수(지지치 밑으로 떨어졌을때) || 풋매수(저항치를 넘어갔을때)
         {
             CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
 
