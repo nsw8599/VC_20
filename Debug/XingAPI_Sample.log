@@ -1,3 +1,19 @@
 ﻿cl : 명령줄  warning D9035: 'Gm' 옵션은 더 이상 사용되지 않으므로 이후 릴리스에서 제거될 예정입니다.
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Users\nsw85\OneDrive\문서\source\VC_20\IXingAPI.h(548,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+cl : 명령줄  warning D9035: 'Gm' 옵션은 더 이상 사용되지 않으므로 이후 릴리스에서 제거될 예정입니다.
+  XingAPI_Sample.cpp
+  TRBar.cpp
+  sizecbar.cpp
+  scbarg.cpp
+  MainFrm.cpp
+  Dlg_night.cpp
   Dlg_JEKYLL.cpp
+  DlgTRBar.cpp
+  DlgLogin.cpp
+  ChildView.cpp
+  ChildFrm.cpp
+  코드를 생성하고 있습니다...
+ChildFrm.obj : warning LNK4075: '/EDITANDCONTINUE'이(가) '/SAFESEH' 사양으로 인해 무시됩니다.
   XingAPI_Sample.vcxproj -> C:\Users\nsw85\OneDrive\문서\source\VC_20\Debug\XingAPI_Sample.exe

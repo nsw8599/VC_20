@@ -118,7 +118,7 @@ BOOL CDlg_night::OnInitDialog()
 	m_focode.SetWindowTextA(CallCode);
 	m_focode2.SetWindowTextA(PutCode);
 	acnt = 5000000;
-	lBalance = 0, lLqdt = 0;
+	lBal = 0, lLqdt = 0;
 	lCallQty = 0, lPutQty = 0;
 	lCmpVol = 144;
 	idx = 0;
@@ -994,8 +994,8 @@ void CDlg_night::Receive21200(LPRECV_PACKET pRpData)
 	pEdit1 = (CEdit*)GetDlgItem(IDC_LQDTQTY); // ************************************************************************* 청산가능 수량
 	pEdit1->SetWindowText(str1);
 
-	lBalance = atol(str2);      lBalance /= 3;
-    str2.Format("%d", lBalance);
+	lBal = atol(str2);      lBal /= 3;
+    str2.Format("%d", lBal);
     pEdit2 = (CEdit*)GetDlgItem(IDC_BUDGET2); pEdit2->SetWindowText(str2);
 
 	pEdit1 = NULL, pEdit2 = NULL;
@@ -1551,7 +1551,7 @@ void CDlg_night::getData()
 
 		if (idx % 10 == 3)
 		{
-			if (lCallQty > 0) Request21200(CallCode);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBalance) 매도가능
+			if (lCallQty > 0) Request21200(CallCode);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBal) 매도가능
 			if (lCallQty < 0) Request21200_(CallCode);//매수로 청산 가능(양매도시)
 			if (lCallQty == 0 && lPutQty == 0) Request21200(CallCode);
 
@@ -1967,9 +1967,9 @@ void CDlg_night::SetBuy(int qty)
 
 	for (int i = 0; i < iter; ++i)
 	{
-		long l0 = lBalance / (long)((fPrc - i * fGap) * 250000);
+		long l0 = lBal / (long)((fPrc - i * fGap) * 250000);
 		l0 = (l0 * nPer) / 100;
-		lBalance -= static_cast<long>((fPrc - i * fGap) * 250000 * l0);
+		lBal -= static_cast<long>((fPrc - i * fGap) * 250000 * l0);
 		nQBuyQty.push((long)l0);
 	}
 
@@ -2019,9 +2019,9 @@ void CDlg_night::SetSell(int qty) // 여러개 가격으로 순차적으로 매�
 
 	for (int i = 0; i < iter; ++i)
 	{
-		long l0 = lBalance / (long)((fPrc - i * fGap) * 250000); //구매가능 개수
+		long l0 = lBal / (long)((fPrc - i * fGap) * 250000); //구매가능 개수
 		l0 = (l0 * nPer) / 100;
-		lBalance -= static_cast<long>((fPrc - i * fGap) * 250000 * l0); // 남은 돈
+		lBal -= static_cast<long>((fPrc - i * fGap) * 250000 * l0); // 남은 돈
 		nQBuyQty.push((long)l0);
 	}
 
@@ -2071,9 +2071,9 @@ void CDlg_night::BuyCall(float fprc, int amnt, int per)
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);
 
-    if (lBalance == 0 || fprc < 0.01f) return;
+    if (lBal == 0 || fprc < 0.01f) return;
 
-	long l0 = static_cast<long>(lBalance / (fprc * 250000));
+	long l0 = static_cast<long>(lBal / (fprc * 250000));
     int n0 = (int)l0;
 	if (l0 == 0)
 		return;
@@ -2107,9 +2107,9 @@ void CDlg_night::BuyCallR(float fprc, int per)
     //Request10100();//주문가능수량/금액 조회
     //Sleep(150);
 
-    if (lBalance == 0 || fprc < 0.01f) return;
+    if (lBal == 0 || fprc < 0.01f) return;
 
-    long l0 = static_cast<long>(lBalance / (fprc * 250000));
+    long l0 = static_cast<long>(lBal / (fprc * 250000));
     int n0 = (int)l0;
     if (l0 == 0)
         return;
@@ -2147,9 +2147,9 @@ void CDlg_night::BuyPut(float fprc, int amnt, int per)
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);
 
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = static_cast<long>(lBalance / (fprc * 250000));
+	long l0 = static_cast<long>(lBal / (fprc * 250000));
 	if (l0 == 0)
 		return;
 
@@ -2181,9 +2181,9 @@ void CDlg_night::BuyPutR(float fprc, int per)
     //Request10100();//주문가능수량/금액 조회
     //Sleep(150);
 
-    if (lBalance == 0) return;
+    if (lBal == 0) return;
 
-    long l0 = static_cast<long>(lBalance / (fprc * 250000));
+    long l0 = static_cast<long>(lBal / (fprc * 250000));
     int n0 = (int)l0;
     if (n0 == 0) return;
 

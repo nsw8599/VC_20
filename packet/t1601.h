@@ -1,416 +1,416 @@
-#ifndef _t1601_H_
+ï»¿#ifndef _t1601_H_
 #define _t1601_H_
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ÅõÀÚÀÚº°Á¾ÇÕ(t1601) ( attr,block,headtype=A )
+// íˆ¬ììë³„ì¢…í•©(t1601) ( attr,block,headtype=A )
 #pragma pack( push, 1 )
 
 #define NAME_t1601     "t1601"
 
-// ±âº»ÀÔ·Â                       
+// ê¸°ë³¸ì…ë ¥                       
 typedef struct _t1601InBlock
 {
-    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ÁÖ½Ä±İ¾×¼ö·®±¸ºĞ1               StartPos 0, Length 1
-    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ¿É¼Ç±İ¾×¼ö·®±¸ºĞ2               StartPos 2, Length 1
-    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ±İ¾×´ÜÀ§                        StartPos 4, Length 1
-    char    gubun4              [   1];    char    _gubun4              ;    // [string,    1] ¼±¹°±İ¾×¼ö·®±¸ºĞ4               StartPos 6, Length 1
-    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] °Å·¡¼Ò±¸ºĞÄÚµå                  StartPos 8, Length 1
+    char    gubun1              [   1];    char    _gubun1              ;    // [string,    1] ì£¼ì‹ê¸ˆì•¡ìˆ˜ëŸ‰êµ¬ë¶„1               StartPos 0, Length 1
+    char    gubun2              [   1];    char    _gubun2              ;    // [string,    1] ì˜µì…˜ê¸ˆì•¡ìˆ˜ëŸ‰êµ¬ë¶„2               StartPos 2, Length 1
+    char    gubun3              [   1];    char    _gubun3              ;    // [string,    1] ê¸ˆì•¡ë‹¨ìœ„                        StartPos 4, Length 1
+    char    gubun4              [   1];    char    _gubun4              ;    // [string,    1] ì„ ë¬¼ê¸ˆì•¡ìˆ˜ëŸ‰êµ¬ë¶„4               StartPos 6, Length 1
+    char    exchgubun           [   1];    char    _exchgubun           ;    // [string,    1] ê±°ë˜ì†Œêµ¬ë¶„ì½”ë“œ                  StartPos 8, Length 1
 } t1601InBlock, *LPt1601InBlock;
 #define NAME_t1601InBlock     "t1601InBlock"
 
-// ±âº»Ãâ·Â1                      
+// ê¸°ë³¸ì¶œë ¥1                      
 typedef struct _t1601OutBlock1
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock1, *LPt1601OutBlock1;
 #define NAME_t1601OutBlock1     "t1601OutBlock1"
 
-// ±âº»Ãâ·Â2                      
+// ê¸°ë³¸ì¶œë ¥2                      
 typedef struct _t1601OutBlock2
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock2, *LPt1601OutBlock2;
 #define NAME_t1601OutBlock2     "t1601OutBlock2"
 
-// ±âº»Ãâ·Â3                      
+// ê¸°ë³¸ì¶œë ¥3                      
 typedef struct _t1601OutBlock3
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock3, *LPt1601OutBlock3;
 #define NAME_t1601OutBlock3     "t1601OutBlock3"
 
-// ±âº»Ãâ·Â4                      
+// ê¸°ë³¸ì¶œë ¥4                      
 typedef struct _t1601OutBlock4
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock4, *LPt1601OutBlock4;
 #define NAME_t1601OutBlock4     "t1601OutBlock4"
 
-// ±âº»Ãâ·Â5                      
+// ê¸°ë³¸ì¶œë ¥5                      
 typedef struct _t1601OutBlock5
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock5, *LPt1601OutBlock5;
 #define NAME_t1601OutBlock5     "t1601OutBlock5"
 
-// ±âº»Ãâ·Â6                      
+// ê¸°ë³¸ì¶œë ¥6                      
 typedef struct _t1601OutBlock6
 {
-    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] °³ÀÎÅõÀÚÀÚÄÚµå                  StartPos 0, Length 4
-    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] °³ÀÎ¸Å¼ö                        StartPos 5, Length 12
-    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] °³ÀÎ¸Åµµ                        StartPos 18, Length 12
-    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] °³ÀÎÁõ°¨                        StartPos 31, Length 12
-    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] °³ÀÎ¼ø¸Å¼ö                      StartPos 44, Length 12
-    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ¿Ü±¹ÀÎÅõÀÚÀÚÄÚµå                StartPos 57, Length 4
-    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Å¼ö                      StartPos 62, Length 12
-    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ¿Ü±¹ÀÎ¸Åµµ                      StartPos 75, Length 12
-    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ¿Ü±¹ÀÎÁõ°¨                      StartPos 88, Length 12
-    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ¿Ü±¹ÀÎ¼ø¸Å¼ö                    StartPos 101, Length 12
-    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ±â°ü°èÅõÀÚÀÚÄÚµå                StartPos 114, Length 4
-    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ±â°ü°è¸Å¼ö                      StartPos 119, Length 12
-    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ±â°ü°è¸Åµµ                      StartPos 132, Length 12
-    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ±â°ü°èÁõ°¨                      StartPos 145, Length 12
-    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ±â°ü°è¼ø¸Å¼ö                    StartPos 158, Length 12
-    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] Áõ±ÇÅõÀÚÀÚÄÚµå                  StartPos 171, Length 4
-    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] Áõ±Ç¸Å¼ö                        StartPos 176, Length 12
-    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] Áõ±Ç¸Åµµ                        StartPos 189, Length 12
-    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] Áõ±ÇÁõ°¨                        StartPos 202, Length 12
-    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] Áõ±Ç¼ø¸Å¼ö                      StartPos 215, Length 12
-    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] Åõ½ÅÅõÀÚÀÚÄÚµå                  StartPos 228, Length 4
-    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] Åõ½Å¸Å¼ö                        StartPos 233, Length 12
-    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] Åõ½Å¸Åµµ                        StartPos 246, Length 12
-    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] Åõ½ÅÁõ°¨                        StartPos 259, Length 12
-    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] Åõ½Å¼ø¸Å¼ö                      StartPos 272, Length 12
-    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ÀºÇàÅõÀÚÀÚÄÚµå                  StartPos 285, Length 4
-    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ÀºÇà¸Å¼ö                        StartPos 290, Length 12
-    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ÀºÇà¸Åµµ                        StartPos 303, Length 12
-    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ÀºÇàÁõ°¨                        StartPos 316, Length 12
-    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ÀºÇà¼ø¸Å¼ö                      StartPos 329, Length 12
-    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] º¸ÇèÅõÀÚÀÚÄÚµå                  StartPos 342, Length 4
-    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] º¸Çè¸Å¼ö                        StartPos 347, Length 12
-    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] º¸Çè¸Åµµ                        StartPos 360, Length 12
-    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] º¸ÇèÁõ°¨                        StartPos 373, Length 12
-    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] º¸Çè¼ø¸Å¼ö                      StartPos 386, Length 12
-    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] Á¾±İÅõÀÚÀÚÄÚµå                  StartPos 399, Length 4
-    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] Á¾±İ¸Å¼ö                        StartPos 404, Length 12
-    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] Á¾±İ¸Åµµ                        StartPos 417, Length 12
-    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] Á¾±İÁõ°¨                        StartPos 430, Length 12
-    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] Á¾±İ¼ø¸Å¼ö                      StartPos 443, Length 12
-    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ±â±İÅõÀÚÀÚÄÚµå                  StartPos 456, Length 4
-    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ±â±İ¸Å¼ö                        StartPos 461, Length 12
-    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ±â±İ¸Åµµ                        StartPos 474, Length 12
-    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ±â±İÁõ°¨                        StartPos 487, Length 12
-    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ±â±İ¼ø¸Å¼ö                      StartPos 500, Length 12
-    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] ±¹°¡ÅõÀÚÄÚµå                    StartPos 513, Length 4
-    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] ±¹°¡¸Å¼ö                        StartPos 518, Length 12
-    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] ±¹°¡¸Åµµ                        StartPos 531, Length 12
-    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] ±¹°¡Áõ°¨                        StartPos 544, Length 12
-    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] ±¹°¡¼ø¸Å¼ö                      StartPos 557, Length 12
-    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ±âÅ¸ÅõÀÚÀÚÄÚµå                  StartPos 570, Length 4
-    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ±âÅ¸¸Å¼ö                        StartPos 575, Length 12
-    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ±âÅ¸¸Åµµ                        StartPos 588, Length 12
-    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ±âÅ¸Áõ°¨                        StartPos 601, Length 12
-    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ±âÅ¸¼ø¸Å¼ö                      StartPos 614, Length 12
-    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] »ç¸ğÆİµåÅõÀÚÀÚÄÚµå              StartPos 627, Length 4
-    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Å¼ö                    StartPos 632, Length 12
-    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] »ç¸ğÆİµå¸Åµµ                    StartPos 645, Length 12
-    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] »ç¸ğÆİµåÁõ°¨                    StartPos 658, Length 12
-    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] »ç¸ğÆİµå¼ø¸Å¼ö                  StartPos 671, Length 12
+    char    tjjcode_08          [   4];    char    _tjjcode_08          ;    // [string,    4] ê°œì¸íˆ¬ììì½”ë“œ                  StartPos 0, Length 4
+    char    ms_08               [  12];    char    _ms_08               ;    // [long  ,   12] ê°œì¸ë§¤ìˆ˜                        StartPos 5, Length 12
+    char    md_08               [  12];    char    _md_08               ;    // [long  ,   12] ê°œì¸ë§¤ë„                        StartPos 18, Length 12
+    char    rate_08             [  12];    char    _rate_08             ;    // [long  ,   12] ê°œì¸ì¦ê°                        StartPos 31, Length 12
+    char    svolume_08          [  12];    char    _svolume_08          ;    // [long  ,   12] ê°œì¸ìˆœë§¤ìˆ˜                      StartPos 44, Length 12
+    char    tjjcode_17          [   4];    char    _tjjcode_17          ;    // [string,    4] ì™¸êµ­ì¸íˆ¬ììì½”ë“œ                StartPos 57, Length 4
+    char    ms_17               [  12];    char    _ms_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ìˆ˜                      StartPos 62, Length 12
+    char    md_17               [  12];    char    _md_17               ;    // [long  ,   12] ì™¸êµ­ì¸ë§¤ë„                      StartPos 75, Length 12
+    char    rate_17             [  12];    char    _rate_17             ;    // [long  ,   12] ì™¸êµ­ì¸ì¦ê°                      StartPos 88, Length 12
+    char    svolume_17          [  12];    char    _svolume_17          ;    // [long  ,   12] ì™¸êµ­ì¸ìˆœë§¤ìˆ˜                    StartPos 101, Length 12
+    char    tjjcode_18          [   4];    char    _tjjcode_18          ;    // [string,    4] ê¸°ê´€ê³„íˆ¬ììì½”ë“œ                StartPos 114, Length 4
+    char    ms_18               [  12];    char    _ms_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ìˆ˜                      StartPos 119, Length 12
+    char    md_18               [  12];    char    _md_18               ;    // [long  ,   12] ê¸°ê´€ê³„ë§¤ë„                      StartPos 132, Length 12
+    char    rate_18             [  12];    char    _rate_18             ;    // [long  ,   12] ê¸°ê´€ê³„ì¦ê°                      StartPos 145, Length 12
+    char    svolume_18          [  12];    char    _svolume_18          ;    // [long  ,   12] ê¸°ê´€ê³„ìˆœë§¤ìˆ˜                    StartPos 158, Length 12
+    char    tjjcode_01          [   4];    char    _tjjcode_01          ;    // [string,    4] ì¦ê¶Œíˆ¬ììì½”ë“œ                  StartPos 171, Length 4
+    char    ms_01               [  12];    char    _ms_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ìˆ˜                        StartPos 176, Length 12
+    char    md_01               [  12];    char    _md_01               ;    // [long  ,   12] ì¦ê¶Œë§¤ë„                        StartPos 189, Length 12
+    char    rate_01             [  12];    char    _rate_01             ;    // [long  ,   12] ì¦ê¶Œì¦ê°                        StartPos 202, Length 12
+    char    svolume_01          [  12];    char    _svolume_01          ;    // [long  ,   12] ì¦ê¶Œìˆœë§¤ìˆ˜                      StartPos 215, Length 12
+    char    tjjcode_03          [   4];    char    _tjjcode_03          ;    // [string,    4] íˆ¬ì‹ íˆ¬ììì½”ë“œ                  StartPos 228, Length 4
+    char    ms_03               [  12];    char    _ms_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ìˆ˜                        StartPos 233, Length 12
+    char    md_03               [  12];    char    _md_03               ;    // [long  ,   12] íˆ¬ì‹ ë§¤ë„                        StartPos 246, Length 12
+    char    rate_03             [  12];    char    _rate_03             ;    // [long  ,   12] íˆ¬ì‹ ì¦ê°                        StartPos 259, Length 12
+    char    svolume_03          [  12];    char    _svolume_03          ;    // [long  ,   12] íˆ¬ì‹ ìˆœë§¤ìˆ˜                      StartPos 272, Length 12
+    char    tjjcode_04          [   4];    char    _tjjcode_04          ;    // [string,    4] ì€í–‰íˆ¬ììì½”ë“œ                  StartPos 285, Length 4
+    char    ms_04               [  12];    char    _ms_04               ;    // [long  ,   12] ì€í–‰ë§¤ìˆ˜                        StartPos 290, Length 12
+    char    md_04               [  12];    char    _md_04               ;    // [long  ,   12] ì€í–‰ë§¤ë„                        StartPos 303, Length 12
+    char    rate_04             [  12];    char    _rate_04             ;    // [long  ,   12] ì€í–‰ì¦ê°                        StartPos 316, Length 12
+    char    svolume_04          [  12];    char    _svolume_04          ;    // [long  ,   12] ì€í–‰ìˆœë§¤ìˆ˜                      StartPos 329, Length 12
+    char    tjjcode_02          [   4];    char    _tjjcode_02          ;    // [string,    4] ë³´í—˜íˆ¬ììì½”ë“œ                  StartPos 342, Length 4
+    char    ms_02               [  12];    char    _ms_02               ;    // [long  ,   12] ë³´í—˜ë§¤ìˆ˜                        StartPos 347, Length 12
+    char    md_02               [  12];    char    _md_02               ;    // [long  ,   12] ë³´í—˜ë§¤ë„                        StartPos 360, Length 12
+    char    rate_02             [  12];    char    _rate_02             ;    // [long  ,   12] ë³´í—˜ì¦ê°                        StartPos 373, Length 12
+    char    svolume_02          [  12];    char    _svolume_02          ;    // [long  ,   12] ë³´í—˜ìˆœë§¤ìˆ˜                      StartPos 386, Length 12
+    char    tjjcode_05          [   4];    char    _tjjcode_05          ;    // [string,    4] ì¢…ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 399, Length 4
+    char    ms_05               [  12];    char    _ms_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ìˆ˜                        StartPos 404, Length 12
+    char    md_05               [  12];    char    _md_05               ;    // [long  ,   12] ì¢…ê¸ˆë§¤ë„                        StartPos 417, Length 12
+    char    rate_05             [  12];    char    _rate_05             ;    // [long  ,   12] ì¢…ê¸ˆì¦ê°                        StartPos 430, Length 12
+    char    svolume_05          [  12];    char    _svolume_05          ;    // [long  ,   12] ì¢…ê¸ˆìˆœë§¤ìˆ˜                      StartPos 443, Length 12
+    char    tjjcode_06          [   4];    char    _tjjcode_06          ;    // [string,    4] ê¸°ê¸ˆíˆ¬ììì½”ë“œ                  StartPos 456, Length 4
+    char    ms_06               [  12];    char    _ms_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ìˆ˜                        StartPos 461, Length 12
+    char    md_06               [  12];    char    _md_06               ;    // [long  ,   12] ê¸°ê¸ˆë§¤ë„                        StartPos 474, Length 12
+    char    rate_06             [  12];    char    _rate_06             ;    // [long  ,   12] ê¸°ê¸ˆì¦ê°                        StartPos 487, Length 12
+    char    svolume_06          [  12];    char    _svolume_06          ;    // [long  ,   12] ê¸°ê¸ˆìˆœë§¤ìˆ˜                      StartPos 500, Length 12
+    char    tjjcode_11          [   4];    char    _tjjcode_11          ;    // [string,    4] êµ­ê°€íˆ¬ìì½”ë“œ                    StartPos 513, Length 4
+    char    ms_11               [  12];    char    _ms_11               ;    // [long  ,   12] êµ­ê°€ë§¤ìˆ˜                        StartPos 518, Length 12
+    char    md_11               [  12];    char    _md_11               ;    // [long  ,   12] êµ­ê°€ë§¤ë„                        StartPos 531, Length 12
+    char    rate_11             [  12];    char    _rate_11             ;    // [long  ,   12] êµ­ê°€ì¦ê°                        StartPos 544, Length 12
+    char    svolume_11          [  12];    char    _svolume_11          ;    // [long  ,   12] êµ­ê°€ìˆœë§¤ìˆ˜                      StartPos 557, Length 12
+    char    tjjcode_07          [   4];    char    _tjjcode_07          ;    // [string,    4] ê¸°íƒ€íˆ¬ììì½”ë“œ                  StartPos 570, Length 4
+    char    ms_07               [  12];    char    _ms_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ìˆ˜                        StartPos 575, Length 12
+    char    md_07               [  12];    char    _md_07               ;    // [long  ,   12] ê¸°íƒ€ë§¤ë„                        StartPos 588, Length 12
+    char    rate_07             [  12];    char    _rate_07             ;    // [long  ,   12] ê¸°íƒ€ì¦ê°                        StartPos 601, Length 12
+    char    svolume_07          [  12];    char    _svolume_07          ;    // [long  ,   12] ê¸°íƒ€ìˆœë§¤ìˆ˜                      StartPos 614, Length 12
+    char    tjjcode_00          [   4];    char    _tjjcode_00          ;    // [string,    4] ì‚¬ëª¨í€ë“œíˆ¬ììì½”ë“œ              StartPos 627, Length 4
+    char    ms_00               [  12];    char    _ms_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ìˆ˜                    StartPos 632, Length 12
+    char    md_00               [  12];    char    _md_00               ;    // [long  ,   12] ì‚¬ëª¨í€ë“œë§¤ë„                    StartPos 645, Length 12
+    char    rate_00             [  12];    char    _rate_00             ;    // [long  ,   12] ì‚¬ëª¨í€ë“œì¦ê°                    StartPos 658, Length 12
+    char    svolume_00          [  12];    char    _svolume_00          ;    // [long  ,   12] ì‚¬ëª¨í€ë“œìˆœë§¤ìˆ˜                  StartPos 671, Length 12
 } t1601OutBlock6, *LPt1601OutBlock6;
 #define NAME_t1601OutBlock6     "t1601OutBlock6"
 

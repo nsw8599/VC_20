@@ -38,6 +38,8 @@
 #include <random>
 #include <chrono>
 #include <afx.h>  
+#include <io.h>
+#include <numeric>
 
 using namespace std;
 
@@ -91,7 +93,7 @@ void CDlg_JEKYLL::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_NEWORD, m_neword);
 	DDX_Control(pDX, IDC_K200, m_k200);
 	DDX_Control(pDX, IDC_FUTURE, m_future);
-	DDX_Control(pDX, IDC_FUTURESNP, m_futuresnp);
+	//DDX_Control(pDX, IDC_FUTURESNP, m_futuresnp);
 	DDX_Control(pDX, IDC_AVRPRC, m_avrprc);
 	DDX_Control(pDX, IDC_AVRPRC2, m_avrprc2);
     DDX_Control(pDX, IDC_AVRPRC21, m_avrprc21);
@@ -133,20 +135,20 @@ void CDlg_JEKYLL::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LREM3, m_lrem3);
 	DDX_Control(pDX, IDC_LREM5, m_lrem5);
 	DDX_Control(pDX, IDC_LREM6, m_lrem6);
-	DDX_Control(pDX, IDC_PERCENTD3, m_percentd3);
-	DDX_Control(pDX, IDC_PERCENTD4, m_percentd4);
-	DDX_Control(pDX, IDC_FUTURE60MA, m_future60ma);
-	DDX_Control(pDX, IDC_20MSMA, m_20msma);
+	//DDX_Control(pDX, IDC_PERCENTD3, m_percentd3);
+	//DDX_Control(pDX, IDC_PERCENTD4, m_percentd4);
+	//DDX_Control(pDX, IDC_FUTURE60MA, m_future60ma);
+	DDX_Control(pDX, IDC_SMA, m_sma);
 	DDX_Control(pDX, IDC_SD, m_sd);
-	DDX_Control(pDX, IDC_20MSMA2, m_20msma2);
+	DDX_Control(pDX, IDC_SMA2, m_sma2);
 	DDX_Control(pDX, IDC_SD2, m_sd2);
-	DDX_Control(pDX, IDC_BOLGR20, m_bolgr20);
-	DDX_Control(pDX, IDC_BOLGR10M, m_bolgr10m);
-	DDX_Control(pDX, IDC_PERCENTD5, m_percentd5);
-	DDX_Control(pDX, IDC_PERCENTD9, m_percentd9);
-	DDX_Control(pDX, IDC_PERCENTD10, m_percentd10);
-	DDX_Control(pDX, IDC_PERCENTD11, m_percentd11);
-	DDX_Control(pDX, IDC_PERCENTD12, m_percentd12);
+	DDX_Control(pDX, IDC_BOLGR, m_bolgr);
+	DDX_Control(pDX, IDC_BOLGR2, m_bolgr2);
+    /*DDX_Control(pDX, IDC_PERCENTD5, m_percentd5);
+    DDX_Control(pDX, IDC_PERCENTD9, m_percentd9);
+    DDX_Control(pDX, IDC_PERCENTD10, m_percentd10);
+    DDX_Control(pDX, IDC_PERCENTD11, m_percentd11);
+    DDX_Control(pDX, IDC_PERCENTD12, m_percentd12);*/
 	DDX_Control(pDX, IDC_CPOWER, m_cpower);//체결강도
 	DDX_Control(pDX, IDC_TAUTO, m_tauto);//오토 텍스트
 	DDX_Control(pDX, IDC_TST, m_tst);//오토 텍스트
@@ -246,6 +248,13 @@ BEGIN_MESSAGE_MAP(CDlg_JEKYLL, CDialog)
     ON_BN_CLICKED(IDC_BUTTON_REQUEST13, &CDlg_JEKYLL::OnBnClickedButtonRequest13)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN38, &CDlg_JEKYLL::OnDeltaposSpin38)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN37, &CDlg_JEKYLL::OnDeltaposSpin37)
+    ON_BN_CLICKED(IDC_BUTTONPROFIT20, &CDlg_JEKYLL::OnBnClickedButtonprofit20)
+    ON_BN_CLICKED(IDC_BUTTONPROFIT21, &CDlg_JEKYLL::OnBnClickedButtonprofit21)
+    ON_BN_CLICKED(IDC_BUTTONPROFIT22, &CDlg_JEKYLL::OnBnClickedButtonprofit22)
+    ON_BN_CLICKED(IDC_BUTTON_BCANCEL, &CDlg_JEKYLL::OnBnClickedButtonBcancel)
+    ON_BN_CLICKED(IDC_BUTTON_BCALL, &CDlg_JEKYLL::OnBnClickedButtonBcall)
+    ON_BN_CLICKED(IDC_BUTTON_BPUT, &CDlg_JEKYLL::OnBnClickedButtonBput)
+    ON_BN_CLICKED(IDC_BUTTONPROFIT23, &CDlg_JEKYLL::OnBnClickedButtonprofit23)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -262,7 +271,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	strDate = t.Format("%Y%m%d");
 
 	// 요일을 구하는 코드 (일요일=1, 월요일=2, ..., 토요일=7)
-	int nToday = t.GetDayOfWeek();
+	nToday = t.GetDayOfWeek();
 
 	CTime tYesterday;
 	CTimeSpan oneDay(1, 0, 0, 0); // 1일을 나타내는 CTimeSpan 객체
@@ -278,6 +287,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 		tYesterday = t - oneDay; // 1일 전
 	}
 	strDateY = tYesterday.Format("%Y%m%d");
+    SetDlgItemTextA(IDC_STRDATEY, strDateY);
 
 	// ******************************************************************************************************************* 오늘과 어제 날짜를 구하는 코드
 	// 
@@ -324,6 +334,11 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	lCho8 = 0, lPho8 = 0, lCho9 = 0, lPho9 = 0;
     lCho21 = 0, lPho21 = 0, lC2ho21 = 0, lP2ho21 = 0, lC3ho21 = 0, lP3ho21 = 0;
 
+    // 이익률 설정하기  ****************************************************************************************************************
+    nProfit = 30; nGoalTrend = 70; nGoalFlat = 15;
+    lLqdt = 0, lNewSell = -1, lCallAvrPrc = 0, lPutAvrPrc = 0, lBal = 0, lMaxBalance = 0, fCallHigh = 0.0, fCallLow = 10.0, fPutHigh = 0.0, fPutLow = 10.0;
+    fCallSellPrc = 0.0, fPutSellPrc = 0.0;
+    fCallOpen = 0.0, fPutOpen = 0.0;
 
 	pEdit1 = (CEdit*)GetDlgItem(IDC_REF); str.Format("%.2f",0.77); pEdit1->SetWindowText(str);//옵션 기준가격 설정 **************************************************************************************
 
@@ -342,7 +357,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC13); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
 
 	pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC8); str.Format("%d", 30); pEdit3->SetWindowText(str);// 기준가격을 해당 %로 낮춤
-	pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC14); str.Format("%d", 50); pEdit3->SetWindowText(str);//공통 이익률 %
+	pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC14); str.Format("%d", nProfit); pEdit3->SetWindowText(str);//공통 이익률 %
 
     //pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC15); str.Format("%.2f", 353.00); pEdit3->SetWindowText(str);// 저항치
     //pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC5); str.Format("%.2f", 343.00); pEdit3->SetWindowText(str);// 지지치
@@ -361,64 +376,71 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	fTrailingHigh = 0.0, fHighest = 0.0, fLowest = 0.0;
 	CString ctrail; ctrail.Format("%.3f", fTrailingHigh); m_ftrail.SetWindowTextA(ctrail);
 
-	// 이익률 설정하기  ****************************************************************************************************************
-	nProfit = 200; nGoalTrend = 70; nGoalFlat = 15;
-	lLqdt = 0, lNewSell = -1, lCallAvrPrc = 0, lPutAvrPrc = 0, lBalance = 0, lMaxBalance = 0, fCallHigh = 0.0, fCallLow = 10.0, fPutHigh = 0.0, fPutLow = 10.0;
-	fCallSellPrc = 0.0, fPutSellPrc = 0.0;
-	fCallOpen = 0.0, fPutOpen = 0.0;
-	nCorrectTime = 0;
-	if (nProfit > 20)
-		((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(1);
-	else
-		((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(0);
 
-	// ************************************************************************************************************************************  strMonth 코드 구하기
-	CTime currentTime = CTime::GetCurrentTime();
-	int year = currentTime.GetYear();
-	int month = currentTime.GetMonth();
-	int day = currentTime.GetDay();
-	int hour = currentTime.GetHour();
+    CTime currentTime = CTime::GetCurrentTime();
+    int year = currentTime.GetYear();
+    int month = currentTime.GetMonth();
+    int day = currentTime.GetDay();
+    int hour = currentTime.GetHour();
 
-	// Increase the day by 1 if the time is after 16:00
-	CTime adjustedTime = currentTime;
-	if (hour >= 16) {
-		adjustedTime = currentTime + oneDay;
-		day = adjustedTime.GetDay();
-	}
-	CTime date(year, month, 1, 0, 0, 0);
-	int weekday = date.GetDayOfWeek(); // Sunday=1, Monday=2, ..., Saturday=7
+    // Increase the day by 1 if the time is after 16:00
+    CTime adjustedTime = currentTime;
+    if (hour >= 16) {
+        adjustedTime = currentTime + oneDay;
+        day = adjustedTime.GetDay();
+    }
+    CTime date(year, month, 1, 0, 0, 0);
+    int weekday = date.GetDayOfWeek(); // Sunday=1, Monday=2, ..., Saturday=7
 
-	if (weekday > 5 || weekday < 3)// 목요일보다 크거나 화요일보다 작으면( 금, 토, 일, 월) 첫번째 월요일이 먼저 시작함
-		strMonth = "W1MON";
-	else strMonth = "W1THU";
+    if (weekday > 5 || weekday < 3)// 목요일보다 크거나 화요일보다 작으면( 금, 토, 일, 월) 첫번째 월요일이 먼저 시작함
+        strMonth = "W1MON";
+    else strMonth = "W1THU";
 
-	int nMonday = 1;
-	int nThursday = 1;
+    int nMonday = 1;
+    int nThursday = 1;
 
-	if (day > 1) {
-		for (int d = 2; d <= day; ++d) {
-			CTime dateY(year, month, d - 1, 0, 0, 0);
-			int weekdayY = dateY.GetDayOfWeek(); // Sunday=1, Monday=2, ..., Saturday=7
-			if (weekdayY == 2) { // 어제가 월요일이면 목요일로 설정
-				strMonth.Format(_T("W%dTHU"), nThursday);
-				++nMonday;
-			}
-			else if (weekdayY == 5) { // 어제가 목요일이면 월요일로 설정
-				strMonth.Format(_T("W%dMON"), nMonday);
-				++nThursday;
-			}
-		}
-		if (strMonth == "W2THU")
-		{
-			strMonth = adjustedTime.Format(_T("%Y%m"));
-		}
-	}
-	//strMonth = "W1MON"; //************************************************************************************************************* 월설정
-	//pEdit1 = (CEdit*)GetDlgItem(IDC_TST2); pEdit1->SetWindowText(strMonth);// strMonth 확인
+    if (day > 1) {
+        for (int d = 2; d <= day; ++d) {
+            CTime dateY(year, month, d - 1, 0, 0, 0);
+            int weekdayY = dateY.GetDayOfWeek(); // Sunday=1, Monday=2, ..., Saturday=7
+            if (weekdayY == 2) { // 어제가 월요일이면 목요일로 설정
+
+                CTime nextThursday = dateY + CTimeSpan(3, 0, 0, 0); // Add 3 days to get to Thursday
+                if (nextThursday.GetMonth() != month) { // Check if next Thursday is in the next month
+                    strMonth = "W1THU";
+                    break;
+                }
+
+                strMonth.Format(_T("W%dTHU"), nThursday);
+                ++nMonday;
+            }
+            else if (weekdayY == 5) { // 어제가 목요일이면 월요일로 설정
+
+                CTime nextMonday = dateY + CTimeSpan(3, 0, 0, 0); // Add 3 days to get to Monday
+                if (nextMonday.GetMonth() != month) { // Check if next Monday is in the next month
+                    strMonth = "W1MON";
+                    break;
+                }
+
+                strMonth.Format(_T("W%dMON"), nMonday);
+                ++nThursday;
+            }
+        }
+        if (strMonth == "W2THU")
+        {
+            strMonth = adjustedTime.Format(_T("%Y%m"));
+        }
+
+    }
+
+    //strMonth = "202503"; //************************************************************************************************************* 월설정
+    pEdit1 = (CEdit*)GetDlgItem(IDC_STRMONTH); pEdit1->SetWindowText(strMonth);// strMonth 확인
+
 
 	// nCurMin 값 초기화
 	nCurMin = 411;
 	nCurSec = 0;
+    nCorrectTime = 0;
 
 	// 선물코드 및 0.3에 가까운 옵션코드 계산하여 각종 파라미터 저장 --------------------------------
 
@@ -432,27 +454,32 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	// moment 매수 매도 초기화
 	((CButton*)GetDlgItem(IDC_CHECKMOMENT))->SetCheck(0);
 
-	ofstream myfileGetdata("FindMoment.csv");								// 속도 감시
-	if (myfileGetdata.is_open())
-	{
-		myfileGetdata << "시간, 매수체결량, +속도, 매도체결량, -속도, 잔량, 콜8, 수량8, 풋8, 수량8, 콜경과시간, 콜평균시간, 풋경과시간, 풋평균시간\n";
-	}
-	myfileGetdata.close();
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
 
-	ofstream myfileRecording("RecordOrder.csv");								// 주문 기록
-	if (myfileRecording.is_open())
-	{
-		myfileRecording << "시간, 매수매도, 코드, 가격, 수량\n";
-	}
-	myfileRecording.close();	
+    // 파일 이름 만들기
+    CString filePath = exePath + "\\..\\csv\\" + strDate + "_RecordOrder.csv";
 
+    // CString → const char* 변환
+    CStringA filePathA(filePath);
 
-	ofstream myfileRecording2("RecordOrder2.csv");								// 시뮬레이션 주문기록
-	if (myfileRecording2.is_open())
-	{
-		myfileRecording2 << "시간, 매수매도, 코드, 가격, 수량\n";
-	}
-	myfileRecording2.close();
+    // 파일 존재 여부 확인
+    bool bExists = (_access(filePathA, 0) == 0);  // 0이면 파일 존재
+
+    // ofstream 열기 (항상 ios::app, 이어쓰기 모드)
+    std::ofstream myfileRecording(filePathA, std::ios::app);
+    if (myfileRecording.is_open())
+    {
+        if (!bExists)
+        {
+            // 파일이 없었다면 헤더 쓰기
+            myfileRecording << "strTime, code, bns, prc, qty\n";
+        }
+        // else: 이미 존재 → 이어쓰기만 함
+    }
+    myfileRecording.close();
 
 
 	nIndex = 0;
@@ -523,6 +550,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	fAr20mSMA = new float[420];
 	fAr20mSMAY = new float[411];
 	fAr20mSD = new float[420];
+    fAr20mSDY = new float[411];
 	fAr60mSMA = new float[420];
 	fArMin60m = new float[420];
 	fArMax60m = new float[420];
@@ -583,6 +611,7 @@ BOOL CDlg_JEKYLL::OnInitDialog()//추가 공휴일 있을경우 설정필요
 	memset(fAr20mSMA, 0, 420 * sizeof(float));
 	memset(fAr20mSMAY, 0, 411 * sizeof(float));
 	memset(fAr20mSD, 0, 420 * sizeof(float));
+    memset(fAr20mSDY, 0, 411 * sizeof(float));
 	memset(fAr60mSMA, 0, 420 * sizeof(float));
 	memset(fArMin60m, 0, 420 * sizeof(float));
 	memset(fArMax60m, 0, 420 * sizeof(float));
@@ -668,7 +697,7 @@ void CDlg_JEKYLL::OnDestroy()
 	delete[] fArOpen;	delete[] fArClose;	delete[] fArCloseY;	delete[] fArHigh;	delete[] fArLow;	delete[] fAr10mOpen;	delete[] fAr10mClose;	delete[] fAr10mHigh;	delete[] fAr10mLow;
 	delete[] fArCClose; delete[] fArPClose;
 	delete[] fArWidth;	delete[] fAr10mOpenY; delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
-	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
+	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr20mSDY; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
 	delete[] fAr60mSMA; delete[] fArMin60m; delete[] fArMax60m;
 	delete[] fArMax30m; delete[] fArMin30m;
 	delete[] lCallQty; delete[] lPutQty;
@@ -684,7 +713,7 @@ void CDlg_JEKYLL::OnDestroy()
 	fArOpen = NULL;	fArClose = NULL;	fArCloseY = NULL; fArHigh = NULL;	fArLow = NULL;	fAr10mOpen = NULL;	fAr10mClose = NULL;	fAr10mHigh = NULL;	fAr10mLow = NULL;
 	fArCClose = NULL; fArPClose = NULL;
 	fArWidth = NULL;	 fAr10mOpenY = NULL;	fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
-	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
+	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr20mSDY = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
 	fAr60mSMA = NULL; fArMin60m = NULL; fArMax60m = NULL;
 	fArMax30m = NULL; fArMin30m = NULL;
 	lCallQty = NULL; lPutQty = NULL;
@@ -746,7 +775,7 @@ BOOL CDlg_JEKYLL::DestroyWindow()
 	delete[] fArOpen;	delete[] fArClose;	delete[] fArCloseY;	delete[] fArHigh;	delete[] fArLow;	delete[] fAr10mOpen;	delete[] fAr10mClose;	delete[] fAr10mHigh;	delete[] fAr10mLow;
 	delete[] fArCClose; delete[] fArPClose;
 	delete[] fArWidth;	delete[] fAr10mOpenY; delete[] fAr10mCloseY;	delete[] fAr10mHighY;	delete[] fAr10mLowY;	delete[] fAr10mKY;	delete[] fAr10mDY;	delete[] fAr10mSlowDY;
-	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
+	delete[] fAr10mK;	delete[] fAr10mD;  delete[] fAr10mSlowD;  delete[] fAr20mSMA; delete[] fAr20mSMAY; delete[] fAr20mSD; delete[] fAr20mSDY; delete[] fAr10m20mSMA; delete[] fAr10m20mSMAY; delete[] fAr10m20mSD; delete[] fAr10m20mSDY;
 	delete[] fAr60mSMA; delete[] fArMin60m; delete[] fArMax60m;
 	delete[] fArMax30m; delete[] fArMin30m;
 	delete[] lCallQty; delete[] lPutQty;
@@ -762,7 +791,7 @@ BOOL CDlg_JEKYLL::DestroyWindow()
 	fArOpen = NULL;	fArClose = NULL;	fArCloseY = NULL; fArHigh = NULL;	fArLow = NULL;	fAr10mOpen = NULL;	fAr10mClose = NULL;	fAr10mHigh = NULL;	fAr10mLow = NULL;
 	fArCClose = NULL; fArPClose = NULL;
 	fArWidth = NULL;	fAr10mOpenY = NULL;	 fAr10mCloseY = NULL;	fAr10mHighY = NULL;	fAr10mLowY = NULL; fAr10mKY = NULL; fAr10mDY = NULL; fAr10mSlowDY = NULL;
-	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
+	fAr10mK = NULL;	fAr10mD = NULL; fAr10mSlowD = NULL;	fAr20mSMA = NULL; fAr20mSMAY = NULL; fAr20mSD = NULL; fAr20mSDY = NULL; fAr10m20mSMA = NULL; fAr10m20mSMAY = NULL; fAr10m20mSD = NULL; fAr10m20mSDY = NULL;
 	fAr60mSMA = NULL; fArMin60m = NULL; fArMax60m = NULL;
 	fArMax30m = NULL; fArMin30m = NULL;
 	lCallQty = NULL; lPutQty = NULL;
@@ -1555,81 +1584,81 @@ void CDlg_JEKYLL::Request600_(BOOL bNext)
 	if (nRqID < 0) MessageBox("조회실패", "에러", MB_ICONSTOP);
 	ID600_ = nRqID;
 }
-
-void CDlg_JEKYLL::Request100(CString code, CString bns, CString prc, BOOL bNext)
-{
-	//매수매도 주문
-	CFOAT00100InBlock1	pckInBlock;
-	TCHAR				szTrNo[] = "CFOAT00100";
-
-	// 데이터 초기화
-	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
-	// 데이터 입력
-	CString strQty;
-	if (bns == "2") //매수
-	{
-		//GetDlgItemTextA(IDC_NEWORD, strUsableMoney); //주문가능금액
-		//lBalance = atol(strUsableMoney); // 주문가능금액을 text로 받아서 long 으로 강제변환
-
-		float f1 = (float)atof(prc);
-		if (f1 > 0)
-		{
-			long l1 = lBalance / ((long)f1 * 250000);
-			if (l1 == 0) return;
-			strQty.Format("%d", l1);
-			if (code == CallCode[0])
-			{
-				lCallQty[0] += l1;
-			}
-			if (code == PutCode[0])
-			{
-				lPutQty[0] += l1;
-			}
-		}
-	}
-	if (bns == "1") //매도
-	{
-		//m_lqdt.GetWindowTextA(strQty);//청산가능수if (code == CallCode[0])
-		//long l1 = atol(strQty);
-		//if (l1 == 0) return;
-
-		if (code == CallCode[0] && lLqdt == lCallQty[0])
-		{
-			strQty.Format("%d", lCallQty[0]);
-			/*long l1 = lCallQty[0];
-			lCallQty[0] -= l1;*/
-			lCallQty[0] = 0;
-		}
-		if (code == PutCode[0] && lLqdt == lPutQty[0])
-		{
-			strQty.Format("%d", lPutQty[0]);
-			/*long l1 = lPutQty[0];
-			lPutQty[0] -= l1;*/
-			lPutQty[0] = 0;
-		}
-		//SetTimer(7, 5000, NULL);
-	}
-
-	SetPacketData(pckInBlock.AcntNo, sizeof(pckInBlock.AcntNo), strAccntNo, DATA_TYPE_STRING);
-	SetPacketData(pckInBlock.Pwd, sizeof(pckInBlock.Pwd), strPwdNo, DATA_TYPE_STRING);
-	SetPacketData(pckInBlock.FnoIsuNo, sizeof(pckInBlock.FnoIsuNo), code, DATA_TYPE_STRING);
-	SetPacketData(pckInBlock.BnsTpCode, sizeof(pckInBlock.BnsTpCode), bns, DATA_TYPE_STRING);
-	SetPacketData(pckInBlock.FnoOrdprcPtnCode, sizeof(pckInBlock.FnoOrdprcPtnCode), "00", DATA_TYPE_STRING); //00:지정가 03:시장가(주문가 0)
-	SetPacketData(pckInBlock.FnoOrdPrc, sizeof(pckInBlock.FnoOrdPrc), prc, DATA_TYPE_DOT, 8);
-	SetPacketData(pckInBlock.OrdQty, sizeof(pckInBlock.OrdQty), strQty, DATA_TYPE_LONG);
-
-	// 데이터 전송
-	int nRqID = g_iXingAPI.Request(GetSafeHwnd(), szTrNo, &pckInBlock, sizeof(pckInBlock), bNext, "", 30);
-
-	/*if (bNext == FALSE)
-	{
-		m_lst100.DeleteAllItems();
-	}*/
-
-	// Request ID가 0보다 작을 경우에는 에러이다.
-	if (nRqID < 0)		MessageBox("조회실패", "에러", MB_ICONSTOP);
-	ID100 = nRqID;
-}
+//
+//void CDlg_JEKYLL::Request100(CString code, CString bns, CString prc, BOOL bNext)
+//{
+//	//매수매도 주문
+//	CFOAT00100InBlock1	pckInBlock;
+//	TCHAR				szTrNo[] = "CFOAT00100";
+//
+//	// 데이터 초기화
+//	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
+//	// 데이터 입력
+//	CString strQty;
+//	if (bns == "2") //매수
+//	{
+//		//GetDlgItemTextA(IDC_NEWORD, strUsableMoney); //주문가능금액
+//		//lBal = atol(strUsableMoney); // 주문가능금액을 text로 받아서 long 으로 강제변환
+//
+//		float f1 = (float)atof(prc);
+//		if (f1 > 0)
+//		{
+//			long l1 = lBal / ((long)f1 * 250000);
+//			if (l1 == 0) return;
+//			strQty.Format("%d", l1);
+//			if (code == CallCode[0])
+//			{
+//				lCallQty[0] += l1;
+//			}
+//			if (code == PutCode[0])
+//			{
+//				lPutQty[0] += l1;
+//			}
+//		}
+//	}
+//	if (bns == "1") //매도
+//	{
+//		//m_lqdt.GetWindowTextA(strQty);//청산가능수if (code == CallCode[0])
+//		//long l1 = atol(strQty);
+//		//if (l1 == 0) return;
+//
+//		if (code == CallCode[0] && lLqdt == lCallQty[0])
+//		{
+//			strQty.Format("%d", lCallQty[0]);
+//			/*long l1 = lCallQty[0];
+//			lCallQty[0] -= l1;*/
+//			lCallQty[0] = 0;
+//		}
+//		if (code == PutCode[0] && lLqdt == lPutQty[0])
+//		{
+//			strQty.Format("%d", lPutQty[0]);
+//			/*long l1 = lPutQty[0];
+//			lPutQty[0] -= l1;*/
+//			lPutQty[0] = 0;
+//		}
+//		//SetTimer(7, 5000, NULL);
+//	}
+//
+//	SetPacketData(pckInBlock.AcntNo, sizeof(pckInBlock.AcntNo), strAccntNo, DATA_TYPE_STRING);
+//	SetPacketData(pckInBlock.Pwd, sizeof(pckInBlock.Pwd), strPwdNo, DATA_TYPE_STRING);
+//	SetPacketData(pckInBlock.FnoIsuNo, sizeof(pckInBlock.FnoIsuNo), code, DATA_TYPE_STRING);
+//	SetPacketData(pckInBlock.BnsTpCode, sizeof(pckInBlock.BnsTpCode), bns, DATA_TYPE_STRING);
+//	SetPacketData(pckInBlock.FnoOrdprcPtnCode, sizeof(pckInBlock.FnoOrdprcPtnCode), "00", DATA_TYPE_STRING); //00:지정가 03:시장가(주문가 0)
+//	SetPacketData(pckInBlock.FnoOrdPrc, sizeof(pckInBlock.FnoOrdPrc), prc, DATA_TYPE_DOT, 8);
+//	SetPacketData(pckInBlock.OrdQty, sizeof(pckInBlock.OrdQty), strQty, DATA_TYPE_LONG);
+//
+//	// 데이터 전송
+//	int nRqID = g_iXingAPI.Request(GetSafeHwnd(), szTrNo, &pckInBlock, sizeof(pckInBlock), bNext, "", 30);
+//
+//	/*if (bNext == FALSE)
+//	{
+//		m_lst100.DeleteAllItems();
+//	}*/
+//
+//	// Request ID가 0보다 작을 경우에는 에러이다.
+//	if (nRqID < 0)		MessageBox("조회실패", "에러", MB_ICONSTOP);
+//	ID100 = nRqID;
+//}
 
 void CDlg_JEKYLL::Request100(CString code, CString bns, float prc, BOOL bNext)
 {
@@ -1644,11 +1673,11 @@ void CDlg_JEKYLL::Request100(CString code, CString bns, float prc, BOOL bNext)
 	if (bns == "2") //매수
 	{
 		//GetDlgItemTextA(IDC_NEWORD, strUsableMoney); //주문가능금액
-		//lBalance = atol(strUsableMoney); // 주문가능금액을 text로 받아서 long 으로 강제변환
+		//lBal = atol(strUsableMoney); // 주문가능금액을 text로 받아서 long 으로 강제변환
 
 		if (prc > 0)
 		{
-			long l1 = lBalance / ((long)prc * 250000);
+			long l1 = lBal / ((long)prc * 250000);
 			if (l1 == 0) return;
 			strQty.Format("%d", l1);
 			if (code == CallCode[0])
@@ -1696,6 +1725,21 @@ void CDlg_JEKYLL::Request100(CString code, CString bns, float prc, BOOL bNext)
 
 	// 데이터 전송
 	int nRqID = g_iXingAPI.Request(GetSafeHwnd(), szTrNo, &pckInBlock, sizeof(pckInBlock), bNext, "", 30);
+
+
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+    CString name = exePath + "\\..\\csv\\" + strDate + "_RecordOrder.csv";
+
+    ofstream myfileRecording(name.GetString(), ios::app);								// 주문 기록 이어쓰기
+    if (myfileRecording.is_open())
+    {
+        myfileRecording << strTime.GetString() << ", " << code.GetString() << ", " << bns.GetString() << ", " << strPrc.GetString() << ", " << strQty.GetString() << "\n";
+    }
+    myfileRecording.close();
 
 	/*if (bNext == FALSE)
 	{
@@ -1739,13 +1783,13 @@ void CDlg_JEKYLL::Request100_(CString code, CString bns, float prc, int qty, BOO
             if (code == CallCode[i])
             {
                 fCallAvrPrc[i] = (float)((fCallAvrPrc[i] * lCallQty[i] + prc * qty) / (lCallQty[i] + qty));
-                lBalance -= ((long)(prc * 250000.0f) * qty);
+                lBal -= ((long)(prc * 250000.0f) * qty);
                 lCallQty[i] += (long)qty;
             }
             if (code == PutCode[i])
             {
                 fPutAvrPrc[i] = (float)((fPutAvrPrc[i] * lPutQty[i] + prc * qty) / (lPutQty[i] + qty));
-                lBalance -= ((long)(prc * 250000.0f) * qty);
+                lBal -= ((long)(prc * 250000.0f) * qty);
                 lPutQty[i] += (long)qty;
             }
 		}
@@ -1753,12 +1797,12 @@ void CDlg_JEKYLL::Request100_(CString code, CString bns, float prc, int qty, BOO
 		{
             if (code == CallCode[i])
             {
-                lBalance += ((long)(prc * 250000.0f) * qty);
+                lBal += ((long)(prc * 250000.0f) * qty);
                 lCallQty[i] -= (long)qty;
             }
             if (code == PutCode[i])
             {
-                lBalance += ((long)(prc * 250000.0f) * qty);
+                lBal += ((long)(prc * 250000.0f) * qty);
                 lPutQty[i] -= (long)qty;
             }
 		}
@@ -1767,6 +1811,20 @@ void CDlg_JEKYLL::Request100_(CString code, CString bns, float prc, int qty, BOO
 	{
 	m_lst100.DeleteAllItems();
 	}*/
+
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+    CString name = exePath + "\\..\\csv\\" + strDate + "_RecordOrder.csv";
+
+    ofstream myfileRecording(name.GetString(), ios::app);								// 주문 기록 이어쓰기
+    if (myfileRecording.is_open())
+    {
+        myfileRecording << strTime.GetString() << ", " << code.GetString() << ", " << bns.GetString() << ", " << strPrc.GetString() << ", " << strQty.GetString() << "\n";
+    }
+    myfileRecording.close();
 
 	// Request ID가 0보다 작을 경우에는 에러이다.
 	if (nRqID < 0)		MessageBox("조회실패", "에러", MB_ICONSTOP);
@@ -1910,43 +1968,49 @@ void CDlg_JEKYLL::Request300(CString code, CString orgordno, CString qty, BOOL b
 
 void CDlg_JEKYLL::Request8415(CString str_code, BOOL bNext)
 {
-	//-----------------------------------------------------------
-	// 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
-	t8415InBlock	pckInBlock;
+    //-----------------------------------------------------------
+    // 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
+    t8415InBlock	pckInBlock;
 
-	TCHAR			szTrNo[] = "t8415";
+    TCHAR			szTrNo[] = "t8415";
 
-	//-----------------------------------------------------------
-	// 데이터 초기화
-	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
-	//CString code; GetDlgItemTextA(IDC_CALLCODE, code);
-	//CString strDate = "20190101";
-	//-----------------------------------------------------------
-	// 데이터 입력
-	SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(선물/옵션코드)
-	SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
-	SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
-	SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
-	SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), strDate, DATA_TYPE_STRING);	// 
-	SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), strDate, DATA_TYPE_STRING);	//  
-	SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
+    CString str;
+    if (nToday == 7 || nToday == 1) { str = strDateY; } // 토요일, 일요일인 경우
+    else str = strDate;
+    //-----------------------------------------------------------
+    // 데이터 초기화
+    FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
+    //CString code; GetDlgItemTextA(IDC_CALLCODE, code);
+    //CString strDate = "20190101";
+    //-----------------------------------------------------------
+    // 데이터 입력
+    SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(Future/Option코드)
+    SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
+    SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
+    SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
+    SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), str, DATA_TYPE_STRING);	// 
+    SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), str, DATA_TYPE_STRING);	//  
+    SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
 
-	//-----------------------------------------------------------
-	// 데이터 전송
-	int nRqID = g_iXingAPI.Request(
-		GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
-		szTrNo,						// TR 번호
-		&pckInBlock,				// InBlock 데이터
-		sizeof(pckInBlock),		// InBlock 데이터 크기
-		bNext,						// 다음조회 여부
-		"",							// 다음조회 Key
-		30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
-	);
+    //-----------------------------------------------------------
+    // 데이터 전송
+    int nRqID = g_iXingAPI.Request(
+        GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
+        szTrNo,						// TR 번호
+        &pckInBlock,				// InBlock 데이터
+        sizeof(pckInBlock),		// InBlock 데이터 크기
+        bNext,						// 다음조회 여부
+        "",							// 다음조회 Key
+        30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
+    );
 
-	//-----------------------------------------------------------
-	// Request ID가 0보다 작을 경우에는 에러이다.
-	if (nRqID < 0)		MessageBox("조회실패8415", "에러", MB_ICONSTOP);
-	ID8415 = nRqID;
+    //-----------------------------------------------------------
+    // Request ID가 0보다 작을 경우에는 에러이다.
+    //if (nRqID < 0)		MessageBox("조회실패8415", "8415에러", MB_ICONSTOP);
+    ID8415 = nRqID; // ID8415 == 18
+    //CString str;	str.Format("%d", ID8415);
+    //m_tst.SetWindowTextA(str);
+
 }
 
 
@@ -1987,10 +2051,11 @@ void CDlg_JEKYLL::Request8415Y(CString str_code, BOOL bNext) //WRITE
 
     //-----------------------------------------------------------
     // Request ID가 0보다 작을 경우에는 에러이다.
-    if (nRqID < 0)		MessageBox("조회실패8415Y", "8415Y에러", MB_ICONSTOP);
+    //if (nRqID < 0)		MessageBox("조회실패8415Y", "8415Y에러", MB_ICONSTOP);
     ID8415Y = nRqID; // ID8415 == 18
     //CString str;	str.Format("%d", ID8415);
     //m_tst.SetWindowTextA(str);
+
 
 }
 
@@ -2375,10 +2440,11 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
             }
         }
 
-        // ****************************************************************************************************** 1분봉 Bolinger Band(20m)
-        if (nCount < 20)
+        // ****************************************************************************************************** 1분봉 Bolinger Band(80 SMA)
+        int n1mSma = 80;
+        if (nCount < n1mSma)
         {
-            for (int i = 0; i < nCount; i++)
+            for (int i = 0; i <= nCount; i++)
             {
                 float f1 = fArClose[i];
                 int temp = i;
@@ -2387,11 +2453,11 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
                     f1 += fArClose[temp - 1];
                     temp -= 1;
                 }
-                for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
+                for (int k = 0; k < (n1mSma - 1 - i); k++)								// 1분봉 20 SMA 초기화
                 {
                     f1 += fArCloseY[410 - k];
                 }
-                f1 = f1 / 20;
+                f1 = f1 / (float)n1mSma;
                 fAr20mSMA[i] = f1;
 
                 f1 = 0.0;
@@ -2403,12 +2469,12 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
                     f2 += fabs(f1 * f1);
                     temp -= 1;
                 }
-                for (int k = 0; k < (19 - i); k++)									// 1분봉 20분 SD (Bolinger bandwidth)
+                for (int k = 0; k < (n1mSma - 1 - i); k++)									// 1분봉 20분 SD (Bolinger bandwidth)
                 {
                     f1 = fArCloseY[410 - k] - fAr20mSMA[i];
                     f2 += fabs(f1 * f1);
                 }
-                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
+                f2 = sqrt(f2 / (float)n1mSma) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
                 fAr20mSD[i] = f2;
             }
 
@@ -2416,61 +2482,25 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
         }
         else
         {
-            for (int i = 0; i < nCount; i++)
+            for (int i = 0; i <= nCount; i++)
             {
-                if (i < 19)
+                float f1 = 0.0;
+                for (int k = 0; k < n1mSma; k++)									// 1분봉 20 SMA = Bolinger mid-band
                 {
-                    float f1 = fArClose[i];
-                    int temp = i;
-                    while (temp > 0)
-                    {
-                        f1 += fArClose[temp - 1];
-                        temp -= 1;
-                    }
-                    for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
-                    {
-                        f1 += fArCloseY[410 - k];
-                    }
-                    f1 = f1 / 20;
-                    fAr20mSMA[i] = f1;
-
-                    f1 = 0.0;
-                    float f2 = 0.0;
-                    temp = i;
-                    while (temp >= 0)
-                    {
-                        f1 = fArClose[temp] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                        temp -= 1;
-                    }
-                    for (int k = 0; k < (19 - i); k++)									// 1분봉 20 SD (Bolinger bandwidth)
-                    {
-                        f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                    }
-                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
-                    fAr20mSD[i] = f2;
+                    f1 += fArClose[i - k];
                 }
-                else
+                f1 = f1 / (float)n1mSma;
+                fAr20mSMA[i] = f1;
+
+                f1 = 0.0;
+                float f2 = 0.0;
+                for (int k = 0; k < n1mSma; k++)									// 1분봉 20 SD (Bolinger bandwidth)
                 {
-                    float f1 = 0.0f;
-                    for (int k = 0; k < 20; k++)									// 1분봉 20 SMA = Bolinger mid-band
-                    {
-                        f1 += fArClose[i - k];
-                    }
-                    f1 = f1 / 20.0f;
-                    fAr20mSMA[i] = f1;
-
-                    f1 = 0.0f;
-                    float f2 = 0.0f;
-                    for (int k = 0; k < 20; k++)									// 1분봉 20 SD (Bolinger bandwidth)
-                    {
-                        f1 = fArClose[i - k] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                    }
-                    f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2(2시그마)
-                    fAr20mSD[i] = f2;
+                    f1 = fArClose[i - k] - fAr20mSMA[i];
+                    f2 += fabs(f1 * f1);
                 }
+                f2 = sqrt(f2 / (float)n1mSma) * 2.0f;										// upper band = 20 SMA + SD*2(2시그마)
+                fAr20mSD[i] = f2;
             }
 
         }
@@ -2571,7 +2601,13 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
 
         }
 
-        CString name = "./csv/" + strDateY + "_10m.csv";
+        TCHAR path[MAX_PATH];
+        ::GetModuleFileName(NULL, path, MAX_PATH);
+        CString exePath(path);
+        exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+        CString name = exePath + "\\..\\csv\\" + strDateY + "_10m.csv";
+        //CString name = "./csv/" + strDateY + "_10m.csv";
         ofstream myfileCombine2(name); //시간, High, Low, Close, %K, %D, %slowD, 20mSMA, 20mSD
         if (myfileCombine2.is_open())
         {
@@ -2599,20 +2635,29 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
         }
         myfileCombine2.close();
 
-        CString strFilePath = "./csv/" + strDateY + ".csv";
+
+        TCHAR path2[MAX_PATH];
+        ::GetModuleFileName(NULL, path2, MAX_PATH);
+        CString exePath2(path2);
+        exePath2 = exePath2.Left(exePath2.ReverseFind('\\'));  // 실행파일 폴더
+
+        CString strFilePath = exePath2 + "\\..\\csv\\" + strDateY + ".csv";
+
+        //CString strFilePath = "./csv/" + strDateY + ".csv";
         ofstream myfileCombine(strFilePath);
         if (myfileCombine.is_open())
         {
-            myfileCombine << "시간, 시가, 종가, 고가, 저가,  Width, SMA(20), SD(20), SMA(60)\n";
+            myfileCombine << "시간, 시가, 종가, 고가, 저가,  Width, SMA(20), SD(20)\n";
             for (int i = 0; i < 411; i++)
             {
                 myfileCombine << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << fArHigh[i] << ", " << fArLow[i] << ", "
-                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i];
+                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i];
 
                 myfileCombine << "\n";
             }
         }
         myfileCombine.close();
+
 
 
 
@@ -2656,6 +2701,7 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
     {
         fArCloseY[i] = fArClose[i];
         fAr20mSMAY[i] = fAr20mSMA[i];
+        fAr20mSDY[i] = fAr20mSD[i];
     }
 
     for (int i = 0; i < 42; i++)
@@ -2678,85 +2724,92 @@ void CDlg_JEKYLL::Receive8415Y(LPRECV_PACKET pRpData) //선물옵션차트(n분)
 
 void CDlg_JEKYLL::Request84152(CString str_code, BOOL bNext)
 {
-	//-----------------------------------------------------------
-	// 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
-	t8415InBlock	pckInBlock;
+    //-----------------------------------------------------------
+    // 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
+    t8415InBlock	pckInBlock;
 
-	TCHAR			szTrNo[] = "t8415";
+    TCHAR			szTrNo[] = "t8415";
 
-	//-----------------------------------------------------------
-	// 데이터 초기화
-	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
-	//CString code; GetDlgItemTextA(IDC_CALLCODE, code);
-	//CString strDate = "20190101";
-	//-----------------------------------------------------------
-	// 데이터 입력
-	SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(선물/옵션코드)
-	SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
-	SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
-	SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
-	SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), strDate, DATA_TYPE_STRING);	// 
-	SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), strDate, DATA_TYPE_STRING);	//  
-	SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
+    CString str;
+    if (nToday == 7 || nToday == 1) { str = strDateY; } // 토요일, 일요일인 경우
+    else str = strDate;
 
-	//-----------------------------------------------------------
-	// 데이터 전송
-	int nRqID = g_iXingAPI.Request(
-		GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
-		szTrNo,						// TR 번호
-		&pckInBlock,				// InBlock 데이터
-		sizeof(pckInBlock),		// InBlock 데이터 크기
-		bNext,						// 다음조회 여부
-		"",							// 다음조회 Key
-		30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
-	);
+    //-----------------------------------------------------------
+    // 데이터 초기화
+    FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
+    //CString code; GetDlgItemTextA(IDC_CALLCODE, code);
+    //CString strDate = "20190101";
+    //-----------------------------------------------------------
+    // 데이터 입력
+    SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(Future/Option코드)
+    SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
+    SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
+    SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
+    SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), str, DATA_TYPE_STRING);	// 
+    SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), str, DATA_TYPE_STRING);	//  
+    SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
 
-	//-----------------------------------------------------------
-	// Request ID가 0보다 작을 경우에는 에러이다.
-	if (nRqID < 0)		MessageBox("조회실패8415", "에러", MB_ICONSTOP);
-	ID84152 = nRqID;
+    //-----------------------------------------------------------
+    // 데이터 전송
+    int nRqID = g_iXingAPI.Request(
+        GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
+        szTrNo,						// TR 번호
+        &pckInBlock,				// InBlock 데이터
+        sizeof(pckInBlock),		// InBlock 데이터 크기
+        bNext,						// 다음조회 여부
+        "",							// 다음조회 Key
+        30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
+    );
+
+    //-----------------------------------------------------------
+    // Request ID가 0보다 작을 경우에는 에러이다.
+    //if (nRqID < 0)		MessageBox("조회실패84152", "84152에러", MB_ICONSTOP);
+    ID84152 = nRqID;
 }
 
 
 void CDlg_JEKYLL::Request84153(CString str_code, BOOL bNext)
 {
-	//-----------------------------------------------------------
-	// 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
-	t8415InBlock	pckInBlock;
+    //-----------------------------------------------------------
+    // 선물옵션차트(n분) 기간별주가(t8415) ( attr,block,headtype=A )
+    t8415InBlock	pckInBlock;
 
-	TCHAR			szTrNo[] = "t8415";
+    TCHAR			szTrNo[] = "t8415";
 
-	//-----------------------------------------------------------
-	// 데이터 초기화
-	FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
-	//CString code; GetDlgItemTextA(IDC_CALLCODE, code);
-	//CString strDate = "20190101";
-	//-----------------------------------------------------------
-	// 데이터 입력
-	SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(선물/옵션코드)
-	SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
-	SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
-	SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
-	SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), strDate, DATA_TYPE_STRING);	// 
-	SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), strDate, DATA_TYPE_STRING);	//  
-	SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
+    CString str;
+    if (nToday == 7 || nToday == 1) { str = strDateY; } // 토요일, 일요일인 경우
+    else str = strDate;
+    //-----------------------------------------------------------
+    // 데이터 초기화
+    FillMemory(&pckInBlock, sizeof(pckInBlock), ' ');
+    //CString code; GetDlgItemTextA(IDC_CALLCODE, code);
+    //CString strDate = "20190101";
+    //-----------------------------------------------------------
+    // 데이터 입력
+    SetPacketData(pckInBlock.shcode, sizeof(pckInBlock.shcode), str_code, DATA_TYPE_STRING);	// 단축코드(Future/Option코드)
+    SetPacketData(pckInBlock.ncnt, sizeof(pckInBlock.ncnt), "1", DATA_TYPE_LONG);	//1분
+    SetPacketData(pckInBlock.qrycnt, sizeof(pckInBlock.qrycnt), "411", DATA_TYPE_LONG);	//요청건수 411건
+    SetPacketData(pckInBlock.nday, sizeof(pckInBlock.nday), "0", DATA_TYPE_STRING);	// 조회영업일수(0:미사용)
+    SetPacketData(pckInBlock.sdate, sizeof(pckInBlock.sdate), str, DATA_TYPE_STRING);	// 
+    SetPacketData(pckInBlock.edate, sizeof(pckInBlock.edate), str, DATA_TYPE_STRING);	//  
+    SetPacketData(pckInBlock.comp_yn, sizeof(pckInBlock.comp_yn), "N", DATA_TYPE_STRING);	// 압축여부 
 
-	//-----------------------------------------------------------
-	// 데이터 전송
-	int nRqID = g_iXingAPI.Request(
-		GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
-		szTrNo,						// TR 번호
-		&pckInBlock,				// InBlock 데이터
-		sizeof(pckInBlock),		// InBlock 데이터 크기
-		bNext,						// 다음조회 여부
-		"",							// 다음조회 Key
-		30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
-	);
+    //-----------------------------------------------------------
+    // 데이터 전송
+    int nRqID = g_iXingAPI.Request(
+        GetSafeHwnd(),				// 데이터를 받을 윈도우, XM_RECEIVE_DATA 으로 온다.
+        szTrNo,						// TR 번호
+        &pckInBlock,				// InBlock 데이터
+        sizeof(pckInBlock),		// InBlock 데이터 크기
+        bNext,						// 다음조회 여부
+        "",							// 다음조회 Key
+        30							// Timeout(초) : 해당 시간(초)동안 데이터가 오지 않으면 Timeout에 발생한다. XM_TIMEOUT_DATA 메시지가 발생한다.
+    );
 
-	//-----------------------------------------------------------
-	// Request ID가 0보다 작을 경우에는 에러이다.
-	if (nRqID < 0)		MessageBox("조회실패8415", "에러", MB_ICONSTOP);
-	ID84153 = nRqID;
+    //-----------------------------------------------------------
+    // Request ID가 0보다 작을 경우에는 에러이다.
+    //if (nRqID < 0)		MessageBox("조회실패84153", "84153에러", MB_ICONSTOP);
+    ID84153 = nRqID;
 }
 
 
@@ -3066,7 +3119,8 @@ LRESULT CDlg_JEKYLL::OnXMReceiveRealData(WPARAM wParam, LPARAM lParam)
 	{
 		CString str;
 		LPFC0_OutBlock pOutBlock = (LPFC0_OutBlock)pRealPacket->pszData;
-		m_future.SetWindowTextA(GetDispData(pOutBlock->price, sizeof(pOutBlock->price), DATA_TYPE_FLOAT, 2));    // 현재가    
+        str = GetDispData(pOutBlock->price, sizeof(pOutBlock->price), DATA_TYPE_FLOAT, 2);// 현재가    
+        fFutPrc = (float)atof(str); 
 		m_futurechange2.SetWindowTextA(GetDispData(pOutBlock->drate, sizeof(pOutBlock->drate), DATA_TYPE_FLOAT, 2) + "%"); //전일대비등락율
 		if (atof(GetDispData(pOutBlock->drate, sizeof(pOutBlock->drate), DATA_TYPE_FLOAT, 2)) >= 0)
 			m_futurechange.SetWindowTextA("+" + GetDispData(pOutBlock->change, sizeof(pOutBlock->change), DATA_TYPE_FLOAT, 2)); //전일대비
@@ -3148,8 +3202,8 @@ LRESULT CDlg_JEKYLL::OnXMReceiveRealData(WPARAM wParam, LPARAM lParam)
 	if (strcmp(pRealPacket->szTrCode, "OVC") == 0) // SNP 지수 실시간
 	{
 		LPOVC_OutBlock pOutBlock = (LPOVC_OutBlock)pRealPacket->pszData;
-		if (strcmp(GetDispData(pOutBlock->symbol, sizeof(pOutBlock->symbol), DATA_TYPE_STRING), "ESH19") == 0)//SNP
-			m_futuresnp.SetWindowTextA(GetDispData(pOutBlock->chgrate, sizeof(pOutBlock->chgrate), DATA_TYPE_DOT, 2) + "%"); //전일대비등락율
+		//if (strcmp(GetDispData(pOutBlock->symbol, sizeof(pOutBlock->symbol), DATA_TYPE_STRING), "ESH19") == 0)//SNP
+			//m_futuresnp.SetWindowTextA(GetDispData(pOutBlock->chgrate, sizeof(pOutBlock->chgrate), DATA_TYPE_DOT, 2) + "%"); //전일대비등락율
 
 		//if (strcmp(GetDispData(pOutBlock->symbol, sizeof(pOutBlock->symbol), DATA_TYPE_STRING), "FESXH19") == 0)//EURO
 		//	m_futureeuro.SetWindowTextA(GetDispData(pOutBlock->chgrate, sizeof(pOutBlock->chgrate), DATA_TYPE_DOT, 2) + "%"); //전일대비등락율
@@ -3920,10 +3974,10 @@ void CDlg_JEKYLL::Receive10100(LPRECV_PACKET pRpData) //header B type 매수물�
 
 	//lLqdt = atol(str1);
 	long ltemp = atol(str2);
-	if (ltemp != 0) 	lBalance = ltemp;	// *************************************************************************************** 3개의 콜/풋코드로 나눠서 구매
-	//if (lMaxBalance < lBalance)
-	//	lMaxBalance = lBalance;
-	/*if (lBalance < 300000)
+	if (ltemp != 0) 	lBal = ltemp;	// *************************************************************************************** 3개의 콜/풋코드로 나눠서 구매
+	//if (lMaxBalance < lBal)
+	//	lMaxBalance = lBal;
+	/*if (lBal < 300000)
 	{
 		bCall = FALSE;
 		bPut = FALSE;
@@ -3972,10 +4026,10 @@ void CDlg_JEKYLL::Receive10100_(LPRECV_PACKET pRpData) //header B type
 
 	lNewSell = atol(str3);
 	lLqdt = atol(str4);
-	lBalance = atol(str5);
-	/*if (lMaxBalance < lBalance)
-		lMaxBalance = lBalance;*/
-	/*if (lBalance < 300000)
+	lBal = atol(str5);
+	/*if (lMaxBalance < lBal)
+		lMaxBalance = lBal;*/
+	/*if (lBal < 300000)
 	{
 		bCall = FALSE;
 		bPut = FALSE;
@@ -4244,6 +4298,18 @@ void CDlg_JEKYLL::Receive2301(LPRECV_PACKET pRpData)//옵션전광판 header A t
 	//m_putcode2.SetWindowTextA(PutCode[1]);
 	//m_callcode3.SetWindowTextA(CallCode[2]);
 	//m_putcode3.SetWindowTextA(PutCode[2]);
+
+    if (m_callbackBuyOption3)
+    {
+        m_callbackBuyOption3();             // BuyOption33() 실행
+        m_callbackBuyOption3 = nullptr;     // 재실행 방지
+    }
+    if (m_callback2301_8415)
+    {
+        m_callback2301_8415();             // Request8415(FutureCode) 실행
+        m_callback2301_8415 = nullptr;     // 재실행 방지
+    }
+
 }
 
 void CDlg_JEKYLL::Receive2421(LPRECV_PACKET pRpData)//미결제약정추이 header A type
@@ -4366,22 +4432,26 @@ void CDlg_JEKYLL::Receive1602(LPRECV_PACKET pRpData) //거래량 header A type
 		//}
 		//	
 
-	// 출력 ***************************************************************************************************************************
+    // 출력 ***************************************************************************************************************************
 
-		ofstream myfile1602("test1602.csv"); // 외인,기관 거래량(30초->1분)
-		if (myfile1602.is_open())
-		{
-			myfile1602 << "시간, 종가, 콜, 풋, 외인, 기관, 외인(10분), 기관(10분)\n";
-			for (int i = 0; i < nCount; i++)
-			{
-				myfile1602 << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArForVol2[i] << ", " << lArSecVol2[i] << ", "
-					<< lArForVol5m[i] << ", " << lArSecVol5m[i] << "\n";
-			}
-		}
-		myfile1602.close();
-		/*CString str;
-		str.Format("%d", lArForVol5m[nCount - 1]);	m_v51.SetWindowText(str);
-		str.Format("%d", lArSecVol5m[nCount - 1]);	m_v61.SetWindowText(str);*/
+        TCHAR path[MAX_PATH];
+        ::GetModuleFileName(NULL, path, MAX_PATH);
+        CString exePath(path);
+        exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+        CString name = exePath + "\\..\\csv\\" + strDate + "_test1602_future.csv";
+
+        ofstream myfile1602(name); // 선물 외인,기관 거래량(30초->1분)
+        if (myfile1602.is_open())
+        {
+            myfile1602 << "시간, 종가, 콜, 풋, 외인, 기관, 외인(5분), 기관(5분)\n";
+            for (int i = 0; i < nCount; i++)
+            {
+                myfile1602 << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArForVol2[i] << ", " << lArSecVol2[i] << ", "
+                    << lArForVol5m[i] << ", " << lArSecVol5m[i] << "\n";
+            }
+        }
+        myfile1602.close();
 	}
 	return;
 }
@@ -4470,25 +4540,25 @@ void CDlg_JEKYLL::Receive1602_(LPRECV_PACKET pRpData) //거래량 header A type
 		//}
 		//	
 
-	// 출력 ***************************************************************************************************************************
+    // 출력 ***************************************************************************************************************************
+        TCHAR path[MAX_PATH];
+        ::GetModuleFileName(NULL, path, MAX_PATH);
+        CString exePath(path);
+        exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
 
-		ofstream myfile1602_("test1602_.csv"); // 외인,기관 거래량(30초->1분)
-		if (myfile1602_.is_open())
-		{
-			myfile1602_ << "시간, 종가, 콜, 풋, 외인, 기관, 외인(10분), 기관(10분)\n";
-			for (int i = 0; i < nCount; i++)
-			{
-				myfile1602_ << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArKoForVol2[i] << ", " << lArKoSecVol2[i] << ", "
-					<< lArKoForVol5m[i] << ", " << lArKoSecVol5m[i] << "\n";
-			}
-		}
-		myfile1602_.close();
-		/*CString str;
-		str.Format("%d", lArForVol5m[nCount - 1]);	m_v51.SetWindowText(str);
-		str.Format("%d", lArSecVol5m[nCount - 1]);	m_v61.SetWindowText(str);*/
-		//CString str;/*
-		//str.Format("%d", lArKoForVol5m[nCount - 1]);	m_v51.SetWindowText(str);
-		//str.Format("%d", lArKoSecVol5m[nCount - 1]);	m_v61.SetWindowText(str);*/
+        CString name = exePath + "\\..\\csv\\" + strDate + "_test1602_kospi.csv";
+        ofstream myfile1602_(name); // 코스피 외인,기관 거래량(30초->1분)
+        if (myfile1602_.is_open())
+        {
+            myfile1602_ << "시간, 종가, 콜, 풋, 외인, 기관, 외인(5분), 기관(5분), 매입속도(6~-6), 기관+외인(평균)\n";
+            for (int i = 0; i < nCount; i++)
+            {
+                myfile1602_ << strArTime8415[i + 15] << ", " << fArClose[i + 15] << ", " << fArCClose[i + 15] << ", " << fArPClose[i + 15] << ", " << lArKoForVol2[i] << ", " << lArKoSecVol2[i] << ", "
+                    << lArKoForVol5m[i] << ", " << lArKoSecVol5m[i] << "\n";
+            }
+
+        }
+        myfile1602_.close();
 	}
 	return;
 }
@@ -4512,14 +4582,23 @@ void CDlg_JEKYLL::Receive1602() //거래량 header A type 선물 거래량
 		lArSecVol5m[nCurMin - 1] = l2;
 	}
 
-	ofstream myfile1602("test1602.csv", ios::app); // 외인,기관 거래량(30초->1분)
-	if (myfile1602.is_open())
-	{
-		int i = nCurMin - 1;
-		myfile1602 << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArForVol2[i] << ", " << lArSecVol2[i] << ", "
-			<< lArForVol5m[i] << ", " << lArSecVol5m[i] << "\n";
-	}
-	myfile1602.close();
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+    CString name = exePath + "\\..\\csv\\" + strDate + "_test1602_future.csv";
+
+    ofstream myfile1602(name, ios::app); // 외인,기관 거래량(30초->1분)
+    if (myfile1602.is_open())
+    {
+        int i = nCurMin - 1;
+        myfile1602 << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArForVol2[i] << ", " << lArSecVol2[i] << ", "
+            << lArForVol5m[i] << ", " << lArSecVol5m[i] << "\n";
+    }
+    myfile1602.close();
+    //str.Format("%d", lArForVol5m[nCurMin - 1]);	m_v51.SetWindowText("(5m)"+str); // 외인 5분 평균 선물 매수량
+    //str.Format("%d", lArSecVol5m[nCurMin - 1]);	m_v61.SetWindowText("(5m)"+str); // 기관 5분 평균 선물 매수량
 
 	return;
 }
@@ -4527,6 +4606,7 @@ void CDlg_JEKYLL::Receive1602() //거래량 header A type 선물 거래량
 
 void CDlg_JEKYLL::Receive1602_() //거래량 header A type 코스피 거래량
 {
+    int tempCurMin = nCurMin - 15;
 	CString str;
 	str = m_lst1601.GetItemText(2, 2);	lArKoForVol2[nCurMin - 1] = atol(str);	// 외인 코스피
 	str = m_lst1601.GetItemText(2, 3);	lArKoSecVol2[nCurMin - 1] = atol(str);	// 기관 코스피
@@ -4544,17 +4624,25 @@ void CDlg_JEKYLL::Receive1602_() //거래량 header A type 코스피 거래량
 		lArSecVol5m[nCurMin - 1] = l2;
 	}
 
-	// 출력 ***************************************************************************************************************************
+    int i = tempCurMin - 1;
+    // 출력 ***************************************************************************************************************************
 
-	ofstream myfile1602_("test1602_.csv", ios::app); // 외인,기관 거래량(30초->1분)
-	if (myfile1602_.is_open())
-	{
-		int i = nCurMin - 1;
-		myfile1602_ << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArKoForVol2[i] << ", " << lArKoSecVol2[i] << ", "
-			<< lArKoForVol5m[i] << ", " << lArKoSecVol5m[i] << "\n";
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
 
-	}
-	myfile1602_.close();
+    CString name = exePath + "\\..\\csv\\" + strDate + "_test1602_kospi.csv";
+
+    ofstream myfile1602_(name, ios::app); // 외인,기관 거래량(30초->1분)
+    if (myfile1602_.is_open())
+    {
+
+        myfile1602_ << strArTime8415[i] << ", " << fArClose[i] << ", " << fArCClose[i] << ", " << fArPClose[i] << ", " << lArKoForVol2[i] << ", " << lArKoSecVol2[i] << ", "
+            << lArKoForVol5m[i] << ", " << lArKoSecVol5m[i] << "\n";
+
+    }
+    myfile1602_.close();
 
 	return;
 }
@@ -5008,7 +5096,6 @@ void CDlg_JEKYLL::Receive8415(LPRECV_PACKET pRpData) //선물옵션차트(n분) 
 	if (strcmp(pRpData->szBlockName, NAME_t8415OutBlock) == 0)
 	{
 		LPt8415OutBlock pOutBlock = (LPt8415OutBlock)pRpData->lpData;
-
 		shcode = GetDispData(pOutBlock->shcode, sizeof(pOutBlock->shcode), DATA_TYPE_STRING);			//
 	}
 
@@ -5388,104 +5475,70 @@ void CDlg_JEKYLL::Receive8415(LPRECV_PACKET pRpData) //선물옵션차트(n분) 
             }
         }
 
-        // ****************************************************************************************************** 1분봉 Bolinger Band(20 SMA)
-        if (nCount < 20)
+        // ****************************************************************************************************** 1분봉 Bolinger Band(80 SMA)
+        int n1mSma = 80;
+		if (nCount < n1mSma)
+		{
+			for (int i = 0; i <= nCount; i++)
+			{
+				float f1 = fArClose[i];
+				int temp = i;
+				while (temp > 0)
+				{
+					f1 += fArClose[temp - 1];
+					temp -= 1;
+				}
+				for (int k = 0; k < (n1mSma - 1 - i); k++)								// 1분봉 80 SMA 초기화
+				{
+					f1 += fArCloseY[410 - k];
+				}
+                f1 = f1 / (float)n1mSma;
+				fAr20mSMA[i] = f1;
+
+				f1 = 0.0;
+				float f2 = 0.0;
+				temp = i;
+				while (temp >= 0)
+				{
+					f1 = fArClose[temp] - fAr20mSMA[i];
+					f2 += fabs(f1 * f1);
+					temp -= 1;
+				}
+				for (int k = 0; k < (n1mSma -1 - i); k++)									// 1분봉 80분 SD (Bolinger bandwidth)
+				{
+					f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+					f2 += fabs(f1 * f1);
+				}
+                f2 = sqrt(f2 / (float)n1mSma) * 2.0f;											// upper band = 80 SMA + SD*2(2시그마)
+				fAr20mSD[i] = f2;
+			}
+
+
+		}
+
+        else //(nCount >= n1mSma) 80 이상일때
         {
-            for (int i = 0; i < nCount; i++)
+            for (int i = 0; i <= nCount; i++)
             {
-                float f1 = fArClose[i];
-                int temp = i;
-                while (temp > 0)
+
+                float f1 = 0.0;
+                for (int k = 0; k < n1mSma; k++)									// 1분봉 80 SMA = Bolinger mid-band
                 {
-                    f1 += fArClose[temp - 1];
-                    temp -= 1;
+                    f1 += fArClose[i - k];
                 }
-                for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
-                {
-                    f1 += fArCloseY[410 - k];
-                }
-                f1 = f1 / 20.0f;
+                f1 = f1 / (float)n1mSma;
                 fAr20mSMA[i] = f1;
 
                 f1 = 0.0;
                 float f2 = 0.0;
-                temp = i;
-                while (temp >= 0)
+                for (int k = 0; k < n1mSma; k++)									// 1분봉 80 SD (Bolinger bandwidth)
                 {
-                    f1 = fArClose[temp] - fAr20mSMA[i];
-                    f2 += fabs(f1 * f1);
-                    temp -= 1;
-                }
-                for (int k = 0; k < (19 - i); k++)									// 1분봉 20분 SD (Bolinger bandwidth)
-                {
-                    f1 = fArCloseY[410 - k] - fAr20mSMA[i];
+                    f1 = fArClose[i - k] - fAr20mSMA[i];
                     f2 += fabs(f1 * f1);
                 }
-                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
-                fAr20mSD[i] = f2;
+                f2 = sqrt(f2 / (float)n1mSma) * 2.0f;										// upper band = 80 SMA + SD*2(2시그마)
+                fAr20mSD[i] = f2; 
             }
-
-
-        }
-        else
-        {
-            for (int i = 0; i < nCount; i++)
-            {
-                if (i < 19)
-                {
-                    float f1 = fArClose[i];
-                    int temp = i;
-                    while (temp > 0)
-                    {
-                        f1 += fArClose[temp - 1];
-                        temp -= 1;
-                    }
-                    for (int k = 0; k < (19 - i); k++)								// 1분봉 20 SMA 초기화
-                    {
-                        f1 += fArCloseY[410 - k];
-                    }
-                    f1 = f1 / 20.0f;
-                    fAr20mSMA[i] = f1;
-
-                    f1 = 0.0f;
-                    float f2 = 0.0f;
-                    temp = i;
-                    while (temp >= 0)
-                    {
-                        f1 = fArClose[temp] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                        temp -= 1;
-                    }
-                    for (int k = 0; k < (19 - i); k++)									// 1분봉 20 SD (Bolinger bandwidth)
-                    {
-                        f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                    }
-                    f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2(2시그마)
-                    fAr20mSD[i] = f2;
-                }
-                else
-                {
-                    float f1 = 0.0;
-                    for (int k = 0; k < 20; k++)									// 1분봉 20 SMA = Bolinger mid-band
-                    {
-                        f1 += fArClose[i - k];
-                    }
-                    f1 = f1 / 20;
-                    fAr20mSMA[i] = f1;
-
-                    f1 = 0.0;
-                    float f2 = 0.0;
-                    for (int k = 0; k < 20; k++)									// 1분봉 20 SD (Bolinger bandwidth)
-                    {
-                        f1 = fArClose[i - k] - fAr20mSMA[i];
-                        f2 += fabs(f1 * f1);
-                    }
-                    f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2(2시그마)
-                    fAr20mSD[i] = f2;
-                }
-            }
-
         }
 
         if (nCount > 28)
@@ -5585,18 +5638,24 @@ void CDlg_JEKYLL::Receive8415(LPRECV_PACKET pRpData) //선물옵션차트(n분) 
 
         }
 
-        ofstream myfile8415("./csv/" + strDate + "_test8415.csv");								// 선물,옵션차트 저장(1분봉)
+        TCHAR path[MAX_PATH];
+        ::GetModuleFileName(NULL, path, MAX_PATH);
+        CString exePath(path);
+        exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+        CString strFilePath = exePath + "\\..\\csv\\" + strDate + ".csv";
+
+        ofstream myfile8415(strFilePath);								// 선물,옵션차트 저장(1분봉)
         if (myfile8415.is_open())
         {
 
-            myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+            myfile8415 << "시간, 시가, 종가, 고가, 저가, Width, SMA(20), SD(20)\n";
             for (int i = 0; i < nCount; i++)
             {
 
-                myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+                myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << fArHigh[i] << ", " << fArLow[i] << ", "
+                    << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << "\n";
             }
-
         }
         myfile8415.close();
 
@@ -6046,10 +6105,11 @@ void CDlg_JEKYLL::Receive8415(int nCount) //선물옵션차트(n분) header A ty
     }
 
 
-    // ****************************************************************************************************** 1분봉 Bolinger Band(20m)
-    if (nCount < 20)
+    // ****************************************************************************************************** 1분봉 Bolinger Band(80 SMA)
+    int n1mSma = 80;
+    if (nCount < n1mSma)
     {
-        for (int i = 0; i < nCount; i++)
+        for (int i = 0; i <= nCount; i++)
         {
             float f1 = fArClose[i];
             int temp = i;
@@ -6058,11 +6118,11 @@ void CDlg_JEKYLL::Receive8415(int nCount) //선물옵션차트(n분) header A ty
                 f1 += fArClose[temp - 1];
                 temp -= 1;
             }
-            for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
+            for (int k = 0; k < (n1mSma - 1 - i); k++)								// 1분봉 80 SMA 초기화
             {
                 f1 += fArCloseY[410 - k];
             }
-            f1 = f1 / 20;
+            f1 = f1 / (float)n1mSma;
             fAr20mSMA[i] = f1;
 
             f1 = 0.0;
@@ -6074,76 +6134,40 @@ void CDlg_JEKYLL::Receive8415(int nCount) //선물옵션차트(n분) header A ty
                 f2 += fabs(f1 * f1);
                 temp -= 1;
             }
-            for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
+            for (int k = 0; k < (n1mSma - 1 - i); k++)									// 1분봉 80분 SD (Bolinger bandwidth)
             {
                 f1 = fArCloseY[410 - k] - fAr20mSMA[i];
                 f2 += fabs(f1 * f1);
             }
-            f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
+            f2 = sqrt(f2 / (float)n1mSma) * 2.0f;											// upper band = 80 SMA + SD*2(2시그마)
             fAr20mSD[i] = f2;
         }
 
 
     }
-    else
+    else //(nCount >= n1mSma) 80 이상일때
     {
-        for (int i = 0; i < nCount; i++)
+        for (int i = 0; i <= nCount; i++)
         {
-            if (i < 19)
-            {
-                float f1 = fArClose[i];
-                int temp = i;
-                while (temp > 0)
-                {
-                    f1 += fArClose[temp - 1];
-                    temp -= 1;
-                }
-                for (int k = 0; k < (19 - i); k++)								// 20분 SMA 초기화
-                {
-                    f1 += fArCloseY[410 - k];
-                }
-                f1 = f1 / 20;
-                fAr20mSMA[i] = f1;
 
-                f1 = 0.0;
-                float f2 = 0.0;
-                temp = i;
-                while (temp >= 0)
-                {
-                    f1 = fArClose[temp] - fAr20mSMA[i];
-                    f2 += fabs(f1 * f1);
-                    temp -= 1;
-                }
-                for (int k = 0; k < (19 - i); k++)									// 20분 SD (Bolinger bandwidth)
-                {
-                    f1 = fArCloseY[410 - k] - fAr20mSMA[i];
-                    f2 += fabs(f1 * f1);
-                }
-                f2 = sqrt(f2 / 20.0f) * 2.0f;											// upper band = 20 SMA + SD*2
-                fAr20mSD[i] = f2;
-            }
-            else
+            float f1 = 0.0;
+            for (int k = 0; k < n1mSma; k++)									// 1분봉 80 SMA = Bolinger mid-band
             {
-                float f1 = 0.0;
-                for (int k = 0; k < 20; k++)									// 20분 SMA = Bolinger mid-band
-                {
-                    f1 += fArClose[i - k];
-                }
-                f1 = f1 / 20;
-                fAr20mSMA[i] = f1;
-
-                f1 = 0.0;
-                float f2 = 0.0;
-                for (int k = 0; k < 20; k++)									// 20분 SD (Bolinger bandwidth)
-                {
-                    f1 = fArClose[i - k] - fAr20mSMA[i];
-                    f2 += fabs(f1 * f1);
-                }
-                f2 = sqrt(f2 / 20.0f) * 2.0f;										// upper band = 20 SMA + SD*2
-                fAr20mSD[i] = f2;
+                f1 += fArClose[i - k];
             }
+            f1 = f1 / (float)n1mSma;
+            fAr20mSMA[i] = f1;
+
+            f1 = 0.0;
+            float f2 = 0.0;
+            for (int k = 0; k < n1mSma; k++)									// 1분봉 80 SD (Bolinger bandwidth)
+            {
+                f1 = fArClose[i - k] - fAr20mSMA[i];
+                f2 += fabs(f1 * f1);
+            }
+            f2 = sqrt(f2 / (float)n1mSma) * 2.0f;										// upper band = 80 SMA + SD*2(2시그마)
+            fAr20mSD[i] = f2;
         }
-
     }
 
     if (nCount > 28)
@@ -6242,16 +6266,23 @@ void CDlg_JEKYLL::Receive8415(int nCount) //선물옵션차트(n분) header A ty
 
     }
 
-    ofstream myfile8415("./csv/" + strDate + "_test8415.csv");								// 선물,옵션차트 저장(1분봉)
+    TCHAR path[MAX_PATH];
+    ::GetModuleFileName(NULL, path, MAX_PATH);
+    CString exePath(path);
+    exePath = exePath.Left(exePath.ReverseFind('\\'));  // 실행파일 폴더
+
+    CString strFilePath = exePath + "\\..\\csv\\" + strDate + ".csv";
+
+    ofstream myfile8415(strFilePath);								// 선물,옵션차트 저장(1분봉)
     if (myfile8415.is_open())
     {
 
-        myfile8415 << "시간, 시가, 종가, 거래량, Width, 20mSMA, 20mSD, 60mSMA\n";
+        myfile8415 << "시간, 시가, 종가, 고가, 저가, Width, SMA(20), SD(20)\n";
         for (int i = 0; i < nCount; i++)
         {
 
-            myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << lArVol[i] << ", "
-                << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << ", " << fAr60mSMA[i] << "\n";
+            myfile8415 << strArTime8415[i] << ", " << fArOpen[i] << ", " << fArClose[i] << ", " << fArHigh[i] << ", " << fArLow[i] << ", "
+                << fArWidth[i] << ", " << fAr20mSMA[i] << ", " << fAr20mSD[i] << "\n";
         }
     }
     myfile8415.close();
@@ -6592,19 +6623,6 @@ void CDlg_JEKYLL::GetData()
 	lQRem.push(lRemQty);
 	if (lQRem.size() > 30)	lQRem.pop(); // 호가잔량 30초 저장
 
-	// 오류 처리 *****************************************************************************************************(미사용)
-	GetDlgItemTextA(IDC_FUTURE60MA, str);	float f60ma = (float)atof(str);			//1분 60 이평선
-	GetDlgItemTextA(IDC_BOLGR10M, str);		float f10ma = (float)atof(str);			//10분 20 이평선
-	//if (abs(f60ma) > 5 || abs(f10ma) > 5) OnBnClickedButtonRequest7();
-
-	GetDlgItemTextA(IDC_SD2, str); float fsd2 = (float)atof(str);						//10분 20 이평선 Width(볼린저밴드 폭)
-	if (fsd2 > 5) // 오류 가정 (못읽어오면)
-	{
-		str.Format("%.2f", fAr10m20mSD[(int)(nCurMin/10) - 1]);			
-		m_sd2.SetWindowText(str);
-		fsd2 = (float)atof(str);
-	}
-
 	// 계좌관련 업데이트 지속 ********************************************************************************
 	DispAccnt();
 
@@ -6829,59 +6847,101 @@ void CDlg_JEKYLL::GetData()
 			//}
 		}
 
-		// 10분부터 실행 *****************************************************************************
-		if (nCurMin > 9)
-		{
-			if (sec == 3 || sec == 8)
-			{
-				// 20mSMA, 20mSD **************************************************************** 1분전 데이터 표출	
-				float f1 = fAr20mSD[nCurMin - 1], f2 = fAr20mSMA[nCurMin - 1];
-				str.Format("%.2f", f1);		m_sd.SetWindowText(str);
-				str.Format("%.2f", f2);	m_20msma.SetWindowText(str);
+        // 1분봉 80mSMA, 80mSD **************************************************************** 선물 1분, 볼린저밴드 80분 sma(Center)******
+        if (nCurMin > 0)
+        {
+            float f1 = fAr20mSD[nCurMin - 1], f2 = fAr20mSMA[nCurMin - 1], f3 = fFutPrc - fAr20mSMA[nCurMin - 1];
+            if (f1 > 30.0f || f3 > 30.0f || f2 < 200.0f) {
+                f1 = 0.0f, f2 = 0.0f, f3 = 0.0f;
+                Request8415(FutureCode);
+            }
+            str.Format("%.2f", f1);		m_sd.SetWindowText(str);
+            str.Format("%.2f", f2);	m_sma.SetWindowText(str);
+            str.Format("%.2f", f3);		m_bolgr.SetWindowText(str);	//80분선 Center (1분봉)******
 
-				// ****************************************************************************************************************************************** 10분봉 기준 %K %D
-				int tempMin = nCurMin / 10;
-				if (nCurMin < 20)
-				{
-					if (nCurMin < 10)
-					{
-						str.Format("%.2f", fAr10mSlowDY[41]);			m_percentd5.SetWindowText(str); //%D -10m
-						str.Format("%.2f", fAr10mSlowD[38]);			m_percentd9.SetWindowText(str); //%D -20m
-						str.Format("%.2f", fAr10mDY[41]);				m_percentd10.SetWindowText(str);//%K -10m
-						str.Format("%.2f", fAr10m20mSDY[41]);			m_sd2.SetWindowText(str);		//sd(width) - 10m
-					}
-					else
-					{
-						str.Format("%.2f", fAr10mSlowDY[0]);			m_percentd5.SetWindowText(str); //%D -10m
-						str.Format("%.2f", fAr10mSlowD[41]);			m_percentd9.SetWindowText(str); //%D -20m
-						str.Format("%.2f", fAr10mDY[0]);				m_percentd10.SetWindowText(str);//%K
-						str.Format("%.2f", fAr10m20mSD[0]);				m_sd2.SetWindowText(str);		// sd(width)
-					}
-				}
-				else
-				{
-					str.Format("%.2f", fAr10mSlowD[tempMin - 1]);		m_percentd5.SetWindowText(str);
-					str.Format("%.2f", fAr10mSlowD[tempMin - 2]);		m_percentd9.SetWindowText(str);
-					str.Format("%.2f", fAr10mD[tempMin - 1]);			m_percentd10.SetWindowText(str);
-				}
+            /*if (f3 >= 0.0f)
+            {
+                if (f3 > f1) SetDlgItemTextA(IDC_CURPOS, "OverTop");
+                else SetDlgItemTextA(IDC_CURPOS, "OverCenter");
+            }
+            else
+            {
+                if (fabsf(f3) > f1) SetDlgItemTextA(IDC_CURPOS, "BelowBottom");
+                else    SetDlgItemTextA(IDC_CURPOS, "BelowCenter");
+            }*/
+        }
+        else // nCurMin == 0
+        {
+            float f1 = fAr20mSDY[410], f2 = fAr20mSMAY[410], f3 = fFutPrc - fAr20mSMAY[410];
+            if (f1 > 30.0f || f3 > 30.0f || f2 < 200.0f) {
+                f1 = 0.0f, f2 = 0.0f, f3 = 0.0f;
+                Request8415Y(FutureCode);
+            }
+            str.Format("%.2f", f1);		m_sd.SetWindowText(str);
+            str.Format("%.2f", f2);	m_sma.SetWindowText(str);
+            str.Format("%.2f", f3);		m_bolgr.SetWindowText(str);	//80분선 Center (1분봉)******
 
-				str.Format("%.2f", fAr10mD[tempMin]);				m_percentd3.SetWindowText(str);
-				str.Format("%.2f", fAr10mSlowD[tempMin]);			m_percentd4.SetWindowText(str);
+            /*if (f3 >= 0.0f)
+            {
+                if (f3 > f1) SetDlgItemTextA(IDC_CURPOS, "OverTop");
+                else SetDlgItemTextA(IDC_CURPOS, "OverCenter");
+            }
+            else
+            {
+                if (fabsf(f3) > f1) SetDlgItemTextA(IDC_CURPOS, "BelowBottom");
+                else    SetDlgItemTextA(IDC_CURPOS, "BelowCenter");
+            }*/
+        }
 
-				if (nCurMin < 10)
-				{
-					str.Format("%.2f", fAr10m20mSDY[41]);			m_sd2.SetWindowText(str);		// 10분봉 20분 Width
-					str.Format("%.2f", fAr10m20mSMAY[41]);			m_20msma2.SetWindowText(str);	// 10분봉 20분 중심선
-				}
-				else
-				{
-					str.Format("%.2f", fAr10m20mSD[tempMin - 1]);			m_sd2.SetWindowText(str);		// 10분봉 20분 Width
-					str.Format("%.2f", fAr10m20mSMA[tempMin - 1]);			m_20msma2.SetWindowText(str);	// 10분봉 20분 중심선
-				}				
-			}
-		}
+        // nCurMin 10분부터 실행 *****************************************************************************
+        if (nCurMin > 9)
+        {
+            // 10분봉 20mSMA, 20mSD **************************************************************** 선물 10분, 볼린저밴드 20분 sma(Center)******
+            float f1 = fAr10m20mSD[nCurMin / 10 - 1], f2 = fAr10m20mSMA[nCurMin / 10 - 1], f3 = fFutPrc - fAr10m20mSMA[nCurMin / 10 - 1];
+            if (f1 > 30.0f || f3 > 30.0f || f2 < 200.0f) {
+                f1 = 0.0f, f2 = 0.0f, f3 = 0.0f;
+                Request8415(FutureCode);
+            }
+            str.Format("%.2f", f1);		m_sd2.SetWindowText(str);
+            str.Format("%.2f", f2);	m_sma2.SetWindowText(str);
+            str.Format("%.2f", f3);		m_bolgr2.SetWindowText(str);	//20분선 Center (10분봉)******
 
-		// 고가 저가 상시 갱신 **************************************************************************
+            /*if (f3 >= 0.0f)
+            {
+                if (f3 > f1) SetDlgItemTextA(IDC_CURPOS2, "OverTop_10m");
+                else SetDlgItemTextA(IDC_CURPOS2, "OverCenter_10m");
+            }
+            else
+            {
+                if (fabsf(f3) > f1) SetDlgItemTextA(IDC_CURPOS2, "BelowBottom_10m");
+                else    SetDlgItemTextA(IDC_CURPOS2, "BelowCenter_10m");
+            }*/
+        }
+        else //  9분까지
+        {
+            // 10분봉 20mSMA, 20mSD **************************************************************** 선물 10분, 볼린저밴드 20분 sma(Center)******
+            float f1 = fAr10m20mSDY[41], f2 = fAr10m20mSMAY[41], f3 = fFutPrc - fAr10m20mSMAY[41];
+            if (f1 > 30.0f || f3 > 30.0f || f2 < 200.0f) {
+                f1 = 0.0f, f2 = 0.0f, f3 = 0.0f;
+                Request8415Y(FutureCode);
+            }
+            str.Format("%.2f", f1);		m_sd2.SetWindowText(str);
+            str.Format("%.2f", f2);	m_sma2.SetWindowText(str);
+            str.Format("%.2f", f3);		m_bolgr2.SetWindowText(str);	//20분선 Center (10분봉)******
+
+            /*if (f3 >= 0.0f)
+            {
+                if (f3 > f1) SetDlgItemTextA(IDC_CURPOS2, "OverTop10");
+                else SetDlgItemTextA(IDC_CURPOS2, "OverCenter10");
+            }
+            else
+            {
+                if (fabsf(f3) > f1) SetDlgItemTextA(IDC_CURPOS2, "BelowBottom10");
+                else    SetDlgItemTextA(IDC_CURPOS2, "BelowCenter10");
+            }*/
+        }
+
+        // 선물 순매수잔량 최대/최저값 갱신 ********************************************************************
 		if (fFutPrc > fArHigh[nCurMin])	fArHigh[nCurMin] = fFutPrc;
 		if (fFutPrc < fArLow[nCurMin])	fArLow[nCurMin] = fFutPrc;
 
@@ -6919,18 +6979,7 @@ void CDlg_JEKYLL::GetData()
 		{
 			Combine_8415_1602();
 			Request2301(strMonth);
-		}
-
-		// ***************************************************************************************************************** 선물 60분, 볼린저밴드 20분(Center)******
-		if (nCurMin > 1)
-		{
-			str.Format("%.2f", fFutPrc - fAr60mSMA[nCurMin - 1]);		m_future60ma.SetWindowText(str);//60분선 Center (1분봉)******
-			str.Format("%.2f", fFutPrc - fAr20mSMA[nCurMin - 1]);		m_bolgr20.SetWindowText(str);	//20분선 Center (1분봉)******
-		}
-
-		if (nCurMin > 9)		str.Format("%.2f", fFutPrc - fAr10m20mSMA[nCurMin / 10 - 1]);
-		else					str.Format("%.2f", fFutPrc - fAr10m20mSMAY[41]);
-		m_bolgr10m.SetWindowText(str);	//20분선 Center (10분봉)******
+		}		
 	}
 	
 
@@ -6978,14 +7027,6 @@ void CDlg_JEKYLL::GetData()
 		}
 	}
 
-	ofstream myfileGetdata("FindMoment.csv", ios::app);								// 속도 감시 이어쓰기
-	if (myfileGetdata.is_open())
-	{
-		myfileGetdata << strTime << ", " << strVelocity7 << ", " << strVelocity8 << ", " << strVelocity9 << ", " << strVelocity10 << ", " << strRem << ", "
-			<< strCHo8 << ", " << m_lst2105.GetItemText(10, 1) << ", " << strPHo8 << ", " << m_lst2105_.GetItemText(10, 1) << ", "
-			<< strV1 << ", " << strV3 << ", " << strV2 << ", " << strV4 << "\n";
-	}
-	myfileGetdata.close();
 
 	str.Format("%d", nIndex); 	m_idx.SetWindowText(str);
 	nIndex++;
@@ -6994,7 +7035,7 @@ void CDlg_JEKYLL::GetData()
 
 void CDlg_JEKYLL::BuyCall()
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
 	(lCho9 < 100) ? Request100(CallCode[0], "2", fCho9) : Request100(CallCode[0], "2", fCho8);
 	nCancelTime = nCurMin;
@@ -7007,10 +7048,10 @@ void CDlg_JEKYLL::BuyCall()
 
 void CDlg_JEKYLL::BuyCall(int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)(lBalance / (fCho8 * 250000));
-	long l1 = (long)(lBalance / (fCho9 * 250000));
+	long l0 = (long)(lBal / (fCho8 * 250000));
+	long l1 = (long)(lBal / (fCho9 * 250000));
 
 	//strQty.Format("%d", l1);
 	if (l0 == 0 || l1 == 0)
@@ -7058,10 +7099,10 @@ void CDlg_JEKYLL::BuyCall(int amnt, int per)
 
 void CDlg_JEKYLL::BuyCall(CString strPrc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
 	float f0 = (float)atof(strPrc);
-	long l0 = (long)(lBalance / (f0 * 250000));
+	long l0 = (long)(lBal / (f0 * 250000));
 	if (l0 == 0)
 		return;
 
@@ -7095,9 +7136,9 @@ void CDlg_JEKYLL::BuyCall(CString strPrc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyCall(float fprc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)((lBalance / (fprc * 250000)));
+	long l0 = (long)((lBal / (fprc * 250000)));
 	int n0 = (int)l0;
 	if (n0 == 0)
 		return;
@@ -7133,9 +7174,9 @@ void CDlg_JEKYLL::BuyCall(float fprc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyCall(CString code, float fprc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)(lBalance / (fprc * 250000));
+	long l0 = (long)(lBal / (fprc * 250000));
 	int n0 = (int)l0;
 	if (n0 == 0)
 		return;
@@ -7180,9 +7221,9 @@ void CDlg_JEKYLL::BuyCall(CString code, float fprc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyCallR(CString code, float fprc, int per)
 {
-	if (lBalance == 0 || fprc < 0.01f) return;
+	if (lBal == 0 || fprc < 0.01f) return;
 
-	long l0 = static_cast<long>((lBalance / (fprc * 250000)));
+	long l0 = static_cast<long>((lBal / (fprc * 250000)));
 	int n0 = (int)l0;
 	if (n0 == 0)
 		return;
@@ -7273,7 +7314,7 @@ void CDlg_JEKYLL::SellCall(float fprc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyPut()
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
 	(lPho9 < 100) ? Request100(PutCode[0], "2", fPho9) : Request100(PutCode[0], "2", fPho8);
 	nCancelTime = nCurMin;
@@ -7287,10 +7328,10 @@ void CDlg_JEKYLL::BuyPut()
 
 void CDlg_JEKYLL::BuyPut(int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)(lBalance / (fPho8 * 250000));
-	long l1 = (long)(lBalance / (fPho9 * 250000));
+	long l0 = (long)(lBal / (fPho8 * 250000));
+	long l1 = (long)(lBal / (fPho9 * 250000));
 
 	//strQty.Format("%d", l1);
 	if (l0 == 0 || l1 == 0)
@@ -7338,10 +7379,10 @@ void CDlg_JEKYLL::BuyPut(int amnt, int per)
 
 void CDlg_JEKYLL::BuyPut(CString strPrc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
 	float f0 = (float)atof(strPrc);
-	long l0 = (long)(lBalance / (f0 * 250000));
+	long l0 = (long)(lBal / (f0 * 250000));
 	if (l0 == 0)
 		return;
 
@@ -7374,9 +7415,9 @@ void CDlg_JEKYLL::BuyPut(CString strPrc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyPut(float fprc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)(lBalance / (fprc * 250000));
+	long l0 = (long)(lBal / (fprc * 250000));
 	int n0 = (int)l0;
 	if (n0 == 0)
 		return;
@@ -7409,9 +7450,9 @@ void CDlg_JEKYLL::BuyPut(float fprc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyPut(CString code, float fprc, int amnt, int per)
 {
-	if (lBalance == 0) return;
+	if (lBal == 0) return;
 
-	long l0 = (long)(lBalance / (fprc * 250000));
+	long l0 = (long)(lBal / (fprc * 250000));
 	int n0 = (int)l0;
 	if (n0 == 0)
 		return;
@@ -7453,9 +7494,9 @@ void CDlg_JEKYLL::BuyPut(CString code, float fprc, int amnt, int per)
 
 void CDlg_JEKYLL::BuyPutR(CString code, float fprc, int per) // 랜덤한 수량(1~2)으로 랜덤한 시간간격(100~300ms) 을 가지고 주문-> Request100() (가격, 수량n)
 {
-	if (lBalance == 0 || fprc < 0.01f) return;
+	if (lBal == 0 || fprc < 0.01f) return;
 
-	long l0 = static_cast<long>((lBalance / (fprc * 250000))); // 옵션가격 250000
+	long l0 = static_cast<long>((lBal / (fprc * 250000))); // 옵션가격 250000
 	int n0 = (int)l0;
 	if (n0 == 0) return;
 
@@ -7564,7 +7605,7 @@ void CDlg_JEKYLL::DispAccnt()//계좌디스플레이
     str3.Format("%d", lPutQty[1]);      m_avrprc21f.SetWindowTextA(str3);
     str3.Format("%d", lPutQty[2]);      m_avrprc22f.SetWindowTextA(str3);
 
-	str4.Format("%d", lBalance / 10000);	m_neword.SetWindowTextA(str4);
+	str4.Format("%d", lBal / 10000);	m_neword.SetWindowTextA(str4);
 
 	// 콜 계좌	
 	/*if (lCallQty[0] != 0) fCallAvrPrc[0] = (float)lCallAvrPrc / 250000 / abs(lCallQty[0]);
@@ -7872,6 +7913,7 @@ void CDlg_JEKYLL::StandbyNine()
 	// 시간 처리 ******************************************************************
 	Request0167();
 	Sleep(50);
+    Request8415(FutureCode);
 
 	CTime t = CTime::GetCurrentTime();
 	t += CTimeSpan(0, 0, 0, nCorrectTime);
@@ -7892,12 +7934,12 @@ void CDlg_JEKYLL::StandbyNine()
 		// ... Your code for routine A here ...
 		KillTimer(16); // kill StandbyNine() 
 
-		/*Request2105();
+		Request2105();
 		Sleep(50);
 		Request2105_();
 		Sleep(50);
 		Request1601();
-		Sleep(50);*/
+		Sleep(50);
 
 		AdviseFC0();//FC0(bFC0) 데이터 받기 시작하면 CNCT(button7) 눌러 getdata 시작하고 bFC0 = 0 , 장후 실행안함
 		Sleep(100);
@@ -7908,13 +7950,13 @@ void CDlg_JEKYLL::StandbyNine()
 		/*AdviseBMT();
 		AdviseBMT2();*/
 
-		SetTimer(1, 1000, NULL); //2105 
+		SetTimer(1, 500, NULL); //2105 
 		Sleep(50);
-		SetTimer(2, 1000, NULL); //2105_ 
+		SetTimer(2, 500, NULL); //2105_ 
 		Sleep(50);
 		SetTimer(3, 1000, NULL); //1601 투자자종합		
 		Sleep(50);
-		SetTimer(9, 1000, NULL); //21052
+		SetTimer(9, 500, NULL); //21052
 		Sleep(50);
 
 		// 계좌
@@ -7922,19 +7964,22 @@ void CDlg_JEKYLL::StandbyNine()
 		Sleep(50);
 
 	}
-	else if (nCurMin > (7 * 60) && nCurMin < (7 * 60 + 15 + 8 * 60)) { // 장후~ 24시까지 실행
+	//else if (nCurMin > (7 * 60) && nCurMin < (7 * 60 + 15 + 8 * 60)) { // 장후~ 24시까지 실행
 		// Routine B: Perform this routine from 15:46 to 24:00 (16시 + 8시간 = 24시) 
 		// ... Your code for routine B here ...
-		KillTimer(16); // kill StandbyNine() 
+    else if (nCurMin >= 411) { // 장후~ 24시까지 실행
 
-		/*Request2105();
+		Request2105();
 		Sleep(50);
 		Request2105_();
 		Sleep(50);
 		Request1601();
-		Sleep(50);*/
+		Sleep(50);
+        Request21052();
+        Sleep(50);
 
 		//AdviseFC0();//FC0(bFC0) 데이터 받기 시작하면 CNCT(button7) 눌러 getdata 시작하고 bFC0 = 0 , 장후 실행안함
+        OnBnClickedButtonRequest7(); //CNCT 버튼 실행
 		Sleep(100);
 		AdviseFH0();
 		Sleep(100);
@@ -7943,21 +7988,19 @@ void CDlg_JEKYLL::StandbyNine()
 		/*AdviseBMT();
 		AdviseBMT2();*/
 
-		SetTimer(1, 1000, NULL); //2105 
+		SetTimer(1, 500, NULL); //2105 
 		Sleep(50);
-		SetTimer(2, 1000, NULL); //2105_ 
+		SetTimer(2, 500, NULL); //2105_ 
 		Sleep(50);
 		SetTimer(3, 1000, NULL); //1601 투자자종합
 		Sleep(50);
-		SetTimer(9, 1000, NULL); //21052	
+		SetTimer(9, 500, NULL); //21052	
 		Sleep(50);
 
 		// 계좌
 		Request2400();//lCallQty, lPutQty(콜,풋 보유수량 확인),fCallAvrPrc, fPutAvrPrc(평단가 계산)
 		Sleep(50);
-
-		OnBnClickedButtonRequest7(); //CNCT 버튼 실행
-
+        KillTimer(16); // kill StandbyNine() 
 
 	}
 }
@@ -7965,7 +8008,12 @@ void CDlg_JEKYLL::StandbyNine()
 void CDlg_JEKYLL::OnBnClickedButtonRequest()
 {
 	// TODO: Add your control notification handler code here.
+    Request10100(CallCode[0]);
+
+    GetDlgItem(IDC_BUTTON_REQUEST22)->EnableWindow(FALSE); //Write 버튼(전날 데이터를 생성) 비활성화
 	SetTimer(16, 500, NULL); //StandbyNine() : 9시이전 시작시 대기 루틴
+
+    GetDlgItem(IDC_BUTTON_REQUEST)->EnableWindow(FALSE); //버튼 비활성화	
 }
 
 void CDlg_JEKYLL::OnBnClickedButtonStop()
@@ -8023,18 +8071,18 @@ void CDlg_JEKYLL::OnBnClickedButtonStop()
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);	
 //	CString str1, str4;
-//	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
+//	str1.Format("%d", lLqdt); str4.Format("%d", lBal);
 //
 //	CString strPrc = m_lst2105.GetItemText(1, 1);
 //	m_prc.SetWindowTextA(strPrc);
 //
 	//GetDlgItemTextA(IDC_NEWORD, strUsableMoney);//주문가능금액
-	//lBalance = atol(strUsableMoney); //주문가능금액을 text로 받아서 long으로 강제변환
+	//lBal = atol(strUsableMoney); //주문가능금액을 text로 받아서 long으로 강제변환
 
 //	float fPrc = (float)atof(strPrc);
 //	if (fPrc > 0)
 //	{
-//		fPrc = (float)(lBalance / (fPrc * 250000));
+//		fPrc = (float)(lBal / (fPrc * 250000));
 //		int b = (int)fPrc;
 //		strPrc.Format("%d", b);
 //	}
@@ -8066,18 +8114,21 @@ void CDlg_JEKYLL::OnBnClickedButtonStop()
 void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 {
 	// TODO: Add your control notification handler code here
-
+    // 
 	//Request0167();
-	Request8415(FutureCode);
-	//Sleep(50);
-	//Request1602("4", "900", "1");
-	Sleep(1000);
+
+    m_callback1602 = [this]()
+        {
+            Request1602("1", "001", "2"); // 코스피 거래량
+        };
+    Request1602("4", "900", "1");//선물,선물,수량
+	//Sleep(1000);
 	//Request2421(FutureCode);
 	//Request1662();
-	DispAccnt();
-	/*
-	if (lCallQty[0] > 0) bCall = FALSE;
-	if (lPutQty[0] > 0) bPut = FALSE;*/
+    DispAccnt();
+    /*
+    if (lCallQty > 0) bCall = FALSE;
+    if (lPutQty > 0) bPut = FALSE;*/
 	if (lLqdt != (lCallQty[0] + lPutQty[0]))
 	{
 		bCancel = TRUE;//구매취소 활성화
@@ -8097,7 +8148,7 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 	//Request10100();//주문가능수량/금액 조회
 	//Sleep(150);
 //	CString str1, str4;
-//	str1.Format("%d", lLqdt); str4.Format("%d", lBalance);
+//	str1.Format("%d", lLqdt); str4.Format("%d", lBal);
 //
 //	CString strPrc = m_lst2105_.GetItemText(1, 1);
 //	m_prc2.SetWindowTextA(strPrc);
@@ -8105,7 +8156,7 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 //	float fPrc = (float)atof(strPrc);
 //	if (fPrc > 0)
 //	{
-//		fPrc = (float)(lBalance / (fPrc * 250000));
+//		fPrc = (float)(lBal / (fPrc * 250000));
 //		int b = (int)fPrc;
 //		strPrc.Format("%d", b);
 //	}
@@ -8155,8 +8206,14 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest7() //CNCT
 void CDlg_JEKYLL::OnBnClickedButtonRequest19()
 {
 	// TODO: Add your control notification handler code here
-	//Sleep(3000);
-	//Request1602("1", "001", "2");
+	//Request1602("1", "001", "2"); // 코스피 거래량
+	//Sleep(50);
+    m_callback84153 = [this]()
+        {
+            Request84153(PutCode[0]); // 
+        };
+    Request84152(CallCode[0]);//
+
 	SetTimer(6, 1000, NULL); //getdata() 실행
 }
 
@@ -8174,8 +8231,14 @@ void CDlg_JEKYLL::OnBnClickedButtonRequest21()
 	//ExportToCSVFile();
 	bToken = FALSE;
 	bCall = FALSE, bPut = FALSE;
-	Request2301(strMonth);
-	Sleep(80);
+
+
+    m_callback2301_8415 = [this]()
+        {
+            Request8415(FutureCode);
+        };
+    Request2301(strMonth);
+
 	OnBnClickedButtonRequest();
 }
 
@@ -8319,8 +8382,8 @@ HBRUSH CDlg_JEKYLL::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	{
 	case CTLCOLOR_STATIC:
 		if (pWnd->GetDlgCtrlID() == IDC_FCHG
-			|| pWnd->GetDlgCtrlID() == IDC_LREM || pWnd->GetDlgCtrlID() == IDC_FUTURE60MA
-			|| pWnd->GetDlgCtrlID() == IDC_BOLGR10M )
+			|| pWnd->GetDlgCtrlID() == IDC_LREM
+			|| pWnd->GetDlgCtrlID() == IDC_BOLGR2 )
 		{
 			pDC->SetTextColor(RGB(255, 0, 0));//red
 		}
@@ -8348,9 +8411,7 @@ HBRUSH CDlg_JEKYLL::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 			pDC->SetTextColor(RGB(255, 0, 255));//magenta
 		}
 
-		if (pWnd->GetDlgCtrlID() == IDC_STIME || pWnd->GetDlgCtrlID() == IDC_BCALL || pWnd->GetDlgCtrlID() == IDC_BPUT
-			|| pWnd->GetDlgCtrlID() == IDC_PERCENTD3 || pWnd->GetDlgCtrlID() == IDC_PERCENTD4 || pWnd->GetDlgCtrlID() == IDC_PERCENTD5
-			|| pWnd->GetDlgCtrlID() == IDC_PERCENTD9 || pWnd->GetDlgCtrlID() == IDC_PERCENTD10 || pWnd->GetDlgCtrlID() == IDC_PERCENTD11
+		if (pWnd->GetDlgCtrlID() == IDC_STIME || pWnd->GetDlgCtrlID() == IDC_BCALL || pWnd->GetDlgCtrlID() == IDC_BPUT			
 			|| pWnd->GetDlgCtrlID() == IDC_FCHG2 || pWnd->GetDlgCtrlID() == IDC_FUTURE 
 			|| pWnd->GetDlgCtrlID() == IDC_CURMIN)
 		{
@@ -8358,7 +8419,7 @@ HBRUSH CDlg_JEKYLL::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 
 		if (pWnd->GetDlgCtrlID() == IDC_CALLPRC || pWnd->GetDlgCtrlID() == IDC_PUTPRC || pWnd->GetDlgCtrlID() == IDC_FVOL3
-			|| pWnd->GetDlgCtrlID() == IDC_FUTURESNP || pWnd->GetDlgCtrlID() == IDC_CPOWER
+			|| pWnd->GetDlgCtrlID() == IDC_CPOWER
 			|| pWnd->GetDlgCtrlID() == IDC_FTRAIL2 || pWnd->GetDlgCtrlID() == IDC_FTRAIL3
 			|| pWnd->GetDlgCtrlID() == IDC_CURVALUE4 || pWnd->GetDlgCtrlID() == IDC_CURVALUEF4
             || pWnd->GetDlgCtrlID() == IDC_CURVALUE2 || pWnd->GetDlgCtrlID() == IDC_CURVALUE21 || pWnd->GetDlgCtrlID() == IDC_CURVALUE22)
@@ -8409,7 +8470,7 @@ void CDlg_JEKYLL::OnTimer(UINT_PTR nIDEvent)
 		BuyOption4();
 		break;
 	case 11:
-		//StrangleBuy();//양매도 청산
+        BuyOption6();//정해진 가격에 사고 팔기3 - 10분봉기준 볼린저 상하단을 터치했을때
 		break;
 	case 12:
 		BuyOption3();
@@ -8452,10 +8513,10 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit() // Profit editbox
 	CString temp;
 	GetDlgItemTextA(IDC_EDITPROFIT, temp);
 	nProfit = atoi(temp);
-	if (nProfit > 20) // 20보다 크면 트레일모드
-		((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(1);
-	else
-		((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(0);
+	//if (nProfit > 20) // 20보다 크면 트레일모드
+	//	((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(1);
+	//else
+	//	((CButton*)GetDlgItem(IDC_CHECKTRAIL))->SetCheck(0);
 	m_nprofit.SetWindowTextA(temp);
 }
 
@@ -8484,8 +8545,8 @@ void CDlg_JEKYLL::CheckCondition0(int i) // - 매입프로세스 :  손절 및 �
 	float fSimCPrc = fCallAvrPrc[0], fSimPPrc = fPutAvrPrc[0];	//지역변수 사용 , 전역변수(시뮬) 과 충돌방지
 	int nCqty = (int)lCallQty[0], nPqty = (int)lPutQty[0];		//지역변수 사용 , 전역변수(시뮬) 과 충돌방지
 
-	int nCPch = (int)(lBalance / (250000 * fCho8)); // 매입가능한 콜수량
-	int nPPch = (int)(lBalance / (250000 * fPho8)); // 매입가능한 풋수량	
+	int nCPch = (int)(lBal / (250000 * fCho8)); // 매입가능한 콜수량
+	int nPPch = (int)(lBal / (250000 * fPho8)); // 매입가능한 풋수량	
 
 	// ************************************************************************************************************************************************ 청산
 	if (fSimCPrc > 0 || fSimPPrc > 0)
@@ -10818,47 +10879,35 @@ void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOp
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CString str1, str2, str3;
-	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
+    GetDlgItemText(IDC_LREM5, str1); //현재 선물 매도호가
 	GetDlgItemText(IDC_EDITPRC5, str2);//지지치 입력 가격
     GetDlgItemText(IDC_EDITPRC15, str3);//저항치 입력 가격
-	BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
 
-    float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3), prc4 = 330.0f;
-	
-    if (prc1 < prc4 || prc2 < prc4 || prc3 < prc4) return; //330 보다 적으면 미작동
+    //float prc1 = (float)atof(str1);
+    float prc2 = (float)atof(str2), prc3 = (float)atof(str3), prc0 = 200.0f;
+
+    if (fFutPrc < prc0 || prc2 < prc0 || prc3 < prc0) // prc0 300.0f 보다 작으면 미실행
+    {
+        return;
+    }
     else
     {
-        if ((!bOption && (prc1 <= prc2 + 0.1f)) || (bOption && (prc1 >= (prc3 - 0.1f)))) // 콜매수(지지치 밑으로 떨어졌을때) || 풋매수(저항치를 넘어갔을때)
+        if (fFutPrc > 0 && prc2 > 0 && (fFutPrc <= prc2))// 콜매수 ( 하단 터치 하향돌파시 *지지치) 
         {
-            CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
 
-            CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-            float p1 = ((float)atof(sPrc1) * 0.6f);										//이익을 60%로 설정
-            p1 = roundf(p1 * 100) / 100; //소수점2자리 반올림
-            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", p1); pEdit2->SetWindowText(str);//원하는 이익
-            pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-
-
-            CString sPrc2 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC6); pEdit1->SetWindowText(sPrc2);//시작 매수 가격
-            float p2 = ((float)atof(sPrc2) * 0.6f);										//이익을 60%로 설정
-            p2 = roundf(p2 * 100) / 100; //소수점2자리 반올림
-            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC7); str.Format("%.2f", p2); pEdit2->SetWindowText(str);//원하는 이익
-            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC9); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-
-            CString sPrc3 = m_lst2105__.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-            pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC10); pEdit1->SetWindowText(sPrc3);//시작 매수 가격
-            float p3 = ((float)atof(sPrc3) * 0.6f);										//이익을 60%로 설정
-            p3 = roundf(p3 * 100) / 100; //소수점2자리 반올림
-            pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC11); str.Format("%.2f", p3); pEdit2->SetWindowText(str);//원하는 이익
-            pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC13); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-
-            KillTimer(4);
-            pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-
+            OnBnClickedButtonprofit17(); //kill
             Sleep(1000);
+            SetOptionVariables();
+            OnBnClickedButtonprofit2();
+        }
+        if (fFutPrc > 0 && prc3 > 0 && (fFutPrc >= prc3))// 풋매수 ( 상단 터치 상단돌파시 *저항치)
+        {
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+
+            OnBnClickedButtonprofit17(); //kill
+            Sleep(1000);
+            SetOptionVariables();
             OnBnClickedButtonprofit2();
         }
     }
@@ -10867,146 +10916,253 @@ void CDlg_JEKYLL::BuyOption2()// 원하는 선물가격이 되었을경우 BuyOp
 void CDlg_JEKYLL::OnBnClickedButtonprofit9() // 세팅된 선물가격이 되었을경우 콜/풋 선택여부에 따라 매수
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	SetTimer(4, 1000, NULL);//BuyOption2 실행(원하는 선물가격이 되었을경우 BuyOption0(자동거래) 가동)
-	m_tauto.SetWindowTextA("4 Running");
+	SetTimer(4, 200, NULL);//BuyOption2 실행(원하는 선물가격이 되었을경우 BuyOption0(자동거래) 가동)
+	m_tauto.SetWindowTextA("Timer-4");
 }
 
 void CDlg_JEKYLL::BuyOption4()// 원하는 선물가격이 되었을경우 BuyOption4 가동 - 10분 중심선 터치
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str1, str2;
-	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
-	GetDlgItemText(IDC_BOLGR10M, str2);//10분 중심선 대비 내 위치
 
-	float prc2 = (float)atof(str2);
-    if (fabs(prc2) < 0.03)
+    CString str1, str2;
+    GetDlgItemText(IDC_LREM5, str1); //현재 선물 매도호가
+    GetDlgItemText(IDC_BOLGR2, str2); //80분 중심선 대비 내 위치
+
+    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+    float prc1 = (float)atof(str1);
+    float prc2 = (float)atof(str2);
+
+    if (prc1 < 200.0f) return;
+    if (fabsf(prc2) < 0.05f)
     {
-        CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-        CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
-        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-        float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
-        pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
-        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
-        pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
+        if (!bOption) // 콜매수
+        {
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
+            OnBnClickedButtonprofit17(); //kill Btn
 
-        KillTimer(10);
-        Sleep(1000);
-        OnBnClickedButtonprofit2();
+            m_callbackBuyOption3 = [this]()
+                {
+                    BuyOption33();
+                };
+            Request2301(strMonth);
+        }
+        else if (bOption) // 풋매수
+        {
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+            OnBnClickedButtonprofit17(); //kill Btn
+
+            m_callbackBuyOption3 = [this]()
+                {
+                    BuyOption33();
+                };
+            Request2301(strMonth); // 콜/풋 가격 재검색
+        }
     }
 }
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit11() //볼린저밴드 중심선 터치
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str2;
-	GetDlgItemText(IDC_BOLGR10M, str2);//실행시점 기준 10분 중심선 기준 현재가가 상단에 있을 경우 콜/ 반대의 경우 풋
-	float prc2 = (float)atof(str2);
-	if (prc2 > 0)
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
-	}
-	else
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
-	}
-	SetTimer(10, 1000, NULL);//BuyOption4 실행(중심선 터치)
-	m_tauto.SetWindowTextA("10 Running(Center)");
+
+    CString str2;
+    GetDlgItemText(IDC_BOLGR2, str2);//실행시점 기준 볼린저밴드 10분봉 20개 평균(20sma) 중심선 현재가가 상단에 있을 경우 콜/ 반대의 경우 풋
+    float prc2 = (float)atof(str2);
+    if (prc2 > 0)
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
+    }
+    else
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+    }
+    SetTimer(10, 500, NULL);//BuyOption4 실행(중심선 터치)
+    m_tauto.SetWindowTextA("10m(Center)");
 }
 
 
 void CDlg_JEKYLL::BuyOption5()// 원하는 선물가격이 되었을경우 BuyOption5 가동 - 60m 터치 / 5%수익 설정, 매수량 3%, 매수간격 0.02
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str1, str2;
-	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
-	GetDlgItemText(IDC_FUTURE60MA, str2);//60분 중심선 대비 내 위치
+    CString str1, str2;
+    GetDlgItemText(IDC_LREM5, str1); //현재 선물 매도호가
+    GetDlgItemText(IDC_BOLGR, str2); //80분 중심선 대비 내 위치
 
-	float prc2 = (float)atof(str2);
-    if (fabs(prc2) < 0.03)
+    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+    float prc1 = (float)atof(str1);
+    float prc2 = (float)atof(str2);
+
+    if (prc1 < 200.0f) return;
+    if (fabsf(prc2) < 0.05f)
     {
-        CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-        CString str; CEdit* pEdit1, * pEdit2, * pEdit3, * pEdit4;
-        pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-        float temp = (float)(atof(sPrc1) * 0.05); // 시작 매수 가격의 5% 수익 설정
-        pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-        pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
-        pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
-        pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
+        if (!bOption) // 콜매수
+        {
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
 
-        KillTimer(13);
-        Sleep(1000);
-        OnBnClickedButtonprofit2();
+
+            OnBnClickedButtonprofit17(); //kill Btn
+
+            m_callbackBuyOption3 = [this]()
+                {
+                    BuyOption33();
+                };
+            Request2301(strMonth);
+        }
+        else if (bOption) // 풋매수
+        {
+            ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+
+
+            OnBnClickedButtonprofit17(); //kill Btn
+
+            m_callbackBuyOption3 = [this]()
+                {
+                    BuyOption33();
+                };
+            Request2301(strMonth); // 콜/풋 가격 재검색
+        }
     }
 }
 
-void CDlg_JEKYLL::OnBnClickedButtonprofit19() // 60m 선 터치할 경우(상단에서는 콜 매수, 하단에서는 풋 매수)
+void CDlg_JEKYLL::OnBnClickedButtonprofit19() // 80m 선 터치할 경우(상단에서는 콜 매수, 하단에서는 풋 매수)
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str2;
-	GetDlgItemText(IDC_FUTURE60MA, str2);//실행시점 기준 10분 중심선 기준 현재가가 상단에 있을 경우 콜/ 반대의 경우 풋
-	float prc2 = (float)atof(str2);
-	if (prc2 > 0)
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
-	}
-	else
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
-	}
-	SetTimer(13, 1000, NULL);//BuyOption5 실행(60m 터치)
-	m_tauto.SetWindowTextA("60m Running");
+    CString str2;
+    GetDlgItemText(IDC_BOLGR, str2);//실행시점 기준 80분 중심선 기준 현재가가 상단에 있을 경우 콜/ 반대의 경우 풋
+    float prc2 = (float)atof(str2);
+    if (prc2 > 0)
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
+    }
+    else
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+    }
+	SetTimer(13, 500, NULL);//BuyOption5 실행(60m 터치)
+    m_tauto.SetWindowTextA("1m(Center)");
 }
 
 void CDlg_JEKYLL::BuyOption3()// 원하는 선물가격이 되었을경우 BuyOption 가동 - 볼린저 상하단을 터치하는 경우
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CString str1, str2, str3;
-	GetDlgItemText(IDC_FUTURE, str1); //현재 선물가격
-	GetDlgItemText(IDC_20MSMA2, str2);//20mSMA
-	GetDlgItemText(IDC_SD2, str3);//width
-	float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3);
+    CString str1, str2, str3;
+    GetDlgItemText(IDC_LREM5, str1); // 선물 매도호가
+    GetDlgItemText(IDC_SMA, str2);// 80mSMA
+    GetDlgItemText(IDC_SD, str3);// Half width
 
-    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+    float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3);
 
-	if (bOption && prc1 >= (prc2 + prc3 - 0.1))// 풋매수( 상단 터치 상향돌파시) - 여유 0.1
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
-		CString sPrc1 = m_lst2105_.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-		CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-		float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 3); pEdit3->SetWindowText(str);//매수량 %
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.02); pEdit4->SetWindowText(str);//매수간격
-		pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		KillTimer(12);
-		Sleep(1000);
-		OnBnClickedButtonprofit2();
-	}
+    if (prc2 < 200.0f || prc3 < 0.05f)
+    {
+        prc2 = fAr20mSMA[nCurMin - 1], prc3 = fAr20mSD[nCurMin - 1];
+        return;
+    }
+    //float prc1 = fFutPrc, prc2 = fAr20mSMA[nCurMin - 1], prc3 = fAr20mSD[nCurMin - 1];
 
-	if (!bOption && prc1 <= (prc2 - prc3 + 0.1))// 콜매수 ( 하단 터치 하향돌파시) - 여유 0.1
-	{
-		((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
-		CString sPrc1 = m_lst2105.GetItemText(9, 1); //매수호가1(매도가능 현재가 = 매수대기현재가)
-		CString str; CEdit *pEdit1, *pEdit2, *pEdit3, *pEdit4;
-		pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); pEdit1->SetWindowText(sPrc1);//시작 매수 가격
-		float temp = (float)(atof(sPrc1)*0.05); // 시작 매수 가격의 5% 수익 설정
-		pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", temp); pEdit2->SetWindowText(str);//원하는 이익
-		pEdit3 = (CEdit*)GetDlgItem(IDC_EDITPRC3); str.Format("%d", 5); pEdit3->SetWindowText(str);//매수량 %
-		pEdit4 = (CEdit*)GetDlgItem(IDC_EDITPRC4); str.Format("%.2f", 0.01); pEdit4->SetWindowText(str);//매수간격
-		pEdit1 = NULL, pEdit2 = NULL, pEdit3 = NULL, pEdit4 = NULL;
-		KillTimer(12);
-		Sleep(1000);
-		OnBnClickedButtonprofit2();
-	}
+    if (prc1 > 200.0f && prc2 > 200.0f && prc3 > 0.3f && prc1 >= (prc2 + prc3))// 풋매수( 상단 터치 상향돌파시) - 여유 0.1
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+
+        OnBnClickedButtonprofit17(); //kill Btn
+
+        //m_callbackBuyOption3 = bind(&CDlg_JEKYLL::BuyOption33, this);
+        m_callbackBuyOption3 = [this]()
+            {
+                BuyOption33();
+            };
+        Request2301(strMonth); // 콜/풋 가격 재검색
+        //SetOptionVariables();
+        //OnBnClickedButtonprofit2(); // Btn8 (매입 시작)
+    }
+
+    if (prc1 > 200.0f && prc2 > 200.0f && prc3 > 0.3f && prc1 <= (prc2 - prc3))// 콜매수 ( 하단 터치 하향돌파시) - 여유 0.1
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
+
+
+        OnBnClickedButtonprofit17(); //kill Btn
+
+        //m_callbackBuyOption3 = bind(&CDlg_JEKYLL::BuyOption33, this);
+        m_callbackBuyOption3 = [this]()
+            {
+                BuyOption33();
+            };
+        Request2301(strMonth);
+        //SetOptionVariables();
+        //OnBnClickedButtonprofit2(); // Btn8 (매입 시작)
+    }
 }
+
+
+void CDlg_JEKYLL::BuyOption6()// 정해진 가격에 사고 팔기 - 10분봉기준 볼린저 상하단을 터치했을때
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str1, str2, str3, str4, str5;
+    GetDlgItemText(IDC_LREM5, str1); // 선물 매도호가
+    GetDlgItemText(IDC_SMA, str2);// 80mSMA
+    GetDlgItemText(IDC_SD, str3);// Half width
+    GetDlgItemText(IDC_SMA2, str4);// 10m 20mSMA
+    GetDlgItemText(IDC_SD2, str5);// 10m Half width
+
+    float prc1 = (float)atof(str1), prc2 = (float)atof(str2), prc3 = (float)atof(str3), prc4 = (float)atof(str4), prc5 = (float)atof(str5);
+
+    if (prc2 < 200.0f || prc3 < 0.05f || prc4 < 200.0f || prc5 < 0.05f)
+    {
+        prc2 = fAr20mSMA[nCurMin - 1], prc3 = fAr20mSD[nCurMin - 1];
+        prc4 = fAr10m20mSMA[nCurMin - 1], prc5 = fAr10m20mSD[nCurMin - 1];
+        return;
+    }
+    //float prc1 = fFutPrc, prc2 = fAr20mSMA[nCurMin - 1], prc3 = fAr20mSD[nCurMin - 1];
+
+    if (prc1 > 200.0f && prc2 > 200.0f && prc3 > 0.3f && prc1 >= (prc2 + prc3)
+        && prc4 > 200.0f && prc5 > 0.3f && prc1 >= (prc4 + prc5))// 풋매수( 상단 터치 상향돌파시)
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(1);
+
+        OnBnClickedButtonprofit17(); //kill Btn
+
+        //m_callbackBuyOption3 = bind(&CDlg_JEKYLL::BuyOption33, this);
+        m_callbackBuyOption3 = [this]()
+            {
+                BuyOption33();
+            };
+        Request2301(strMonth); // 콜/풋 가격 재검색
+        //SetOptionVariables();
+        //OnBnClickedButtonprofit2(); // Btn8 (매입 시작)
+    }
+
+    if (prc1 > 200.0f && prc2 > 200.0f && prc3 > 0.3f && prc1 <= (prc2 - prc3)
+        && prc4 > 200.0f && prc5 > 0.3f && prc1 <= (prc4 - prc5))// 콜매수 ( 하단 터치 하향돌파시) - 여유 0.1
+    {
+        ((CButton*)GetDlgItem(IDC_CHECKOPTION))->SetCheck(0);
+
+
+        OnBnClickedButtonprofit17(); //kill Btn
+
+        //m_callbackBuyOption3 = bind(&CDlg_JEKYLL::BuyOption33, this);
+        m_callbackBuyOption3 = [this]()
+            {
+                BuyOption33();
+            };
+        Request2301(strMonth);
+        //SetOptionVariables();
+        //OnBnClickedButtonprofit2(); // Btn8 (매입 시작)
+    }
+}
+
+
+void CDlg_JEKYLL::BuyOption33()// BuyOption3 콜백 사용하기 위함 -> 콜/풋 가격 업데이트후 Receive2301 안에서 실행
+{
+    //GetOptionVariables();
+    SetOptionVariables();
+    OnBnClickedButtonprofit2(); // Btn8 (매입 시작)
+}
+
 
 void CDlg_JEKYLL::OnBnClickedButtonprofit16()//BuyOption3 실행(볼린저밴드 상하단 터치)
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	SetTimer(12, 1000, NULL);//BuyOption3 실행(볼린저밴드 상하단 터치)
-	m_tauto.SetWindowTextA("12 Running");
+    m_tauto.SetWindowTextA("1m(C/F)");
 }
 
 
@@ -11015,6 +11171,7 @@ void CDlg_JEKYLL::OnBnClickedButtonprofit17()
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	KillTimer(4);//BuyOption2 실행
 	KillTimer(10);//BuyOption4 실행(중심선 터치)
+    KillTimer(11);//BuyOption4 실행(중심선 터치)
 	KillTimer(12);//BuyOption3 실행(볼린저밴드 상하단 터치)
 	KillTimer(13);//BuyOption5 실행(60m 터치)
 
@@ -12157,7 +12314,7 @@ void CDlg_JEKYLL::OnClickedCheckoption1()
 	UpdateCheckedCount(IDC_CHECKOPTION1);
 	if (nCheckedCount > 0)
 	{
-		lBalance /= nCheckedCount; // 예산 분배
+		lBal /= nCheckedCount; // 예산 분배
 	}
 }
 
@@ -12168,7 +12325,7 @@ void CDlg_JEKYLL::OnClickedCheckoption2()
 	UpdateCheckedCount(IDC_CHECKOPTION2);
     if (nCheckedCount > 0)
     {
-        lBalance /= nCheckedCount; // 예산 분배
+        lBal /= nCheckedCount; // 예산 분배
     }
 }
 
@@ -12179,7 +12336,7 @@ void CDlg_JEKYLL::OnClickedCheckoption3()
 	UpdateCheckedCount(IDC_CHECKOPTION3);
     if (nCheckedCount > 0)
     {
-        lBalance /= nCheckedCount; // 예산 분배
+        lBal /= nCheckedCount; // 예산 분배
     }
 }
 
@@ -12187,12 +12344,12 @@ void CDlg_JEKYLL::UpdateCheckedCount(int nCheckBoxID) {
 	CButton* pCheckBox = (CButton*)GetDlgItem(nCheckBoxID);
 	if (pCheckBox->GetCheck() == BST_CHECKED)
 	{
-		if (nCheckedCount != 0) lBalance *= (long)nCheckedCount;
+		if (nCheckedCount != 0) lBal *= (long)nCheckedCount;
 		nCheckedCount++;
 	}
 	else
 	{
-		lBalance *= (long)nCheckedCount;
+		lBal *= (long)nCheckedCount;
 		nCheckedCount--;
 	}
 	CString str; str.Format("%d", nCheckedCount);
@@ -12462,4 +12619,97 @@ CString CDlg_JEKYLL::FormatNumberWithComma(long number) {
 
     result = numStr;
     return result;
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonprofit20()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    Request10100(CallCode[0]);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonprofit21()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_STRMONTH, str);
+    strMonth = str;
+
+    OnBnClickedButtonRequest21(); //code reset2301
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonprofit22()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    CString str;
+    GetDlgItemTextA(IDC_STRDATEY, str);
+    strDateY = str;
+    Request8415Y(FutureCode);
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonBcancel()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    bCancel = bCancel ? FALSE : TRUE;
+    m_bcancel.SetWindowTextA(bCancel ? "True" : "False");
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonBcall()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    bCall = bCall ? FALSE : TRUE;
+    m_bcall.SetWindowTextA(bCall ? "True" : "False");
+}
+
+
+void CDlg_JEKYLL::OnBnClickedButtonBput()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    bPut = bPut ? FALSE : TRUE;
+    m_bput.SetWindowTextA(bPut ? "True" : "False");
+}
+
+
+void CDlg_JEKYLL::SetOptionVariables() // 현재가를 기준으로 전역변수(목표이익, 매입비율, 갭)로 구매 세팅
+{
+    BOOL bOption = ((CButton*)GetDlgItem(IDC_CHECKOPTION))->GetCheck();
+
+    CString str; CEdit* pEdit1, * pEdit2;
+
+    float prc1 = 0.0f, prc2 = 0.0f, prc3 = 0.0f;
+    if (!bOption)
+    {
+        prc1 = fCho8;
+        prc2 = fC2ho8;
+        prc3 = fC3ho8;
+    }
+    else
+    {
+        prc1 = fPho8;
+        prc2 = fP2ho8;
+        prc3 = fP3ho8;
+    }
+
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC1); str.Format("%.2f", prc1); pEdit1->SetWindowText(str);//시작 매수 가격 -%
+    pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC2); str.Format("%.2f", prc1 * (float)nProfit / 100.0f); pEdit2->SetWindowText(str);//원하는 이익
+
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC6); str.Format("%.2f", prc2); pEdit1->SetWindowText(str);//시작 매수 가격 -%
+    pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC7); str.Format("%.2f", prc2 * (float)nProfit / 100.0f); pEdit2->SetWindowText(str);//원하는 이익
+
+    pEdit1 = (CEdit*)GetDlgItem(IDC_EDITPRC10); str.Format("%.2f", prc3); pEdit1->SetWindowText(str);//시작 매수 가격 -%
+    pEdit2 = (CEdit*)GetDlgItem(IDC_EDITPRC11); str.Format("%.2f", prc3 * (float)nProfit / 100.0f); pEdit2->SetWindowText(str);//원하는 이익
+
+
+    pEdit1 = NULL, pEdit2 = NULL;
+}
+
+void CDlg_JEKYLL::OnBnClickedButtonprofit23()
+{
+    // TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+    SetTimer(11, 500, NULL);//BuyOption6 실행(볼린저밴드 상하단 터치)
+    m_tauto.SetWindowTextA("10m(C/F)");
 }

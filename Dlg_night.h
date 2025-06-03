@@ -34,8 +34,8 @@ protected:
 	void			Request100_(CString code, CString bns, float prc, int qty, BOOL bNext = FALSE); //bns 1:매도,2:매수
 	void			Request200(CString code, BOOL bNext = FALSE);//정정
 	void			Request300(CString code, CString orgordno, BOOL bNext = FALSE);//취소
-	void			Request21200(CString code, BOOL bNext = FALSE);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBalance)
-	void			Request21200_(CString code, BOOL bNext = FALSE);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBalance)
+	void			Request21200(CString code, BOOL bNext = FALSE);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBal)
+	void			Request21200_(CString code, BOOL bNext = FALSE);//선옵 주문가능수량/금액 조회(청산가능, 신규주문가능금액 : lLqdt, lBal)
 	void			Request31200(BOOL bNext = FALSE);//평단가, 수량(lCallQty, lPutQty)
 	void			Request600(BOOL bNext = FALSE);//체결내역조회
 	void			Request2830(BOOL bNext = FALSE);//야간옵션 콜 Price조회
@@ -97,7 +97,7 @@ protected:
 public:
 
 	int ID2816, ID2830, ID2830_, ID2831, ID2831_, ID100, ID200, ID300, ID600, ID21200, ID31200, ID0167, ID2813, ID2301;
-	long acnt, lBalance, lCallQty, lPutQty, lLqdt, lCmpVol;
+	long acnt, lBal, lCallQty, lPutQty, lLqdt, lCmpVol;
 	BOOL bCall, bPut;
 
 	//변동성, 델타, 감마, 세타 (2301)

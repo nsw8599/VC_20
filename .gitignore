@@ -240,3 +240,20 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# ====================
+# Track only /Release and /csv folders
+# ====================
+
+# Ignore everything
+/*
+
+# But keep these two folders and their contents
+!/Release/
+!/Release/**
+!/csv/
+!/csv/**
+
+# Exclude only .pch files inside /Release
+/Release/*.pch
+

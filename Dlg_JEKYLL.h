@@ -2,6 +2,8 @@
 #include "afxcmn.h"
 
 #include <queue>
+#include <deque>
+#include <functional>
 using namespace std;
 
 #if _MSC_VER > 1000
@@ -32,7 +34,7 @@ protected:
 	void				Request600C(BOOL bNext = FALSE); // 주문내역조회후 모두 취소
 	void				Request600P(BOOL bNext = FALSE); // 주문내역조회후 모두 취소
 	void				Request600_(BOOL bNext = FALSE); // 주문내역조회후 모두 현재가로 매수정정
-	void				Request100(CString code, CString bns, CString prc, BOOL bNext = FALSE); //1:매도,2:매수
+	//void				Request100(CString code, CString bns, CString prc, BOOL bNext = FALSE); //1:매도,2:매수
 	void				Request100(CString code, CString bns, float prc, BOOL bNext = FALSE); //1:매도,2:매수
 	void				Request100_(CString code, CString bns, float prc, int qty, BOOL bNext = FALSE); //bns 1:매도,2:매수
 	void				Request100_(CString code, CString bns, CString prc, int qty, BOOL bNext = FALSE); //bns 1:매도,2:매수
@@ -45,14 +47,51 @@ protected:
 	void				Request84153(CString str_code, BOOL bNext = FALSE);//옵션 n분차트
 	void				Request3103(BOOL bNext = FALSE);//o3103 해외선물 분봉차트
 	void				Request0167(BOOL bNext = FALSE);//
-	void				Request10100(CString code, BOOL bNext = FALSE);//매수된 물량 조회(청산가능, 신규주문가능금액 : lLqdt, lBalance)
-	void				Request10100_(CString code, BOOL bNext = FALSE);//매도된 물량 조회(청산가능, 신규주문가능금액 : lLqdt, lBalance)
+	void				Request10100(CString code, BOOL bNext = FALSE);//매수된 물량 조회(청산가능, 신규주문가능금액 : lLqdt, lBal)
+	void				Request10100_(CString code, BOOL bNext = FALSE);//매도된 물량 조회(청산가능, 신규주문가능금액 : lLqdt, lBal)
 //	void				Request0441(BOOL bNext = FALSE);// 옵션잔고평가
 	void				Request2400(BOOL bNext = FALSE);// 약정현황(보유 선옵평가조회, lCallQty, lPutQty)
 	void				Request2400_(BOOL bNext = FALSE); // 미사용(Vector 사용)
 	void				Request2301(CString date, BOOL bNext = FALSE); // 옵션전광판 CallCode, PutCode 조회
 	void				Request2421(CString focode, BOOL bNext = FALSE); // 미결제약정추이
 	void				Request1662(BOOL bNext = FALSE);//프로그램매매차트(베이시스)
+
+    LRESULT				OnXMReceiveRealData(WPARAM wParam, LPARAM lParam);
+    afx_msg	LRESULT		OnXMReceiveData(WPARAM wParam, LPARAM lParam);
+    afx_msg	LRESULT		OnXMTimeoutData(WPARAM wParam, LPARAM lParam);
+    afx_msg void		OnTimer(UINT_PTR nIDEvent);
+
+    void				Receive2105(LPRECV_PACKET pRpData);// 선옵현재가(콜)
+    void				Receive2105_(LPRECV_PACKET pRpData);// 선옵현재가(콜2)
+    void				Receive21052(LPRECV_PACKET pRpData);// 선옵현재가(콜3)
+    void				Receive1601(LPRECV_PACKET pRpData);// 투자자종합
+    void				Receive2301(LPRECV_PACKET pRpData);// 옵션전광판(델타,쎄타) // CallCode, PutCode 조회
+    void				Receive1602(LPRECV_PACKET pRpData);// 시간대별 투자자 매매추이
+    void				Receive1602_(LPRECV_PACKET pRpData);// 시간대별 투자자 매매추이
+    void				Receive1602();// 시간대별 투자자 매매추이
+    void				Receive1602_();// 시간대별 투자자 매매추이(코스피)
+    void				Receive600(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
+    void				Receive600C(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
+    void				Receive600P(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
+    void				Receive600_(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 현재가로 매수정정
+    void				Receive100(LPRECV_PACKET pRpData);// 선옵 정상주문
+    void				Receive200(LPRECV_PACKET pRpData);// 선옵 정상주문
+    void				Receive300(LPRECV_PACKET pRpData);// 선옵 정상주문
+    void				Receive8415(LPRECV_PACKET pRpData);// 선물차트(n분)
+    void				Receive8415Y(LPRECV_PACKET pRpData);// 선물차트(n분)
+    void				Receive84152(LPRECV_PACKET pRpData);// 옵션차트(n분)
+    void				Receive84153(LPRECV_PACKET pRpData);// 옵션차트(n분)
+    void				Receive3103(LPRECV_PACKET pRpData);// 해외선물차트(n분)
+    void				Receive8415(int nCount);// 선물옵션차트(조회에러시)
+    void				Receive0167(LPRECV_PACKET pRpData);// 시간조회
+    void				Receive10100(LPRECV_PACKET pRpData);// 매수된 물량 조회(매도청산가능, 신규주문가능금액 : lLqdt, lBal)
+    void				Receive10100_(LPRECV_PACKET pRpData);// 매도된 물량 조회(매수청산가능, 신규주문가능금액 : lLqdt, lBal)
+    //	void				Receive0441(LPRECV_PACKET pRpData);// 옵션잔고평가
+    void				Receive2400(LPRECV_PACKET pRpData);// 약정현황(보유 선옵평가조회, lCallQty, lPutQty, fCallAvrPrc, fPutAvrPrc)
+    void				Receive2400_(LPRECV_PACKET pRpData);//
+    void				Receive2421(LPRECV_PACKET pRpData);// 미결제약정추이
+    void				Receive1662(LPRECV_PACKET pRpData);// 프로그램매매차트(베이시스)
+
 	void				AdviseFC0();//선물가 실시간조회
 	void				AdviseFH0();//호가잔량 조회
 	void				AdviseBMT();//시간대별투자자추이(코스피)
@@ -65,38 +104,6 @@ protected:
 	void				UnadviseBMT2();
 	void				UnadviseOVC();
 	void				UnadviseOVC2();
-	LRESULT				OnXMReceiveRealData(WPARAM wParam, LPARAM lParam);
-
-	void				Receive2105(LPRECV_PACKET pRpData);// 선옵현재가(콜)
-	void				Receive2105_(LPRECV_PACKET pRpData);// 선옵현재가(콜2)
-	void				Receive21052(LPRECV_PACKET pRpData);// 선옵현재가(콜3)
-	void				Receive1601(LPRECV_PACKET pRpData);// 투자자종합
-	void				Receive2301(LPRECV_PACKET pRpData);// 옵션전광판(델타,쎄타) // CallCode, PutCode 조회
-	void				Receive1602(LPRECV_PACKET pRpData);// 시간대별 투자자 매매추이
-	void				Receive1602_(LPRECV_PACKET pRpData);// 시간대별 투자자 매매추이
-	void				Receive1602();// 시간대별 투자자 매매추이
-	void				Receive1602_();// 시간대별 투자자 매매추이(코스피)
-	void				Receive600(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
-	void				Receive600C(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
-	void				Receive600P(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 취소
-	void				Receive600_(LPRECV_PACKET pRpData);// 선옵 주문체결내역조회후 현재가로 매수정정
-	void				Receive100(LPRECV_PACKET pRpData);// 선옵 정상주문
-    void				Receive200(LPRECV_PACKET pRpData);// 선옵 정상주문
-    void				Receive300(LPRECV_PACKET pRpData);// 선옵 정상주문
-	void				Receive8415(LPRECV_PACKET pRpData);// 선물차트(n분)
-    void				Receive8415Y(LPRECV_PACKET pRpData);// 선물차트(n분)
-	void				Receive84152(LPRECV_PACKET pRpData);// 옵션차트(n분)
-	void				Receive84153(LPRECV_PACKET pRpData);// 옵션차트(n분)
-	void				Receive3103(LPRECV_PACKET pRpData);// 해외선물차트(n분)
-	void				Receive8415(int nCount);// 선물옵션차트(조회에러시)
-	void				Receive0167(LPRECV_PACKET pRpData);// 시간조회
-	void				Receive10100(LPRECV_PACKET pRpData);// 매수된 물량 조회(매도청산가능, 신규주문가능금액 : lLqdt, lBalance)
-	void				Receive10100_(LPRECV_PACKET pRpData);// 매도된 물량 조회(매수청산가능, 신규주문가능금액 : lLqdt, lBalance)
-//	void				Receive0441(LPRECV_PACKET pRpData);// 옵션잔고평가
-	void				Receive2400(LPRECV_PACKET pRpData);// 약정현황(보유 선옵평가조회, lCallQty, lPutQty, fCallAvrPrc, fPutAvrPrc)
-	void				Receive2400_(LPRECV_PACKET pRpData);//
-	void				Receive2421(LPRECV_PACKET pRpData);// 미결제약정추이
-	void				Receive1662(LPRECV_PACKET pRpData);// 프로그램매매차트(베이시스)
 
 	void				BuyCall();
 	void				BuyCall(CString strPrc, int amnt, int per = 100);// n개씩 구매
@@ -115,9 +122,11 @@ protected:
 	void				BuyOption7(int i);// 정해진 가격에 사고 팔기 + 매수물량 감추기(적극매수-매수가를 높이면서 매입)
 	void				BuyOption1();//정해진 가격에 사고 팔기1 - n개씩 팔기 SetSell 함수 선행
 	void				BuyOption2();//정해진 가격에 사고 팔기2 - 원하는 선물가격이 되었을경우 옵션 구매
-	void				BuyOption3();//정해진 가격에 사고 팔기3 - 10분봉기준 볼린저 상하단을 터치했을때
-	void				BuyOption4();//정해진 가격에 사고 팔기4 - 10분봉기준 볼린저 밴드 중심선을 터치했을때
-	void				BuyOption5();//정해진 가격에 사고 팔기5 - 1분봉기준 60분선 중심선을 터치했을때
+	void				BuyOption3();//정해진 가격에 사고 팔기3 - 1분봉기준 상하단 터치
+    void				BuyOption33();//BuyOption3 콜백 사용하기 위함 -> 콜/풋 가격 업데이트후 Receive2301 안에서 실행
+	void				BuyOption4();//정해진 가격에 사고 팔기4 - 10분봉기준 볼린저 밴드 중심선을 터치
+	void				BuyOption5();//정해진 가격에 사고 팔기5 - 1분봉기준 중심선을 터치
+    void				BuyOption6();//정해진 가격에 사고 팔기5 - 10분봉기준 상하단 터치
 	void				SellOptionSimul(float fProfit);//정해진 가격에 팔기(시뮬)
 	void				SellOption(float fProfit);
 	void				SellOption1();//콜청산
@@ -145,6 +154,7 @@ protected:
 	void				SellFast();//빨리 팔기
 	void				StandbyNine();// 9시이전에 동작
 	void				SetPrice(int per=50); // 15% 가격다운후 세팅
+    void                SetOptionVariables();// 현재가를 기준으로 전역변수(목표이익, 매입비율, 갭)로 구매 세팅
 
 	CString				GetColumnName(const CListCtrl * listctrl, int iCol);
 	void				ExportToCSVFile(const CListCtrl *plistctrlContent, BOOL bIncludeHeaderNames = TRUE, char cDelimiter = ',');
@@ -152,9 +162,12 @@ protected:
 	void				UpdateCheckedCount(int nCheckBoxID);
     CString             FormatNumberWithComma(long number);
 
-	afx_msg	LRESULT		OnXMReceiveData(WPARAM wParam, LPARAM lParam);
-	afx_msg	LRESULT		OnXMTimeoutData(WPARAM wParam, LPARAM lParam);
-	afx_msg void		OnTimer(UINT_PTR nIDEvent);
+
+    function<void()> m_callbackBuyOption3; // BuyOption3() 상하단터치시 실행전 Request2301() 콜/풋가격 재검색을 하고 나서 BuyOption33(SetOptionVariables, Btn8 매입시작) 을 실행하기 위함
+    function<void()> m_callback2301_8415; // 초기 OninitDilag 생성시 Request2301()-> FutureCode 획득을 하고 바로 Request8415(FutureCode)를 실행
+    function<void()> m_callback1602; // 초기 CNCT 실행시 Request1602("4", "900", "1")선물 거래량 검색후 바로 Request1602("1", "001", "2") 코스피 거래량 검색
+    function<void()> m_callback84153; // 초기에 getdata() 실행전 84152 call가격 호출하고 나서 84153 put 가격 호출
+
 	DECLARE_MESSAGE_MAP()
 
 public:
@@ -209,7 +222,7 @@ public:
 	int nSellOption; // 0:nProfit, 1:fProfit, 2:속도관련
 	int nCheckedCount; // 구매할 옵션코드 개수(1~3)
 
-	long lBalance, lMaxBalance, lLqdt, lNewSell; //매수가능금액, 청산가능 10100, 신규매도가능수량
+	long lBal, lMaxBalance, lLqdt, lNewSell; //매수가능금액, 청산가능 10100, 신규매도가능수량
 	long lCallAvrPrc, lPutAvrPrc, lCho8, lPho8, lCho9, lPho9, lC2ho8, lP2ho8, lC2ho9, lP2ho9, lC3ho8, lP3ho8, lC3ho9, lP3ho9, lCho21, lPho21, lC2ho21, lP2ho21, lC3ho21, lP3ho21; // 콜,풋 매입금액, 콜금액, 풋금액
 	long *lCallQty, *lPutQty; // 콜,풋 매입수량
 	float *fCallAvrPrc, *fPutAvrPrc; //콜,풋 평단가
@@ -264,6 +277,7 @@ public:
 
 	CString strDate; // %Y%m&d
 	CString strDateY;
+    int nToday; // 요일
 	CString strMonth; // %Y%m	
 	CString strTime; // %HHMMSS
 
@@ -304,6 +318,7 @@ public:
 	float *fAr20mSMA;// 20분 MA
 	float *fAr20mSMAY;// 20분 MA
 	float *fAr20mSD;// 20분 SD(표준편차)
+    float* fAr20mSDY;// 20분 SD(표준편차)
 	float *fAr60mSMA;// 60분 SMA
 
 	float *fAr10m20mSMA;// 20분 MA(10m)
@@ -406,7 +421,7 @@ public:
 	CStatic m_future;
 	CStatic m_futurechange;
 	CStatic m_futurechange2;
-	CStatic m_futuresnp;
+	//CStatic m_futuresnp;
 
 	CStatic m_curmin;//nCurMin
 	CStatic strDday;
@@ -436,22 +451,22 @@ public:
 	CStatic m_lrem6;
 
 	//60분, 20분, 
-	CStatic m_future60ma;
-	CStatic m_20msma;
+	//CStatic m_future60ma;
+	CStatic m_sma;
 	CStatic m_sd;
-	CStatic m_20msma2;
+	CStatic m_sma2;
 	CStatic m_sd2;
-	CStatic m_bolgr20;
-	CStatic m_bolgr10m;
+	CStatic m_bolgr;
+	CStatic m_bolgr2;
 
 	//10분봉%D, %SlowD
-	CStatic m_percentd3;
-	CStatic m_percentd4;
-	CStatic m_percentd5;
-	CStatic m_percentd9;
-	CStatic m_percentd10;
-	CStatic m_percentd11;	// snp %slowD
-	CStatic m_percentd12;	// snp %slowD
+	//CStatic m_percentd3;
+	//CStatic m_percentd4;
+	//CStatic m_percentd5;
+	//CStatic m_percentd9;
+	//CStatic m_percentd10;
+	//CStatic m_percentd11;	// snp %slowD
+	//CStatic m_percentd12;	// snp %slowD
 
 	// 체결강도
 	CStatic m_cpower;
@@ -527,4 +542,11 @@ public:
     afx_msg void OnBnClickedButtonRequest13();
     afx_msg void OnDeltaposSpin38(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnDeltaposSpin37(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnBnClickedButtonprofit20();
+    afx_msg void OnBnClickedButtonprofit21();
+    afx_msg void OnBnClickedButtonprofit22();
+    afx_msg void OnBnClickedButtonBcancel();
+    afx_msg void OnBnClickedButtonBcall();
+    afx_msg void OnBnClickedButtonBput();
+    afx_msg void OnBnClickedButtonprofit23();
 };
