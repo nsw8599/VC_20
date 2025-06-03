@@ -1,6 +1,0 @@
-SetDetailLogData( LPCTSTR pszDesc, LPCTSTR pszData, int nDataSize, int nDataType, int nDataDotPos )
-{
-	CString strDesc = pszDesc;
-	strDesc.TrimRight();
-	int nItem = m_ctrlDetailLog.InsertItem( m_ctrlDetailLog.GetItemCount(), strDesc );
-	m_ctrlDetailLog.SetItemText( nItem, 1, GetDispData( (char*)pszData , nDataSize, nDataType, nDataDotPos ) );

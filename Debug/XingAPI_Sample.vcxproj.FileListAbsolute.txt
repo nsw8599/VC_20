@@ -1,3 +1,0 @@
-C:\Users\nsw85\Downloads\VC_14-main\VC_14-main\Debug\XingAPI_Sample.exe
-C:\Users\nsw85\Downloads\VC_20_main-master\VC_20_main-master\Debug\XingAPI_Sample.exe
-C:\Users\nsw85\OneDrive\문서\source\VC_20\Debug\XingAPI_Sample.exe
